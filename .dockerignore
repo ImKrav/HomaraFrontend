@@ -1,0 +1,18 @@
+# Dependencies
+node_modules
+
+# Next.js build output (rebuilt inside the image)
+.next
+
+# VCS / IDE / agents
+.git
+.agents
+.claude
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env files (only the example is allowed in the build context)
+.env*
+!.env.example

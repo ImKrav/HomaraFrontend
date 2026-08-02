@@ -1,0 +1,58 @@
+# ============================================
+# Homara Frontend — Docker Compose
+# ============================================
+# Standalone stack for the Homara Frontend repository.
+# The Backend lives in a SEPARATE repository, so this file only orchestrates
+# the Next.js container. Point NEXT_PUBLIC_API_URL to the public URL of that
+# backend (defaults to http://localhost:5000/api/v1).
+#
+# Usage:
+#   docker compose up -d          # Start the frontend
+#   docker compose down           # Stop the frontend
+#   docker compose logs -f        # Follow logs
+#   docker compose up -d --build  # Rebuild and start
+#
+# Environment variables (override in `.env` or your shell):
+#   NEXT_PUBLIC_API_URL (default: http://localhost:5000/api/v1)
+#   FRONTEND_PORT       (default: 3000) — host port mapped to the frontend
+#
+# Example for a remote backend:
+#   NEXT_PUBLIC_API_URL=https://api.homara.example.com/api/v1 \
+#     docker compose up -d --build
+# ============================================
+
+name: homara-frontend
+
+services:
+  # ── Frontend (Next.js 16 / React 19) ──
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Relative path: the browser hits the frontend, and the
+        # frontend's next.config.ts rewrites() proxies /api/* to
+        # `http://homara-backend:5000` (set as a compose network
+        # alias on the backend service).
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/api/v1}
+    image: homara-frontend:latest
+    container_name: homara-frontend
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/api/v1}
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    networks:
+      - homara-net
+
+networks:
+  homara-net:
+    name: homara-net
+    driver: bridge
+
