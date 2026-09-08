@@ -147,4 +147,10 @@ docker compose up -d --build
 ```bash
 # Validar linters (ESLint)
 npm run lint
+
+# Ejecutar pruebas unitarias
+npm test
+
+# Generar reporte de cobertura (LCOV en ./coverage/lcov.info)
+npm run test:coverage
 ```
