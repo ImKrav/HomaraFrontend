@@ -4,6 +4,7 @@
 import "./api.test.mjs";
 import "./utils.test.mjs";
 import "./toast.test.mjs";
+import "./translations.test.mjs";
 
 import { run } from "./harness.mjs";
 
