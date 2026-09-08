@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "tsx tests/run-all.mts",
-    "test:coverage": "c8 --all --src app/lib --extension .ts --reporter=lcov --reporter=text-summary tsx tests/run-all.mts"
+    "test:coverage": "c8 --all --src app/lib --exclude \"app/lib/translations.ts\" --extension .ts --reporter=lcov --reporter=text-summary tsx tests/run-all.mts"
   },
   "dependencies": {
     "lucide-react": "^1.16.0",
