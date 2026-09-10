@@ -7,6 +7,10 @@ import { CheckCircle2, AlertCircle, AlertTriangle, Info } from "lucide-react";
 export default function ToastContainer() {
   const [toasts, setToasts] = useState<ToastItem[]>([]);
 
+  const removeToast = (id: string) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  };
+
   useEffect(() => {
     const handleToastEvent = (event: Event) => {
       const customEvent = event as CustomEvent<ToastItem>;
@@ -17,7 +21,7 @@ export default function ToastContainer() {
         // Auto-remove after duration
         const duration = newToast.duration || 4000;
         setTimeout(() => {
-          setToasts((prev) => prev.filter((t) => t.id !== newToast.id));
+          removeToast(newToast.id);
         }, duration);
       }
     };
@@ -25,10 +29,6 @@ export default function ToastContainer() {
     window.addEventListener("homara:toast", handleToastEvent);
     return () => window.removeEventListener("homara:toast", handleToastEvent);
   }, []);
-
-  const removeToast = (id: string) => {
-    setToasts((prev) => prev.filter((t) => t.id !== id));
-  };
 
   if (toasts.length === 0) return null;
 

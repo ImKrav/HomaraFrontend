@@ -171,179 +171,223 @@ export interface AdminChartData {
   topCategories: { name: string; pct: number }[];
 }
 
+function translateWithFallback(t: (key: string) => string, key: string, fallback: string): string {
+  const val = t(key);
+  return val !== key ? val : fallback;
+}
+
+const EXACT_MATERIAL_NAMES: Record<string, { key: string; fallback: string }> = {
+  "Pegante cerámico flexible 25kg": {
+    key: "projects.supply_adhesive_flexible",
+    fallback: "Flexible Ceramic Adhesive 25kg",
+  },
+  "Boquilla": {
+    key: "projects.supply_grout_title",
+    fallback: "Grout",
+  },
+  "Crucetas 2mm": {
+    key: "projects.supply_spacers_title",
+    fallback: "Spacers 2mm",
+  },
+  "Cinta underlayment": {
+    key: "projects.supply_underlayment",
+    fallback: "Underlayment tape",
+  },
+  "Primer para vinilo": {
+    key: "projects.supply_vinyl_primer",
+    fallback: "Primer for vinyl",
+  },
+  "Kit Rodillo Antigoteo Profesional 23cm": {
+    key: "projects.supply_roller_kit",
+    fallback: "Professional Anti-Drip Roller Kit 23cm",
+  },
+  "Nivel de burbuja profesional 60cm": {
+    key: "projects.supply_bubble_level",
+    fallback: "Professional Bubble Level 60cm",
+  },
+  "Llana metálica dentada 10x10mm": {
+    key: "projects.supply_notched_trowel",
+    fallback: "Notched steel trowel 10x10mm",
+  },
+  "Mazo de goma blanco anti-marca": {
+    key: "projects.supply_rubber_mallet",
+    fallback: "White non-marking rubber mallet",
+  },
+};
+
+const PREFIX_MATERIAL_NAMES: Array<{ prefix: string; key: string; fallback: string }> = [
+  {
+    prefix: "Pintura Premium de Interior/Exterior",
+    key: "projects.supply_paint_premium",
+    fallback: "Premium Interior/Exterior Paint",
+  },
+  {
+    prefix: "Brocha de cerda fina",
+    key: "projects.supply_fine_brush",
+    fallback: 'Fine bristle brush 2.5"',
+  },
+  {
+    prefix: "Cinta de enmascarar",
+    key: "projects.supply_masking_tape",
+    fallback: 'Premium masking tape 1"',
+  },
+];
+
+const SURFACE_REPLACEMENTS: Array<[string, string, string]> = [
+  ["Cerámica", "projects.surface_ceramica", "Ceramic"],
+  ["Porcelanato", "projects.surface_porcelanato", "Porcelain"],
+  ["Madera laminada", "projects.surface_madera", "Laminated wood"],
+  ["Vinilo", "projects.surface_vinilo", "Vinyl"],
+  ["Pared", "projects.surface_wall_suffix", "Wall"],
+];
+
 export function translateMaterialName(name: string, t: (key: string) => string): string {
   const n = name.trim();
-  if (n.startsWith("Pintura Premium de Interior/Exterior")) {
-    return t("projects.supply_paint_premium") !== "projects.supply_paint_premium" 
-      ? t("projects.supply_paint_premium") 
-      : "Premium Interior/Exterior Paint";
-  }
-  if (n === "Pegante cerámico flexible 25kg") {
-    return t("projects.supply_adhesive_flexible") !== "projects.supply_adhesive_flexible"
-      ? t("projects.supply_adhesive_flexible")
-      : "Flexible Ceramic Adhesive 25kg";
-  }
-  if (n === "Boquilla") {
-    return t("projects.supply_grout_title") !== "projects.supply_grout_title"
-      ? t("projects.supply_grout_title")
-      : "Grout";
-  }
-  if (n === "Crucetas 2mm") {
-    return t("projects.supply_spacers_title") !== "projects.supply_spacers_title"
-      ? t("projects.supply_spacers_title")
-      : "Spacers 2mm";
-  }
-  if (n === "Cinta underlayment") {
-    return t("projects.supply_underlayment") !== "projects.supply_underlayment"
-      ? t("projects.supply_underlayment")
-      : "Underlayment tape";
-  }
-  if (n === "Primer para vinilo") {
-    return t("projects.supply_vinyl_primer") !== "projects.supply_vinyl_primer"
-      ? t("projects.supply_vinyl_primer")
-      : "Primer for vinyl";
-  }
-  if (n === "Kit Rodillo Antigoteo Profesional 23cm") {
-    return t("projects.supply_roller_kit") !== "projects.supply_roller_kit"
-      ? t("projects.supply_roller_kit")
-      : "Professional Anti-Drip Roller Kit 23cm";
-  }
-  if (n.startsWith("Brocha de cerda fina")) {
-    return t("projects.supply_fine_brush") !== "projects.supply_fine_brush"
-      ? t("projects.supply_fine_brush")
-      : "Fine bristle brush 2.5\"";
-  }
-  if (n.startsWith("Cinta de enmascarar")) {
-    return t("projects.supply_masking_tape") !== "projects.supply_masking_tape"
-      ? t("projects.supply_masking_tape")
-      : "Premium masking tape 1\"";
-  }
-  if (n === "Nivel de burbuja profesional 60cm") {
-    return t("projects.supply_bubble_level") !== "projects.supply_bubble_level"
-      ? t("projects.supply_bubble_level")
-      : "Professional Bubble Level 60cm";
-  }
-  if (n === "Llana metálica dentada 10x10mm") {
-    return t("projects.supply_notched_trowel") !== "projects.supply_notched_trowel"
-      ? t("projects.supply_notched_trowel")
-      : "Notched steel trowel 10x10mm";
-  }
-  if (n === "Mazo de goma blanco anti-marca") {
-    return t("projects.supply_rubber_mallet") !== "projects.supply_rubber_mallet"
-      ? t("projects.supply_rubber_mallet")
-      : "White non-marking rubber mallet";
+  for (const item of PREFIX_MATERIAL_NAMES) {
+    if (n.startsWith(item.prefix)) {
+      return translateWithFallback(t, item.key, item.fallback);
+    }
   }
 
-  // Handle dynamic main coverings: Cerámica, Porcelanato, Madera laminada, Vinilo
+  const exact = EXACT_MATERIAL_NAMES[n];
+  if (exact) {
+    return translateWithFallback(t, exact.key, exact.fallback);
+  }
+
   let translated = n;
-  if (translated.includes("Cerámica")) translated = translated.replace("Cerámica", t("projects.surface_ceramica") || "Ceramic");
-  if (translated.includes("Porcelanato")) translated = translated.replace("Porcelanato", t("projects.surface_porcelanato") || "Porcelain");
-  if (translated.includes("Madera laminada")) translated = translated.replace("Madera laminada", t("projects.surface_madera") || "Laminated wood");
-  if (translated.includes("Vinilo")) translated = translated.replace("Vinilo", t("projects.surface_vinilo") || "Vinyl");
-  if (translated.includes("Pared")) translated = translated.replace("Pared", t("projects.surface_wall_suffix") || "Wall");
+  for (const [target, key, fallback] of SURFACE_REPLACEMENTS) {
+    if (translated.includes(target)) {
+      translated = translated.replace(target, translateWithFallback(t, key, fallback));
+    }
+  }
 
   return translated;
 }
 
+const EXACT_MATERIAL_NOTES: Record<string, { key: string; fallback: string }> = {
+  "Pegante real vinculado": {
+    key: "projects.note_adhesive_linked",
+    fallback: "Linked real adhesive: 1 bag per 4m²",
+  },
+  "25kg c/u (Rendimiento: 4m²/bulto)": {
+    key: "projects.note_adhesive_flexible_desc",
+    fallback: "25kg each (Yield: 4m²/bag)",
+  },
+  "Boquilla real vinculada": {
+    key: "projects.note_grout_linked",
+    fallback: "Linked real grout: 1 kg per 8m²",
+  },
+  "Rendimiento: 8m²/kg": {
+    key: "projects.note_grout_desc",
+    fallback: "Yield: 8m²/kg",
+  },
+  "100 unidades c/u (Rendimiento: 15m²/bolsa)": {
+    key: "projects.note_spacers_desc",
+    fallback: "100 units each (Yield: 15m²/bag)",
+  },
+  "20m² c/u (Aislamiento acústico y de humedad)": {
+    key: "projects.note_underlayment_desc",
+    fallback: "20m² each (Acoustic and moisture barrier)",
+  },
+  "15m² c/u (Adherencia óptima)": {
+    key: "projects.note_vinyl_primer_desc",
+    fallback: "15m² each (Optimal adhesion)",
+  },
+  "Incluye bandeja y felpa de microfibra": {
+    key: "projects.note_roller_kit_desc",
+    fallback: "Includes tray and microfiber roller sleeve",
+  },
+  "Para retoques y esquinas": {
+    key: "projects.note_fine_brush_desc",
+    fallback: "For touch-ups and corners",
+  },
+  "Para protección de bordes y zócalos": {
+    key: "projects.note_masking_tape_desc",
+    fallback: "For edge and baseboard protection",
+  },
+  "Para alineación exacta de la superficie": {
+    key: "projects.note_bubble_level_desc",
+    fallback: "For precise surface alignment",
+  },
+  "Para distribución correcta del pegante": {
+    key: "projects.note_notched_trowel_desc",
+    fallback: "For correct adhesive distribution",
+  },
+  "Para asentamiento de baldosas sin fracturas": {
+    key: "projects.note_rubber_mallet_desc",
+    fallback: "For tile settlement without cracks",
+  },
+};
+
+function translateWastePattern(
+  t: (key: string) => string,
+  key: string,
+  waste: string,
+  fallbackTemplate: string,
+): string {
+  const translated = t(key);
+  if (translated !== key) {
+    return translated.replace("{waste}", waste);
+  }
+  return fallbackTemplate.replace("{waste}", waste);
+}
+
+const WASTE_REGEX = /\+(\d+)%/;
+
 export function translateMaterialNote(note: string | null, t: (key: string) => string): string | null {
   if (!note) return null;
   const n = note.trim();
-  
+
   if (n.startsWith("Cálculo exacto: 1 galón por cada 30m²")) {
-    const waste = n.match(/\+(\d+)%/)?.[1] || "10";
-    return t("projects.note_paint_exact").replace("{waste}", waste) !== "projects.note_paint_exact"
-      ? t("projects.note_paint_exact").replace("{waste}", waste)
-      : `Exact calculation: 1 gallon per 30m² (Includes +${waste}% waste)`;
+    const waste = WASTE_REGEX.exec(n)?.[1] ?? "10";
+    return translateWastePattern(
+      t,
+      "projects.note_paint_exact",
+      waste,
+      "Exact calculation: 1 gallon per 30m² (Includes +{waste}% waste)",
+    );
   }
   if (n.startsWith("Cálculo exacto con +")) {
-    const waste = n.match(/\+(\d+)%/)?.[1] || "10";
-    return t("projects.note_exact_waste").replace("{waste}", waste) !== "projects.note_exact_waste"
-      ? t("projects.note_exact_waste").replace("{waste}", waste)
-      : `Exact calculation with +${waste}% waste`;
+    const waste = WASTE_REGEX.exec(n)?.[1] ?? "10";
+    return translateWastePattern(
+      t,
+      "projects.note_exact_waste",
+      waste,
+      "Exact calculation with +{waste}% waste",
+    );
   }
   if (n.startsWith("Rendimiento aproximado de 30m²")) {
-    const waste = n.match(/\+(\d+)%/)?.[1] || "5";
-    return t("projects.note_paint_approx").replace("{waste}", waste) !== "projects.note_paint_approx"
-      ? t("projects.note_paint_approx").replace("{waste}", waste)
-      : `Approximate yield of 30m² each with 2 coats (Includes +${waste}% waste)`;
+    const waste = WASTE_REGEX.exec(n)?.[1] ?? "5";
+    return translateWastePattern(
+      t,
+      "projects.note_paint_approx",
+      waste,
+      "Approximate yield of 30m² each with 2 coats (Includes +{waste}% waste)",
+    );
   }
   if (n.startsWith("+") && n.includes("desperdicio por colocación")) {
-    const waste = n.match(/\+(\d+)%/)?.[1] || "10";
-    return t("projects.note_waste_laying").replace("{waste}", waste) !== "projects.note_waste_laying"
-      ? t("projects.note_waste_laying").replace("{waste}", waste)
-      : `+${waste}% waste due to layout pattern`;
-  }
-  if (n.startsWith("Pegante real vinculado")) {
-    return t("projects.note_adhesive_linked") !== "projects.note_adhesive_linked"
-      ? t("projects.note_adhesive_linked")
-      : "Linked real adhesive: 1 bag per 4m²";
-  }
-  if (n === "25kg c/u (Rendimiento: 4m²/bulto)") {
-    return t("projects.note_adhesive_flexible_desc") !== "projects.note_adhesive_flexible_desc"
-      ? t("projects.note_adhesive_flexible_desc")
-      : "25kg each (Yield: 4m²/bag)";
-  }
-  if (n.startsWith("Boquilla real vinculada")) {
-    return t("projects.note_grout_linked") !== "projects.note_grout_linked"
-      ? t("projects.note_grout_linked")
-      : "Linked real grout: 1 kg per 8m²";
-  }
-  if (n === "Rendimiento: 8m²/kg") {
-    return t("projects.note_grout_desc") !== "projects.note_grout_desc"
-      ? t("projects.note_grout_desc")
-      : "Yield: 8m²/kg";
-  }
-  if (n === "100 unidades c/u (Rendimiento: 15m²/bolsa)") {
-    return t("projects.note_spacers_desc") !== "projects.note_spacers_desc"
-      ? t("projects.note_spacers_desc")
-      : "100 units each (Yield: 15m²/bag)";
-  }
-  if (n === "20m² c/u (Aislamiento acústico y de humedad)") {
-    return t("projects.note_underlayment_desc") !== "projects.note_underlayment_desc"
-      ? t("projects.note_underlayment_desc")
-      : "20m² each (Acoustic and moisture barrier)";
-  }
-  if (n === "15m² c/u (Adherencia óptima)") {
-    return t("projects.note_vinyl_primer_desc") !== "projects.note_vinyl_primer_desc"
-      ? t("projects.note_vinyl_primer_desc")
-      : "15m² each (Optimal adhesion)";
-  }
-  if (n === "Incluye bandeja y felpa de microfibra") {
-    return t("projects.note_roller_kit_desc") !== "projects.note_roller_kit_desc"
-      ? t("projects.note_roller_kit_desc")
-      : "Includes tray and microfiber roller sleeve";
-  }
-  if (n === "Para retoques y esquinas") {
-    return t("projects.note_fine_brush_desc") !== "projects.note_fine_brush_desc"
-      ? t("projects.note_fine_brush_desc")
-      : "For touch-ups and corners";
-  }
-  if (n === "Para protección de bordes y zócalos") {
-    return t("projects.note_masking_tape_desc") !== "projects.note_masking_tape_desc"
-      ? t("projects.note_masking_tape_desc")
-      : "For edge and baseboard protection";
-  }
-  if (n === "Para alineación exacta de la superficie") {
-    return t("projects.note_bubble_level_desc") !== "projects.note_bubble_level_desc"
-      ? t("projects.note_bubble_level_desc")
-      : "For precise surface alignment";
-  }
-  if (n === "Para distribución correcta del pegante") {
-    return t("projects.note_notched_trowel_desc") !== "projects.note_notched_trowel_desc"
-      ? t("projects.note_notched_trowel_desc")
-      : "For correct adhesive distribution";
-  }
-  if (n === "Para asentamiento de baldosas sin fracturas") {
-    return t("projects.note_rubber_mallet_desc") !== "projects.note_rubber_mallet_desc"
-      ? t("projects.note_rubber_mallet_desc")
-      : "For tile settlement without cracks";
+    const waste = WASTE_REGEX.exec(n)?.[1] ?? "10";
+    return translateWastePattern(
+      t,
+      "projects.note_waste_laying",
+      waste,
+      "+{waste}% waste due to layout pattern",
+    );
   }
   if (n.startsWith("Paredes estimadas")) {
-    const waste = n.match(/\+(\d+)%/)?.[1] || "10";
-    return t("projects.note_walls_estimated").replace("{waste}", waste) !== "projects.note_walls_estimated"
-      ? t("projects.note_walls_estimated").replace("{waste}", waste)
-      : `Estimated walls (+${waste}% waste)`;
+    const waste = WASTE_REGEX.exec(n)?.[1] ?? "10";
+    return translateWastePattern(
+      t,
+      "projects.note_walls_estimated",
+      waste,
+      "Estimated walls (+{waste}% waste)",
+    );
   }
-  
+
+  const exact = EXACT_MATERIAL_NOTES[n];
+  if (exact) {
+    return translateWithFallback(t, exact.key, exact.fallback);
+  }
+
   return note;
 }

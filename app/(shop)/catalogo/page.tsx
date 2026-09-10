@@ -225,10 +225,10 @@ function CatalogoContent() {
       {/* Product grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {loading
-          ? Array(8)
+          ? new Array(8)
               .fill(null)
               .map((_, i) => (
-                <div key={i} className="border border-border p-4 bg-bg-surface space-y-4 animate-pulse">
+                <div key={`skeleton-product-${i}`} className="border border-border p-4 bg-bg-surface space-y-4 animate-pulse">
                   <div className="aspect-[4/3] bg-bg-surface-light w-full" />
                   <div className="h-4 bg-bg-surface-light w-2/3" />
                   <div className="h-4 bg-bg-surface-light w-1/3" />

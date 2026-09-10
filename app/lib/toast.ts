@@ -18,7 +18,7 @@ export interface ToastItem {
 export function showToast(message: string, type: ToastType = "info", duration = 4000) {
   if (typeof window !== "undefined") {
     const detail: ToastItem = {
-      id: Math.random().toString(36).substring(2, 9),
+      id: typeof crypto !== "undefined" && typeof crypto.randomUUID === "function" ? crypto.randomUUID() : Math.random().toString(36).substring(2, 9),
       message,
       type,
       duration
