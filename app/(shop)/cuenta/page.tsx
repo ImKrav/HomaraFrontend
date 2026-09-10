@@ -10,6 +10,8 @@ import Badge from "@/app/components/ui/Badge";
 import LucideIcon from "@/app/components/ui/LucideIcon";
 import Input from "@/app/components/ui/Input";
 import { showToast } from "@/app/lib/toast";
+import OrderSummaryBreakdown from "@/app/components/OrderSummaryBreakdown";
+import { useOrderDetailsModal } from "@/app/hooks/useOrderDetailsModal";
 import { formatPrice, OrderDetail, Project } from "@/app/lib/utils";
 import { useLanguage } from "@/app/context/LanguageContext";
 
@@ -57,9 +59,13 @@ export default function CuentaPage() {
   const [errorMsg, setErrorMsg] = useState("");
 
   // Order Detail Modal States
-  const [selectedOrder, setSelectedOrder] = useState<FullOrderDetail | null>(null);
-  const [loadingDetail, setLoadingDetail] = useState(false);
-  const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const {
+    selectedOrder,
+    loadingDetail,
+    isDetailOpen,
+    setIsDetailOpen,
+    handleViewOrderDetails,
+  } = useOrderDetailsModal<FullOrderDetail>(t("account.detail_error"));
 
   // Edit Profile Modal States
   const [isEditing, setIsEditing] = useState(false);
@@ -115,29 +121,6 @@ export default function CuentaPage() {
       setEditError(message);
     } finally {
       setSaving(false);
-    }
-  };
-
-  const handleViewOrderDetails = async (orderId: string) => {
-    try {
-      setLoadingDetail(true);
-      setIsDetailOpen(true);
-      setSelectedOrder(null);
-      
-      const res = await api.get(`/api/v1/orders/${orderId}`);
-      if (res.success && res.data) {
-        setSelectedOrder(res.data);
-      } else {
-        showToast(res.error || t("account.detail_error"), "error");
-        setIsDetailOpen(false);
-      }
-    } catch (err) {
-      console.error(err);
-      const message = err instanceof Error ? err.message : t("account.detail_error");
-      showToast(message, "error");
-      setIsDetailOpen(false);
-    } finally {
-      setLoadingDetail(false);
     }
   };
 
@@ -642,20 +625,17 @@ export default function CuentaPage() {
                   </div>
 
                   {/* Summary Breakdown */}
-                  <div className="pt-4 border-t border-border space-y-2">
-                    <div className="flex justify-between text-xs text-text-secondary">
-                      <span>{t("account.subtotal_label")}</span>
-                      <span>{formatPrice(selectedOrder.subtotal)}</span>
-                    </div>
-                    <div className="flex justify-between text-xs text-text-secondary">
-                      <span>{t("account.shipping_cost")}</span>
-                      <span>{selectedOrder.shippingCost === 0 ? t("account.free_shipping") : formatPrice(selectedOrder.shippingCost)}</span>
-                    </div>
-                    <div className="flex justify-between text-sm font-black text-text-primary pt-2 border-t border-border border-dashed">
-                      <span>{t("account.grand_total")}</span>
-                      <span className="text-base text-primary">{formatPrice(selectedOrder.total)}</span>
-                    </div>
-                  </div>
+                  <OrderSummaryBreakdown
+                    subtotal={selectedOrder.subtotal}
+                    shippingCost={selectedOrder.shippingCost}
+                    total={selectedOrder.total}
+                    labels={{
+                      subtotal: t("account.subtotal_label"),
+                      shipping: t("account.shipping_cost"),
+                      freeShipping: t("account.free_shipping"),
+                      total: t("account.grand_total"),
+                    }}
+                  />
                 </>
               ) : (
                 <div className="py-12 text-center text-sm text-error">

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import ProductCard from "@/app/components/ProductCard";
+import ProductSection from "@/app/components/ProductSection";
 import Button from "@/app/components/ui/Button";
 import { api } from "@/app/lib/api";
 import { type Product } from "@/app/lib/utils";
@@ -135,99 +135,35 @@ export default function StorefrontHome() {
         {/* ============================================
            SECCIÓN: RECOMENDADOS PARA TI
            ============================================ */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border/60">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-8">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-3.5 bg-primary" />
-                <h2 className="text-xs uppercase tracking-widest font-extrabold text-text-primary">
-                  {t("home.news_recs")}
-                </h2>
-              </div>
-              <p className="text-xs text-text-secondary mt-1">
-                {t("home.news_recs_desc")}
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {loading
-              ? new Array(4)
-                  .fill(null)
-                  .map((_, i) => (
-                    <div key={`recommended-skeleton-${i}`} className="border border-border p-4 bg-bg-surface space-y-4 animate-pulse">
-                      <div className="aspect-[4/3] bg-bg-surface-light w-full" />
-                      <div className="h-4 bg-bg-surface-light w-2/3" />
-                      <div className="h-4 bg-bg-surface-light w-1/3" />
-                    </div>
-                  ))
-              : recommendedProducts.map((product: Product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-          </div>
-        </section>
+        <ProductSection
+          title={t("home.news_recs")}
+          description={t("home.news_recs_desc")}
+          products={recommendedProducts}
+          loading={loading}
+          skeletonKeyPrefix="recommended-skeleton"
+        />
 
         {/* ============================================
            SECCIÓN: OFERTAS IMPERDIBLES (CON DESCUENTO)
            ============================================ */}
-        {offerProducts.length > 0 && (
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border/60">
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-8">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-3.5 bg-primary" />
-                  <h2 className="text-xs uppercase tracking-widest font-extrabold text-text-primary">
-                    {t("home.weekly_deals")}
-                  </h2>
-                </div>
-                <p className="text-xs text-text-secondary mt-1">
-                  {t("home.weekly_deals_desc")}
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {offerProducts.map((product: Product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          </section>
-        )}
+        <ProductSection
+          title={t("home.weekly_deals")}
+          description={t("home.weekly_deals_desc")}
+          products={offerProducts}
+          loading={false}
+          skeletonKeyPrefix="offers-skeleton"
+        />
 
         {/* ============================================
            SECCIÓN: MÁS VENDIDOS & POPULARES
            ============================================ */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border/60">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-8">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-3.5 bg-primary" />
-                <h2 className="text-xs uppercase tracking-widest font-extrabold text-text-primary">
-                  {t("home.best_sellers")}
-                </h2>
-              </div>
-              <p className="text-xs text-text-secondary mt-1">
-                {t("home.best_sellers_desc")}
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {loading
-              ? new Array(4)
-                  .fill(null)
-                  .map((_, i) => (
-                    <div key={`bestseller-skeleton-${i}`} className="border border-border p-4 bg-bg-surface space-y-4 animate-pulse">
-                      <div className="aspect-[4/3] bg-bg-surface-light w-full" />
-                      <div className="h-4 bg-bg-surface-light w-2/3" />
-                      <div className="h-4 bg-bg-surface-light w-1/3" />
-                    </div>
-                  ))
-              : bestSellerProducts.map((product: Product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-          </div>
-        </section>
+        <ProductSection
+          title={t("home.best_sellers")}
+          description={t("home.best_sellers_desc")}
+          products={bestSellerProducts}
+          loading={loading}
+          skeletonKeyPrefix="bestseller-skeleton"
+        />
 
         {/* ============================================
            SECCIÓN DE CTA: ESTIMADOR DE MATERIALES COMPACTO

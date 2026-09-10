@@ -5,6 +5,7 @@ import Card from "@/app/components/ui/Card";
 import Badge from "@/app/components/ui/Badge";
 import LucideIcon from "@/app/components/ui/LucideIcon";
 import Pagination from "@/app/components/ui/Pagination";
+import SearchInput from "@/app/components/ui/SearchInput";
 import { formatPrice, InventoryProduct } from "@/app/lib/utils";
 import { api } from "@/app/lib/api";
 import { useLanguage } from "@/app/context/LanguageContext";
@@ -189,26 +190,11 @@ export default function AdminInventarioPage() {
       {/* Filters Bar */}
       <div className="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-4 bg-bg-surface border border-border p-4">
         {/* Search */}
-        <div className="relative">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted">
-            <LucideIcon name="Search" size={16} />
-          </span>
-          <input
-            type="text"
-            placeholder={t("catalog.search_placeholder")}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary"
-            >
-              <LucideIcon name="X" size={14} />
-            </button>
-          )}
-        </div>
+        <SearchInput
+          placeholder={t("catalog.search_placeholder")}
+          value={searchQuery}
+          onChange={setSearchQuery}
+        />
 
         {/* Category Filter */}
         <div>

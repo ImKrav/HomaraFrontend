@@ -10,6 +10,9 @@ import { api } from "@/app/lib/api";
 import { showToast } from "@/app/lib/toast";
 import { useLanguage } from "@/app/context/LanguageContext";
 import Pagination from "@/app/components/ui/Pagination";
+import SearchInput from "@/app/components/ui/SearchInput";
+import OrderSummaryBreakdown from "@/app/components/OrderSummaryBreakdown";
+import { useOrderDetailsModal } from "@/app/hooks/useOrderDetailsModal";
 
 interface FullOrderDetailItem {
   id: string;
@@ -55,9 +58,14 @@ export default function AdminPedidosPage() {
   const ITEMS_PER_PAGE = 25;
 
   // Modal States
-  const [selectedOrder, setSelectedOrder] = useState<FullOrderDetail | null>(null);
-  const [loadingDetail, setLoadingDetail] = useState(false);
-  const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const {
+    selectedOrder,
+    setSelectedOrder,
+    loadingDetail,
+    isDetailOpen,
+    setIsDetailOpen,
+    handleViewOrderDetails,
+  } = useOrderDetailsModal<FullOrderDetail>(t("admin.order_errors.detail_error_fetch"));
   const [updatingStatus, setUpdatingStatus] = useState(false);
 
   const fetchOrders = async () => {
@@ -123,29 +131,6 @@ export default function AdminPedidosPage() {
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
-
-  const handleViewOrderDetails = async (orderId: string) => {
-    try {
-      setLoadingDetail(true);
-      setIsDetailOpen(true);
-      setSelectedOrder(null);
-      
-      const res = await api.get(`/api/v1/orders/${orderId}`);
-      if (res.success && res.data) {
-        setSelectedOrder(res.data);
-      } else {
-        showToast(res.error || t("admin.order_errors.detail_error"), "error");
-        setIsDetailOpen(false);
-      }
-    } catch (err) {
-      console.error(err);
-      const message = err instanceof Error ? err.message : t("admin.order_errors.detail_error_fetch");
-      showToast(message, "error");
-      setIsDetailOpen(false);
-    } finally {
-      setLoadingDetail(false);
-    }
-  };
 
   const handleStatusChange = async (newStatus: string) => {
     if (!selectedOrder) return;
@@ -245,26 +230,11 @@ export default function AdminPedidosPage() {
       {/* Filters Bar */}
       <div className="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-4 bg-bg-surface border border-border p-4">
         {/* Search */}
-        <div className="relative">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted">
-            <LucideIcon name="Search" size={16} />
-          </span>
-          <input
-            type="text"
-            placeholder={t("catalog.search_placeholder")}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary"
-            >
-              <LucideIcon name="X" size={14} />
-            </button>
-          )}
-        </div>
+        <SearchInput
+          placeholder={t("catalog.search_placeholder")}
+          value={searchQuery}
+          onChange={setSearchQuery}
+        />
 
         {/* Status Filter */}
         <div>
@@ -597,20 +567,17 @@ export default function AdminPedidosPage() {
                   </div>
 
                   {/* Summary Breakdown */}
-                  <div className="pt-4 border-t border-border space-y-2">
-                    <div className="flex justify-between text-xs text-text-secondary">
-                      <span>{t("admin.subtotal_items")}</span>
-                      <span>{formatPrice(selectedOrder.subtotal)}</span>
-                    </div>
-                    <div className="flex justify-between text-xs text-text-secondary">
-                      <span>{t("admin.shipping_cost")}</span>
-                      <span>{selectedOrder.shippingCost === 0 ? t("admin.free_shipping") : formatPrice(selectedOrder.shippingCost)}</span>
-                    </div>
-                    <div className="flex justify-between text-sm font-black text-text-primary pt-2 border-t border-border border-dashed">
-                      <span>{t("admin.grand_total")}</span>
-                      <span className="text-base text-primary">{formatPrice(selectedOrder.total)}</span>
-                    </div>
-                  </div>
+                  <OrderSummaryBreakdown
+                    subtotal={selectedOrder.subtotal}
+                    shippingCost={selectedOrder.shippingCost}
+                    total={selectedOrder.total}
+                    labels={{
+                      subtotal: t("admin.subtotal_items"),
+                      shipping: t("admin.shipping_cost"),
+                      freeShipping: t("admin.free_shipping"),
+                      total: t("admin.grand_total"),
+                    }}
+                  />
                 </>
               ) : (
                 <div className="py-12 text-center text-sm text-error">

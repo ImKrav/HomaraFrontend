@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import CartItemCard from "@/app/components/CartItem";
 import Button from "@/app/components/ui/Button";
+import AuthRequiredState from "@/app/components/AuthRequiredState";
 import { formatPrice, CartItemDetail } from "@/app/lib/utils";
 import { api } from "@/app/lib/api";
 import { useAuth } from "@/app/context/AuthContext";
@@ -71,25 +72,13 @@ export default function CarritoPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-20 text-center">
-        <div className="text-text-muted mb-4 flex justify-center">
-          <LucideIcon name="ShoppingCart" size={64} />
-        </div>
-        <h3 className="text-xl font-bold text-text-primary mb-2 tracking-tight">
-          {t("cart.login_required_title")}
-        </h3>
-        <p className="text-text-secondary max-w-md mx-auto mb-8 text-sm">
-          {t("cart.login_required_desc")}
-        </p>
-        <div className="flex justify-center gap-4">
-          <Button href="/login" size="md" className="rounded-none">
-            {t("cart.login_btn")}
-          </Button>
-          <Button href="/register" variant="outline" size="md" className="rounded-none">
-            {t("cart.register_btn")}
-          </Button>
-        </div>
-      </div>
+      <AuthRequiredState
+        icon="ShoppingCart"
+        title={t("cart.login_required_title")}
+        description={t("cart.login_required_desc")}
+        loginButtonLabel={t("cart.login_btn")}
+        registerButtonLabel={t("cart.register_btn")}
+      />
     );
   }
 
