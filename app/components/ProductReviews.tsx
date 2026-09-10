@@ -266,9 +266,9 @@ export default function ProductReviews({ productId }: ProductReviewsProps) {
 
                     {/* Stars */}
                     <div className="flex items-center gap-0.5">
-                      {[...Array(5)].map((_, i) => (
+                      {[...new Array(5)].map((_, i) => (
                         <svg
-                          key={i}
+                          key={`${rev.id}-star-${i}`}
                           className={`h-3.5 w-3.5 ${
                             i < rev.rating ? "text-amber-500" : "text-zinc-300 dark:text-zinc-700"
                           }`}

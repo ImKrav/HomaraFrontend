@@ -64,9 +64,9 @@ export default function ProductCard({ product }: ProductCardProps) {
             {/* Rating */}
             <div className="flex items-center gap-1 mt-2">
               <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
+                {[...new Array(5)].map((_, i) => (
                   <svg
-                    key={i}
+                    key={`${product.id}-star-${i}`}
                     className={`h-3 w-3 ${
                       i < Math.floor(product.rating)
                         ? "text-amber-500"
