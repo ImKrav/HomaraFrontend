@@ -90,9 +90,9 @@ export default function LoginPage() {
                 <input type="checkbox" className="rounded border-border text-primary focus:ring-primary/50" />
                 {t("auth.remember_me")}
               </label>
-              <a href="#" className="text-primary hover:underline font-medium">
+              <button type="button" className="text-primary hover:underline font-medium bg-transparent border-none p-0 cursor-pointer">
                 {t("auth.forgot_password")}
-              </a>
+              </button>
             </div>
 
             <Button

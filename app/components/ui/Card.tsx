@@ -1,3 +1,5 @@
+import React from "react";
+
 interface CardProps {
   children: React.ReactNode;
   className?: string;
@@ -6,7 +8,7 @@ interface CardProps {
   onClick?: () => void;
 }
 
-const paddings = {
+const paddings: Record<string, string> = {
   none: "",
   sm: "p-4",
   md: "p-6",
@@ -19,10 +21,22 @@ export default function Card({
   hover = false,
   padding = "md",
   onClick,
-}: CardProps) {
+}: Readonly<CardProps>) {
+  const handleKeyDown = onClick
+    ? (e: React.KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick();
+        }
+      }
+    : undefined;
+
   return (
     <div
+      role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
       onClick={onClick}
+      onKeyDown={handleKeyDown}
       className={`
         bg-bg-surface rounded-xl border border-border
         ${paddings[padding]}

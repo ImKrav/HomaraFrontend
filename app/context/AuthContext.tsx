@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { api } from "@/app/lib/api";
 
@@ -44,12 +44,20 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export function AuthProvider({ children }: Readonly<{ children: React.ReactNode }>) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  const refreshUser = async () => {
+  const logout = useCallback(() => {
+    localStorage.removeItem("homara_token");
+    setUser(null);
+    setLoading(false);
+    window.dispatchEvent(new Event("cartUpdated"));
+    router.push("/login");
+  }, [router]);
+
+  const refreshUser = useCallback(async () => {
     try {
       const token = localStorage.getItem("homara_token");
       if (!token) {
@@ -71,12 +79,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [logout]);
 
   useEffect(() => {
     refreshUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [refreshUser]);
 
   useEffect(() => {
     const handle401 = () => {
@@ -88,7 +95,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("auth:401", handle401);
   }, [router]);
 
-  const login = async (email: string, password: string) => {
+  const login = useCallback(async (email: string, password: string) => {
     setLoading(true);
     try {
       const response = await api.post("/api/v1/users/login", { email, password });
@@ -107,9 +114,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const register = async (formData: RegisterData) => {
+  const register = useCallback(async (formData: RegisterData) => {
     setLoading(true);
     try {
       const response = await api.post("/api/v1/users/register", formData);
@@ -127,28 +134,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const logout = () => {
-    localStorage.removeItem("homara_token");
-    setUser(null);
-    setLoading(false);
-    window.dispatchEvent(new Event("cartUpdated"));
-    router.push("/login");
-  };
+  const contextValue = useMemo(() => ({
+    user,
+    loading,
+    isAuthenticated: !!user,
+    login,
+    register,
+    logout,
+    refreshUser,
+  }), [user, loading, login, register, logout, refreshUser]);
 
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        loading,
-        isAuthenticated: !!user,
-        login,
-        register,
-        logout,
-        refreshUser,
-      }}
-    >
+    <AuthContext.Provider value={contextValue}>
       {children}
     </AuthContext.Provider>
   );

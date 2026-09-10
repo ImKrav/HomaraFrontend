@@ -7,6 +7,7 @@ import LucideIcon from "@/app/components/ui/LucideIcon";
 import { formatPrice, AdminMetric, OrderDetail } from "@/app/lib/utils";
 import { api } from "@/app/lib/api";
 import { useLanguage } from "@/app/context/LanguageContext";
+import AdminFeedbackState from "@/app/components/AdminFeedbackState";
 
 export default function AdminDashboard() {
   const [orders, setOrders] = useState<OrderDetail[]>([]);
@@ -65,20 +66,14 @@ export default function AdminDashboard() {
     }
   };
 
-  if (loading) {
+  if (loading || error) {
     return (
-      <div className="p-8 text-center text-text-secondary">
-        {t("admin.loading")}
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="p-8 text-center text-error">
-        <p className="font-semibold">{t("admin.error_loading")}</p>
-        <p className="text-sm mt-1">{error}</p>
-      </div>
+      <AdminFeedbackState
+        loading={loading}
+        loadingMessage={t("admin.loading")}
+        error={error}
+        errorTitle={t("admin.error_loading")}
+      />
     );
   }
 
@@ -137,8 +132,8 @@ export default function AdminDashboard() {
                 t("admin.sep"), t("admin.oct"), t("admin.nov"), t("admin.dec")
               ][i];
 
-               return (
-                <div key={i} className="flex-1 h-full flex flex-col items-center gap-1 group relative">
+                return (
+                <div key={monthName} className="flex-1 h-full flex flex-col items-center gap-1 group relative">
                   {/* Tooltip con Glassmorphism */}
                   <div className="absolute bottom-[calc(100%+4px)] left-1/2 -translate-x-1/2 bg-bg-surface-dark/95 backdrop-blur-sm text-text-primary text-[10px] py-1.5 px-2.5 rounded-lg border border-border/50 shadow-md opacity-0 pointer-events-none group-hover:opacity-100 group-hover:translate-y-[-2px] transition-all duration-150 z-30 whitespace-nowrap flex flex-col items-center">
                     <span className="font-semibold text-text-primary">{monthName}</span>
@@ -150,7 +145,7 @@ export default function AdminDashboard() {
 
                   <div className="flex-1 w-full flex items-end">
                     <div
-                      role="img"
+                      title={`Ventas de ${monthName}: ${formatPrice(val)}`}
                       aria-label={`Ventas de ${monthName}: ${formatPrice(val)}`}
                       className="w-full bg-primary/20 rounded-t-md hover:bg-primary/50 transition-all duration-200 cursor-pointer"
                       style={{ height: `${pct}%` }}

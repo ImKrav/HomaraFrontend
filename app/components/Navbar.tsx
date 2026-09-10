@@ -161,7 +161,12 @@ export default function Navbar() {
               {/* Dropdown Menu */}
               {isAuthenticated && dropdownOpen && (
                 <>
-                  <div className="fixed inset-0 z-10" onClick={() => setDropdownOpen(false)} />
+                  <button
+                    type="button"
+                    aria-label="Cerrar menú"
+                    className="fixed inset-0 z-10 bg-transparent border-none cursor-default w-full h-full"
+                    onClick={() => setDropdownOpen(false)}
+                  />
                   <div className="absolute right-0 mt-2 w-48 rounded-none bg-bg-surface border border-border shadow-xl z-20 py-1.5 animate-scale-in">
                     <div className="px-4 py-2 border-b border-border/60">
                       <p className="text-[10px] uppercase tracking-wider font-semibold text-text-muted">

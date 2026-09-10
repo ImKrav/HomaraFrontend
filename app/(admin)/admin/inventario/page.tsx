@@ -9,6 +9,7 @@ import SearchInput from "@/app/components/ui/SearchInput";
 import { formatPrice, InventoryProduct } from "@/app/lib/utils";
 import { api } from "@/app/lib/api";
 import { useLanguage } from "@/app/context/LanguageContext";
+import AdminFeedbackState from "@/app/components/AdminFeedbackState";
 
 export default function AdminInventarioPage() {
   const [products, setProducts] = useState<InventoryProduct[]>([]);
@@ -104,20 +105,14 @@ export default function AdminInventarioPage() {
     currentPage * ITEMS_PER_PAGE
   );
 
-  if (loading) {
+  if (loading || error) {
     return (
-      <div className="p-8 text-center text-text-secondary">
-        {t("admin.loading_inventory")}
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="p-8 text-center text-error">
-        <p className="font-semibold">{t("admin.error_loading_inventory")}</p>
-        <p className="text-sm mt-1">{error}</p>
-      </div>
+      <AdminFeedbackState
+        loading={loading}
+        loadingMessage={t("admin.loading_inventory")}
+        error={error}
+        errorTitle={t("admin.error_loading_inventory")}
+      />
     );
   }
 

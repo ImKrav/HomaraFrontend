@@ -20,7 +20,7 @@ export default function UseInProjectButton({
   productId,
   productName,
   categorySlug,
-}: UseInProjectButtonProps) {
+}: Readonly<UseInProjectButtonProps>) {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [projects, setProjects] = useState<Project[]>([]);
@@ -135,8 +135,10 @@ export default function UseInProjectButton({
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300"
+          <button
+            type="button"
+            aria-label="Cerrar modal"
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 border-none w-full h-full cursor-default"
             onClick={() => setIsOpen(false)}
           />
 
@@ -246,20 +248,21 @@ export default function UseInProjectButton({
                     <div className="flex-1 overflow-y-auto pr-1 space-y-2 mb-6 scrollbar-thin max-h-[300px]">
                       {projects.map((project) => {
                         const isSelected = selectedProjectId === project.id;
-                        const statusClass =
-                          project.status?.toLowerCase() === "completado"
-                            ? "bg-emerald-50 text-emerald-700 border-emerald-200/50"
-                            : project.status?.toLowerCase() === "en_progreso"
-                            ? "bg-amber-50 text-amber-700 border-amber-200/50"
-                            : "bg-sky-50 text-sky-700 border-sky-200/50";
-                            
+                        let statusClass = "bg-sky-50 text-sky-700 border-sky-200/50";
+                        if (project.status?.toLowerCase() === "completado") {
+                          statusClass = "bg-emerald-50 text-emerald-700 border-emerald-200/50";
+                        } else if (project.status?.toLowerCase() === "en_progreso") {
+                          statusClass = "bg-amber-50 text-amber-700 border-amber-200/50";
+                        }
+                             
                         const statusLabel = t("status." + project.status?.toLowerCase());
 
                         return (
-                          <div
+                          <button
+                            type="button"
                             key={project.id}
                             onClick={() => setSelectedProjectId(project.id)}
-                            className={`flex items-center justify-between p-3 border cursor-pointer transition-all duration-200 ${
+                            className={`w-full text-left flex items-center justify-between p-3 border cursor-pointer transition-all duration-200 ${
                               isSelected
                                 ? "bg-primary/5 border-primary shadow-sm"
                                 : "bg-bg-surface border-border hover:border-text-muted"
@@ -297,7 +300,7 @@ export default function UseInProjectButton({
                             >
                               <LucideIcon name="Check" size={14} />
                             </div>
-                          </div>
+                          </button>
                         );
                       })}
                     </div>

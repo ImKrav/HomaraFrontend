@@ -26,14 +26,16 @@ interface MaterialsListEditorProps {
   catSlug: string;
 }
 
+const QUANTITY_REGEX = /^([\d.,]+)(?:\s+(.*))?$/;
+
 // Función de utilidad para parsear cantidades como "7 bultos", "27.5 m²" o "1 unidad"
 function parseQuantity(quantityStr: string) {
-  const match = quantityStr.match(/^([\d.,]+)\s*(.*)$/);
+  const match = QUANTITY_REGEX.exec(quantityStr.trim());
   if (!match) return { num: 1, unit: quantityStr };
   
   const numStr = match[1].replace(",", ".");
-  const num = parseFloat(numStr) || 1;
-  const unit = match[2] || "";
+  const num = Number.parseFloat(numStr) || 1;
+  const unit = match[2] ?? "";
   return { num, unit };
 }
 
@@ -42,7 +44,7 @@ export default function MaterialsListEditor({
   initialMaterials,
   wastePercent,
   catSlug,
-}: MaterialsListEditorProps) {
+}: Readonly<MaterialsListEditorProps>) {
   const { t } = useLanguage();
   const [materials, setMaterials] = useState<ProjectMaterial[]>(initialMaterials);
   const [loading, setLoading] = useState(false);
@@ -215,7 +217,7 @@ export default function MaterialsListEditor({
                       step="0.01"
                       min="0.1"
                       value={num}
-                      onChange={(e) => updateQuantityValue(index, parseFloat(e.target.value) || 0)}
+                      onChange={(e) => updateQuantityValue(index, Number.parseFloat(e.target.value) || 0)}
                       disabled={loading}
                       className="w-12 bg-transparent text-center font-extrabold text-xs text-text-primary focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     />

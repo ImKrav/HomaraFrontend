@@ -39,6 +39,273 @@ interface ProjectData {
   selectedProductId?: string | null;
 }
 
+interface ProjectFormValidation {
+  isValid: boolean;
+  missingFieldKey?: "name" | "length" | "width" | "height";
+}
+
+function validateProjectForm(
+  name: string,
+  type: string,
+  length: string,
+  width: string,
+  height: string
+): ProjectFormValidation {
+  if (!name.trim()) {
+    return { isValid: false, missingFieldKey: "name" };
+  }
+  if (!length.trim()) {
+    return { isValid: false, missingFieldKey: "length" };
+  }
+  if ((type === "piso" || type === "techo") && !width.trim()) {
+    return { isValid: false, missingFieldKey: "width" };
+  }
+  if (type === "pared" && !height.trim()) {
+    return { isValid: false, missingFieldKey: "height" };
+  }
+  if (type === "integral") {
+    if (!width.trim()) return { isValid: false, missingFieldKey: "width" };
+    if (!height.trim()) return { isValid: false, missingFieldKey: "height" };
+  }
+  return { isValid: true };
+}
+
+function calculateGrossArea(type: string, l: number, w: number, h: number): number {
+  if (type === "piso" || type === "techo") {
+    return l * w;
+  }
+  if (type === "pared") {
+    return w > 0 ? (l + w) * 2 * h : l * h;
+  }
+  if (type === "integral") {
+    return (l * w) + ((l + w) * 2 * h);
+  }
+  return 0;
+}
+
+interface AccessoriesTabProps {
+  materialType: string;
+  includeAdhesive: boolean;
+  setIncludeAdhesive: (val: boolean) => void;
+  includeGrout: boolean;
+  setIncludeGrout: (val: boolean) => void;
+  includeSpacers: boolean;
+  setIncludeSpacers: (val: boolean) => void;
+  includeTools: boolean;
+  setIncludeTools: (val: boolean) => void;
+  t: (key: string) => string;
+}
+
+function AccessoriesTab({
+  materialType,
+  includeAdhesive,
+  setIncludeAdhesive,
+  includeGrout,
+  setIncludeGrout,
+  includeSpacers,
+  setIncludeSpacers,
+  includeTools,
+  setIncludeTools,
+  t,
+}: Readonly<AccessoriesTabProps>) {
+  return (
+    <Card className="p-6 space-y-6">
+      <div>
+        <h2 className="text-xl font-bold text-text-primary flex items-center gap-2 mb-2">
+          <LucideIcon name="Hammer" className="text-primary" />
+          {t("projects.accessories_tools_title")}
+        </h2>
+        <p className="text-sm text-text-secondary">
+          {t("projects.accessories_tools_desc")}
+        </p>
+      </div>
+
+      <div className="space-y-3">
+        {materialType !== "pintura" && (
+          <>
+            <label
+              htmlFor="include-adhesive-checkbox"
+              className="flex items-center gap-3 p-4 bg-bg-surface-light border border-border rounded-lg cursor-pointer hover:bg-bg-surface transition-colors"
+            >
+              <input
+                id="include-adhesive-checkbox"
+                type="checkbox"
+                checked={includeAdhesive}
+                onChange={(e) => setIncludeAdhesive(e.target.checked)}
+                className="w-4 h-4 text-primary bg-bg-surface border-border rounded focus:ring-primary focus:ring-2"
+              />
+              <div className="flex-1">
+                <span className="text-sm font-semibold text-text-primary block">{t("projects.adhesives_label")}</span>
+                <span className="text-xs text-text-muted">{t("projects.adhesives_desc")}</span>
+              </div>
+            </label>
+
+            <label
+              htmlFor="include-grout-checkbox"
+              className="flex items-center gap-3 p-4 bg-bg-surface-light border border-border rounded-lg cursor-pointer hover:bg-bg-surface transition-colors"
+            >
+              <input
+                id="include-grout-checkbox"
+                type="checkbox"
+                checked={includeGrout}
+                onChange={(e) => setIncludeGrout(e.target.checked)}
+                className="w-4 h-4 text-primary bg-bg-surface border-border rounded focus:ring-primary focus:ring-2"
+              />
+              <div className="flex-1">
+                <span className="text-sm font-semibold text-text-primary block">{t("projects.grout_label")}</span>
+                <span className="text-xs text-text-muted">{t("projects.grout_desc")}</span>
+              </div>
+            </label>
+
+            <label
+              htmlFor="include-spacers-checkbox"
+              className="flex items-center gap-3 p-4 bg-bg-surface-light border border-border rounded-lg cursor-pointer hover:bg-bg-surface transition-colors"
+            >
+              <input
+                id="include-spacers-checkbox"
+                type="checkbox"
+                checked={includeSpacers}
+                onChange={(e) => setIncludeSpacers(e.target.checked)}
+                className="w-4 h-4 text-primary bg-bg-surface border-border rounded focus:ring-primary focus:ring-2"
+              />
+              <div className="flex-1">
+                <span className="text-sm font-semibold text-text-primary block">{t("projects.spacers_label")}</span>
+                <span className="text-xs text-text-muted">{t("projects.spacers_desc")}</span>
+              </div>
+            </label>
+          </>
+        )}
+
+        <label
+          htmlFor="include-tools-checkbox"
+          className="flex items-center gap-3 p-4 bg-bg-surface-light border border-border rounded-lg cursor-pointer hover:bg-bg-surface transition-colors"
+        >
+          <input
+            id="include-tools-checkbox"
+            type="checkbox"
+            checked={includeTools}
+            onChange={(e) => setIncludeTools(e.target.checked)}
+            className="w-4 h-4 text-primary bg-bg-surface border-border rounded focus:ring-primary focus:ring-2"
+          />
+          <div className="flex-1">
+            <span className="text-sm font-semibold text-text-primary block">{t("projects.tools_kit_label")}</span>
+            <span className="text-xs text-text-muted">
+              {materialType === "pintura"
+                ? t("projects.tools_kit_paint_desc")
+                : t("projects.tools_kit_tile_desc")}
+            </span>
+          </div>
+        </label>
+      </div>
+    </Card>
+  );
+}
+
+interface AreaDetails {
+  grossArea: number;
+  totalDeductions: number;
+  netArea: number;
+  wasteAmount: number;
+  finalArea: number;
+}
+
+interface LiveSummaryPanelProps {
+  areaDetails: AreaDetails;
+  wastePercent: number;
+  materialType: string;
+  tileFormat: string;
+  includeAdhesive: boolean;
+  includeGrout: boolean;
+  includeSpacers: boolean;
+  includeTools: boolean;
+  loading: boolean;
+  editId: string | null;
+  onSave: () => void;
+  t: (key: string) => string;
+}
+
+function LiveSummaryPanel({
+  areaDetails,
+  wastePercent,
+  materialType,
+  tileFormat,
+  includeAdhesive,
+  includeGrout,
+  includeSpacers,
+  includeTools,
+  loading,
+  editId,
+  onSave,
+  t,
+}: Readonly<LiveSummaryPanelProps>) {
+  return (
+    <div className="lg:col-span-4">
+      <div className="bg-bg-surface border border-border p-6 rounded-none sticky top-24 space-y-6 hover:shadow-md transition-shadow">
+        <div className="border-b border-border pb-4">
+          <h2 className="text-lg font-bold text-text-primary flex items-center gap-2">
+            <LucideIcon name="PieChart" className="text-primary" />
+            {t("projects.measurement_summary")}
+          </h2>
+        </div>
+
+        {/* Ficha Técnica de Área */}
+        <div className="space-y-3">
+          <div className="flex justify-between items-center text-sm text-text-secondary">
+            <span>{t("projects.gross_area_label")}</span>
+            <span className="font-bold text-text-primary">{areaDetails.grossArea.toFixed(2)} m²</span>
+          </div>
+          <div className="flex justify-between items-center text-sm text-text-secondary">
+            <span>{t("projects.deductions_label")}</span>
+            <span className="font-bold text-error">-{areaDetails.totalDeductions.toFixed(2)} m²</span>
+          </div>
+          <div className="flex justify-between items-center text-sm font-bold text-text-primary pt-2 border-t border-dashed border-border">
+            <span>{t("projects.net_area_label")}</span>
+            <span className="text-primary">{areaDetails.netArea.toFixed(2)} m²</span>
+          </div>
+          <div className="flex justify-between items-center text-sm text-text-secondary">
+            <span>{t("projects.waste_percent_label")} (+{wastePercent}%):</span>
+            <span className="font-bold text-text-primary">+{areaDetails.wasteAmount.toFixed(2)} m²</span>
+          </div>
+        </div>
+
+        {/* Placa Indicadora Principal de Área */}
+        <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl text-center">
+          <span className="text-xs font-bold text-text-secondary block mb-1">{t("projects.total_material_needed")}</span>
+          <span className="text-3xl font-extrabold text-primary tracking-tight">
+            {areaDetails.finalArea.toFixed(1)} m²
+          </span>
+          <span className="text-[10px] text-text-muted block mt-1">{t("projects.calculated_waste_desc")}</span>
+        </div>
+
+        {/* Sugerencias de Insumos según selecciones */}
+        <div className="text-xs space-y-2 bg-bg-surface-light p-3 rounded-lg border border-border text-text-secondary">
+          <p className="font-bold text-text-primary mb-1.5 flex items-center gap-1">
+            <LucideIcon name="Lightbulb" className="text-primary" size={14} />
+            {t("projects.supplies_included_title")}
+          </p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>{t("projects.supply_main_material")} {materialType !== "pintura" ? `(${t("projects.supply_format")}: ${tileFormat})` : `(${t("projects.supply_paint")})`}</li>
+            {materialType !== "pintura" && includeAdhesive && <li>{t("projects.supply_adhesive")}</li>}
+            {materialType !== "pintura" && includeGrout && <li>{t("projects.supply_grout")}</li>}
+            {materialType !== "pintura" && includeSpacers && <li>{t("projects.supply_spacers")}</li>}
+            {includeTools && <li>{t("projects.supply_tools")}</li>}
+          </ul>
+        </div>
+
+        {/* Acción de Guardado y Recalcular */}
+        <div className="pt-2">
+          <Button onClick={onSave} disabled={loading} size="lg" fullWidth>
+            {loading ? t("projects.calculating") : editId ? t("projects.recalculate_btn") : t("projects.calculate_btn")}
+          </Button>
+          <p className="text-[10px] text-text-muted text-center mt-2.5 leading-relaxed">
+            {t("projects.engineering_disclaimer")}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function NuevoProyectoContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -91,7 +358,7 @@ function NuevoProyectoContent() {
             setHeight(p.height?.toString() || "");
             setMaterialType(p.materialType || "ceramica");
             setTileFormat(p.tileFormat || "60x60");
-            setWastePercent(p.wastePercent !== undefined && p.wastePercent !== null ? p.wastePercent : 10);
+            setWastePercent(p.wastePercent ?? 10);
             setLayingPattern(p.layingPattern || "directo");
             setDeductDoors(p.deductDoors?.toString() || "0");
             setDeductWindows(p.deductWindows?.toString() || "0");
@@ -180,31 +447,25 @@ function NuevoProyectoContent() {
     setLayingPattern(pattern);
     if (materialType === "pintura") {
       setWastePercent(5);
-    } else {
-      if (pattern === "directo") setWastePercent(10);
-      else if (pattern === "diagonal") setWastePercent(15);
-      else if (pattern === "trabadura") setWastePercent(12);
+    } else if (pattern === "directo") {
+      setWastePercent(10);
+    } else if (pattern === "diagonal") {
+      setWastePercent(15);
+    } else if (pattern === "trabadura") {
+      setWastePercent(12);
     }
   };
 
   // Cálculo en tiempo real de dimensiones, deducciones y desperdicios
   const areaDetails = useMemo(() => {
-    const l = parseFloat(length) || 0;
-    const w = parseFloat(width) || 0;
-    const h = parseFloat(height) || 0;
+    const l = Number.parseFloat(length) || 0;
+    const w = Number.parseFloat(width) || 0;
+    const h = Number.parseFloat(height) || 0;
 
-    let grossArea = 0;
-    if (type === "piso" || type === "techo") {
-      grossArea = l * w;
-    } else if (type === "pared") {
-      grossArea = w > 0 ? (l + w) * 2 * h : l * h;
-    } else if (type === "integral") {
-      grossArea = (l * w) + ((l + w) * 2 * h);
-    }
-
-    const doorsArea = (parseInt(deductDoors) || 0) * 2.0;
-    const windowsArea = (parseInt(deductWindows) || 0) * 1.5;
-    const customArea = parseFloat(customSubtractions) || 0;
+    const grossArea = calculateGrossArea(type, l, w, h);
+    const doorsArea = (Number.parseInt(deductDoors, 10) || 0) * 2.0;
+    const windowsArea = (Number.parseInt(deductWindows, 10) || 0) * 1.5;
+    const customArea = Number.parseFloat(customSubtractions) || 0;
     
     const totalDeductions = doorsArea + windowsArea + customArea;
     const netArea = Math.max(0.1, grossArea - totalDeductions);
@@ -222,36 +483,16 @@ function NuevoProyectoContent() {
 
   // Guardar proyecto (Crear o Actualizar)
   const handleSaveProject = async () => {
-    let isValid = true;
-    let missingFieldsMessage = "";
-
-    if (!name) {
-      isValid = false;
-      missingFieldsMessage = "Nombre del proyecto";
-    } else if (!length) {
-      isValid = false;
-      missingFieldsMessage = "Largo";
-    } else if ((type === "piso" || type === "techo") && !width) {
-      isValid = false;
-      missingFieldsMessage = "Ancho";
-    } else if (type === "pared" && !height) {
-      isValid = false;
-      missingFieldsMessage = "Alto";
-    } else if (type === "integral" && (!width || !height)) {
-      isValid = false;
-      missingFieldsMessage = !width ? "Ancho" : "Alto";
-    }
-
-    if (!isValid) {
+    const validation = validateProjectForm(name, type, length, width, height);
+    if (!validation.isValid && validation.missingFieldKey) {
       const fieldLabels: Record<string, string> = {
-        "Nombre del proyecto": t("projects.descriptive_name_label"),
-        "Largo": t("projects.length"),
-        "Ancho": t("projects.width"),
-        "Alto": t("projects.height")
+        name: t("projects.descriptive_name_label"),
+        length: t("projects.length"),
+        width: t("projects.width"),
+        height: t("projects.height"),
       };
-      const translatedField = fieldLabels[missingFieldsMessage] || missingFieldsMessage;
       showToast(
-        t("projects.required_field_alert").replace("{field}", translatedField),
+        t("projects.required_field_alert").replace("{field}", fieldLabels[validation.missingFieldKey]),
         "warning"
       );
       return;
@@ -262,17 +503,17 @@ function NuevoProyectoContent() {
       const payload = {
         name,
         type: type.toUpperCase(), // "PISO", "PARED", "TECHO", "INTEGRAL"
-        length: parseFloat(length) || null,
-        width: parseFloat(width) || null,
-        height: parseFloat(height) || null,
+        length: Number.parseFloat(length) || null,
+        width: Number.parseFloat(width) || null,
+        height: Number.parseFloat(height) || null,
         area: areaDetails.netArea, // Enviamos el área neta al backend para cálculos físicos exactos
         materialType,
         tileFormat,
         wastePercent,
         layingPattern,
-        deductDoors: parseInt(deductDoors) || 0,
-        deductWindows: parseInt(deductWindows) || 0,
-        customSubtractions: parseFloat(customSubtractions) || 0,
+        deductDoors: Number.parseInt(deductDoors, 10) || 0,
+        deductWindows: Number.parseInt(deductWindows, 10) || 0,
+        customSubtractions: Number.parseFloat(customSubtractions) || 0,
         includeAdhesive,
         includeGrout,
         includeSpacers,
@@ -577,7 +818,7 @@ function NuevoProyectoContent() {
                     max="30"
                     step="1"
                     value={wastePercent}
-                    onChange={(e) => setWastePercent(parseInt(e.target.value))}
+                    onChange={(e) => setWastePercent(Number.parseInt(e.target.value, 10))}
                     className="w-full h-2 bg-border rounded-lg appearance-none cursor-pointer accent-primary"
                   />
                   <div className="flex justify-between text-[10px] text-text-muted">
@@ -674,37 +915,40 @@ function NuevoProyectoContent() {
                 ) : (
                   <div className="space-y-3">
                     <div className="grid grid-cols-1 gap-2 max-h-56 overflow-y-auto">
-                      {filteredCatalogProducts.map((p) => (
-                        <label
-                          key={p.id}
-                          className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer hover:bg-bg-surface transition-all ${
-                            selectedProductId === p.id
-                              ? "border-primary bg-primary/5 shadow-sm font-semibold"
-                              : "border-border bg-bg-surface text-text-secondary"
-                          }`}
-                        >
-                          <input
-                            type="radio"
-                            name="catalog-product"
-                            value={p.id}
-                            checked={selectedProductId === p.id}
-                            onChange={() => setSelectedProductId(p.id)}
-                            className="sr-only"
-                          />
-                          <div className="w-4 h-4 rounded-full border border-border flex items-center justify-center">
-                            {selectedProductId === p.id && <div className="w-2.5 h-2.5 rounded-full bg-primary" />}
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="text-xs font-bold text-text-primary truncate">{p.name}</p>
-                            <p className="text-[10px] text-text-muted">
-                              {t("projects.sales_unit")}: <span className="font-bold text-primary">{t("admin.units.abbr_" + p.unit) === ("admin.units.abbr_" + p.unit) ? p.unit : t("admin.units.abbr_" + p.unit)}</span> | {t("projects.stock_count")}: {p.stockQuantity}
-                            </p>
-                          </div>
-                          <div className="text-right text-xs font-extrabold text-text-primary">
-                            ${p.price.toLocaleString(t("locale"))}/{t("admin.units.abbr_" + p.unit) === ("admin.units.abbr_" + p.unit) ? p.unit : t("admin.units.abbr_" + p.unit)}
-                          </div>
-                        </label>
-                      ))}
+                      {filteredCatalogProducts.map((p) => {
+                        const unitAbbr = t("admin.units.abbr_" + p.unit) === ("admin.units.abbr_" + p.unit) ? p.unit : t("admin.units.abbr_" + p.unit);
+                        return (
+                          <label
+                            key={p.id}
+                            className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer hover:bg-bg-surface transition-all ${
+                              selectedProductId === p.id
+                                ? "border-primary bg-primary/5 shadow-sm font-semibold"
+                                : "border-border bg-bg-surface text-text-secondary"
+                            }`}
+                          >
+                            <input
+                              type="radio"
+                              name="catalog-product"
+                              value={p.id}
+                              checked={selectedProductId === p.id}
+                              onChange={() => setSelectedProductId(p.id)}
+                              className="sr-only"
+                            />
+                            <div className="w-4 h-4 rounded-full border border-border flex items-center justify-center">
+                              {selectedProductId === p.id && <div className="w-2.5 h-2.5 rounded-full bg-primary" />}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-xs font-bold text-text-primary truncate">{p.name}</p>
+                              <p className="text-[10px] text-text-muted">
+                                {t("projects.sales_unit")}: <span className="font-bold text-primary">{unitAbbr}</span> | {t("projects.stock_count")}: {p.stockQuantity}
+                              </p>
+                            </div>
+                            <div className="text-right text-xs font-extrabold text-text-primary">
+                              ${p.price.toLocaleString(t("locale"))}/{unitAbbr}
+                            </div>
+                          </label>
+                        );
+                      })}
                     </div>
 
                     {selectedProductDetails && (
@@ -729,147 +973,36 @@ function NuevoProyectoContent() {
 
           {/* Contenido de Pestaña: Accesorios de Instalación */}
           {activeTab === "accessories" && (
-            <Card className="p-6 space-y-6">
-              <div>
-                <h2 className="text-xl font-bold text-text-primary flex items-center gap-2 mb-2">
-                  <LucideIcon name="Hammer" className="text-primary" />
-                  {t("projects.accessories_tools_title")}
-                </h2>
-                <p className="text-sm text-text-secondary">
-                  {t("projects.accessories_tools_desc")}
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                {materialType !== "pintura" && (
-                  <>
-                    <label className="flex items-center gap-3 p-4 bg-bg-surface-light border border-border rounded-lg cursor-pointer hover:bg-bg-surface transition-colors">
-                      <input
-                        type="checkbox"
-                        checked={includeAdhesive}
-                        onChange={(e) => setIncludeAdhesive(e.target.checked)}
-                        className="w-4 h-4 text-primary bg-bg-surface border-border rounded focus:ring-primary focus:ring-2"
-                      />
-                      <div className="flex-1">
-                        <span className="text-sm font-semibold text-text-primary block">{t("projects.adhesives_label")}</span>
-                        <span className="text-xs text-text-muted">{t("projects.adhesives_desc")}</span>
-                      </div>
-                    </label>
-
-                    <label className="flex items-center gap-3 p-4 bg-bg-surface-light border border-border rounded-lg cursor-pointer hover:bg-bg-surface transition-colors">
-                      <input
-                        type="checkbox"
-                        checked={includeGrout}
-                        onChange={(e) => setIncludeGrout(e.target.checked)}
-                        className="w-4 h-4 text-primary bg-bg-surface border-border rounded focus:ring-primary focus:ring-2"
-                      />
-                      <div className="flex-1">
-                        <span className="text-sm font-semibold text-text-primary block">{t("projects.grout_label")}</span>
-                        <span className="text-xs text-text-muted">{t("projects.grout_desc")}</span>
-                      </div>
-                    </label>
-
-                    <label className="flex items-center gap-3 p-4 bg-bg-surface-light border border-border rounded-lg cursor-pointer hover:bg-bg-surface transition-colors">
-                      <input
-                        type="checkbox"
-                        checked={includeSpacers}
-                        onChange={(e) => setIncludeSpacers(e.target.checked)}
-                        className="w-4 h-4 text-primary bg-bg-surface border-border rounded focus:ring-primary focus:ring-2"
-                      />
-                      <div className="flex-1">
-                        <span className="text-sm font-semibold text-text-primary block">{t("projects.spacers_label")}</span>
-                        <span className="text-xs text-text-muted">{t("projects.spacers_desc")}</span>
-                      </div>
-                    </label>
-                  </>
-                )}
-
-                <label className="flex items-center gap-3 p-4 bg-bg-surface-light border border-border rounded-lg cursor-pointer hover:bg-bg-surface transition-colors">
-                  <input
-                    type="checkbox"
-                    checked={includeTools}
-                    onChange={(e) => setIncludeTools(e.target.checked)}
-                    className="w-4 h-4 text-primary bg-bg-surface border-border rounded focus:ring-primary focus:ring-2"
-                  />
-                  <div className="flex-1">
-                    <span className="text-sm font-semibold text-text-primary block">{t("projects.tools_kit_label")}</span>
-                    <span className="text-xs text-text-muted">
-                      {materialType === "pintura"
-                        ? t("projects.tools_kit_paint_desc")
-                        : t("projects.tools_kit_tile_desc")}
-                    </span>
-                  </div>
-                </label>
-              </div>
-            </Card>
+            <AccessoriesTab
+              materialType={materialType}
+              includeAdhesive={includeAdhesive}
+              setIncludeAdhesive={setIncludeAdhesive}
+              includeGrout={includeGrout}
+              setIncludeGrout={setIncludeGrout}
+              includeSpacers={includeSpacers}
+              setIncludeSpacers={setIncludeSpacers}
+              includeTools={includeTools}
+              setIncludeTools={setIncludeTools}
+              t={t}
+            />
           )}
         </div>
 
         {/* Panel Lateral: Vista Previa y Resumen en Vivo */}
-        <div className="lg:col-span-4">
-          <div className="bg-bg-surface border border-border p-6 rounded-none sticky top-24 space-y-6 hover:shadow-md transition-shadow">
-            <div className="border-b border-border pb-4">
-              <h2 className="text-lg font-bold text-text-primary flex items-center gap-2">
-                <LucideIcon name="PieChart" className="text-primary" />
-                {t("projects.measurement_summary")}
-              </h2>
-            </div>
-
-            {/* Ficha Técnica de Área */}
-            <div className="space-y-3">
-              <div className="flex justify-between items-center text-sm text-text-secondary">
-                <span>{t("projects.gross_area_label")}</span>
-                <span className="font-bold text-text-primary">{areaDetails.grossArea.toFixed(2)} m²</span>
-              </div>
-              <div className="flex justify-between items-center text-sm text-text-secondary">
-                <span>{t("projects.deductions_label")}</span>
-                <span className="font-bold text-error">-{areaDetails.totalDeductions.toFixed(2)} m²</span>
-              </div>
-              <div className="flex justify-between items-center text-sm font-bold text-text-primary pt-2 border-t border-dashed border-border">
-                <span>{t("projects.net_area_label")}</span>
-                <span className="text-primary">{areaDetails.netArea.toFixed(2)} m²</span>
-              </div>
-              <div className="flex justify-between items-center text-sm text-text-secondary">
-                <span>{t("projects.waste_percent_label")} (+{wastePercent}%):</span>
-                <span className="font-bold text-text-primary">+{areaDetails.wasteAmount.toFixed(2)} m²</span>
-              </div>
-            </div>
-
-            {/* Placa Indicadora Principal de Área */}
-            <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl text-center">
-              <span className="text-xs font-bold text-text-secondary block mb-1">{t("projects.total_material_needed")}</span>
-              <span className="text-3xl font-extrabold text-primary tracking-tight">
-                {areaDetails.finalArea.toFixed(1)} m²
-              </span>
-              <span className="text-[10px] text-text-muted block mt-1">{t("projects.calculated_waste_desc")}</span>
-            </div>
-
-            {/* Sugerencias de Insumos según selecciones */}
-            <div className="text-xs space-y-2 bg-bg-surface-light p-3 rounded-lg border border-border text-text-secondary">
-              <p className="font-bold text-text-primary mb-1.5 flex items-center gap-1">
-                <LucideIcon name="Lightbulb" className="text-primary" size={14} />
-                {t("projects.supplies_included_title")}
-              </p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>{t("projects.supply_main_material")} {materialType !== "pintura" ? `(${t("projects.supply_format")}: ${tileFormat})` : `(${t("projects.supply_paint")})`}</li>
-                {materialType !== "pintura" && includeAdhesive && <li>{t("projects.supply_adhesive")}</li>}
-                {materialType !== "pintura" && includeGrout && <li>{t("projects.supply_grout")}</li>}
-                {materialType !== "pintura" && includeSpacers && <li>{t("projects.supply_spacers")}</li>}
-                {includeTools && <li>{t("projects.supply_tools")}</li>}
-              </ul>
-            </div>
-
-            {/* Acción de Guardado y Recalcular */}
-            <div className="pt-2">
-              <Button onClick={handleSaveProject} disabled={loading} size="lg" fullWidth>
-                {loading ? t("projects.calculating") : editId ? t("projects.recalculate_btn") : t("projects.calculate_btn")}
-              </Button>
-              <p className="text-[10px] text-text-muted text-center mt-2.5 leading-relaxed">
-                {t("projects.engineering_disclaimer")}
-              </p>
-            </div>
-          </div>
-        </div>
+        <LiveSummaryPanel
+          areaDetails={areaDetails}
+          wastePercent={wastePercent}
+          materialType={materialType}
+          tileFormat={tileFormat}
+          includeAdhesive={includeAdhesive}
+          includeGrout={includeGrout}
+          includeSpacers={includeSpacers}
+          includeTools={includeTools}
+          loading={loading}
+          editId={editId}
+          onSave={handleSaveProject}
+          t={t}
+        />
       </div>
     </div>
   );

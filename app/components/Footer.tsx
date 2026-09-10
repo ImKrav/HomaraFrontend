@@ -40,12 +40,18 @@ export default function Footer() {
               {t("footer.tagline")}
             </p>
             <div className="flex gap-3 mt-5">
-              {["instagram", "facebook", "twitter"].map((social) => (
+              {[
+                { name: "instagram", url: "https://instagram.com" },
+                { name: "facebook", url: "https://facebook.com" },
+                { name: "twitter", url: "https://twitter.com" },
+              ].map((social) => (
                 <a
-                  key={social}
-                  href="#"
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 flex items-center justify-center rounded-none bg-bg-surface-light text-text-secondary hover:bg-primary hover:text-bg-base transition-all duration-200"
-                  aria-label={social}
+                  aria-label={social.name}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

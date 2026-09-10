@@ -15,10 +15,15 @@ export interface ToastItem {
  * Dispara un evento personalizado global para mostrar un Toast.
  * Esto funciona en cualquier Client Component de React sin necesidad de hooks ni context.
  */
+let toastCounter = 0;
+
 export function showToast(message: string, type: ToastType = "info", duration = 4000) {
   if (typeof window !== "undefined") {
+    const id = typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+      ? crypto.randomUUID()
+      : `toast-${Date.now()}-${++toastCounter}`;
     const detail: ToastItem = {
-      id: typeof crypto !== "undefined" && typeof crypto.randomUUID === "function" ? crypto.randomUUID() : Math.random().toString(36).substring(2, 9),
+      id,
       message,
       type,
       duration

@@ -176,43 +176,16 @@ function translateWithFallback(t: (key: string) => string, key: string, fallback
   return val !== key ? val : fallback;
 }
 
-const EXACT_MATERIAL_NAMES: Record<string, { key: string; fallback: string }> = {
-  "Pegante cerámico flexible 25kg": {
-    key: "projects.supply_adhesive_flexible",
-    fallback: "Flexible Ceramic Adhesive 25kg",
-  },
-  "Boquilla": {
-    key: "projects.supply_grout_title",
-    fallback: "Grout",
-  },
-  "Crucetas 2mm": {
-    key: "projects.supply_spacers_title",
-    fallback: "Spacers 2mm",
-  },
-  "Cinta underlayment": {
-    key: "projects.supply_underlayment",
-    fallback: "Underlayment tape",
-  },
-  "Primer para vinilo": {
-    key: "projects.supply_vinyl_primer",
-    fallback: "Primer for vinyl",
-  },
-  "Kit Rodillo Antigoteo Profesional 23cm": {
-    key: "projects.supply_roller_kit",
-    fallback: "Professional Anti-Drip Roller Kit 23cm",
-  },
-  "Nivel de burbuja profesional 60cm": {
-    key: "projects.supply_bubble_level",
-    fallback: "Professional Bubble Level 60cm",
-  },
-  "Llana metálica dentada 10x10mm": {
-    key: "projects.supply_notched_trowel",
-    fallback: "Notched steel trowel 10x10mm",
-  },
-  "Mazo de goma blanco anti-marca": {
-    key: "projects.supply_rubber_mallet",
-    fallback: "White non-marking rubber mallet",
-  },
+const EXACT_MATERIAL_NAMES: Record<string, readonly [string, string]> = {
+  "Pegante cerámico flexible 25kg": ["projects.supply_adhesive_flexible", "Flexible Ceramic Adhesive 25kg"],
+  "Boquilla": ["projects.supply_grout_title", "Grout"],
+  "Crucetas 2mm": ["projects.supply_spacers_title", "Spacers 2mm"],
+  "Cinta underlayment": ["projects.supply_underlayment", "Underlayment tape"],
+  "Primer para vinilo": ["projects.supply_vinyl_primer", "Primer for vinyl"],
+  "Kit Rodillo Antigoteo Profesional 23cm": ["projects.supply_roller_kit", "Professional Anti-Drip Roller Kit 23cm"],
+  "Nivel de burbuja profesional 60cm": ["projects.supply_bubble_level", "Professional Bubble Level 60cm"],
+  "Llana metálica dentada 10x10mm": ["projects.supply_notched_trowel", "Notched steel trowel 10x10mm"],
+  "Mazo de goma blanco anti-marca": ["projects.supply_rubber_mallet", "White non-marking rubber mallet"],
 };
 
 const PREFIX_MATERIAL_NAMES: Array<{ prefix: string; key: string; fallback: string }> = [
@@ -251,7 +224,7 @@ export function translateMaterialName(name: string, t: (key: string) => string):
 
   const exact = EXACT_MATERIAL_NAMES[n];
   if (exact) {
-    return translateWithFallback(t, exact.key, exact.fallback);
+    return translateWithFallback(t, exact[0], exact[1]);
   }
 
   let translated = n;
@@ -264,59 +237,20 @@ export function translateMaterialName(name: string, t: (key: string) => string):
   return translated;
 }
 
-const EXACT_MATERIAL_NOTES: Record<string, { key: string; fallback: string }> = {
-  "Pegante real vinculado": {
-    key: "projects.note_adhesive_linked",
-    fallback: "Linked real adhesive: 1 bag per 4m²",
-  },
-  "25kg c/u (Rendimiento: 4m²/bulto)": {
-    key: "projects.note_adhesive_flexible_desc",
-    fallback: "25kg each (Yield: 4m²/bag)",
-  },
-  "Boquilla real vinculada": {
-    key: "projects.note_grout_linked",
-    fallback: "Linked real grout: 1 kg per 8m²",
-  },
-  "Rendimiento: 8m²/kg": {
-    key: "projects.note_grout_desc",
-    fallback: "Yield: 8m²/kg",
-  },
-  "100 unidades c/u (Rendimiento: 15m²/bolsa)": {
-    key: "projects.note_spacers_desc",
-    fallback: "100 units each (Yield: 15m²/bag)",
-  },
-  "20m² c/u (Aislamiento acústico y de humedad)": {
-    key: "projects.note_underlayment_desc",
-    fallback: "20m² each (Acoustic and moisture barrier)",
-  },
-  "15m² c/u (Adherencia óptima)": {
-    key: "projects.note_vinyl_primer_desc",
-    fallback: "15m² each (Optimal adhesion)",
-  },
-  "Incluye bandeja y felpa de microfibra": {
-    key: "projects.note_roller_kit_desc",
-    fallback: "Includes tray and microfiber roller sleeve",
-  },
-  "Para retoques y esquinas": {
-    key: "projects.note_fine_brush_desc",
-    fallback: "For touch-ups and corners",
-  },
-  "Para protección de bordes y zócalos": {
-    key: "projects.note_masking_tape_desc",
-    fallback: "For edge and baseboard protection",
-  },
-  "Para alineación exacta de la superficie": {
-    key: "projects.note_bubble_level_desc",
-    fallback: "For precise surface alignment",
-  },
-  "Para distribución correcta del pegante": {
-    key: "projects.note_notched_trowel_desc",
-    fallback: "For correct adhesive distribution",
-  },
-  "Para asentamiento de baldosas sin fracturas": {
-    key: "projects.note_rubber_mallet_desc",
-    fallback: "For tile settlement without cracks",
-  },
+const EXACT_MATERIAL_NOTES: Record<string, readonly [string, string]> = {
+  "Pegante real vinculado": ["projects.note_adhesive_linked", "Linked real adhesive: 1 bag per 4m²"],
+  "25kg c/u (Rendimiento: 4m²/bulto)": ["projects.note_adhesive_flexible_desc", "25kg each (Yield: 4m²/bag)"],
+  "Boquilla real vinculada": ["projects.note_grout_linked", "Linked real grout: 1 kg per 8m²"],
+  "Rendimiento: 8m²/kg": ["projects.note_grout_desc", "Yield: 8m²/kg"],
+  "100 unidades c/u (Rendimiento: 15m²/bolsa)": ["projects.note_spacers_desc", "100 units each (Yield: 15m²/bag)"],
+  "20m² c/u (Aislamiento acústico y de humedad)": ["projects.note_underlayment_desc", "20m² each (Acoustic and moisture barrier)"],
+  "15m² c/u (Adherencia óptima)": ["projects.note_vinyl_primer_desc", "15m² each (Optimal adhesion)"],
+  "Incluye bandeja y felpa de microfibra": ["projects.note_roller_kit_desc", "Includes tray and microfiber roller sleeve"],
+  "Para retoques y esquinas": ["projects.note_fine_brush_desc", "For touch-ups and corners"],
+  "Para protección de bordes y zócalos": ["projects.note_masking_tape_desc", "For edge and baseboard protection"],
+  "Para alineación exacta de la superficie": ["projects.note_bubble_level_desc", "For precise surface alignment"],
+  "Para distribución correcta del pegante": ["projects.note_notched_trowel_desc", "For correct adhesive distribution"],
+  "Para asentamiento de baldosas sin fracturas": ["projects.note_rubber_mallet_desc", "For tile settlement without cracks"],
 };
 
 function translateWastePattern(
@@ -386,7 +320,7 @@ export function translateMaterialNote(note: string | null, t: (key: string) => s
 
   const exact = EXACT_MATERIAL_NOTES[n];
   if (exact) {
-    return translateWithFallback(t, exact.key, exact.fallback);
+    return translateWithFallback(t, exact[0], exact[1]);
   }
 
   return note;

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Card from "@/app/components/ui/Card";
 import Badge from "@/app/components/ui/Badge";
-import Button from "@/app/components/ui/Button";
 import LucideIcon from "@/app/components/ui/LucideIcon";
 import { formatPrice, OrderDetail } from "@/app/lib/utils";
 import { api } from "@/app/lib/api";
@@ -11,39 +10,8 @@ import { showToast } from "@/app/lib/toast";
 import { useLanguage } from "@/app/context/LanguageContext";
 import Pagination from "@/app/components/ui/Pagination";
 import SearchInput from "@/app/components/ui/SearchInput";
-import OrderSummaryBreakdown from "@/app/components/OrderSummaryBreakdown";
 import { useOrderDetailsModal } from "@/app/hooks/useOrderDetailsModal";
-
-interface FullOrderDetailItem {
-  id: string;
-  productName: string;
-  productImage: string;
-  category: string;
-  quantity: number;
-  unitPrice: number;
-  total: number;
-}
-
-interface FullOrderDetail {
-  id: string;
-  dbId: string;
-  status: string;
-  subtotal: number;
-  shippingCost: number;
-  total: number;
-  paymentMethod: string;
-  shippingAddress: string | null;
-  shippingCity: string | null;
-  shippingState: string | null;
-  shippingZip: string | null;
-  shippingNotes: string | null;
-  createdAt: string;
-  customer: {
-    name: string;
-    email: string;
-  } | null;
-  items: FullOrderDetailItem[];
-}
+import OrderDetailModal, { FullOrderDetail } from "@/app/components/OrderDetailModal";
 
 export default function AdminPedidosPage() {
   const { t } = useLanguage();
@@ -99,8 +67,8 @@ export default function AdminPedidosPage() {
       order.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
       order.orderNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
       order.customer.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (order.shippingAddress && order.shippingAddress.toLowerCase().includes(searchQuery.toLowerCase())) ||
-      (order.shippingCity && order.shippingCity.toLowerCase().includes(searchQuery.toLowerCase()));
+      order.shippingAddress?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      order.shippingCity?.toLowerCase().includes(searchQuery.toLowerCase());
 
     // Status filter
     const matchesStatus =
@@ -111,7 +79,7 @@ export default function AdminPedidosPage() {
     let matchesDate = true;
     if (selectedDate) {
       const d = new Date(order.date);
-      if (!isNaN(d.getTime())) {
+      if (!Number.isNaN(d.getTime())) {
         const year = d.getFullYear();
         const month = String(d.getMonth() + 1).padStart(2, '0');
         const day = String(d.getDate()).padStart(2, '0');
@@ -383,223 +351,16 @@ export default function AdminPedidosPage() {
       )}
 
       {/* Order Detail Modal */}
-      {isDetailOpen && (
-        <div 
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in"
-          onClick={() => setIsDetailOpen(false)}
-        >
-          <div 
-            className="bg-bg-surface border border-border max-w-2xl w-full rounded-none shadow-2xl relative flex flex-col max-h-[90vh] overflow-hidden animate-slide-up"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Top decorative accent */}
-            <div className="absolute top-0 left-0 right-0 h-1.5 gradient-primary" />
-            
-            {/* Modal Header */}
-            <div className="p-6 border-b border-border flex items-center justify-between">
-              <div>
-                <span className="text-[10px] text-text-muted font-bold uppercase tracking-widest">{t("admin.control_panel")}</span>
-                <h3 className="text-xl font-bold text-text-primary tracking-tight">
-                  {selectedOrder ? `${t("admin.order_detail_title")} #${selectedOrder.id}` : t("admin.loading")}
-                </h3>
-              </div>
-              <button 
-                id="btn-close-modal"
-                onClick={() => setIsDetailOpen(false)}
-                className="text-text-muted hover:text-text-primary p-1.5 hover:bg-bg-surface-light transition-colors duration-200 cursor-pointer"
-              >
-                <LucideIcon name="Plus" className="rotate-45" size={18} />
-              </button>
-            </div>
-
-            {/* Modal Body */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-6">
-              {loadingDetail ? (
-                <div className="py-12 flex flex-col items-center justify-center gap-3">
-                  <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
-                  <p className="text-xs text-text-secondary">{t("admin.loading_detail")}</p>
-                </div>
-              ) : selectedOrder ? (
-                <>
-                  {/* General Info Grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 bg-bg-surface-light border border-border">
-                    <div>
-                      <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">{t("admin.date_col")}</p>
-                      <p className="text-sm font-semibold text-text-primary mt-1">
-                        {new Date(selectedOrder.createdAt).toLocaleDateString(t("locale"), {
-                          day: "numeric",
-                          month: "short",
-                          year: "numeric",
-                        })}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">{t("admin.current_status")}</p>
-                      <div className="mt-1">
-                        <Badge 
-                          variant={
-                            selectedOrder.status.toLowerCase() === "entregado"
-                              ? "success"
-                              : selectedOrder.status.toLowerCase() === "cancelado"
-                              ? "error"
-                              : selectedOrder.status.toLowerCase() === "enviado"
-                              ? "info"
-                              : "warning"
-                          } 
-                          size="sm"
-                        >
-                          {t(`status.${selectedOrder.status.toLowerCase()}`)}
-                        </Badge>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">{t("admin.payment_method")}</p>
-                      <p className="text-sm font-semibold text-text-primary mt-1 uppercase text-[10px] tracking-wide">
-                        {selectedOrder.paymentMethod ? t(`admin.payment_methods.${selectedOrder.paymentMethod}`) : t("admin.payment_methods.unspecified")}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">{t("admin.total_transaction")}</p>
-                      <p className="text-sm font-black text-primary mt-1">
-                        {formatPrice(selectedOrder.total)}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Customer and Shipping Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {/* Customer */}
-                    <div className="space-y-2">
-                      <h4 className="text-xs font-bold text-text-primary uppercase tracking-wider flex items-center gap-1.5">
-                        <LucideIcon name="User" size={14} className="text-primary" />
-                        {t("admin.customer_info")}
-                      </h4>
-                      <div className="p-4 border border-border space-y-1.5 text-xs bg-bg-surface-light/40 h-full">
-                        <p className="text-text-secondary">
-                          <strong className="text-text-primary font-semibold">{t("admin.name_label")}:</strong> {selectedOrder.customer?.name || t("admin.order_errors.unknown_customer")}
-                        </p>
-                        <p className="text-text-secondary">
-                          <strong className="text-text-primary font-semibold">{t("auth.email")}:</strong> {selectedOrder.customer?.email || t("admin.order_errors.unknown_customer")}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Shipping Address */}
-                    <div className="space-y-2">
-                      <h4 className="text-xs font-bold text-text-primary uppercase tracking-wider flex items-center gap-1.5">
-                        <LucideIcon name="Home" size={14} className="text-primary" />
-                        {t("admin.shipping_address")}
-                      </h4>
-                      <div className="p-4 border border-border space-y-1.5 text-xs bg-bg-surface-light/40 h-full">
-                        <p className="text-text-secondary">
-                          <strong className="text-text-primary font-semibold">{t("admin.address_label")}:</strong> {selectedOrder.shippingAddress || t("admin.order_errors.not_specified_address")}
-                        </p>
-                        <p className="text-text-secondary">
-                          <strong className="text-text-primary font-semibold">{t("admin.city_state_label")}:</strong> {selectedOrder.shippingCity ? `${selectedOrder.shippingCity}, ${selectedOrder.shippingState || ""}` : t("admin.order_errors.not_specified_city")}
-                        </p>
-                        {selectedOrder.shippingZip && (
-                          <p className="text-text-secondary">
-                            <strong className="text-text-primary font-semibold">{t("admin.zip_label")}:</strong> {selectedOrder.shippingZip}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Shipping Notes if any */}
-                  {selectedOrder.shippingNotes && (
-                    <div className="p-3 bg-primary/5 border-l-2 border-primary text-xs text-text-secondary italic">
-                      <span className="font-bold block text-text-primary not-italic uppercase tracking-wider text-[9px] mb-1">{t("admin.delivery_notes")}:</span>
-                      &ldquo;{selectedOrder.shippingNotes}&rdquo;
-                    </div>
-                  )}
-
-                  {/* Status Changer */}
-                  <div className="p-4 border border-border/80 bg-bg-surface-light/20 flex flex-col gap-3">
-                    <div className="flex flex-col gap-1.5">
-                      <label htmlFor="select-order-status" className="text-xs font-bold text-text-primary uppercase tracking-wider">
-                        {t("admin.modify_status")}
-                      </label>
-                      <select
-                        id="select-order-status"
-                        value={selectedOrder.status}
-                        onChange={(e) => handleStatusChange(e.target.value)}
-                        disabled={updatingStatus}
-                        className="w-full bg-bg-surface border border-border px-4 py-2.5 text-sm font-semibold text-text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all duration-200 cursor-pointer rounded-none"
-                      >
-                        <option value="pendiente">{t("status.pendiente")}</option>
-                        <option value="procesando">{t("status.procesando")}</option>
-                        <option value="enviado">{t("status.enviado")}</option>
-                        <option value="entregado">{t("status.entregado")}</option>
-                        <option value="cancelado">{t("status.cancelado")}</option>
-                      </select>
-                    </div>
-                    {updatingStatus && (
-                      <p className="text-[10px] text-primary animate-pulse font-medium">{t("admin.updating_db")}</p>
-                    )}
-                  </div>
-
-                  {/* Order Items */}
-                  <div className="space-y-2">
-                    <h4 className="text-xs font-bold text-text-primary uppercase tracking-wider flex items-center gap-1.5">
-                      <LucideIcon name="Package" size={14} className="text-primary" />
-                      {t("admin.order_items")}
-                    </h4>
-                    <div className="border border-border divide-y divide-border overflow-hidden max-h-60 overflow-y-auto">
-                      {selectedOrder.items.map((item) => (
-                        <div key={item.id} className="p-3.5 flex gap-4 items-center bg-bg-surface-light/20 hover:bg-bg-surface-light/40 transition-colors">
-                          <div className="w-10 h-10 flex-shrink-0 bg-primary/10 text-primary border border-primary/20 flex items-center justify-center font-bold">
-                            <LucideIcon name={item.category === "Pisos y Cerámicas" ? "Layers" : "Package"} size={18} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h5 className="text-sm font-bold text-text-primary truncate">{item.productName}</h5>
-                            <p className="text-xs text-text-muted mt-0.5">{t(`categories.${item.category}`) || item.category}</p>
-                          </div>
-                          <div className="text-right flex-shrink-0">
-                            <p className="text-sm font-bold text-text-primary">{formatPrice(item.total)}</p>
-                            <p className="text-xs text-text-muted mt-0.5 font-mono">
-                              {item.quantity} x {formatPrice(item.unitPrice)}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Summary Breakdown */}
-                  <OrderSummaryBreakdown
-                    subtotal={selectedOrder.subtotal}
-                    shippingCost={selectedOrder.shippingCost}
-                    total={selectedOrder.total}
-                    labels={{
-                      subtotal: t("admin.subtotal_items"),
-                      shipping: t("admin.shipping_cost"),
-                      freeShipping: t("admin.free_shipping"),
-                      total: t("admin.grand_total"),
-                    }}
-                  />
-                </>
-              ) : (
-                <div className="py-12 text-center text-sm text-error">
-                  {t("admin.order_errors.info_error")}
-                </div>
-              )}
-            </div>
-            
-            {/* Modal Footer */}
-            <div className="p-4 border-t border-border bg-bg-surface-light/40 flex justify-end">
-              <Button 
-                variant="outline" 
-                size="sm" 
-                onClick={() => setIsDetailOpen(false)}
-                className="cursor-pointer rounded-none"
-              >
-                {t("admin.close_btn")}
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
+      <OrderDetailModal
+        isOpen={isDetailOpen}
+        onClose={() => setIsDetailOpen(false)}
+        order={selectedOrder}
+        loading={loadingDetail}
+        portalSubtitle={t("admin.control_panel")}
+        closeBtnLabel={t("admin.close_btn")}
+        onStatusChange={handleStatusChange}
+        updatingStatus={updatingStatus}
+      />
     </div>
   );
 }
