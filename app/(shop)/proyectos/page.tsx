@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import ProjectCard from "@/app/components/ProjectCard";
 import Button from "@/app/components/ui/Button";
+import AuthRequiredState from "@/app/components/AuthRequiredState";
 import Link from "next/link";
 import LucideIcon from "@/app/components/ui/LucideIcon";
 import { Project } from "@/app/lib/utils";
@@ -44,25 +45,13 @@ export default function ProyectosPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-20 text-center">
-        <div className="text-text-muted mb-4 flex justify-center">
-          <LucideIcon name="Maximize2" size={64} />
-        </div>
-        <h3 className="text-xl font-bold text-text-primary mb-2 tracking-tight">
-          {t("projects.login_required")}
-        </h3>
-        <p className="text-text-secondary max-w-md mx-auto mb-8 text-sm">
-          {t("projects.login_required_desc")}
-        </p>
-        <div className="flex justify-center gap-4">
-          <Button href="/login" size="md" className="rounded-none">
-            {t("projects.start_login")}
-          </Button>
-          <Button href="/register" variant="outline" size="md" className="rounded-none">
-            {t("projects.start_register")}
-          </Button>
-        </div>
-      </div>
+      <AuthRequiredState
+        icon="Maximize2"
+        title={t("projects.login_required")}
+        description={t("projects.login_required_desc")}
+        loginButtonLabel={t("projects.start_login")}
+        registerButtonLabel={t("projects.start_register")}
+      />
     );
   }
 
