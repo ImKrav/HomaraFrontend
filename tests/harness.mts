@@ -10,96 +10,25 @@
 //   npm test -- tests/api.test.mts  # un archivo
 //   npm test -- -t api-url-02       # un caso por id
 //
-// Las aserciones siguen siendo las de `node:assert/strict` envueltas en nombres
-// cortos: funcionan igual dentro de Vitest. Para casos nuevos también se
-// re-exporta `expect` y `vi`.
+// Las aserciones son fluidas (fluent assertions) con el `expect` de Vitest:
+//
+//   expect(url).toBe("http://localhost:5000/api/v1/products")
+//   expect(error).toBeInstanceOf(Error)
+//   expect(texto).toContain("38.900")
+//
+// Acá solo quedan `test` y los capturadores `grab`/`grabSync`, que se usan en
+// el Act para que el Assert inspeccione el error con `expect`.
 // ============================================================================
 
 import { it } from "vitest";
-import {
-  deepStrictEqual,
-  strictEqual,
-  notStrictEqual,
-  ok as nodeOk,
-  match as nodeMatch,
-} from "node:assert/strict";
 
 export { expect, vi, describe, beforeEach, afterEach, beforeAll, afterAll } from "vitest";
 
 export type TestFn = () => void | Promise<void>;
 
-let softErrors: string[] = [];
-
-/**
- * Aserción "blanda": registra el fallo pero no aborta el caso, para poder
- * documentar varios defectos en un mismo test (equivale a `expect.soft`).
- * Al final del caso, si hubo alguno, el caso se marca como fallido.
- */
-export function soft(fn: () => void): void {
-  try {
-    fn();
-  } catch (e) {
-    softErrors.push(e instanceof Error ? e.message : String(e));
-  }
-}
-
 /** Registra un caso en Vitest. El `id` identifica el caso (api-url-02, mat-note-04…). */
 export function test(id: string, desc: string, fn: TestFn): void {
-  it(`${id}  ${desc}`, async () => {
-    softErrors = [];
-    await fn();
-    if (softErrors.length) {
-      const fallos = softErrors;
-      softErrors = [];
-      throw new Error(fallos.join("\n       ---\n"));
-    }
-  });
-}
-
-// --- Aserciones -------------------------------------------------------------
-
-/** Igualdad profunda (objetos, arrays, primitivos). */
-export const eq = (actual: unknown, esperado: unknown, msg?: string) =>
-  deepStrictEqual(actual, esperado, msg);
-
-/** Igualdad estricta por referencia / primitivo (===). */
-export const is = (actual: unknown, esperado: unknown, msg?: string) =>
-  strictEqual(actual, esperado, msg);
-
-/** Desigualdad estricta (!==). */
-export const isNot = (actual: unknown, esperado: unknown, msg?: string) =>
-  notStrictEqual(actual, esperado, msg);
-
-/** El valor es truthy. */
-export const ok = (valor: unknown, msg?: string) => nodeOk(valor, msg);
-
-/** El string cumple la expresión regular. */
-export const matches = (texto: string, re: RegExp, msg?: string) =>
-  nodeMatch(texto, re, msg);
-
-/** `contenedor` (string o array) incluye `parte`. */
-export function has(contenedor: string | readonly unknown[], parte: unknown, msg?: string) {
-  const dentro =
-    typeof contenedor === "string"
-      ? contenedor.includes(parte as string)
-      : contenedor.includes(parte);
-  nodeOk(dentro, msg ?? `Se esperaba encontrar ${rep(parte)} en ${rep(contenedor)}`);
-}
-
-/** `contenedor` (string o array) NO incluye `parte`. */
-export function hasNot(contenedor: string | readonly unknown[], parte: unknown, msg?: string) {
-  const dentro =
-    typeof contenedor === "string"
-      ? contenedor.includes(parte as string)
-      : contenedor.includes(parte);
-  nodeOk(!dentro, msg ?? `No se esperaba ${rep(parte)} en ${rep(contenedor)}`);
-}
-
-/** `actual` contiene al menos las claves/valores de `esperado` (match parcial). */
-export function subset(actual: Record<string, unknown>, esperado: Record<string, unknown>, msg?: string) {
-  for (const clave of Object.keys(esperado)) {
-    deepStrictEqual(actual?.[clave], esperado[clave], msg ?? `Campo "${clave}"`);
-  }
+  it(`${id}  ${desc}`, fn);
 }
 
 // --- Captura de errores ---------------------------------------------------
@@ -122,12 +51,4 @@ export function grabSync(fn: () => unknown): any {
     return e;
   }
   throw new Error("Se esperaba un error y la función no lanzó.");
-}
-
-function rep(v: unknown): string {
-  try {
-    return JSON.stringify(v);
-  } catch {
-    return String(v);
-  }
 }

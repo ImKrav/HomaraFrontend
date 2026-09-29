@@ -1,8 +1,8 @@
 # Pruebas del frontend
 
 Suite sobre **Vitest**, mismo enfoque que el backend: los dobles son mocks de
-Vitest (`vi.fn()`, `vi.stubGlobal`) y las aserciones de valor van con los
-helpers cortos sobre `node:assert/strict`. Sin jsdom — los globales del
+Vitest (`vi.fn()`, `vi.stubGlobal`) y todas las aserciones son fluidas, con el
+`expect` de Vitest (`expect(x).toBe(y)`). Sin jsdom — los globales del
 navegador se instalan a mano.
 
 Alcance: **solo la lógica pura de `app/lib/`**. No hay renderizado de React.
@@ -19,8 +19,8 @@ test("fmt-01", "Formatea pesos enteros sin decimales", () => {
   const formateado = formatPrice(precio);
 
   // Assert
-  is(soloDigitos(formateado), "38900");
-  has(formateado, "38.900"); // separador de miles es punto (es-CO)
+  expect(soloDigitos(formateado)).toBe("38900");
+  expect(formateado).toContain("38.900"); // separador de miles es punto (es-CO)
 });
 ```
 
@@ -59,7 +59,7 @@ imports `"./x.mjs"` / `"../app/lib/x.js"` a los `.mts` / `.ts` reales.
 | Archivo | Rol |
 |---|---|
 | `vitest.config.mts` | `include: tests/**/*.test.mts`, cobertura v8 sobre `app/lib`, alias de extensiones. |
-| `tests/harness.mts` | `test(id, desc, fn)` → `it()` de Vitest, aserciones (`is`, `eq`, `ok`, `has`, `grab`, `soft`), re-export de `expect` / `vi`. Igual que el del backend. |
+| `tests/harness.mts` | `test(id, desc, fn)` → `it()` de Vitest, `grab`/`grabSync` para capturar errores en el Act, re-export de `expect` / `vi` (aserciones fluidas). Igual que el del backend. |
 | `tests/helpers.mts` | `instalarNavegador()` (fakes de `window` + `localStorage`), `instalarFetch()` (reemplaza `fetch` por un `vi.fn()` vía `vi.stubGlobal`, inspeccionable con `.mock.calls`), `tIdentidad` / `tDiccionario` (traductores de prueba). |
 
 No hay `run-all.mts`: Vitest descubre los archivos por el `include` del config.

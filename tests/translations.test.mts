@@ -2,7 +2,7 @@
 //
 // Patrón AAA en cada caso: Arrange / Act / Assert.
 
-import { test, is, ok } from "./harness.mjs";
+import { test, expect } from "./harness.mjs";
 import { translations } from "../app/lib/translations.js";
 
 test("i18n-01", "translations exporta idiomas es y en", () => {
@@ -13,7 +13,7 @@ test("i18n-01", "translations exporta idiomas es y en", () => {
   const idiomas = Object.keys(translations);
 
   // Assert
-  for (const idioma of esperados) ok(idiomas.includes(idioma), `Falta el idioma ${idioma}`);
+  for (const idioma of esperados) expect(idiomas, `Falta el idioma ${idioma}`).toContain(idioma);
 });
 
 test("i18n-02", "códigos de locale válidos para es y en", () => {
@@ -24,8 +24,8 @@ test("i18n-02", "códigos de locale válidos para es y en", () => {
   const locales = { es: translations.es.locale, en: translations.en.locale };
 
   // Assert
-  is(locales.es, esperados.es);
-  is(locales.en, esperados.en);
+  expect(locales.es).toBe(esperados.es);
+  expect(locales.en).toBe(esperados.en);
 });
 
 test("i18n-03", "secciones principales presentes en ambos diccionarios", () => {
@@ -38,7 +38,7 @@ test("i18n-03", "secciones principales presentes en ambos diccionarios", () => {
 
   // Assert
   for (const s of secciones) {
-    ok(enEs.includes(s), `Falta sección ${s} en es`);
-    ok(enEn.includes(s), `Falta sección ${s} en en`);
+    expect(enEs, `Falta sección ${s} en es`).toContain(s);
+    expect(enEn, `Falta sección ${s} en en`).toContain(s);
   }
 });

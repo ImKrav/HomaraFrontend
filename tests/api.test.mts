@@ -4,7 +4,7 @@
 // y el `fetch` falsos y los restaura al terminar; dentro del callback van el
 // Act (la llamada al cliente) y el Assert.
 
-import { test, is, ok, eq, has, grab, vi } from "./harness.mjs";
+import { test, expect, grab, vi } from "./harness.mjs";
 import { instalarNavegador, instalarFetch, type Entorno } from "./helpers.mjs";
 
 // El módulo lee NEXT_PUBLIC_API_URL una sola vez al cargar: fijarlo antes.
@@ -40,7 +40,7 @@ test("api-url-01", "Une el endpoint relativo con NEXT_PUBLIC_API_URL", async () 
     await api.get("/products");
 
     // Assert
-    is(urlLlamada(fetch), `${BASE}/products`);
+    expect(urlLlamada(fetch)).toBe(`${BASE}/products`);
   });
 });
 
@@ -51,7 +51,7 @@ test("api-url-02", "Quita el prefijo de versión /api/v1/ hardcodeado en el llam
     await apiFetch("/api/v1/products");
 
     // Assert
-    is(urlLlamada(fetch), `${BASE}/products`);
+    expect(urlLlamada(fetch)).toBe(`${BASE}/products`);
   });
 });
 
@@ -62,7 +62,7 @@ test("api-url-03", "Quita cualquier /api/vN/ (ej. /api/v2/)", async () => {
     await apiFetch("/api/v2/orders/42");
 
     // Assert
-    is(urlLlamada(fetch), `${BASE}/orders/42`);
+    expect(urlLlamada(fetch)).toBe(`${BASE}/orders/42`);
   });
 });
 
@@ -73,7 +73,7 @@ test("api-url-04", "Quita el prefijo /api/ sin versión", async () => {
     await apiFetch("/api/cart");
 
     // Assert
-    is(urlLlamada(fetch), `${BASE}/cart`);
+    expect(urlLlamada(fetch)).toBe(`${BASE}/cart`);
   });
 });
 
@@ -84,7 +84,7 @@ test("api-url-05", "Agrega la barra inicial si el endpoint no la trae", async ()
     await apiFetch("products");
 
     // Assert
-    is(urlLlamada(fetch), `${BASE}/products`);
+    expect(urlLlamada(fetch)).toBe(`${BASE}/products`);
   });
 });
 
@@ -95,7 +95,7 @@ test("api-url-06", "Deja pasar una URL absoluta sin tocarla", async () => {
     await apiFetch("https://cdn.ejemplo.com/data.json");
 
     // Assert
-    is(urlLlamada(fetch), "https://cdn.ejemplo.com/data.json");
+    expect(urlLlamada(fetch)).toBe("https://cdn.ejemplo.com/data.json");
   });
 });
 
@@ -108,8 +108,8 @@ test("api-hdr-01", "Pone Content-Type application/json cuando hay cuerpo", async
     await api.post("/reviews", { rating: 5 });
 
     // Assert
-    is(optsLlamada(fetch).headers.get("Content-Type"), "application/json");
-    is(optsLlamada(fetch).body, JSON.stringify({ rating: 5 }));
+    expect(optsLlamada(fetch).headers.get("Content-Type")).toBe("application/json");
+    expect(optsLlamada(fetch).body).toBe(JSON.stringify({ rating: 5 }));
   });
 });
 
@@ -120,7 +120,7 @@ test("api-hdr-02", "No pone Content-Type en peticiones sin cuerpo", async () => 
     await api.get("/products");
 
     // Assert
-    is(optsLlamada(fetch).headers.get("Content-Type"), null);
+    expect(optsLlamada(fetch).headers.get("Content-Type")).toBe(null);
   });
 });
 
@@ -131,7 +131,7 @@ test("api-hdr-03", "Respeta un Content-Type explícito del llamador", async () =
     await apiFetch("/upload", { method: "POST", body: "x", headers: { "Content-Type": "text/plain" } });
 
     // Assert
-    is(optsLlamada(fetch).headers.get("Content-Type"), "text/plain");
+    expect(optsLlamada(fetch).headers.get("Content-Type")).toBe("text/plain");
   });
 });
 
@@ -142,7 +142,7 @@ test("api-hdr-04", "Adjunta el token JWT de localStorage como Bearer", async () 
     await api.get("/cuenta");
 
     // Assert
-    is(optsLlamada(fetch).headers.get("Authorization"), "Bearer tok_123");
+    expect(optsLlamada(fetch).headers.get("Authorization")).toBe("Bearer tok_123");
   });
 });
 
@@ -153,7 +153,7 @@ test("api-hdr-05", "No manda Authorization si no hay token guardado", async () =
     await api.get("/products");
 
     // Assert
-    is(optsLlamada(fetch).headers.get("Authorization"), null);
+    expect(optsLlamada(fetch).headers.get("Authorization")).toBe(null);
   });
 });
 
@@ -166,7 +166,7 @@ test("api-res-01", "Devuelve el JSON parseado cuando la respuesta es OK", async 
     const r = await api.get("/products");
 
     // Assert
-    eq(r, { data: [1, 2, 3] });
+    expect(r).toStrictEqual({ data: [1, 2, 3] });
   });
 });
 
@@ -177,7 +177,7 @@ test("api-res-02", "Lanza con el mensaje del campo `error` del cuerpo en respues
     const e = await grab(api.post("/orders", {}));
 
     // Assert
-    is((e as Error).message, "Carrito vacío");
+    expect((e as Error).message).toBe("Carrito vacío");
   });
 });
 
@@ -190,8 +190,8 @@ test("api-res-03", "Lanza con mensaje genérico si el cuerpo de error no es JSON
       const e = await grab(api.get("/products"));
 
       // Assert
-      has((e as Error).message, "500");
-      has((e as Error).message, "Internal Server Error");
+      expect((e as Error).message).toContain("500");
+      expect((e as Error).message).toContain("Internal Server Error");
     },
   );
 });
@@ -205,10 +205,10 @@ test("api-res-04", "En 401 borra el token y despacha el evento auth:401", async 
       const e = await grab(api.get("/cuenta"));
 
       // Assert
-      is((e as Error).message, "no autorizado");
-      is(env.store.has("homara_token"), false);
-      is(env.eventos.length, 1);
-      is(env.eventos[0].type, "auth:401");
+      expect((e as Error).message).toBe("no autorizado");
+      expect(env.store.has("homara_token")).toBe(false);
+      expect(env.eventos.length).toBe(1);
+      expect(env.eventos[0].type).toBe("auth:401");
     },
   );
 });
@@ -222,8 +222,8 @@ test("api-res-05", "En error que no es 401 no toca el token ni despacha evento",
       await grab(api.get("/products"));
 
       // Assert
-      is(env.store.get("homara_token"), "tok_vivo");
-      is(env.eventos.length, 0);
+      expect(env.store.get("homara_token")).toBe("tok_vivo");
+      expect(env.eventos.length).toBe(0);
     },
   );
 });
@@ -237,8 +237,8 @@ test("api-verbo-01", "api.put manda método PUT y cuerpo serializado", async () 
     await api.put("/projects/1", { name: "Cocina" });
 
     // Assert
-    is(optsLlamada(fetch).method, "PUT");
-    is(optsLlamada(fetch).body, JSON.stringify({ name: "Cocina" }));
+    expect(optsLlamada(fetch).method).toBe("PUT");
+    expect(optsLlamada(fetch).body).toBe(JSON.stringify({ name: "Cocina" }));
   });
 });
 
@@ -249,7 +249,7 @@ test("api-verbo-02", "api.delete manda método DELETE sin cuerpo", async () => {
     await api.delete("/cart/items/9");
 
     // Assert
-    is(optsLlamada(fetch).method, "DELETE");
-    ok(!optsLlamada(fetch).body);
+    expect(optsLlamada(fetch).method).toBe("DELETE");
+    expect(optsLlamada(fetch).body).toBeFalsy();
   });
 });

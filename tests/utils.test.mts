@@ -5,7 +5,7 @@
 // Los casos de tabla comparan por índice para que el mensaje de fallo diga
 // cuál entrada falló.
 
-import { test, is, has } from "./harness.mjs";
+import { test, expect } from "./harness.mjs";
 import { tIdentidad, tDiccionario } from "./helpers.mjs";
 import {
   formatPrice,
@@ -19,7 +19,7 @@ const soloDigitos = (s: string) => s.replace(/[^\d]/g, "");
 
 /** Comprueba una tabla de [entrada, esperado] contra los valores obtenidos. */
 function comprobarTabla(casos: Array<[unknown, unknown]>, obtenidos: unknown[]) {
-  casos.forEach(([entrada, esperado], i) => is(obtenidos[i], esperado, `entrada: ${JSON.stringify(entrada)}`));
+  casos.forEach(([entrada, esperado], i) => expect(obtenidos[i], `entrada: ${JSON.stringify(entrada)}`).toBe(esperado));
 }
 
 // --- formatPrice ---------------------------------------------------
@@ -32,8 +32,8 @@ test("fmt-01", "Formatea pesos enteros sin decimales", () => {
   const formateado = formatPrice(precio);
 
   // Assert
-  is(soloDigitos(formateado), "38900");
-  has(formateado, "38.900"); // separador de miles es punto (es-CO)
+  expect(soloDigitos(formateado)).toBe("38900");
+  expect(formateado).toContain("38.900"); // separador de miles es punto (es-CO)
 });
 
 test("fmt-02", "Cero se formatea como 0 sin decimales", () => {
@@ -44,7 +44,7 @@ test("fmt-02", "Cero se formatea como 0 sin decimales", () => {
   const formateado = formatPrice(precio);
 
   // Assert
-  is(soloDigitos(formateado), "0");
+  expect(soloDigitos(formateado)).toBe("0");
 });
 
 test("fmt-03", "Millones llevan separador de miles", () => {
@@ -55,8 +55,8 @@ test("fmt-03", "Millones llevan separador de miles", () => {
   const formateado = formatPrice(precio);
 
   // Assert
-  is(soloDigitos(formateado), "1234567");
-  has(formateado, "1.234.567");
+  expect(soloDigitos(formateado)).toBe("1234567");
+  expect(formateado).toContain("1.234.567");
 });
 
 // --- getStatusLabel ---------------------------------------------
@@ -89,7 +89,7 @@ test("status-label-02", "Devuelve el valor original si el estado no está en el 
   const etiqueta = getStatusLabel(estado);
 
   // Assert
-  is(etiqueta, "estado_raro");
+  expect(etiqueta).toBe("estado_raro");
 });
 
 test("status-label-03", "Cadena vacía devuelve cadena vacía", () => {
@@ -102,8 +102,8 @@ test("status-label-03", "Cadena vacía devuelve cadena vacía", () => {
   const deNula = getStatusLabel(nula);
 
   // Assert
-  is(deVacia, "");
-  is(deNula, null as unknown as string);
+  expect(deVacia).toBe("");
+  expect(deNula).toBe(null as unknown as string);
 });
 
 // --- getStatusColor -------------------------------------------
@@ -236,8 +236,8 @@ test("mat-name-05", "Revestimiento dinámico: reemplaza superficie y sufijo Pare
   const conFallback = translateMaterialName("Porcelanato Pared 60x60", tIdentidad);
 
   // Assert
-  is(conDiccionario, "Ceramic Wall 80x80 cm");
-  is(conFallback, "Porcelain Wall 60x60"); // fallback en inglés cuando no hay traducción
+  expect(conDiccionario).toBe("Ceramic Wall 80x80 cm");
+  expect(conFallback).toBe("Porcelain Wall 60x60"); // fallback en inglés cuando no hay traducción
 });
 
 test("mat-name-06", "Nombre no reconocido pasa sin cambios", () => {
@@ -248,7 +248,7 @@ test("mat-name-06", "Nombre no reconocido pasa sin cambios", () => {
   const traducido = translateMaterialName(nombre, tIdentidad);
 
   // Assert
-  is(traducido, "Tornillos autoperforantes surtidos");
+  expect(traducido).toBe("Tornillos autoperforantes surtidos");
 });
 
 // --- translateMaterialNote ---------------------------------
@@ -261,7 +261,7 @@ test("mat-note-01", "Nota nula devuelve null", () => {
   const traducida = translateMaterialNote(nota, tIdentidad);
 
   // Assert
-  is(traducida, null);
+  expect(traducida).toBe(null);
 });
 
 test("mat-note-02", "Extrae el % de desperdicio y usa el fallback en inglés", () => {
@@ -345,5 +345,5 @@ test("mat-note-05", "Nota sin patrón conocido pasa sin cambios", () => {
   const traducida = translateMaterialNote(nota, tIdentidad);
 
   // Assert
-  is(traducida, "Nota totalmente inventada");
+  expect(traducida).toBe("Nota totalmente inventada");
 });
