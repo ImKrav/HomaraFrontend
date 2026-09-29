@@ -8,7 +8,7 @@ def inNode(String cmd, String extraEnv = '') {
           -w "\$WORKSPACE" \\
           -e HOME="\$WORKSPACE" \\
           -e npm_config_cache="\$WORKSPACE/.npm" \\
-          -e DATABASE_URL -e JWT_SECRET -e CI \\
+          -e NEXT_PUBLIC_API_URL -e NEXT_TELEMETRY_DISABLED -e CI \\
           ${extraEnv} \\
           node:20-alpine sh -c '${cmd}'
     """
@@ -24,6 +24,9 @@ pipeline {
     }
 
     parameters {
+        string(name: 'API_URL',
+               defaultValue: 'http://localhost:5000/api/v1',
+               description: 'NEXT_PUBLIC_API_URL (se inlinea en el bundle durante el build)')
         booleanParam(name: 'RUN_SONAR', defaultValue: true,
                      description: 'Ejecutar análisis en SonarQube local')
         string(name: 'SONARQUBE_JENKINS_SERVER',
@@ -37,11 +40,10 @@ pipeline {
     }
 
     environment {
-        IMAGE_NAME   = 'homara-backend'
-        CI           = 'true'
-        // Valores ficticios solo para CI: prisma generate y los tests no se conectan a una BD real
-        DATABASE_URL = 'postgresql://postgres:postgres@localhost:5432/homara?schema=public'
-        JWT_SECRET   = 'jenkins_ci_secret'
+        IMAGE_NAME              = 'homara-frontend'
+        NEXT_PUBLIC_API_URL     = "${params.API_URL}"
+        NEXT_TELEMETRY_DISABLED = '1'
+        CI                      = 'true'
     }
 
     stages {
@@ -52,19 +54,27 @@ pipeline {
             }
         }
 
-        stage('Tests + cobertura (Vitest)') {
-            steps {
-                // Incluye prisma generate (definido en el script test:coverage)
-                script { inNode('npm run test:coverage') }
-            }
-            post {
-                always {
-                    archiveArtifacts artifacts: 'coverage/**', allowEmptyArchive: true
+        stage('Lint y pruebas') {
+            parallel {
+                stage('Lint (ESLint)') {
+                    steps {
+                        script { inNode('npm run lint') }
+                    }
+                }
+                stage('Tests + cobertura (Vitest)') {
+                    steps {
+                        script { inNode('npm run test:coverage') }
+                    }
+                    post {
+                        always {
+                            archiveArtifacts artifacts: 'coverage/**', allowEmptyArchive: true
+                        }
+                    }
                 }
             }
         }
 
-        stage('Build (prisma generate + tsc)') {
+        stage('Build (Next.js)') {
             steps {
                 script { inNode('npm run build') }
             }
@@ -109,7 +119,7 @@ pipeline {
             steps {
                 script {
                     env.SHORT_SHA = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
-                    def buildArgs = ''
+                    def buildArgs = '--build-arg NEXT_PUBLIC_API_URL="$NEXT_PUBLIC_API_URL"'
                     if (params.PUSH_IMAGE) {
                         // Credencial tipo "Username with password" de Docker Hub
                         withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials',
