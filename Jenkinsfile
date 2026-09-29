@@ -71,6 +71,11 @@ pipeline {
                         }
                     }
                 }
+                stage('Pruebas de regresión') {
+                    steps {
+                        script { inNode('npm run test:regression') }
+                    }
+                }
             }
         }
 
