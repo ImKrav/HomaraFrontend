@@ -1,4 +1,4 @@
-// Ejecuta un comando dentro de node:20-alpine SIN el plugin Docker Pipeline.
+// Ejecuta un comando dentro de node:24-alpine SIN el plugin Docker Pipeline.
 // Jenkins corre en un contenedor, por eso se comparte su volumen con --volumes-from.
 def inNode(String cmd, String extraEnv = '') {
     sh """
@@ -10,7 +10,7 @@ def inNode(String cmd, String extraEnv = '') {
           -e npm_config_cache="\$WORKSPACE/.npm" \\
           -e NEXT_PUBLIC_API_URL -e NEXT_TELEMETRY_DISABLED -e CI \\
           ${extraEnv} \\
-          node:20-alpine sh -c '${cmd}'
+          node:24-alpine sh -c '${cmd}'
     """
 }
 
