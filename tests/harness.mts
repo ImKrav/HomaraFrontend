@@ -26,10 +26,28 @@ export { expect, vi, describe, beforeEach, afterEach, beforeAll, afterAll } from
 
 export type TestFn = () => void | Promise<void>;
 
-/** Registra un caso en Vitest. El `id` identifica el caso (api-url-02, mat-note-04…). */
-export function test(id: string, desc: string, fn: TestFn): void {
-  it(`${id}  ${desc}`, fn);
+interface RegistrarCaso {
+  /** Registra un caso en Vitest. El `id` identifica el caso (api-url-02, mat-note-04…). */
+  (id: string, desc: string, fn: TestFn): void;
+  /**
+   * Caso que documenta un **defecto abierto**: se espera que falle, así que la
+   * suite queda en verde mientras el defecto siga ahí (ver la tabla de defectos
+   * en `tests/README.md`). El día que se corrija, el caso se pone **rojo**: es
+   * la señal para devolverlo a `test(...)` normal.
+   */
+  fails(id: string, desc: string, fn: TestFn): void;
 }
+
+export const test: RegistrarCaso = Object.assign(
+  (id: string, desc: string, fn: TestFn): void => {
+    it(`${id}  ${desc}`, fn);
+  },
+  {
+    fails(id: string, desc: string, fn: TestFn): void {
+      it.fails(`${id}  ${desc}`, fn);
+    },
+  },
+);
 
 // --- Captura de errores ---------------------------------------------------
 

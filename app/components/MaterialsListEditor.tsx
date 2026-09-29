@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { api } from "@/app/lib/api";
 import { showToast } from "@/app/lib/toast";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { formatPrice, translateMaterialName, translateMaterialNote } from "@/app/lib/utils";
+import { formatPrice, parseQuantity, translateMaterialName, translateMaterialNote } from "@/app/lib/utils";
 import LucideIcon from "./ui/LucideIcon";
 import Button from "./ui/Button";
 import AddToCartButton from "./AddToCartButton";
@@ -24,19 +24,6 @@ interface MaterialsListEditorProps {
   initialMaterials: ProjectMaterial[];
   wastePercent: number;
   catSlug: string;
-}
-
-const QUANTITY_REGEX = /^([\d.,]+)(?:\s+(\S.*))?$/;
-
-// Función de utilidad para parsear cantidades como "7 bultos", "27.5 m²" o "1 unidad"
-function parseQuantity(quantityStr: string) {
-  const match = QUANTITY_REGEX.exec(quantityStr.trim());
-  if (!match) return { num: 1, unit: quantityStr };
-  
-  const numStr = match[1].replace(",", ".");
-  const num = Number.parseFloat(numStr) || 1;
-  const unit = match[2] ?? "";
-  return { num, unit };
 }
 
 export default function MaterialsListEditor({

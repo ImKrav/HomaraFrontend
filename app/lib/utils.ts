@@ -101,6 +101,19 @@ export function getStatusColor(status: string): string {
   return colors[key] || "bg-slate-500/20 text-slate-400";
 }
 
+const QUANTITY_REGEX = /^([\d.,]+)(?:\s+(\S.*))?$/;
+
+// Parsea cantidades como "7 bultos", "27.5 m²" o "1 unidad"
+export function parseQuantity(quantityStr: string) {
+  const match = QUANTITY_REGEX.exec(quantityStr.trim());
+  if (!match) return { num: 1, unit: quantityStr };
+
+  const numStr = match[1].replace(",", ".");
+  const num = Number.parseFloat(numStr) || 1;
+  const unit = match[2] ?? "";
+  return { num, unit };
+}
+
 export interface ProjectMaterial {
   id: string;
   name: string;
