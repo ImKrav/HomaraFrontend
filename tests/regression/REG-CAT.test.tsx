@@ -6,10 +6,11 @@
 
 import { screen, waitFor } from "@testing-library/react";
 import { test, expect } from "../harness.mjs";
-import { backendFalso, conSesion, renderizar, es } from "../ui/soporte";
+import { backendFalso, conSesion, renderizar, es, esperarA } from "../ui/soporte";
 import Navbar from "@/app/components/Navbar";
 import CatalogoPage from "@/app/(shop)/catalogo/page";
 import ProductDetailPage from "@/app/(shop)/catalogo/[id]/page";
+import HomePage from "@/app/page";
 
 const producto = {
   id: "prd_1", name: "Piso Ceramica Beige", description: "Interior", price: 38_900, image: "",
@@ -36,8 +37,8 @@ test("REG-CAT-01", "Agregar desde la ficha envía el producto y el contador de l
   const carrito = await screen.findByRole("link", { name: es("nav.cart") });
   // La barra recarga el carrito al montar y otra vez cuando la sesión resuelve;
   // se espera a ambas para que el "1" solo pueda llegar por el evento cartUpdated.
-  await waitFor(() => expect(screen.queryByRole("link", { name: es("nav.login") })).not.toBeInTheDocument());
-  await waitFor(() => expect(backend.de("GET /cart").length).toBeGreaterThanOrEqual(2));
+  await esperarA(() => screen.queryByRole("link", { name: es("nav.login") }) === null);
+  await esperarA(() => backend.de("GET /cart").length >= 2);
   backend.responder("GET /cart", { id: "c", items: [{ id: "itm_1", quantity: 1, product: producto }] });
 
   // Act
@@ -78,4 +79,23 @@ test("REG-CAT-03", "La búsqueda y el orden por precio funcionan juntos en el cl
 
   // Assert
   expect(screen.getAllByRole("heading", { level: 3 }).map((h) => h.textContent)).toStrictEqual(["Piso Barato", "Piso Caro"]);
+});
+
+test("REG-CAT-04", "La portada muestra las tres secciones de la vitrina", async () => {
+  // Arrange
+  backendFalso({
+    "GET /products/storefront": {
+      recommended: [{ ...producto, id: "r", name: "Recomendado" }],
+      offers: [{ ...producto, id: "o", name: "En oferta" }],
+      bestSellers: [{ ...producto, id: "b", name: "Más vendido" }],
+    },
+  });
+
+  // Act
+  renderizar(<HomePage />);
+
+  // Assert
+  expect(await screen.findByText("Recomendado")).toBeInTheDocument();
+  expect(screen.getByText("En oferta")).toBeInTheDocument();
+  expect(screen.getByText("Más vendido")).toBeInTheDocument();
 });

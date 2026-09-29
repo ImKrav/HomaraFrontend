@@ -28,6 +28,20 @@ const MUTACIONES = [
     poner: "/* token conservado */",
   },
   {
+    modulo: "Autenticación",
+    cambio: "El registro deja pasar contraseñas distintas",
+    archivo: "app/(shop)/register/page.tsx",
+    buscar: "if (password !== confirmPassword) {",
+    poner: "if (false) {",
+  },
+  {
+    modulo: "Catálogo",
+    cambio: "La portada deja de mostrar las ofertas",
+    archivo: "app/page.tsx",
+    buscar: "setOfferProducts(storefrontRes.data.offers || []);",
+    poner: "setOfferProducts([]);",
+  },
+  {
     modulo: "Catálogo",
     cambio: "Agregar al carrito no avisa a la barra (contador desactualizado)",
     archivo: "app/components/AddToCartButton.tsx",
@@ -64,6 +78,13 @@ const MUTACIONES = [
   },
   {
     modulo: "Proyectos",
+    cambio: "El contador de proyectos pausados cuenta los completados",
+    archivo: "app/(shop)/proyectos/page.tsx",
+    buscar: 'p.status?.toLowerCase() === "pausado"',
+    poner: 'p.status?.toLowerCase() === "completado"',
+  },
+  {
+    modulo: "Proyectos",
     cambio: "El área neta ignora las deducciones",
     archivo: "app/(shop)/proyectos/nuevo/page.tsx",
     buscar: "const netArea = Math.max(0.1, grossArea - totalDeductions);",
@@ -90,6 +111,20 @@ const MUTACIONES = [
     buscar: 'user?.role?.toUpperCase() !== "ADMIN"',
     poner: "false",
     todas: true,
+  },
+  {
+    modulo: "Administración",
+    cambio: "El umbral de stock bajo del inventario pasa de 50 a 5",
+    archivo: "app/(admin)/admin/inventario/page.tsx",
+    buscar: "if (stockQuantity < 50) {",
+    poner: "if (stockQuantity < 5) {",
+  },
+  {
+    modulo: "Administración",
+    cambio: "El tablero deja sin traducir una métrica",
+    archivo: "app/(admin)/admin/page.tsx",
+    buscar: 'case "Clientes Nuevos": return t("admin.metrics.new_customers");',
+    poner: 'case "Clientes Nuevos": return label;',
   },
   {
     modulo: "Administración",

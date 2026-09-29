@@ -6,7 +6,7 @@
 
 import React from "react";
 import { vi } from "vitest";
-import { render } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AuthProvider } from "@/app/context/AuthContext";
 import { ThemeProvider } from "@/app/context/ThemeContext";
@@ -128,6 +128,17 @@ export const ADMIN = { ...CLIENTE, id: "usr_admin", email: "admin@homara.co", fi
 export function conSesion(backend: BackendFalso, usuario: Record<string, unknown> = CLIENTE) {
   localStorage.setItem("homara_token", "token-de-prueba");
   backend.responder("GET /users/me", usuario);
+}
+
+/**
+ * Espera a que se cumpla una condición de sincronización del Arrange (una carga
+ * que termina, una sesión que resuelve). No es una aserción: si nunca se cumple
+ * el caso falla por tiempo, pero lo que se verifica va siempre en el Assert.
+ */
+export function esperarA(condicion: () => boolean) {
+  return waitFor(() => {
+    if (!condicion()) throw new Error("La condición de sincronización aún no se cumple");
+  });
 }
 
 /** Texto en español de la interfaz para una clave del diccionario (`"catalog.add_to_cart"`). */

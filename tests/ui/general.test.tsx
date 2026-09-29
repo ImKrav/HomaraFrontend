@@ -5,7 +5,7 @@
 
 import { screen, waitFor, act } from "@testing-library/react";
 import { test, expect } from "../harness.mjs";
-import { backendFalso, conSesion, renderizar, es, ADMIN } from "./soporte";
+import { backendFalso, conSesion, renderizar, es, esperarA, ADMIN } from "./soporte";
 import { router } from "./navegacion.mjs";
 import { translations } from "@/app/lib/translations";
 import HomePage from "@/app/page";
@@ -51,7 +51,11 @@ test("ui-gen-02", "El contador del carrito suma unidades y se refresca con el ev
   backend.responder("GET /cart", carritoCon(2, 3));
   renderizar(<Navbar />);
   const carrito = await screen.findByRole("link", { name: es("nav.cart") });
-  await waitFor(() => expect(carrito).toHaveTextContent("5"));
+  // Espera la carga al montar y la que ocurre cuando la sesión resuelve, para que
+  // el "9" del Assert solo pueda llegar por el evento cartUpdated.
+  await esperarA(() => screen.queryByRole("link", { name: es("nav.login") }) === null);
+  await esperarA(() => backend.de("GET /cart").length >= 2 && /\d/.test(carrito.textContent ?? ""));
+  const contadorInicial = carrito.textContent;
   backend.responder("GET /cart", carritoCon(2, 3, 4));
 
   // Act
@@ -60,6 +64,7 @@ test("ui-gen-02", "El contador del carrito suma unidades y se refresca con el ev
   });
 
   // Assert
+  expect(contadorInicial).toContain("5");
   await waitFor(() => expect(carrito).toHaveTextContent("9"));
 });
 

@@ -10,6 +10,7 @@ import { test, expect } from "../harness.mjs";
 import { backendFalso, conSesion, renderizar, es, type BackendFalso } from "../ui/soporte";
 import NuevoProyectoPage from "@/app/(shop)/proyectos/nuevo/page";
 import ProjectDetailPage from "@/app/(shop)/proyectos/[id]/page";
+import ProyectosPage from "@/app/(shop)/proyectos/page";
 
 async function asistente(): Promise<{ backend: BackendFalso } & ReturnType<typeof renderizar>> {
   const backend = backendFalso({ "GET /products": [], "POST /projects": { id: "proy_nuevo" } });
@@ -84,4 +85,28 @@ test("REG-PROY-03", "El editor reescala el precio al cambiar la cantidad (precio
   // Assert
   await waitFor(() => expect(backend.de("PUT /projects/:id")).toHaveLength(1));
   expect(backend.de("PUT /projects/:id")[0].cuerpo.materials[0]).toMatchObject({ quantity: "2 kg", price: 60_000 });
+});
+
+test("REG-PROY-04", "El listado cuenta los proyectos por estado (cantidades distintas por estado)", async () => {
+  // Arrange
+  const base = { type: "PISO", area: 20, estimatedCost: 0, createdAt: "2026-02-01", thumbnail: "🏠" };
+  const backend = backendFalso({
+    "GET /projects": [
+      { ...base, id: "p1", name: "Cocina", status: "EN_PROGRESO" },
+      { ...base, id: "p2", name: "Baño", status: "COMPLETADO" },
+      { ...base, id: "p3", name: "Patio", status: "COMPLETADO" },
+      { ...base, id: "p4", name: "Sala", status: "PAUSADO" },
+    ],
+  });
+  conSesion(backend);
+
+  // Act
+  renderizar(<ProyectosPage />, { ruta: "/proyectos" });
+
+  // Assert
+  await screen.findByText("Baño");
+  const contador = (clave: string) =>
+    screen.getAllByText(es(clave)).map((e) => e.previousElementSibling?.textContent).find((v) => v !== undefined);
+  expect([contador("projects.stat_total"), contador("projects.stat_in_progress"), contador("projects.stat_completed"), contador("projects.stat_paused")])
+    .toStrictEqual(["4", "1", "2", "1"]);
 });

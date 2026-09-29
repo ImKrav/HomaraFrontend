@@ -11,6 +11,7 @@ import { router } from "../ui/navegacion.mjs";
 import LoginPage from "@/app/(shop)/login/page";
 import CuentaPage from "@/app/(shop)/cuenta/page";
 import RequireAuth from "@/app/components/RequireAuth";
+import RegisterPage from "@/app/(shop)/register/page";
 
 test("REG-AUTH-01", "Iniciar sesión guarda el JWT y lleva a la cuenta", async () => {
   // Arrange
@@ -80,4 +81,41 @@ test("REG-AUTH-04", "Editar el perfil envía los datos a /users/me", async () =>
     firstName: "Ana", lastName: "Rojas", phone: "3001234567", address: "Calle 1 #2-3",
     city: "Bogotá", state: "Cundinamarca", zipCode: "1101119",
   });
+});
+
+test("REG-AUTH-05", "El registro no llama al backend si las contraseñas no coinciden", async () => {
+  // Arrange
+  const backend = backendFalso();
+  const { usuario } = renderizar(<RegisterPage />, { ruta: "/register" });
+  await usuario.type(await screen.findByPlaceholderText("Juan"), "Ana");
+  await usuario.type(screen.getByPlaceholderText("Pérez"), "Rojas");
+  await usuario.type(screen.getByPlaceholderText("juan@email.com"), "ana@homara.com");
+  await usuario.type(screen.getByPlaceholderText(es("auth.password_placeholder")), "ClaveSegura8");
+  await usuario.type(screen.getByPlaceholderText(es("auth.repeat_password")), "OtraClave8");
+
+  // Act
+  await usuario.click(screen.getByRole("button", { name: es("auth.submit_register") }));
+
+  // Assert
+  expect(await screen.findByText("Las contraseñas no coinciden.")).toBeInTheDocument();
+  expect(backend.de("POST /users/register")).toHaveLength(0);
+});
+
+test("REG-AUTH-06", "Un registro válido guarda el JWT y lleva a la cuenta", async () => {
+  // Arrange
+  const backend = backendFalso({ "POST /users/register": { token: "jwt-nuevo", user: CLIENTE } });
+  const { usuario } = renderizar(<RegisterPage />, { ruta: "/register" });
+  await usuario.type(await screen.findByPlaceholderText("Juan"), "Ana");
+  await usuario.type(screen.getByPlaceholderText("Pérez"), "Rojas");
+  await usuario.type(screen.getByPlaceholderText("juan@email.com"), "ana@homara.com");
+  await usuario.type(screen.getByPlaceholderText(es("auth.password_placeholder")), "ClaveSegura8");
+  await usuario.type(screen.getByPlaceholderText(es("auth.repeat_password")), "ClaveSegura8");
+
+  // Act
+  await usuario.click(screen.getByRole("button", { name: es("auth.submit_register") }));
+
+  // Assert
+  await waitFor(() => expect(router.push).toHaveBeenCalledWith("/cuenta"));
+  expect(localStorage.getItem("homara_token")).toBe("jwt-nuevo");
+  expect(backend.de("POST /users/register")[0].cuerpo).toMatchObject({ email: "ana@homara.com", firstName: "Ana" });
 });

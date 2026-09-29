@@ -47,7 +47,7 @@ del diccionario real, así que la prueba sigue valiendo si cambia la redacción.
 
 ```bash
 npm install
-npm test                           # corre los 146 casos
+npm test                           # corre los 152 casos
 npm run test:regression            # solo la suite de regresión
 npm run test:regression:demo       # demuestra que la regresión detecta cambios que rompen algo
 npm run test:watch                 # modo watch de Vitest
@@ -56,7 +56,7 @@ npm test -- -t ui-chk-03           # un caso por id (filtro por nombre)
 npm run test:coverage              # cobertura v8 de todo app/
 ```
 
-`npm test` es `vitest run`. Un run limpio es `146 passed (146)` con código 0: los
+`npm test` es `vitest run`. Un run limpio es `152 passed (152)` con código 0: los
 3 casos que documentan defectos abiertos están declarados con `test.fails`
 (ver la tabla de defectos). Cobertura actual sobre `app/`: ~86 % de líneas.
 
@@ -93,11 +93,11 @@ aserciones fluidas y AAA.
 
 | Archivo | Funcionalidad / qué protege | Casos |
 |---|---|---|
-| `REG-AUTH.test.tsx` | Login guarda el JWT; rutas privadas vs públicas; cierre de sesión ante un 401; edición del perfil | 4 |
-| `REG-CAT.test.tsx` | Agregar desde la ficha actualiza el contador de la barra; filtro `?category=`; búsqueda + orden | 3 |
+| `REG-AUTH.test.tsx` | Login y registro guardan el JWT; el registro valida las contraseñas; rutas privadas vs públicas; cierre de sesión ante un 401; edición del perfil | 6 |
+| `REG-CAT.test.tsx` | Portada con la vitrina; agregar desde la ficha actualiza el contador de la barra; filtro `?category=`; búsqueda + orden | 4 |
 | `REG-CART.test.tsx` | Ítems modificados por su id de carrito; montos del backend; checkout con dirección y método | 3 |
-| `REG-PROY.test.tsx` | Área neta con deducciones que se envía al backend; desperdicio por patrón; precio proporcional del editor | 3 |
-| `REG-ADM.test.tsx` | Solo ADMIN ve el panel; la oferta se guarda como precio de venta; cambio de estado por id interno | 3 |
+| `REG-PROY.test.tsx` | Contadores del listado por estado; área neta con deducciones que se envía al backend; desperdicio por patrón; precio proporcional del editor | 4 |
+| `REG-ADM.test.tsx` | Solo ADMIN ve el panel; la oferta se guarda como precio de venta; cambio de estado por id interno; umbrales del inventario; métricas del tablero traducidas | 5 |
 | `REG-QTY.test.mts` | `20f4880` — `parseQuantity` (movida de `MaterialsListEditor.tsx` a `app/lib/utils.ts` para poder probarla): resultados de parseo y tiempo lineal ante una entrada de 50 000 caracteres (la regex anterior tardaba ~5 s, ReDoS) | 5 |
 | `REG-I18N.test.mts` | `c492c7c` — contrato de traducción con el backend: cada nombre y nota que emite `calculateMaterials` se reconoce y traduce (contraparte: `HomaraBackend/tests/regression/REG-MAT.ts`) | 5 |
 
@@ -109,23 +109,28 @@ restaura el archivo byte a byte (también si se interrumpe). Termina con código
 si algún error pasa inadvertido. Salida actual:
 
 ```
-Línea base: 26/26 casos en verde
+Línea base: 32/32 casos en verde
 ✔ detectado  [Autenticación] El checkout deja de ser una ruta privada → REG-AUTH-02
 ✔ detectado  [Autenticación] Un 401 ya no borra el token guardado → REG-AUTH-03
+✔ detectado  [Autenticación] El registro deja pasar contraseñas distintas → REG-AUTH-05
+✔ detectado  [Catálogo] La portada deja de mostrar las ofertas → REG-CAT-04
 ✔ detectado  [Catálogo] Agregar al carrito no avisa a la barra (contador desactualizado) → REG-CAT-01
 ✔ detectado  [Catálogo] El filtro de categoría usa ?cat= en vez de ?category= → REG-CAT-02
 ✔ detectado  [Carrito] Cambiar la cantidad usa el id del producto en vez del ítem → REG-CART-01
 ✔ detectado  [Checkout] El pedido envía el departamento como ciudad → REG-CART-03
 ✔ detectado  [Cuenta] Guardar el perfil apunta a una ruta que no existe → REG-AUTH-03, REG-AUTH-04
+✔ detectado  [Proyectos] El contador de proyectos pausados cuenta los completados → REG-PROY-04
 ✔ detectado  [Proyectos] El área neta ignora las deducciones → REG-PROY-01
 ✔ detectado  [Proyectos] El patrón diagonal deja el desperdicio en 10% → REG-PROY-02
 ✔ detectado  [Proyectos] El editor no reescala el precio al cambiar la cantidad → REG-PROY-03
 ✔ detectado  [Administración] Un cliente ve el panel de administración → REG-ADM-01
+✔ detectado  [Administración] El umbral de stock bajo del inventario pasa de 50 a 5 → REG-ADM-04
+✔ detectado  [Administración] El tablero deja sin traducir una métrica → REG-ADM-05
 ✔ detectado  [Administración] La oferta se ignora y se cobra el precio normal → REG-ADM-02
 ✔ detectado  [Administración] El cambio de estado usa el número de pedido en vez del id interno → REG-ADM-03
 ✔ detectado  [Utilidades] Vuelve la regex de cantidades vulnerable a ReDoS → REG-QTY-05
 ✔ detectado  [Traducción] Una nota del backend deja de estar en el diccionario → REG-I18N-03
-Resultado: 15/15 errores detectados por la suite. Código restaurado.
+Resultado: 20/20 errores detectados por la suite. Código restaurado.
 ```
 
 ## Defectos localizados

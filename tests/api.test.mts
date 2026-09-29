@@ -250,6 +250,6 @@ test("api-verbo-02", "api.delete manda método DELETE sin cuerpo", async () => {
 
     // Assert
     expect(optsLlamada(fetch).method).toBe("DELETE");
-    expect(optsLlamada(fetch).body).toBeFalsy();
+    expect(optsLlamada(fetch).body).toBeUndefined();
   });
 });
