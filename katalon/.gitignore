@@ -1,0 +1,11 @@
+# Archivos generados por Katalon Studio (no versionar)
+/bin/
+/Libs/
+/Reports/
+/Drivers/
+/.gradle/
+/.cache/
+/.classpath
+/.project
+/output/
+settings/internal/com.kms.katalon.integration.analytics.properties

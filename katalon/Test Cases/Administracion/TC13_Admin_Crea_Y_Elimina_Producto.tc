@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>ESC32 - Gestión de productos (administrador). Objetivo: verificar que el administrador crea un producto (nombre único), lo encuentra en la tabla y luego lo elimina, con los toasts de confirmación correspondientes.</description>
+   <name>TC13_Admin_Crea_Y_Elimina_Producto</name>
+   <tag>ESC32,positivo,admin</tag>
+   <comment></comment>
+   <testCaseGuid>f9884989-f29b-423e-8e78-35bbf23edfed</testCaseGuid>
+   <variable>
+      <defaultValue>'Producto Katalon'</defaultValue>
+      <description>Prefijo del nombre del producto (se agrega una marca de tiempo)</description>
+      <id>ab80d986-bef1-4d56-8a74-baa668f6d18f</id>
+      <masked>false</masked>
+      <name>prefijoNombre</name>
+   </variable>
+   <variable>
+      <defaultValue>'Producto de prueba creado por la suite de Katalon'</defaultValue>
+      <description>Descripción del producto</description>
+      <id>0f1bab94-5c7d-43a9-8f0c-990b25fbd330</id>
+      <masked>false</masked>
+      <name>descripcion</name>
+   </variable>
+   <variable>
+      <defaultValue>'unidad'</defaultValue>
+      <description>Unidad de medida (value del select)</description>
+      <id>c12d8842-07e0-4a41-b8ee-d5a26545384a</id>
+      <masked>false</masked>
+      <name>unidad</name>
+   </variable>
+   <variable>
+      <defaultValue>'15000'</defaultValue>
+      <description>Precio normal</description>
+      <id>fbe5671b-d3c3-43bf-81b6-a002c7a66866</id>
+      <masked>false</masked>
+      <name>precio</name>
+   </variable>
+   <variable>
+      <defaultValue>'10'</defaultValue>
+      <description>Stock inicial</description>
+      <id>52ce4d35-9e97-4498-8e8d-9484d444673c</id>
+      <masked>false</masked>
+      <name>stock</name>
+   </variable>
+</TestCaseEntity>

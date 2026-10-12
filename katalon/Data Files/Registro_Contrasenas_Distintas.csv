@@ -1,0 +1,3 @@
+nombre,apellido,prefijoEmail,clave,confirmacion,mensajeEsperado
+Carlos,Ruiz,katalon.distintas,Homara2024*,Homara2025*,Las contraseñas no coinciden.
+Ana,Torres,katalon.mayusculas,ClaveSegura1,clavesegura1,Las contraseñas no coinciden.

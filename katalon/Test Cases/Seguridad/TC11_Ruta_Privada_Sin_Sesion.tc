@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>ESC07 - Rutas privadas. Objetivo: verificar que un visitante sin sesión que intenta abrir una ruta privada (/proyectos, /cuenta, /checkout) es redirigido a /login.</description>
+   <name>TC11_Ruta_Privada_Sin_Sesion</name>
+   <tag>ESC07,negativo,seguridad</tag>
+   <comment></comment>
+   <testCaseGuid>1571ae29-5f25-4a3b-9ce4-dcfba77289d7</testCaseGuid>
+   <variable>
+      <defaultValue>['/proyectos', '/cuenta', '/checkout']</defaultValue>
+      <description>Rutas privadas a comprobar</description>
+      <id>cd6623e4-5de5-42e9-a66f-0dfa181ad225</id>
+      <masked>false</masked>
+      <name>rutasPrivadas</name>
+   </variable>
+</TestCaseEntity>

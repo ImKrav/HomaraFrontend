@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>ESC15 - Eliminar producto del carrito. Objetivo: verificar que un cliente elimina un producto del carrito y este queda vacío.</description>
+   <name>TC08_Eliminar_Del_Carrito</name>
+   <tag>ESC15,positivo,carrito</tag>
+   <comment></comment>
+   <testCaseGuid>b106a9b1-5f72-4739-88e7-946b3b8781bb</testCaseGuid>
+   <variable>
+      <defaultValue>'Rodillo'</defaultValue>
+      <description>Término para encontrar el producto</description>
+      <id>ed73aab5-b12d-4629-9e47-0516872afcab</id>
+      <masked>false</masked>
+      <name>terminoBusqueda</name>
+   </variable>
+   <variable>
+      <defaultValue>'Rodillo de Pintura Antigoteo 23cm'</defaultValue>
+      <description>Nombre exacto del producto</description>
+      <id>5e190660-5d04-454f-b796-daadbabc87bb</id>
+      <masked>false</masked>
+      <name>nombreProducto</name>
+   </variable>
+</TestCaseEntity>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>ESC01 - Registro de usuario (negativo). Objetivo: verificar que si la confirmación de contraseña no coincide, el registro no se envía, se muestra "Las contraseñas no coinciden." y se permanece en /register.</description>
+   <name>TC04_Registro_Contrasenas_Distintas</name>
+   <tag>ESC01,negativo,registro,data-driven</tag>
+   <comment></comment>
+   <testCaseGuid>89d837d1-703e-49ba-9900-5db95a0df6f5</testCaseGuid>
+   <variable>
+      <defaultValue>'Carlos'</defaultValue>
+      <description>Nombre</description>
+      <id>4b95d143-1ef5-4657-95c5-917b51d3ac67</id>
+      <masked>false</masked>
+      <name>nombre</name>
+   </variable>
+   <variable>
+      <defaultValue>'Ruiz'</defaultValue>
+      <description>Apellido</description>
+      <id>44dcfbdf-a286-44ae-b1ae-ace2a86f4617</id>
+      <masked>false</masked>
+      <name>apellido</name>
+   </variable>
+   <variable>
+      <defaultValue>'katalon.distintas'</defaultValue>
+      <description>Prefijo del correo</description>
+      <id>7b65c169-c75d-455f-b558-0b0ee620fa65</id>
+      <masked>false</masked>
+      <name>prefijoEmail</name>
+   </variable>
+   <variable>
+      <defaultValue>'Homara2024*'</defaultValue>
+      <description>Contraseña</description>
+      <id>9c694725-fd9a-4296-9170-545eb1c9cb6f</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>'Homara2025*'</defaultValue>
+      <description>Confirmación distinta a la contraseña</description>
+      <id>a5eda69c-bb1a-4ca7-a2c7-f2d15948dfc9</id>
+      <masked>false</masked>
+      <name>confirmacion</name>
+   </variable>
+   <variable>
+      <defaultValue>'Las contraseñas no coinciden.'</defaultValue>
+      <description>Mensaje de error esperado</description>
+      <id>0e121b9d-e471-45a8-84a0-dab2acce0188</id>
+      <masked>false</masked>
+      <name>mensajeEsperado</name>
+   </variable>
+</TestCaseEntity>

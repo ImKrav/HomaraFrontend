@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>ESC13, ESC16 - Carrito de compras. Objetivo: verificar que un cliente agrega un producto al carrito (toast de confirmación) y que el subtotal, el envío (gratis desde 500.000 COP) y el total son correctos.</description>
+   <name>TC07_Agregar_Al_Carrito_Validar_Total</name>
+   <tag>ESC13,ESC16,positivo,carrito</tag>
+   <comment></comment>
+   <testCaseGuid>5343782a-f2c9-45da-8a43-5a3272a08200</testCaseGuid>
+   <variable>
+      <defaultValue>'Koraza'</defaultValue>
+      <description>Término para encontrar el producto en el catálogo</description>
+      <id>12448685-2769-4abd-89f8-590771b4fb17</id>
+      <masked>false</masked>
+      <name>terminoBusqueda</name>
+   </variable>
+   <variable>
+      <defaultValue>'Pintura Koraza Caneca 5 Galones'</defaultValue>
+      <description>Nombre exacto del producto</description>
+      <id>4b6908ac-3ba3-447f-826f-c524c2f499c8</id>
+      <masked>false</masked>
+      <name>nombreProducto</name>
+   </variable>
+   <variable>
+      <defaultValue>'549.000'</defaultValue>
+      <description>Precio unitario con formato es-CO (sin el símbolo $)</description>
+      <id>184b864c-af78-436b-a1b7-2f7cb72a09dd</id>
+      <masked>false</masked>
+      <name>precioEsperado</name>
+   </variable>
+   <variable>
+      <defaultValue>'Gratis'</defaultValue>
+      <description>Texto esperado del envío (el subtotal supera 500.000 COP)</description>
+      <id>a594d484-3616-4b95-afbe-a8d423ec2adb</id>
+      <masked>false</masked>
+      <name>envioEsperado</name>
+   </variable>
+   <variable>
+      <defaultValue>'549.000'</defaultValue>
+      <description>Total esperado con formato es-CO (sin el símbolo $)</description>
+      <id>38789ae0-2f43-4cea-92cf-f85dd1844f91</id>
+      <masked>false</masked>
+      <name>totalEsperado</name>
+   </variable>
+</TestCaseEntity>
