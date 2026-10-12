@@ -15,6 +15,11 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Suite de pruebas manuales: scripts sueltos, no van al bundle.
     "tests/**",
+    // Proyecto Katalon (XML con extensión .ts y Groovy) y artefactos de ejecución de pruebas E2E.
+    "katalon/**",
+    "e2e-screenplay/evidencias/**",
+    "e2e-screenplay/test-results/**",
+    "docs/pruebas/evidencias/**",
   ]),
 ]);
 
