@@ -1,0 +1,1328 @@
+
+Running 33 tests using 3 workers
+
+(node:25796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24400) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24468) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  3 [chromium] › specs\busqueda-catalogo.spec.ts:11:7 › ESC09 - Búsqueda en el catálogo › SP-14 Valentina busca "Porcelanato" y obtiene resultados relacionados @ESC09 (3.3s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/busqueda-catalogo.spec.ts:11
+
+ESC09 - Búsqueda en el catálogo: SP-14 Valentina busca "Porcelanato" y obtiene resultados relacionados
+
+  Valentina la visitante busca "'Porcelanato'" en el catálogo
+    ✓ Valentina la visitante navigates to "/catalogo" (673ms)
+    ✓ Valentina la visitante waits until the text of el contador de resultados does include "encontrados" (1s 161ms)
+    ✓ Valentina la visitante enters "Porcelanato" into la barra de búsqueda (149ms)
+    ✓ Valentina la visitante presses key Enter in la barra de búsqueda (263ms)
+    ✓ Valentina la visitante waits until the text of el contador de resultados does include "encontrados" (41ms)
+  ✓ Valentina la visitante ensures that la cantidad de resultados informada does have value greater than 0 (29ms)
+  ✓ Valentina la visitante ensures that el número de tarjetas de producto mostradas does equal la cantidad de resultados informada (79ms)
+  ✓ Valentina la visitante ensures that los nombres de los productos mostrados does contain at least one item that does include "Porcelanato" (303ms)
+
+✓ Execution successful (3s 314ms)
+  ok  2 [chromium] › specs\autenticacion.spec.ts:15:11 › Autenticación de clientes › ESC01 - Registro de usuario › SP-01 Camila se registra con datos válidos y queda autenticada @ESC01 (4.0s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/autenticacion.spec.ts:15
+
+Autenticación de clientes: ESC01 - Registro de usuario SP-01 Camila se registra con datos válidos y queda autenticada
+
+  Camila la clienta se registra con el correo 'camila.1791839397128.1.w1@e2e-screenplay.co'
+    ✓ Camila la clienta navigates to "/register" (527ms)
+    ✓ Camila la clienta waits until el campo Nombre does become visible (1s 81ms)
+    ✓ Camila la clienta enters "Camila" into el campo Nombre (72ms)
+    ✓ Camila la clienta enters "Restrepo" into el campo Apellido (61ms)
+    ✓ Camila la clienta enters "camila.1791839397128.1.w1@e2e-screenplay.co" into el campo Correo Electrónico (65ms)
+    ✓ Camila la clienta enters "ClaveSegura2026" into el campo Contraseña (76ms)
+    ✓ Camila la clienta enters "ClaveSegura2026" into el campo Confirmar Contraseña (57ms)
+    ✓ Camila la clienta clicks on el botón "Registrarme y Comenzar" (288ms)
+  ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 45ms)
+  ✓ Camila la clienta waits until el nombre del usuario en la barra de navegación does equal "Camila" (54ms)
+  ✓ Camila la clienta ensures that si el navegador tiene el token "homara_token" does equal true (50ms)
+
+✓ Execution successful (3s 969ms)
+  ok  4 [chromium] › specs\busqueda-catalogo.spec.ts:20:7 › ESC09 - Búsqueda en el catálogo › SP-15 la búsqueda no distingue mayúsculas ("TALADRO") @ESC09 (2.1s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/busqueda-catalogo.spec.ts:20
+
+ESC09 - Búsqueda en el catálogo: SP-15 la búsqueda no distingue mayúsculas ("TALADRO")
+
+  Valentina la visitante busca "'TALADRO'" en el catálogo
+    ✓ Valentina la visitante navigates to "/catalogo" (504ms)
+    ✓ Valentina la visitante waits until the text of el contador de resultados does include "encontrados" (748ms)
+    ✓ Valentina la visitante enters "TALADRO" into la barra de búsqueda (114ms)
+    ✓ Valentina la visitante presses key Enter in la barra de búsqueda (211ms)
+    ✓ Valentina la visitante waits until the text of el contador de resultados does include "encontrados" (41ms)
+  ✓ Valentina la visitante ensures that la cantidad de resultados informada does have value greater than 0 (24ms)
+  ✓ Valentina la visitante ensures that los nombres de los productos mostrados does contain at least one item that does include "Taladro" (83ms)
+
+✓ Execution successful (2s 81ms)
+  ok  5 [chromium] › specs\autenticacion.spec.ts:26:11 › Autenticación de clientes › ESC01 - Registro de usuario › SP-02 no permite registrar un correo que ya existe @ESC01 (2.8s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/autenticacion.spec.ts:26
+
+Autenticación de clientes: ESC01 - Registro de usuario SP-02 no permite registrar un correo que ya existe
+
+  Camila la clienta se registra con el correo 'juan@email.com'
+    ✓ Camila la clienta navigates to "/register" (497ms)
+    ✓ Camila la clienta waits until el campo Nombre does become visible (967ms)
+    ✓ Camila la clienta enters "Camila" into el campo Nombre (58ms)
+    ✓ Camila la clienta enters "Restrepo" into el campo Apellido (57ms)
+    ✓ Camila la clienta enters "juan@email.com" into el campo Correo Electrónico (59ms)
+    ✓ Camila la clienta enters "ClaveSegura2026" into el campo Contraseña (81ms)
+    ✓ Camila la clienta enters "ClaveSegura2026" into el campo Confirmar Contraseña (74ms)
+    ✓ Camila la clienta clicks on el botón "Registrarme y Comenzar" (443ms)
+  ✓ Camila la clienta waits until el mensaje de error del registro does equal "El correo electrónico ya está registrado." (69ms)
+  ✓ Camila la clienta ensures that la ruta actual del navegador does equal "/register" (6ms)
+  ✓ Camila la clienta ensures that si el navegador tiene el token "homara_token" does equal false (58ms)
+
+✓ Execution successful (2s 846ms)
+  ok  6 [chromium] › specs\busqueda-catalogo.spec.ts:28:7 › ESC09 - Búsqueda en el catálogo › SP-16 una búsqueda sin coincidencias muestra el estado vacío @ESC09 (2.9s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/busqueda-catalogo.spec.ts:28
+
+ESC09 - Búsqueda en el catálogo: SP-16 una búsqueda sin coincidencias muestra el estado vacío
+
+  Valentina la visitante busca "'zzqx producto inexistente 404'" en el catálogo
+    ✓ Valentina la visitante navigates to "/catalogo" (641ms)
+    ✓ Valentina la visitante waits until the text of el contador de resultados does include "encontrados" (1s 268ms)
+    ✓ Valentina la visitante enters "zzqx producto inexistente 404" into la barra de búsqueda (88ms)
+    ✓ Valentina la visitante presses key Enter in la barra de búsqueda (190ms)
+    ✓ Valentina la visitante waits until the text of el contador de resultados does include "encontrados" (47ms)
+  ✓ Valentina la visitante ensures that la cantidad de resultados informada does equal 0 (21ms)
+  ✓ Valentina la visitante ensures that el número de tarjetas de producto mostradas does equal 0 (24ms)
+  ✓ Valentina la visitante ensures that el mensaje "sin resultados" does become visible (190ms)
+
+✓ Execution successful (2s 905ms)
+  ok  7 [chromium] › specs\autenticacion.spec.ts:37:11 › Autenticación de clientes › ESC01 - Registro de usuario › SP-03 no permite registrarse si las contraseñas no coinciden @ESC01 (2.3s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/autenticacion.spec.ts:37
+
+Autenticación de clientes: ESC01 - Registro de usuario SP-03 no permite registrarse si las contraseñas no coinciden
+
+  Camila la clienta se registra con el correo 'camila.1791839404050.3.w1@e2e-screenplay.co'
+    ✓ Camila la clienta navigates to "/register" (661ms)
+    ✓ Camila la clienta waits until el campo Nombre does become visible (371ms)
+    ✓ Camila la clienta enters "Camila" into el campo Nombre (94ms)
+    ✓ Camila la clienta enters "Restrepo" into el campo Apellido (83ms)
+    ✓ Camila la clienta enters "camila.1791839404050.3.w1@e2e-screenplay.co" into el campo Correo Electrónico (75ms)
+    ✓ Camila la clienta enters "ClaveSegura2026" into el campo Contraseña (64ms)
+    ✓ Camila la clienta enters "OtraClave2026" into el campo Confirmar Contraseña (63ms)
+    ✓ Camila la clienta clicks on el botón "Registrarme y Comenzar" (232ms)
+  ✓ Camila la clienta waits until el mensaje de error del registro does equal "Las contraseñas no coinciden." (49ms)
+  ✓ Camila la clienta ensures that la ruta actual del navegador does equal "/register" (5ms)
+  ✓ Camila la clienta ensures that si el navegador tiene el token "homara_token" does equal false (34ms)
+
+✓ Execution successful (2s 260ms)
+  ok  9 [chromium] › specs\autenticacion.spec.ts:48:11 › Autenticación de clientes › ESC01 - Registro de usuario › SP-04 contraseña de 7 caracteres: el formulario pide mínimo 6 pero el backend exige 8 (DEF-01) @ESC01 (2.2s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/autenticacion.spec.ts:48
+
+Autenticación de clientes: ESC01 - Registro de usuario SP-04 contraseña de 7 caracteres: el formulario pide mínimo 6 pero el backend exige 8 (DEF-01)
+
+  Camila la clienta se registra con el correo 'camila.1791839406345.4.w1@e2e-screenplay.co'
+    ✓ Camila la clienta navigates to "/register" (347ms)
+    ✓ Camila la clienta waits until el campo Nombre does become visible (499ms)
+    ✓ Camila la clienta enters "Camila" into el campo Nombre (79ms)
+    ✓ Camila la clienta enters "Restrepo" into el campo Apellido (60ms)
+    ✓ Camila la clienta enters "camila.1791839406345.4.w1@e2e-screenplay.co" into el campo Correo Electrónico (66ms)
+    ✓ Camila la clienta enters "Clave12" into el campo Contraseña (71ms)
+    ✓ Camila la clienta enters "Clave12" into el campo Confirmar Contraseña (117ms)
+    ✓ Camila la clienta clicks on el botón "Registrarme y Comenzar" (321ms)
+  ✓ Camila la clienta waits until el mensaje de error del registro does include "al menos 8 caracteres" (139ms)
+  ✓ Camila la clienta ensures that la ruta actual del navegador does equal "/register" (6ms)
+  ✓ Camila la clienta ensures that "placeholder" attribute of el campo Contraseña does equal "Mínimo 6 caracteres" (34ms)
+
+✓ Execution successful (2s 167ms)
+  ok  1 [chromium] › specs\admin-productos.spec.ts:48:7 › ESC32 - Administración de productos › SP-32 Andrés crea un producto y luego lo elimina @ESC32 (11.6s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/admin-productos.spec.ts:48
+
+ESC32 - Administración de productos: SP-32 Andrés crea un producto y luego lo elimina
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (554ms)
+    ✓ Andrés el administrador takes notes: (1ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5Mzk3LCJleHAiOjE3OTI0NDQxOTd9.kDQIGtyXx-IxWgj-0W1YVmcp6fyd6RQw9m-tJsc3HQA"
+  Andrés el administrador inicia sesión como admin@homara.co y llega a su cuenta
+    Andrés el administrador inicia sesión con el correo 'admin@homara.co'
+      ✓ Andrés el administrador navigates to "/login" (821ms)
+      ✓ Andrés el administrador waits until el campo de correo does become visible (1s 54ms)
+      ✓ Andrés el administrador enters "admin@homara.co" into el campo de correo (98ms)
+      ✓ Andrés el administrador enters "123456" into el campo de contraseña (68ms)
+      ✓ Andrés el administrador clicks on el botón "Iniciar Sesión" (285ms)
+    ✓ Andrés el administrador waits until la ruta actual del navegador does equal "/cuenta" (537ms)
+  Andrés el administrador crea el producto "E2E Screenplay Nivel Láser 1791839401015"
+    Andrés el administrador abre el panel de productos
+      ✓ Andrés el administrador navigates to "/admin/productos" (192ms)
+      ✓ Andrés el administrador waits until el botón "Agregar producto" does become visible (1s 171ms)
+    ✓ Andrés el administrador clicks on el botón "Agregar producto" (289ms)
+    ✓ Andrés el administrador waits until el campo Nombre del producto does become visible (247ms)
+    ✓ Andrés el administrador enters "E2E Screenplay Nivel Láser 1791839401015" into el campo Nombre del producto (185ms)
+    ✓ Andrés el administrador enters "Producto creado por la prueba automatizada ESC32 (se elimina al terminar)." into el campo Descripción (222ms)
+    ✓ Andrés el administrador selects "Herramientas" from el selector de Categoría (203ms)
+    ✓ Andrés el administrador selects value "unidad" from el selector de Unidad (90ms)
+    ✓ Andrés el administrador enters "189900" into el campo Precio (158ms)
+    ✓ Andrés el administrador enters "15" into el campo Stock (83ms)
+    ✓ Andrés el administrador takes notes: (1ms)
+      - nombreProductoCreado: "E2E Screenplay Nivel Láser 1791839401015"
+    ✓ Andrés el administrador clicks on el botón "Guardar Producto" (556ms)
+  ✓ Andrés el administrador waits until los textos de las notificaciones visibles does contain "Producto guardado correctamente" (133ms)
+  Andrés el administrador filtra la tabla de productos por "E2E Screenplay Nivel Láser 1791839401015"
+    ✓ Andrés el administrador enters "E2E Screenplay Nivel Láser 1791839401015" into el buscador de productos del panel (75ms)
+  ✓ Andrés el administrador waits until la fila del producto "E2E Screenplay Nivel Láser 1791839401015" does become visible (131ms)
+  ✓ Andrés el administrador ensures that si el producto "E2E Screenplay Nivel Láser 1791839401015" existe en el backend does equal true (105ms)
+  Andrés el administrador elimina el producto "E2E Screenplay Nivel Láser 1791839401015"
+    Andrés el administrador filtra la tabla de productos por "E2E Screenplay Nivel Láser 1791839401015"
+      ✓ Andrés el administrador enters "E2E Screenplay Nivel Láser 1791839401015" into el buscador de productos del panel (54ms)
+    ✓ Andrés el administrador waits until la fila del producto "E2E Screenplay Nivel Láser 1791839401015" does become visible (115ms)
+    ✓ Andrés el administrador clicks on el botón "Eliminar Producto" of la fila del producto "E2E Screenplay Nivel Láser 1791839401015" (205ms)
+    ✓ Andrés el administrador waits until el botón "Eliminar de Por Vida" does become visible (137ms)
+    ✓ Andrés el administrador clicks on el botón "Eliminar de Por Vida" (677ms)
+    ✓ Andrés el administrador waits until el botón "Eliminar de Por Vida" does not become present (835ms)
+  ✓ Andrés el administrador waits until los textos de las notificaciones visibles does contain "Producto eliminado correctamente" (115ms)
+  ✓ Andrés el administrador waits until el mensaje de tabla sin resultados does become visible (157ms)
+  ✓ Andrés el administrador ensures that si el producto "E2E Screenplay Nivel Láser 1791839401015" existe en el backend does equal false (65ms)
+  Andrés el administrador elimina por API el producto "E2E Screenplay Nivel Láser 1791839401015" si aún existe
+
+✓ Execution successful (11s 566ms)
+  ok 10 [chromium] › specs\autenticacion.spec.ts:66:11 › Autenticación de clientes › ESC02 - Inicio de sesión › SP-05 Camila inicia sesión con credenciales válidas y llega a su cuenta @ESC02 (3.1s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/autenticacion.spec.ts:66
+
+Autenticación de clientes: ESC02 - Inicio de sesión SP-05 Camila inicia sesión con credenciales válidas y llega a su cuenta
+
+  Camila la clienta inicia sesión con el correo 'juan@email.com'
+    ✓ Camila la clienta navigates to "/login" (394ms)
+    ✓ Camila la clienta waits until el campo de correo does become visible (544ms)
+    ✓ Camila la clienta enters "juan@email.com" into el campo de correo (77ms)
+    ✓ Camila la clienta enters "123456" into el campo de contraseña (64ms)
+    ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (431ms)
+  ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 50ms)
+  ✓ Camila la clienta waits until el nombre del usuario en la barra de navegación does equal "Juan" (75ms)
+  ✓ Camila la clienta ensures that si el navegador tiene el token "homara_token" does equal true (53ms)
+
+✓ Execution successful (3s 83ms)
+  ok 12 [chromium] › specs\autenticacion.spec.ts:75:11 › Autenticación de clientes › ESC02 - Inicio de sesión › SP-06 rechaza una contraseña incorrecta @ESC02 (3.0s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/autenticacion.spec.ts:75
+
+Autenticación de clientes: ESC02 - Inicio de sesión SP-06 rechaza una contraseña incorrecta
+
+  Camila la clienta inicia sesión con el correo 'juan@email.com'
+    ✓ Camila la clienta navigates to "/login" (627ms)
+    ✓ Camila la clienta waits until el campo de correo does become visible (1s 188ms)
+    ✓ Camila la clienta enters "juan@email.com" into el campo de correo (110ms)
+    ✓ Camila la clienta enters "ClaveEquivocada" into el campo de contraseña (74ms)
+    ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (247ms)
+  ✓ Camila la clienta waits until el mensaje de error del inicio de sesión does equal "Credenciales incorrectas. Verifique correo y contraseña." (368ms)
+  ✓ Camila la clienta ensures that la ruta actual del navegador does equal "/login" (5ms)
+  ✓ Camila la clienta ensures that si el navegador tiene el token "homara_token" does equal false (31ms)
+
+✓ Execution successful (2s 964ms)
+  ok  8 [chromium] › specs\carrito.spec.ts:47:11 › Carrito de compras › ESC13 - Agregar producto al carrito › SP-17 Camila agrega un producto y lo ve en su carrito @ESC13 (11.4s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/carrito.spec.ts:47
+
+Carrito de compras: ESC13 - Agregar producto al carrito SP-17 Camila agrega un producto y lo ve en su carrito
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (572ms)
+    ✓ Andrés el administrador takes notes: (1ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDA2LCJleHAiOjE3OTI0NDQyMDZ9.UnNAcSclYEmLycXlEqbr51h6uIZOA7slr9JN3s36dkY"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (0ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839406538.1.w2@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (371ms)
+    ✓ Camila la clienta takes notes: (1ms)
+      - email: "camila.1791839406538.1.w2@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (1ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (1ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeDJ4ejAxM281aG85ejZhd204emMiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDA2NTM4LjEudzJAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0MDYsImV4cCI6MTc5MjQ0NDIwNn0.TN7hzInk5CcTZhczN40fKB7CbQ1bqDbLc16gHbHadYQ"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (619ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (1s 180ms)
+      ✓ Camila la clienta enters "camila.1791839406538.1.w2@e2e-screenplay.co" into el campo de correo (55ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (55ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (270ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 50ms)
+  Camila la clienta agrega 1 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (287ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (1s 65ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (119ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (222ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (44ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (215ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (743ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (170ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (101ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (190ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (237ms)
+  ✓ Camila la clienta ensures that las unidades en el contador del carrito does equal 1 (68ms)
+  Camila la clienta abre su carrito
+    ✓ Camila la clienta navigates to "/carrito" (152ms)
+    ✓ Camila la clienta waits until el título del carrito does become visible (853ms)
+  ✓ Camila la clienta waits until el ítem "Insumo de Prueba E2E Screenplay" del carrito does become visible (369ms)
+  ✓ Camila la clienta ensures that la cantidad de "Insumo de Prueba E2E Screenplay" en el carrito does equal 1 (109ms)
+  ✓ Camila la clienta ensures that las unidades del carrito según el backend does equal 1 (84ms)
+  Camila la clienta vacía su carrito por API
+
+✓ Execution successful (11s 402ms)
+  ok 11 [chromium] › specs\admin-productos.spec.ts:65:7 › ESC32 - Administración de productos › SP-33 no permite crear un producto con precio 0 @ESC32 (8.5s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/admin-productos.spec.ts:65
+
+ESC32 - Administración de productos: SP-33 no permite crear un producto con precio 0
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (376ms)
+    ✓ Andrés el administrador takes notes: (0ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDA5LCJleHAiOjE3OTI0NDQyMDl9.3RNUkE08Y1ReY9OfDyIa-mLB2dzbfYLrtDM5I77tyKc"
+  Andrés el administrador inicia sesión como admin@homara.co y llega a su cuenta
+    Andrés el administrador inicia sesión con el correo 'admin@homara.co'
+      ✓ Andrés el administrador navigates to "/login" (753ms)
+      ✓ Andrés el administrador waits until el campo de correo does become visible (1s 32ms)
+      ✓ Andrés el administrador enters "admin@homara.co" into el campo de correo (69ms)
+      ✓ Andrés el administrador enters "123456" into el campo de contraseña (126ms)
+      ✓ Andrés el administrador clicks on el botón "Iniciar Sesión" (341ms)
+    ✓ Andrés el administrador waits until la ruta actual del navegador does equal "/cuenta" (1s 36ms)
+  Andrés el administrador crea el producto "E2E Screenplay Nivel Láser 1791839412801"
+    Andrés el administrador abre el panel de productos
+      ✓ Andrés el administrador navigates to "/admin/productos" (259ms)
+      ✓ Andrés el administrador waits until el botón "Agregar producto" does become visible (1s 50ms)
+    ✓ Andrés el administrador clicks on el botón "Agregar producto" (245ms)
+    ✓ Andrés el administrador waits until el campo Nombre del producto does become visible (182ms)
+    ✓ Andrés el administrador enters "E2E Screenplay Nivel Láser 1791839412801" into el campo Nombre del producto (96ms)
+    ✓ Andrés el administrador enters "Producto creado por la prueba automatizada ESC32 (se elimina al terminar)." into el campo Descripción (94ms)
+    ✓ Andrés el administrador selects "Herramientas" from el selector de Categoría (95ms)
+    ✓ Andrés el administrador selects value "unidad" from el selector de Unidad (79ms)
+    ✓ Andrés el administrador enters "0" into el campo Precio (83ms)
+    ✓ Andrés el administrador enters "15" into el campo Stock (100ms)
+    ✓ Andrés el administrador takes notes: (1ms)
+      - nombreProductoCreado: "E2E Screenplay Nivel Láser 1791839412801"
+    ✓ Andrés el administrador clicks on el botón "Guardar Producto" (926ms)
+  ✓ Andrés el administrador waits until el mensaje de error del formulario de producto does equal "El precio normal debe ser un número positivo válido." (84ms)
+  ✓ Andrés el administrador ensures that el campo Nombre del producto does become visible (166ms)
+  ✓ Andrés el administrador ensures that si el producto "E2E Screenplay Nivel Láser 1791839412801" existe en el backend does equal false (75ms)
+  Andrés el administrador elimina por API el producto "E2E Screenplay Nivel Láser 1791839412801" si aún existe
+
+✓ Execution successful (8s 533ms)
+  ok 13 [chromium] › specs\autenticacion.spec.ts:84:11 › Autenticación de clientes › ESC02 - Inicio de sesión › SP-07 rechaza un correo que no está registrado con el mismo mensaje genérico @ESC02 (3.1s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/autenticacion.spec.ts:84
+
+Autenticación de clientes: ESC02 - Inicio de sesión SP-07 rechaza un correo que no está registrado con el mismo mensaje genérico
+
+  Camila la clienta inicia sesión con el correo 'noexiste.1791839414692.5.w1@e2e-screenplay.co'
+    ✓ Camila la clienta navigates to "/login" (809ms)
+    ✓ Camila la clienta waits until el campo de correo does become visible (1s 120ms)
+    ✓ Camila la clienta enters "noexiste.1791839414692.5.w1@e2e-screenplay.co" into el campo de correo (91ms)
+    ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (62ms)
+    ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (348ms)
+  ✓ Camila la clienta waits until el mensaje de error del inicio de sesión does equal "Credenciales incorrectas. Verifique correo y contraseña." (362ms)
+  ✓ Camila la clienta ensures that la ruta actual del navegador does equal "/login" (4ms)
+
+✓ Execution successful (3s 87ms)
+  ok 16 [chromium] › specs\autenticacion.spec.ts:95:11 › Autenticación de clientes › ESC03 - Cierre de sesión › SP-08 Camila cierra sesión, pierde el token y ya no puede ver su cuenta @ESC03 (5.6s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/autenticacion.spec.ts:95
+
+Autenticación de clientes: ESC03 - Cierre de sesión SP-08 Camila cierra sesión, pierde el token y ya no puede ver su cuenta
+
+  Camila la clienta se registra por API como camila.1791839417830.6.w1@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (424ms)
+    ✓ Camila la clienta takes notes: (1ms)
+      - email: "camila.1791839417830.6.w1@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (1ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (0ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeGJ0MzAxM3I1aG85YWRuZmVxc3ciLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDE3ODMwLjYudzFAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0MTgsImV4cCI6MTc5MjQ0NDIxOH0.sK_n15KZrBTCyojUUVqA4wrwYVLWSDBLX592OWJgzQc"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (297ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (510ms)
+      ✓ Camila la clienta enters "camila.1791839417830.6.w1@e2e-screenplay.co" into el campo de correo (81ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (55ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (434ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 56ms)
+  Camila la clienta cierra su sesión desde el menú de cuenta
+    ✓ Camila la clienta waits until el menú de cuenta does become visible (155ms)
+    ✓ Camila la clienta clicks on el menú de cuenta (253ms)
+    ✓ Camila la clienta waits until la opción "Cerrar Sesión" del menú de cuenta does become visible (318ms)
+    ✓ Camila la clienta clicks on la opción "Cerrar Sesión" del menú de cuenta (373ms)
+  ✓ Camila la clienta waits until la ruta actual del navegador does equal "/login" (16ms)
+  ✓ Camila la clienta ensures that si el navegador tiene el token "homara_token" does equal false (49ms)
+  ✓ Camila la clienta navigates to "/cuenta" (188ms)
+  ✓ Camila la clienta waits until la URL actual del navegador does end with "/login" (534ms)
+
+✓ Execution successful (5s 641ms)
+  ok 15 [chromium] › specs\checkout.spec.ts:52:11 › Checkout › ESC27 - Registrar datos de envío › SP-25 el navegador bloquea el pago si faltan los datos de envío obligatorios @ESC27 (12.3s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/checkout.spec.ts:52
+
+Checkout: ESC27 - Registrar datos de envío SP-25 el navegador bloquea el pago si faltan los datos de envío obligatorios
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (689ms)
+    ✓ Andrés el administrador takes notes: (1ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDE4LCJleHAiOjE3OTI0NDQyMTh9.wnsfdz1YLznBI-eMR0Vi33GLolKo3KqCAVdtRALm8Xc"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (0ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839418510.1.w0@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (444ms)
+    ✓ Camila la clienta takes notes: (1ms)
+      - email: "camila.1791839418510.1.w0@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (0ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (1ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeGM5dDAxM3Y1aG85Z3Y4cTBoMDIiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDE4NTEwLjEudzBAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0MTgsImV4cCI6MTc5MjQ0NDIxOH0.hVquv2BDRQEeyeB3QYgf89QgP_d-TIVe9UV_TyqwkMU"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (624ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (612ms)
+      ✓ Camila la clienta enters "camila.1791839418510.1.w0@e2e-screenplay.co" into el campo de correo (78ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (89ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (379ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 54ms)
+  Camila la clienta agrega 1 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (276ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (839ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (129ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (265ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (59ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (149ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (583ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (120ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (75ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (177ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (181ms)
+  Camila la clienta intenta pagar sin completar sus datos de envío
+    Camila la clienta va al checkout
+      ✓ Camila la clienta navigates to "/checkout" (158ms)
+      ✓ Camila la clienta waits until el título del checkout does become visible (1s 166ms)
+      ✓ Camila la clienta waits until el botón "Pagar" does become visible (96ms)
+    ✓ Camila la clienta clicks on el botón "Pagar" (285ms)
+  ✓ Camila la clienta ensures that los campos inválidos del formulario does contain "phone" (216ms)
+  ✓ Camila la clienta ensures that los campos inválidos del formulario does contain "address" (327ms)
+  ✓ Camila la clienta ensures that los campos inválidos del formulario does contain "city" (259ms)
+  ✓ Camila la clienta ensures that los campos inválidos del formulario does contain "state" (280ms)
+  ✓ Camila la clienta ensures that la ruta actual del navegador does equal "/checkout" (8ms)
+  ✓ Camila la clienta ensures that la cantidad de pedidos del cliente en el backend does equal 0 (124ms)
+  ✓ Camila la clienta ensures that las unidades del carrito según el backend does equal 1 (73ms)
+  Camila la clienta vacía su carrito por API
+
+✓ Execution successful (12s 325ms)
+  ok 17 [chromium] › specs\proyectos.spec.ts:18:7 › ESC17 - Crear proyecto › SP-29 Camila crea un proyecto de piso con datos válidos y ve su detalle @ESC17 (7.0s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/proyectos.spec.ts:18
+
+ESC17 - Crear proyecto: SP-29 Camila crea un proyecto de piso con datos válidos y ve su detalle
+
+  Camila la clienta se registra por API como camila.1791839423591.7.w1@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (471ms)
+    ✓ Camila la clienta takes notes: (1ms)
+      - email: "camila.1791839423591.7.w1@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (1ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (0ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeGdhNTAxM3g1aG85cDRtZWZuNGIiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDIzNTkxLjcudzFAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0MjQsImV4cCI6MTc5MjQ0NDIyNH0.r_KwmmmYh2FDqGSCjAL1St4fNyiWpKxkhEUu78TC8pg"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (459ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (530ms)
+      ✓ Camila la clienta enters "camila.1791839423591.7.w1@e2e-screenplay.co" into el campo de correo (81ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (53ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (444ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 63ms)
+  Camila la clienta crea un proyecto de piso "Remodelación cocina 1791839427073"
+    ✓ Camila la clienta navigates to "/proyectos/nuevo" (130ms)
+    ✓ Camila la clienta waits until el campo Nombre descriptivo does become visible (403ms)
+    ✓ Camila la clienta clicks on la superficie "Solo Piso" (337ms)
+    ✓ Camila la clienta enters "Remodelación cocina 1791839427073" into el campo Nombre descriptivo (76ms)
+    ✓ Camila la clienta enters "4.5" into el campo Largo (102ms)
+    ✓ Camila la clienta enters "3.2" into el campo Ancho (103ms)
+    ✓ Camila la clienta clicks on el botón "Guardar y Calcular Insumos" (327ms)
+  ✓ Camila la clienta waits until la ruta actual del navegador does match /^\/proyectos\/(?!nuevo$)[\w-]+$/ (528ms)
+  ✓ Camila la clienta waits until el nombre del proyecto en su detalle does equal "Remodelación cocina 1791839427073" (1s 36ms)
+
+✓ Execution successful (6s 965ms)
+  ok 14 [chromium] › specs\carrito.spec.ts:58:11 › Carrito de compras › ESC13 - Agregar producto al carrito › SP-18 agregar dos veces el mismo producto acumula la cantidad en una sola línea @ESC13 (14.8s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/carrito.spec.ts:58
+
+Carrito de compras: ESC13 - Agregar producto al carrito SP-18 agregar dos veces el mismo producto acumula la cantidad en una sola línea
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (588ms)
+    ✓ Andrés el administrador takes notes: (0ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDE3LCJleHAiOjE3OTI0NDQyMTd9.y_Q3itISXvB8fwyKrRsXaSvEOZED7z_lfA3F7IFJPWs"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (1ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839418478.2.w2@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (480ms)
+    ✓ Camila la clienta takes notes: (0ms)
+      - email: "camila.1791839418478.2.w2@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (0ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (1ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeGM1czAxM3Q1aG85cTBvbmhtZ2ciLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDE4NDc4LjIudzJAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0MTgsImV4cCI6MTc5MjQ0NDIxOH0.SXWXxTK98TGDhR-fdX0kzGCtgaZe8fxXrGloSO05B3w"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (534ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (1s 198ms)
+      ✓ Camila la clienta enters "camila.1791839418478.2.w2@e2e-screenplay.co" into el campo de correo (76ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (89ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (272ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 47ms)
+  Camila la clienta agrega 2 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (295ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (1s 64ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (130ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (222ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (41ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (142ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (577ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (159ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (138ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (478ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (902ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (298ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (165ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (425ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 2 (209ms)
+  ✓ Camila la clienta ensures that las unidades en el contador del carrito does equal 2 (120ms)
+  Camila la clienta abre su carrito
+    ✓ Camila la clienta navigates to "/carrito" (403ms)
+    ✓ Camila la clienta waits until el título del carrito does become visible (962ms)
+  ✓ Camila la clienta waits until el ítem "Insumo de Prueba E2E Screenplay" del carrito does become visible (84ms)
+  ✓ Camila la clienta ensures that el número de productos distintos en el carrito does equal 1 (26ms)
+  ✓ Camila la clienta ensures that la cantidad de "Insumo de Prueba E2E Screenplay" en el carrito does equal 2 (23ms)
+  Camila la clienta vacía su carrito por API
+
+✓ Execution successful (14s 833ms)
+  ok 19 [chromium] › specs\proyectos.spec.ts:28:7 › ESC17 - Crear proyecto › SP-30 no permite guardar un proyecto sin nombre @ESC17 (6.0s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/proyectos.spec.ts:28
+
+ESC17 - Crear proyecto: SP-30 no permite guardar un proyecto sin nombre
+
+  Camila la clienta se registra por API como camila.1791839430586.8.w1@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (481ms)
+    ✓ Camila la clienta takes notes: (0ms)
+      - email: "camila.1791839430586.8.w1@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (0ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (0ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeGxtNTAxNGI1aG85YW1iZnVpc3AiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDMwNTg2LjgudzFAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0MzEsImV4cCI6MTc5MjQ0NDIzMX0.9hIrmnaHK61A28SAPNeee3y0T5XBv-2kqMQCxLDNjSk"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (581ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (1s 123ms)
+      ✓ Camila la clienta enters "camila.1791839430586.8.w1@e2e-screenplay.co" into el campo de correo (64ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (58ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (243ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 47ms)
+  Camila la clienta crea un proyecto de piso "(sin nombre)"
+    ✓ Camila la clienta navigates to "/proyectos/nuevo" (351ms)
+    ✓ Camila la clienta waits until el campo Nombre descriptivo does become visible (379ms)
+    ✓ Camila la clienta clicks on la superficie "Solo Piso" (263ms)
+    ✓ Camila la clienta enters "4.5" into el campo Largo (80ms)
+    ✓ Camila la clienta enters "3.2" into el campo Ancho (104ms)
+    ✓ Camila la clienta clicks on el botón "Guardar y Calcular Insumos" (310ms)
+  ✓ Camila la clienta waits until los textos de las notificaciones visibles does contain "Por favor, ingresa el campo obligatorio: Nombre descriptivo." (100ms)
+  ✓ Camila la clienta ensures that la ruta actual del navegador does equal "/proyectos/nuevo" (5ms)
+
+✓ Execution successful (6s 4ms)
+  ok 18 [chromium] › specs\checkout.spec.ts:65:11 › Checkout › ESC27 - Registrar datos de envío › SP-26 la validación de la aplicación muestra un aviso (toast) si faltan datos @ESC27 (12.4s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/checkout.spec.ts:65
+
+Checkout: ESC27 - Registrar datos de envío SP-26 la validación de la aplicación muestra un aviso (toast) si faltan datos
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (295ms)
+    ✓ Andrés el administrador takes notes: (0ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDMwLCJleHAiOjE3OTI0NDQyMzB9.s7VlEEKuPydQahp0ptkvy2BVvAPgTG6ivgKfxqNmQpo"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (0ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839430276.2.w0@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (475ms)
+    ✓ Camila la clienta takes notes: (0ms)
+      - email: "camila.1791839430276.2.w0@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (0ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (0ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeGxhNzAxNDk1aG85ZTdsdjZ4bHEiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDMwMjc2LjIudzBAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0MzAsImV4cCI6MTc5MjQ0NDIzMH0.UarNVutjYPllYn1yF3hspMpQxiMDAPMXF2-uiO1yIHo"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (387ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (974ms)
+      ✓ Camila la clienta enters "camila.1791839430276.2.w0@e2e-screenplay.co" into el campo de correo (57ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (57ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (269ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 61ms)
+  Camila la clienta agrega 1 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (191ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (581ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (111ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (310ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (48ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (218ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (750ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (118ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (71ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (160ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (942ms)
+  Camila la clienta va al checkout
+    ✓ Camila la clienta navigates to "/checkout" (901ms)
+    ✓ Camila la clienta waits until el título del checkout does become visible (1s 603ms)
+    ✓ Camila la clienta waits until el botón "Pagar" does become visible (117ms)
+  ✓ Camila la clienta executes a synchronous script with arguments: [ el formulario de checkout ] (62ms)
+  ✓ Camila la clienta waits until los textos de las notificaciones visibles does contain "Por favor completa todos los campos requeridos." (90ms)
+  ✓ Camila la clienta ensures that la ruta actual del navegador does equal "/checkout" (26ms)
+  ✓ Camila la clienta ensures that la cantidad de pedidos del cliente en el backend does equal 0 (379ms)
+  Camila la clienta vacía su carrito por API
+
+✓ Execution successful (12s 417ms)
+  ok 21 [chromium] › specs\proyectos.spec.ts:36:7 › ESC17 - Crear proyecto › SP-31 no permite guardar un proyecto de piso sin el ancho @ESC17 (8.0s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/proyectos.spec.ts:36
+
+ESC17 - Crear proyecto: SP-31 no permite guardar un proyecto de piso sin el ancho
+
+  Camila la clienta se registra por API como camila.1791839436628.9.w1@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (556ms)
+    ✓ Camila la clienta takes notes: (1ms)
+      - email: "camila.1791839436628.9.w1@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (1ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (1ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeHFjNzAxNGY1aG85YW52aXRiNWkiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDM2NjI4LjkudzFAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0MzcsImV4cCI6MTc5MjQ0NDIzN30.8hPkxgVwsGQdW39tVscHm_QIc9uznVDXPh0pAjl7bUc"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (807ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (1s 745ms)
+      ✓ Camila la clienta enters "camila.1791839436628.9.w1@e2e-screenplay.co" into el campo de correo (530ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (101ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (263ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 71ms)
+  Camila la clienta crea un proyecto de piso "Baño social 1791839442020"
+    ✓ Camila la clienta navigates to "/proyectos/nuevo" (210ms)
+    ✓ Camila la clienta waits until el campo Nombre descriptivo does become visible (1s 242ms)
+    ✓ Camila la clienta clicks on la superficie "Solo Piso" (211ms)
+    ✓ Camila la clienta enters "Baño social 1791839442020" into el campo Nombre descriptivo (54ms)
+    ✓ Camila la clienta enters "2.5" into el campo Largo (75ms)
+    ✓ Camila la clienta clicks on el botón "Guardar y Calcular Insumos" (241ms)
+  ✓ Camila la clienta waits until los textos de las notificaciones visibles does contain "Por favor, ingresa el campo obligatorio: Ancho (Habitación)." (69ms)
+  ✓ Camila la clienta ensures that la ruta actual del navegador does equal "/proyectos/nuevo" (8ms)
+
+✓ Execution successful (7s 977ms)
+  ok 20 [chromium] › specs\carrito.spec.ts:72:11 › Carrito de compras › ESC14 - Modificar cantidad en el carrito › SP-19 aumentar con "+" sube la cantidad y recalcula el subtotal @ESC14 @ESC16 (14.5s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/carrito.spec.ts:72
+
+Carrito de compras: ESC14 - Modificar cantidad en el carrito SP-19 aumentar con "+" sube la cantidad y recalcula el subtotal
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (427ms)
+    ✓ Andrés el administrador takes notes: (0ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDMyLCJleHAiOjE3OTI0NDQyMzJ9.lSXK5E_BKeLk8BZOiuQq40_r9_stlcm9ACLnWjcAt9A"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (1ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839432840.3.w2@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (1s 39ms)
+    ✓ Camila la clienta takes notes: (1ms)
+      - email: "camila.1791839432840.3.w2@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (0ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (0ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeG5xaDAxNGQ1aG85dTJsOTdobjEiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDMyODQwLjMudzJAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0MzMsImV4cCI6MTc5MjQ0NDIzM30.RF_U9DLchvj6HR6iEJRxT7KeGrdK068LZQk0qLZE018"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (632ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (1s 79ms)
+      ✓ Camila la clienta enters "camila.1791839432840.3.w2@e2e-screenplay.co" into el campo de correo (92ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (84ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (312ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (544ms)
+  Camila la clienta agrega 1 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (161ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (599ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (146ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (530ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (65ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (381ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (879ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (152ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (79ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (289ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (946ms)
+  Camila la clienta abre su carrito
+    ✓ Camila la clienta navigates to "/carrito" (201ms)
+    ✓ Camila la clienta waits until el título del carrito does become visible (1s 896ms)
+  ✓ Camila la clienta waits until el ítem "Insumo de Prueba E2E Screenplay" del carrito does become visible (140ms)
+  Camila la clienta aumenta en una unidad "Insumo de Prueba E2E Screenplay" en el carrito
+    ✓ Camila la clienta clicks on el botón "+" of el ítem "Insumo de Prueba E2E Screenplay" del carrito (185ms)
+    ✓ Camila la clienta waits until la cantidad de "Insumo de Prueba E2E Screenplay" en el carrito does equal 2 (650ms)
+  ✓ Camila la clienta ensures that la cantidad de "Insumo de Prueba E2E Screenplay" en el carrito does equal 2 (75ms)
+  ✓ Camila la clienta waits until el subtotal del carrito (COP) does equal 500000 (55ms)
+  ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 2 (80ms)
+  ✓ Camila la clienta ensures that las unidades del carrito según el backend does equal 2 (144ms)
+  Camila la clienta vacía su carrito por API
+
+✓ Execution successful (14s 472ms)
+  ok 23 [chromium] › specs\rutas-privadas.spec.ts:14:11 › ESC07 - Protección de rutas privadas › SP-09 Valentina, sin sesión, es enviada a /login al abrir /proyectos @ESC07 (2.7s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/rutas-privadas.spec.ts:14
+
+ESC07 - Protección de rutas privadas: SP-09 Valentina, sin sesión, es enviada a /login al abrir /proyectos
+
+  ✓ Valentina la visitante navigates to "/proyectos" (715ms)
+  ✓ Valentina la visitante waits until la ruta actual del navegador does equal "/login" (1s 662ms)
+  ✓ Valentina la visitante ensures that si el navegador tiene el token "homara_token" does equal false (49ms)
+
+✓ Execution successful (2s 691ms)
+  ok 25 [chromium] › specs\rutas-privadas.spec.ts:14:11 › ESC07 - Protección de rutas privadas › SP-10 Valentina, sin sesión, es enviada a /login al abrir /cuenta @ESC07 (3.4s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/rutas-privadas.spec.ts:14
+
+ESC07 - Protección de rutas privadas: SP-10 Valentina, sin sesión, es enviada a /login al abrir /cuenta
+
+  ✓ Valentina la visitante navigates to "/cuenta" (1s 738ms)
+  ✓ Valentina la visitante waits until la ruta actual del navegador does equal "/login" (588ms)
+  ✓ Valentina la visitante ensures that si el navegador tiene el token "homara_token" does equal false (255ms)
+
+✓ Execution successful (3s 449ms)
+  ok 26 [chromium] › specs\rutas-privadas.spec.ts:14:11 › ESC07 - Protección de rutas privadas › SP-11 Valentina, sin sesión, es enviada a /login al abrir /checkout @ESC07 (3.8s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/rutas-privadas.spec.ts:14
+
+ESC07 - Protección de rutas privadas: SP-11 Valentina, sin sesión, es enviada a /login al abrir /checkout
+
+  ✓ Valentina la visitante navigates to "/checkout" (1s 309ms)
+  ✓ Valentina la visitante waits until la ruta actual del navegador does equal "/login" (1s 563ms)
+  ✓ Valentina la visitante ensures that si el navegador tiene el token "homara_token" does equal false (465ms)
+
+✓ Execution successful (3s 844ms)
+  ok 27 [chromium] › specs\rutas-privadas.spec.ts:23:7 › ESC07 - Protección de rutas privadas › SP-12 Camila (cliente) intenta entrar a /admin y es redirigida al inicio @ESC07 (10.3s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/rutas-privadas.spec.ts:23
+
+ESC07 - Protección de rutas privadas: SP-12 Camila (cliente) intenta entrar a /admin y es redirigida al inicio
+
+  Camila la clienta inicia sesión como juan@email.com y llega a su cuenta
+    Camila la clienta inicia sesión con el correo 'juan@email.com'
+      ✓ Camila la clienta navigates to "/login" (1s 738ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (1s 136ms)
+      ✓ Camila la clienta enters "juan@email.com" into el campo de correo (151ms)
+      ✓ Camila la clienta enters "123456" into el campo de contraseña (123ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (472ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (2s 63ms)
+  ✓ Camila la clienta navigates to "/admin/productos" (430ms)
+  ✓ Camila la clienta waits until la ruta actual del navegador does equal "/" (551ms)
+  ✓ Camila la clienta ensures that el botón "Agregar producto" does not become present (468ms)
+
+✓ Execution successful (10s 269ms)
+  x  22 [chromium] › specs\checkout.spec.ts:76:12 › Checkout › ESC27 - Registrar datos de envío › SP-27 datos de envío con solo espacios deberían tratarse como vacíos (DEF-03) @ESC27 (26.1s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/checkout.spec.ts:76
+
+Checkout: ESC27 - Registrar datos de envío SP-27 datos de envío con solo espacios deberían tratarse como vacíos (DEF-03)
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (634ms)
+    ✓ Andrés el administrador takes notes: (1ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDQyLCJleHAiOjE3OTI0NDQyNDJ9.GK7PKJ36YOBhT3qWjY19X9pf-N-D12-1BYW_Adbf48g"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (0ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839443483.3.w0@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (583ms)
+    ✓ Camila la clienta takes notes: (0ms)
+      - email: "camila.1791839443483.3.w0@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (1ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (1ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeHZzajAxNGo1aG85eThibXhoamsiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDQzNDgzLjMudzBAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0NDQsImV4cCI6MTc5MjQ0NDI0NH0.ghm9yGX372bLqUzui3urTS6Q6-YYUBiVfile-Y6LYUI"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (706ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (1s 545ms)
+      ✓ Camila la clienta enters "camila.1791839443483.3.w0@e2e-screenplay.co" into el campo de correo (117ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (125ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (358ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 701ms)
+  Camila la clienta agrega 1 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (411ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (707ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (500ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (808ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (77ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (1s 108ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (1s 205ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (377ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (227ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (1s 26ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (442ms)
+  Camila la clienta completa sus datos de envío y paga el pedido
+    Camila la clienta va al checkout
+      ✓ Camila la clienta navigates to "/checkout" (2s 23ms)
+      ✓ Camila la clienta waits until el título del checkout does become visible (2s 480ms)
+      ✓ Camila la clienta waits until el botón "Pagar" does become visible (422ms)
+    ✓ Camila la clienta enters "   " into el campo Teléfono (434ms)
+    ✓ Camila la clienta enters "   " into el campo Dirección (163ms)
+    ✓ Camila la clienta enters "   " into el campo Ciudad (68ms)
+    ✓ Camila la clienta enters "   " into el campo Departamento (102ms)
+    ✓ Camila la clienta clicks on el botón "Pagar" (359ms)
+  ✓ Camila la clienta waits until la cantidad de notificaciones visibles does have value greater than 0 (710ms)
+  ✗ Camila la clienta ensures that los textos de las notificaciones visibles does contain "Por favor completa todos los campos requeridos." (680ms)
+
+✗ Execution failed with assertion error (26s 115ms)
+
+  AssertionError: Expected los textos de las notificaciones visibles to contain "Por favor completa todos los campos requeridos."
+
+  Expectation: contain('Por favor completa todos los campos requeridos.')
+
+  Expected string: Por favor completa todos los campos requeridos.
+  Received Array
+
+  [
+    '¡Pedido realizado con éxito!'
+  ]
+
+      at C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/checkout.spec.ts:83:24
+      at ErrorFactory.create (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\core\src\errors\ErrorFactory.ts:36:16)
+      at Stage.createError (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\core\src\stage\Stage.ts:336:28)
+      at RaiseErrors.create (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\core\src\errors\RaiseErrors.ts:59:27)
+      at Ensure.performAs (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\assertions\src\Ensure.ts:140:41)
+      at PerformActivitiesAsPlaywrightSteps.perform (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\core\src\screenplay\abilities\PerformActivities.ts:61:13)
+      at TestStepInfoImpl._runStepBody (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1317:14)
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\common\index.js:2404:20
+      at raceAgainstDeadline (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright-core\lib\coreBundle.js:4602:10)
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\common\index.js:2402:19
+      at _TestTypeImpl._step (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\common\index.js:2399:12)
+      at PerformActivitiesAsPlaywrightSteps.perform (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\playwright-test\src\api\PerformActivitiesAsPlaywrightSteps.ts:38:9)
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\specs\checkout.spec.ts:79:13
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1655:9
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1135:11
+      at TimeoutManager.withRunnable (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:403:14)
+      at TestInfoImpl._runWithTimeout (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1133:7)
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1653:7
+      at WorkerMain._runTest (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1626:5)
+      at WorkerMain.runTestGroup (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1521:9)
+      at process.<anonymous> (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\common\index.js:1941:25)
+  ok 28 [chromium] › specs\rutas-privadas.spec.ts:32:7 › ESC07 - Protección de rutas privadas › SP-13 Andrés (administrador) sí puede entrar al panel /admin/productos @ESC07 (9.9s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/rutas-privadas.spec.ts:32
+
+ESC07 - Protección de rutas privadas: SP-13 Andrés (administrador) sí puede entrar al panel /admin/productos
+
+  Andrés el administrador inicia sesión como admin@homara.co y llega a su cuenta
+    Andrés el administrador inicia sesión con el correo 'admin@homara.co'
+      ✓ Andrés el administrador navigates to "/login" (1s 70ms)
+      ✓ Andrés el administrador waits until el campo de correo does become visible (1s 465ms)
+      ✓ Andrés el administrador enters "admin@homara.co" into el campo de correo (109ms)
+      ✓ Andrés el administrador enters "123456" into el campo de contraseña (121ms)
+      ✓ Andrés el administrador clicks on el botón "Iniciar Sesión" (279ms)
+    ✓ Andrés el administrador waits until la ruta actual del navegador does equal "/cuenta" (1s 65ms)
+  ✓ Andrés el administrador navigates to "/admin/productos" (281ms)
+  ✓ Andrés el administrador waits until el botón "Agregar producto" does become visible (1s 602ms)
+  ✓ Andrés el administrador ensures that la ruta actual del navegador does equal "/admin/productos" (20ms)
+
+✓ Execution successful (9s 873ms)
+  ok 24 [chromium] › specs\carrito.spec.ts:85:11 › Carrito de compras › ESC14 - Modificar cantidad en el carrito › SP-20 disminuir con "-" baja la cantidad y vuelve a cobrar el envío @ESC14 @ESC16 (31.1s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/carrito.spec.ts:85
+
+Carrito de compras: ESC14 - Modificar cantidad en el carrito SP-20 disminuir con "-" baja la cantidad y vuelve a cobrar el envío
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (721ms)
+    ✓ Andrés el administrador takes notes: (0ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (2ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDQ3LCJleHAiOjE3OTI0NDQyNDd9.Gmy_3ow_RdIzymw-MSm7I-efdBgMJvUYdPAJfjNdRaE"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (1ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839448475.4.w2@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (775ms)
+    ✓ Camila la clienta takes notes: (0ms)
+      - email: "camila.1791839448475.4.w2@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (4ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (4ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (8ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeHp2cjAxNGw1aG85MHRqaWhweG0iLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDQ4NDc1LjQudzJAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0NDksImV4cCI6MTc5MjQ0NDI0OX0.fdHEcnB--fR_QDhI468ZLcndC0qjnGdI2d4-R5qXvOE"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (1s 708ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (1s 322ms)
+      ✓ Camila la clienta enters "camila.1791839448475.4.w2@e2e-screenplay.co" into el campo de correo (89ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (158ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (937ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 43ms)
+  Camila la clienta agrega 2 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (769ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (528ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (193ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (303ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (54ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (294ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (2s 224ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (631ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (307ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (234ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (347ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (645ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (1s 73ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (820ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 2 (532ms)
+  Camila la clienta abre su carrito
+    ✓ Camila la clienta navigates to "/carrito" (531ms)
+    ✓ Camila la clienta waits until el título del carrito does become visible (1s 158ms)
+  ✓ Camila la clienta waits until el ítem "Insumo de Prueba E2E Screenplay" del carrito does become visible (220ms)
+  ✓ Camila la clienta ensures that el subtotal del carrito (COP) does equal 500000 (30ms)
+  Camila la clienta disminuye en una unidad "Insumo de Prueba E2E Screenplay" en el carrito
+    ✓ Camila la clienta clicks on el botón "-" of el ítem "Insumo de Prueba E2E Screenplay" del carrito (226ms)
+    ✓ Camila la clienta waits until la cantidad de "Insumo de Prueba E2E Screenplay" en el carrito does equal 1 (805ms)
+  ✓ Camila la clienta waits until el subtotal del carrito (COP) does equal 250000 (220ms)
+  ✓ Camila la clienta ensures that el costo de envío mostrado does not equal "Gratis" (127ms)
+  ✓ Camila la clienta ensures that el total del carrito (COP) does equal 275000 (76ms)
+  ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (155ms)
+  Camila la clienta vacía su carrito por API
+
+✓ Execution successful (31s 71ms)
+  ok 29 [chromium] › specs\checkout.spec.ts:91:11 › Checkout › ESC28 - Generar pedido › SP-28 Camila completa sus datos, paga y se crea el pedido @ESC28 @ESC27 (21.7s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/checkout.spec.ts:91
+
+Checkout: ESC28 - Generar pedido SP-28 Camila completa sus datos, paga y se crea el pedido
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (603ms)
+    ✓ Andrés el administrador takes notes: (0ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDY5LCJleHAiOjE3OTI0NDQyNjl9.lmzfsG3rE1dTFWRerHkOTWw_alm95066qdiV52Hk-Go"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (0ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839469910.4.w0@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (650ms)
+    ✓ Camila la clienta takes notes: (6ms)
+      - email: "camila.1791839469910.4.w0@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (0ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (1ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeWc0ZjAxNHI1aG85endpbXIzbjQiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDY5OTEwLjQudzBAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0NzAsImV4cCI6MTc5MjQ0NDI3MH0.vI-6WzlX2AJe0blACzMuBewqZOXsdz4_oBKHcocmd_4"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (1s 192ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (3s 750ms)
+      ✓ Camila la clienta enters "camila.1791839469910.4.w0@e2e-screenplay.co" into el campo de correo (316ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (193ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (648ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 60ms)
+  Camila la clienta agrega 1 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (259ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (1s 181ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (628ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (250ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (63ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (360ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (310ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (196ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (108ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (488ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (966ms)
+  Camila la clienta completa sus datos de envío y paga el pedido
+    Camila la clienta va al checkout
+      ✓ Camila la clienta navigates to "/checkout" (191ms)
+      ✓ Camila la clienta waits until el título del checkout does become visible (1s 182ms)
+      ✓ Camila la clienta waits until el botón "Pagar" does become visible (131ms)
+    ✓ Camila la clienta enters "300 555 1234" into el campo Teléfono (58ms)
+    ✓ Camila la clienta enters "Carrera 43A # 1-50" into el campo Dirección (91ms)
+    ✓ Camila la clienta enters "Medellín" into el campo Ciudad (108ms)
+    ✓ Camila la clienta enters "Antioquia" into el campo Departamento (348ms)
+    ✓ Camila la clienta clicks on el botón "Pagar" (394ms)
+  ✓ Camila la clienta waits until los textos de las notificaciones visibles does contain "¡Pedido realizado con éxito!" (683ms)
+  ✓ Camila la clienta waits until la ruta actual del navegador does equal "/proyectos" (17ms)
+  ✓ Camila la clienta ensures that la cantidad de pedidos del cliente en el backend does equal 1 (131ms)
+  ✓ Camila la clienta ensures that el total del pedido más reciente does equal 275000 (155ms)
+  ✓ Camila la clienta ensures that las unidades del carrito según el backend does equal 0 (107ms)
+  ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 0 (311ms)
+  ✓ Camila la clienta ensures that el botón "Pagar" does not become present (286ms)
+  Camila la clienta vacía su carrito por API
+
+✓ Execution successful (21s 717ms)
+  ok 30 [chromium] › specs\carrito.spec.ts:103:11 › Carrito de compras › ESC15 - Eliminar ítem del carrito › SP-21 Camila elimina el producto y el carrito queda vacío @ESC15 (14.7s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/carrito.spec.ts:103
+
+Carrito de compras: ESC15 - Eliminar ítem del carrito SP-21 Camila elimina el producto y el carrito queda vacío
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (637ms)
+    ✓ Andrés el administrador takes notes: (1ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDc4LCJleHAiOjE3OTI0NDQyNzh9.oS2BpT63rpg8xqK4rwYPCnpndMgCOetDO9EEXI33LBU"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (1ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839479892.5.w2@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (793ms)
+    ✓ Camila la clienta takes notes: (1ms)
+      - email: "camila.1791839479892.5.w2@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (1ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (0ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeW81ODAxNHQ1aG85d2cxaWMyeXgiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDc5ODkyLjUudzJAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0ODEsImV4cCI6MTc5MjQ0NDI4MX0.Rg8EAZbDK1ZnVSuK0kPhHqnps9iVNW0pJxlFUhs0OhI"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (1s 53ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (1s 424ms)
+      ✓ Camila la clienta enters "camila.1791839479892.5.w2@e2e-screenplay.co" into el campo de correo (74ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (70ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (304ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 553ms)
+  Camila la clienta agrega 1 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (221ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (623ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (152ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (325ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (53ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (238ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (677ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (307ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (111ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (243ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (78ms)
+  Camila la clienta abre su carrito
+    ✓ Camila la clienta navigates to "/carrito" (130ms)
+    ✓ Camila la clienta waits until el título del carrito does become visible (1s 129ms)
+  ✓ Camila la clienta waits until el ítem "Insumo de Prueba E2E Screenplay" del carrito does become visible (109ms)
+  ✓ Camila la clienta ensures that el número de productos distintos en el carrito does equal 1 (63ms)
+  Camila la clienta elimina "Insumo de Prueba E2E Screenplay" de su carrito
+    ✓ Camila la clienta clicks on el botón "Eliminar" of el ítem "Insumo de Prueba E2E Screenplay" del carrito (168ms)
+    ✓ Camila la clienta waits until el ítem "Insumo de Prueba E2E Screenplay" del carrito does not become present (287ms)
+  ✓ Camila la clienta waits until el mensaje de carrito vacío does become visible (104ms)
+  ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 0 (299ms)
+  ✓ Camila la clienta ensures that las unidades del carrito según el backend does equal 0 (33ms)
+  ✓ Camila la clienta ensures that the number of los nombres de los ítems del carrito does equal 0 (20ms)
+  Camila la clienta vacía su carrito por API
+
+✓ Execution successful (14s 714ms)
+  ok 31 [chromium] › specs\carrito.spec.ts:121:11 › Carrito de compras › ESC16 - Calcular totales del carrito › SP-22 con subtotal menor a 500.000 COP se cobra el envío (25.000 COP) @ESC16 (13.0s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/carrito.spec.ts:121
+
+Carrito de compras: ESC16 - Calcular totales del carrito SP-22 con subtotal menor a 500.000 COP se cobra el envío (25.000 COP)
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (321ms)
+    ✓ Andrés el administrador takes notes: (0ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NDkyLCJleHAiOjE3OTI0NDQyOTJ9.BJtJfyvy7PX0FHgm0w4AMlSN6LN5HxPpspP4g93hi8M"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (1ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839493230.6.w2@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (690ms)
+    ✓ Camila la clienta takes notes: (1ms)
+      - email: "camila.1791839493230.6.w2@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (0ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (1ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (1ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxeXk0YzAxNHo1aG85NGphcGkxbDciLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NDkzMjMwLjYudzJAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk0OTQsImV4cCI6MTc5MjQ0NDI5NH0.fcmTn5r7z49IqmKRO1OKAnEcaqfw0n19XJNSgp9Yn0Y"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (588ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (1s 652ms)
+      ✓ Camila la clienta enters "camila.1791839493230.6.w2@e2e-screenplay.co" into el campo de correo (89ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (272ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (733ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 46ms)
+  Camila la clienta agrega 1 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (314ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (827ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (261ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (539ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (61ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (666ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (226ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (225ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (120ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (255ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (237ms)
+  Camila la clienta abre su carrito
+    ✓ Camila la clienta navigates to "/carrito" (188ms)
+    ✓ Camila la clienta waits until el título del carrito does become visible (1s 8ms)
+  ✓ Camila la clienta waits until el ítem "Insumo de Prueba E2E Screenplay" del carrito does become visible (194ms)
+  ✓ Camila la clienta ensures that el subtotal del carrito (COP) does equal 250000 (29ms)
+  ✓ Camila la clienta ensures that el costo de envío (COP) does equal 25000 (27ms)
+  ✓ Camila la clienta ensures that el total del carrito (COP) does equal 275000 (29ms)
+  Camila la clienta vacía su carrito por API
+
+✓ Execution successful (12s 969ms)
+  ok 32 [chromium] › specs\carrito.spec.ts:132:11 › Carrito de compras › ESC16 - Calcular totales del carrito › SP-23 con subtotal mayor a 500.000 COP el envío es gratis @ESC16 (12.2s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/carrito.spec.ts:132
+
+Carrito de compras: ESC16 - Calcular totales del carrito SP-23 con subtotal mayor a 500.000 COP el envío es gratis
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (405ms)
+    ✓ Andrés el administrador takes notes: (0ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NTA2LCJleHAiOjE3OTI0NDQzMDZ9.L910CINMsRmpCv_BEGCTBKR33Xx8nBhci2UOW25cEzo"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (0ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839506408.7.w2@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (460ms)
+    ✓ Camila la clienta takes notes: (0ms)
+      - email: "camila.1791839506408.7.w2@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (1ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (0ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxejg0ZTAxNTI1aG85bWFhMjBhZTMiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NTA2NDA4LjcudzJAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk1MDYsImV4cCI6MTc5MjQ0NDMwNn0.m2XSO8hDS8L0Ce1tH_KeNpI7Ik5XMJiPJXT62W4JjzQ"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (452ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (577ms)
+      ✓ Camila la clienta enters "camila.1791839506408.7.w2@e2e-screenplay.co" into el campo de correo (85ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (86ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (346ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (1s 56ms)
+  Camila la clienta agrega 3 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (214ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (765ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (134ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (319ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (36ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (189ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (365ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (183ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (116ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (210ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (329ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (163ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (89ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (243ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 2 (699ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (135ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (82ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (128ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 3 (667ms)
+  Camila la clienta abre su carrito
+    ✓ Camila la clienta navigates to "/carrito" (133ms)
+    ✓ Camila la clienta waits until el título del carrito does become visible (841ms)
+  ✓ Camila la clienta waits until el ítem "Insumo de Prueba E2E Screenplay" del carrito does become visible (107ms)
+  ✓ Camila la clienta ensures that el subtotal del carrito (COP) does equal 750000 (20ms)
+  ✓ Camila la clienta ensures that el costo de envío mostrado does equal "Gratis" (21ms)
+  ✓ Camila la clienta ensures that el total del carrito (COP) does equal 750000 (23ms)
+  Camila la clienta vacía su carrito por API
+
+✓ Execution successful (12s 158ms)
+  x  33 [chromium] › specs\carrito.spec.ts:146:12 › Carrito de compras › ESC16 - Calcular totales del carrito › SP-24 con subtotal exactamente igual a 500.000 COP el envío debería ser gratis (DEF-02) @ESC16 (8.8s)
+--------------------------------------------------------------------------------
+C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/carrito.spec.ts:146
+
+Carrito de compras: ESC16 - Calcular totales del carrito SP-24 con subtotal exactamente igual a 500.000 COP el envío debería ser gratis (DEF-02)
+
+  Andrés el administrador obtiene un token de API como admin@homara.co
+    ✓ Andrés el administrador llama POST a la API sin sesión (243ms)
+    ✓ Andrés el administrador takes notes: (0ms)
+      - email: "admin@homara.co"
+    ✓ Andrés el administrador takes notes: (1ms)
+      - password: "123456"
+    ✓ Andrés el administrador takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLTAwMSIsImVtYWlsIjoiYWRtaW5AaG9tYXJhLmNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzkxODM5NTE4LCJleHAiOjE3OTI0NDQzMTh9.t7F2YPcJkqMT9M5GG7y7TX9EYT2JEGFkr4GNdwdYV8Q"
+  Andrés el administrador asegura que existe el producto "Insumo de Prueba E2E Screenplay" con stock
+    ✓ Andrés el administrador takes notes: (0ms)
+      - idProductoDePrueba: "cmv5nvncr00045ho9vhhagkfl"
+  Camila la clienta se registra por API como camila.1791839518361.8.w2@e2e-screenplay.co
+    ✓ Camila la clienta llama POST a la API sin sesión (302ms)
+    ✓ Camila la clienta takes notes: (0ms)
+      - email: "camila.1791839518361.8.w2@e2e-screenplay.co"
+    ✓ Camila la clienta takes notes: (0ms)
+      - password: "ClaveSegura2026"
+    ✓ Camila la clienta takes notes: (0ms)
+      - nombre: "Camila"
+    ✓ Camila la clienta takes notes: (0ms)
+      - tokenApi: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtdjVxemg4MzAxNTU1aG85cHc5ZzB1b3kiLCJlbWFpbCI6ImNhbWlsYS4xNzkxODM5NTE4MzYxLjgudzJAZTJlLXNjcmVlbnBsYXkuY28iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3OTE4Mzk1MTgsImV4cCI6MTc5MjQ0NDMxOH0.431OZ45OrEmNTCnSoqGpl6uGVm1d7QLGa6p3BKrBd64"
+  Camila la clienta inicia sesión con sus credenciales y llega a su cuenta
+    Camila la clienta inicia sesión con el correo a note of email
+      ✓ Camila la clienta navigates to "/login" (376ms)
+      ✓ Camila la clienta waits until el campo de correo does become visible (639ms)
+      ✓ Camila la clienta enters "camila.1791839518361.8.w2@e2e-screenplay.co" into el campo de correo (98ms)
+      ✓ Camila la clienta enters "ClaveSegura2026" into el campo de contraseña (67ms)
+      ✓ Camila la clienta clicks on el botón "Iniciar Sesión" (282ms)
+    ✓ Camila la clienta waits until la ruta actual del navegador does equal "/cuenta" (532ms)
+  Camila la clienta agrega 2 unidad(es) de "Insumo de Prueba E2E Screenplay" al carrito
+    Camila la clienta busca "'Insumo de Prueba E2E Screenplay'" en el catálogo
+      ✓ Camila la clienta navigates to "/catalogo" (159ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (321ms)
+      ✓ Camila la clienta enters "Insumo de Prueba E2E Screenplay" into la barra de búsqueda (96ms)
+      ✓ Camila la clienta presses key Enter in la barra de búsqueda (228ms)
+      ✓ Camila la clienta waits until the text of el contador de resultados does include "encontrados" (57ms)
+    ✓ Camila la clienta clicks on la tarjeta del producto "Insumo de Prueba E2E Screenplay" (176ms)
+    ✓ Camila la clienta waits until the text of el título del producto does equal "Insumo de Prueba E2E Screenplay" (155ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (186ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (93ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (207ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 1 (283ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become visible (140ms)
+    ✓ Camila la clienta waits until el botón "Agregar al Carrito" does become enabled (101ms)
+    ✓ Camila la clienta clicks on el botón "Agregar al Carrito" (175ms)
+    ✓ Camila la clienta waits until las unidades en el contador del carrito does equal 2 (90ms)
+  Camila la clienta abre su carrito
+    ✓ Camila la clienta navigates to "/carrito" (147ms)
+    ✓ Camila la clienta waits until el título del carrito does become visible (978ms)
+  ✓ Camila la clienta waits until el ítem "Insumo de Prueba E2E Screenplay" del carrito does become visible (182ms)
+  ✓ Camila la clienta ensures that el subtotal del carrito (COP) does equal 500000 (25ms)
+  ✗ Camila la clienta ensures that el costo de envío mostrado does equal "Gratis" (39ms)
+
+✗ Execution failed with assertion error (8s 766ms)
+
+  AssertionError: Expected el costo de envío mostrado to equal "Gratis"
+
+  Expectation: equals('Gratis')
+
+  Expected string: Gratis
+  Received string: $ 25.000
+
+      at C:/Users/jdmg2/WebstormProjects/Homara/HomaraFrontend/e2e-screenplay/specs/carrito.spec.ts:154:24
+      at ErrorFactory.create (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\core\src\errors\ErrorFactory.ts:36:16)
+      at Stage.createError (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\core\src\stage\Stage.ts:336:28)
+      at RaiseErrors.create (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\core\src\errors\RaiseErrors.ts:59:27)
+      at Ensure.performAs (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\assertions\src\Ensure.ts:140:41)
+      at PerformActivitiesAsPlaywrightSteps.perform (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\core\src\screenplay\abilities\PerformActivities.ts:61:13)
+      at TestStepInfoImpl._runStepBody (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1317:14)
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\common\index.js:2404:20
+      at raceAgainstDeadline (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright-core\lib\coreBundle.js:4602:10)
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\common\index.js:2402:19
+      at _TestTypeImpl._step (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\common\index.js:2399:12)
+      at PerformActivitiesAsPlaywrightSteps.perform (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\@serenity-js\playwright-test\src\api\PerformActivitiesAsPlaywrightSteps.ts:38:9)
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\specs\carrito.spec.ts:149:13
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1655:9
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1135:11
+      at TimeoutManager.withRunnable (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:403:14)
+      at TestInfoImpl._runWithTimeout (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1133:7)
+      at C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1653:7
+      at WorkerMain._runTest (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1626:5)
+      at WorkerMain.runTestGroup (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\worker\workerProcessEntry.js:1521:9)
+      at process.<anonymous> (C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\e2e-screenplay\node_modules\playwright\lib\common\index.js:1941:25)
+
+  33 passed (2.2m)
+================================================================================
+Execution Summary
+
+Autenticación de clientes:      8 successful, 8 total (26s 17ms)
+Carrito de compras:             1 failed, 7 successful, 8 total (2m 385ms)
+Checkout:                       1 failed, 3 successful, 4 total (1m 12s 574ms)
+ESC07 - Protección de ruta...:  5 successful, 5 total (30s 126ms)
+ESC09 - Búsqueda en el cat...:  3 successful, 3 total (8s 300ms)
+ESC17 - Crear proyecto:         3 successful, 3 total (20s 946ms)
+ESC32 - Administración de ...:  2 successful, 2 total (20s 99ms)
+
+Total time: 4m 58s 447ms
+Real time: 2m 13s 129ms
+Scenarios:  33
+================================================================================
