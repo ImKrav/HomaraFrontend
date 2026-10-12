@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="1.932" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-12T21:56:06" tests="0" file="cypress\e2e\api\errores-integridad.api.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="API · Errores, credenciales e integridad (ESC35, ESC37, ESC41)" timestamp="2026-10-12T21:56:06" tests="4" time="1.930" failures="0">
+    <testcase name="API · Errores, credenciales e integridad (ESC35, ESC37, ESC41) API-ERR-01 [ESC41] todos los errores que consume el frontend usan { success:false, error:string } y el código correcto" time="0.699" classname="API-ERR-01 [ESC41] todos los errores que consume el frontend usan { success:false, error:string } y el código correcto">
+    </testcase>
+    <testcase name="API · Errores, credenciales e integridad (ESC35, ESC37, ESC41) API-ERR-02 [ESC41] un JSON mal formado responde 400 con el mismo formato de error" time="0.054" classname="API-ERR-02 [ESC41] un JSON mal formado responde 400 con el mismo formato de error">
+    </testcase>
+    <testcase name="API · Errores, credenciales e integridad (ESC35, ESC37, ESC41) API-SEG-01 [ESC35] la contraseña no viaja en login/registro/me y el token expira (exp en el JWT)" time="0.274" classname="API-SEG-01 [ESC35] la contraseña no viaja en login/registro/me y el token expira (exp en el JWT)">
+    </testcase>
+    <testcase name="API · Errores, credenciales e integridad (ESC35, ESC37, ESC41) API-INT-01 [ESC37/ESC28] crear el pedido descuenta el inventario exactamente una vez" time="0.739" classname="API-INT-01 [ESC37/ESC28] crear el pedido descuenta el inventario exactamente una vez">
+    </testcase>
+  </testsuite>
+</testsuites>

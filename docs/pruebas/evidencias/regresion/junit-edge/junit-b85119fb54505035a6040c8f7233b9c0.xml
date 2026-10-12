@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="24.412" tests="11" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-12T22:10:32" tests="0" file="cypress\e2e\regresion\admin.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Regresión · Administración (ESC31-ESC34)" timestamp="2026-10-12T22:10:32" tests="11" time="24.409" failures="0">
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-01 [ESC31] el dashboard carga las métricas del backend" time="3.953" classname="REG-ADM-01 [ESC31] el dashboard carga las métricas del backend">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-02 [ESC32] el formulario de producto exige los campos obligatorios" time="1.109" classname="REG-ADM-02 [ESC32] el formulario de producto exige los campos obligatorios">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-03 [ESC32] rechaza un precio en 0 con el mensaje de validación" time="2.607" classname="REG-ADM-03 [ESC32] rechaza un precio en 0 con el mensaje de validación">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-04 [ESC32] crea un producto propio y luego lo elimina (CRUD)" time="6.716" classname="REG-ADM-04 [ESC32] crea un producto propio y luego lo elimina (CRUD)">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-05 [ESC33] el inventario muestra las estadísticas y la tabla de stock" time="0.725" classname="REG-ADM-05 [ESC33] el inventario muestra las estadísticas y la tabla de stock">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-06 [ESC34] el administrador cambia el estado de un pedido propio de la prueba" time="1.388" classname="REG-ADM-06 [ESC34] el administrador cambia el estado de un pedido propio de la prueba">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-07 [ESC34] DEF-06: escribir en el buscador de pedidos rompe la página (orderNumber indefinido)" time="1.011" classname="REG-ADM-07 [ESC34] DEF-06: escribir en el buscador de pedidos rompe la página (orderNumber indefinido)">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-08 [ESC32] edita el precio de un producto propio y el cambio persiste" time="2.355" classname="REG-ADM-08 [ESC32] edita el precio de un producto propio y el cambio persiste">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-09 [ESC33] el filtro de alertas del inventario deja solo los productos con stock bajo" time="1.024" classname="REG-ADM-09 [ESC33] el filtro de alertas del inventario deja solo los productos con stock bajo">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-10 [ESC34] el filtro por estado deja solo los pedidos con ese estado" time="1.143" classname="REG-ADM-10 [ESC34] el filtro por estado deja solo los pedidos con ese estado">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-11 [ESC06] el menú de usuario del ADMIN muestra &apos;Panel Admin&apos; y lleva al dashboard" time="1.432" classname="REG-ADM-11 [ESC06] el menú de usuario del ADMIN muestra &apos;Panel Admin&apos; y lleva al dashboard">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,342 @@
+
+> frontend@0.1.0 test:e2e
+> cypress run --spec "cypress/e2e/regresion/**/*.cy.ts"
+
+
+
+DevTools listening on ws://127.0.0.1:61573/devtools/browser/f05fb699-d4f4-4bf7-a680-5cdae6d3354e
+Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        14.5.4                                                                         │
+  │ Browser:        Electron 130 (headless)                                                        │
+  │ Node Version:   v24.14.1 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          8 found (admin.cy.ts, autenticacion.cy.ts, carrito.cy.ts, catalogo.cy.ts, chec │
+  │                 kout-pedidos.cy.ts, perfil.cy.ts, proyectos.cy.ts, resenas-stock.cy.ts)        │
+  │ Searched:       C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\e2e\regresion\** │
+  │                 \*.cy.ts                                                                       │
+  │ Experiments:    experimentalRunAllSpecs=true                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  admin.cy.ts                                                                     (1 of 8)
+
+
+  Regresión · Administración (ESC31-ESC34)
+    √ REG-ADM-01 [ESC31] el dashboard carga las métricas del backend
+    √ REG-ADM-02 [ESC32] el formulario de producto exige los campos obligatorios
+    √ REG-ADM-03 [ESC32] rechaza un precio en 0 con el mensaje de validación
+    √ REG-ADM-04 [ESC32] crea un producto propio y luego lo elimina (CRUD) (8242ms)
+    √ REG-ADM-05 [ESC33] el inventario muestra las estadísticas y la tabla de stock
+    √ REG-ADM-06 [ESC34] el administrador cambia el estado de un pedido propio de la prueba
+    √ REG-ADM-07 [ESC34] DEF-06: escribir en el buscador de pedidos rompe la página (orderNumber indefinido)
+    √ REG-ADM-08 [ESC32] edita el precio de un producto propio y el cambio persiste
+    √ REG-ADM-09 [ESC33] el filtro de alertas del inventario deja solo los productos con stock bajo
+    √ REG-ADM-10 [ESC34] el filtro por estado deja solo los pedidos con ese estado
+    √ REG-ADM-11 [ESC06] el menú de usuario del ADMIN muestra 'Panel Admin' y lleva al dashboard
+
+
+  11 passing (28s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        11                                                                               │
+  │ Passing:      11                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     27 seconds                                                                       │
+  │ Spec Ran:     admin.cy.ts                                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  autenticacion.cy.ts                                                             (2 of 8)
+
+
+  Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)
+    ESC01 · Registro de usuario
+      √ REG-AUT-01 [ESC01] registra un usuario con datos válidos y lo lleva a /cuenta (5426ms)
+      √ REG-AUT-02 [ESC01] rechaza un correo ya registrado y muestra el error del backend
+      √ REG-AUT-03 [ESC01] no envía la petición si las contraseñas no coinciden
+      √ REG-AUT-04 [ESC01] DEF-01: el frontend acepta claves de 6-7 caracteres que el backend rechaza (mín. 8)
+      √ REG-AUT-05 [ESC01] rechaza en el cliente una clave de menos de 6 caracteres
+    ESC02 · Inicio de sesión
+      √ REG-AUT-06 [ESC02] inicia sesión con credenciales válidas y guarda el token
+      √ REG-AUT-07 [ESC02] con clave incorrecta muestra un mensaje genérico y no crea sesión
+      √ REG-AUT-08 [ESC02] con un correo inexistente muestra el MISMO mensaje genérico (no revela cuentas)
+      √ REG-AUT-09 [ESC02] no envía el formulario con campos vacíos (validación nativa required)
+    ESC03 · Cierre de sesión
+      √ REG-AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra el token y redirige a /login
+    ESC07 · Rutas privadas y rol de administrador
+      √ REG-AUT-11 [ESC07] sin sesión, /cuenta redirige a /login
+      √ REG-AUT-11 [ESC07] sin sesión, /proyectos/nuevo redirige a /login
+      √ REG-AUT-11 [ESC07] sin sesión, /checkout redirige a /login
+      √ REG-AUT-12 [ESC07] sin sesión, /carrito muestra el aviso de inicio de sesión requerido
+      √ REG-AUT-13 [ESC07] sin sesión, /admin redirige a /login
+      √ REG-AUT-14 [ESC07] un CUSTOMER que entra a /admin es devuelto al inicio
+      √ REG-AUT-15 [ESC07] un token inválido se descarta (401) y la ruta privada termina en /login
+      √ REG-AUT-16 [ESC07] DEF-05: un fallo de red al validar la sesión (no un 401) también borra el token
+
+
+  18 passing (32s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        18                                                                               │
+  │ Passing:      18                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     31 seconds                                                                       │
+  │ Spec Ran:     autenticacion.cy.ts                                                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  carrito.cy.ts                                                                   (3 of 8)
+
+
+  Regresión · Carrito (ESC13-ESC16)
+    √ REG-CAR-01 [ESC13] agrega un producto desde el detalle: toast de éxito y contador del navbar en 1
+    √ REG-CAR-02 [ESC13] el carrito muestra el producto agregado con su precio unitario
+    √ REG-CAR-03 [ESC14] los botones + y − modifican la cantidad y recalculan el subtotal
+    √ REG-CAR-04 [ESC14] el botón − no baja la cantidad de 1 (límite inferior)
+    √ REG-CAR-05 [ESC15] eliminar el único ítem deja el carrito vacío y el contador en 0
+    √ REG-CAR-06 [ESC16] por debajo de $500.000 cobra envío de $25.000 y total = subtotal + envío
+    √ REG-CAR-07 [ESC16] desde $500.000 el envío es gratis y el total es igual al subtotal
+    √ REG-CAR-08 [ESC13] sin sesión, agregar al carrito responde 401 y redirige a /login
+
+
+  8 passing (21s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        8                                                                                │
+  │ Passing:      8                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     20 seconds                                                                       │
+  │ Spec Ran:     carrito.cy.ts                                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  catalogo.cy.ts                                                                  (4 of 8)
+
+
+  Regresión · Catálogo (ESC08-ESC12)
+    √ REG-CAT-01 [ESC08] lista los productos del backend con el conteo correcto (máx. 25 por página)
+    √ REG-CAT-02 [ESC08] la paginación avanza a la página 2 y muestra el rango correcto
+    √ REG-CAT-03 [ESC09] la búsqueda por nombre encuentra el producto y actualiza la URL
+    √ REG-CAT-04 [ESC09] una búsqueda sin coincidencias muestra el estado vacío y permite volver al catálogo
+    √ REG-CAT-05 [ESC09] el filtro de calificación 4.5+ muestra solo los productos que lo cumplen
+    √ REG-CAT-06 [ESC09] ordenar por precio ascendente deja los precios en orden no decreciente
+    √ REG-CAT-07 [ESC09] ordenar por precio descendente pone primero el más caro
+    √ REG-CAT-08 [ESC11] filtrar por categoría consulta al backend con ?category y solo muestra esa categoría
+    √ REG-CAT-09 [ESC11] la URL /catalogo?category=herramientas llega filtrada (enlace del footer)
+    √ REG-CAT-10 [ESC10] el detalle muestra nombre, precio, descripción y stock del producto
+    √ REG-CAT-11 [ESC10] navega del catálogo al detalle al hacer clic en una tarjeta
+    √ REG-CAT-12 [ESC10] un id inexistente muestra el mensaje de producto no encontrado
+    √ REG-CAT-13 [ESC10] DEF-02: el breadcrumb de categoría usa ?cat= y el catálogo lo ignora (muestra todo)
+    √ REG-CAT-14 [ESC12] la vitrina del inicio carga recomendados, ofertas y más vendidos
+
+
+  14 passing (17s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        14                                                                               │
+  │ Passing:      14                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     17 seconds                                                                       │
+  │ Spec Ran:     catalogo.cy.ts                                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  checkout-pedidos.cy.ts                                                          (5 of 8)
+
+
+  Regresión · Checkout y pedidos (ESC27-ESC29)
+    √ REG-CHK-01 [ESC27] precarga los datos del usuario y resume el carrito con su total
+    √ REG-CHK-02 [ESC27] con campos obligatorios vacíos el navegador bloquea el envío (required)
+    √ REG-CHK-03 [ESC27] si se omite la validación nativa, la app advierte con un toast y no crea el pedido
+    √ REG-CHK-04 [ESC28] con datos válidos crea el pedido ORD-YYYY-NNN, vacía el carrito y confirma (5227ms)
+    √ REG-CHK-05 [ESC29] el pedido creado aparece en el historial de /cuenta y su detalle se puede abrir
+    √ REG-CHK-06 [ESC28] con el carrito vacío el backend rechaza el pedido y la app muestra el error
+
+
+  6 passing (21s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     20 seconds                                                                       │
+  │ Spec Ran:     checkout-pedidos.cy.ts                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  perfil.cy.ts                                                                    (6 of 8)
+
+
+  Regresión · Perfil (ESC04, ESC05)
+    √ REG-PER-01 [ESC04] /cuenta muestra nombre, correo, ubicación sin especificar y contadores en 0
+    √ REG-PER-02 [ESC05] edita teléfono, ciudad y departamento; persiste y se refleja en la tarjeta
+    √ REG-PER-03 [ESC05] con nombre vacío muestra el error de campos requeridos y no guarda
+    √ REG-PER-04 [ESC05] cancelar la edición cierra el modal sin enviar cambios
+    √ REG-PER-05 [ESC03] el botón Cerrar Sesión de la cuenta termina la sesión
+
+
+  5 passing (18s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        5                                                                                │
+  │ Passing:      5                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     17 seconds                                                                       │
+  │ Spec Ran:     perfil.cy.ts                                                                     │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  proyectos.cy.ts                                                                 (7 of 8)
+
+
+  Regresión · Proyectos (ESC17, ESC19, ESC24)
+    √ REG-PRY-01 [ESC17] sin nombre muestra la advertencia del campo obligatorio y no envía nada
+    √ REG-PRY-02 [ESC17] con nombre pero sin largo advierte por el campo Largo
+    √ REG-PRY-03 [ESC17] crea un proyecto de piso 4 x 3 m, calcula 12 m² y abre su detalle (5949ms)
+    √ REG-PRY-04 [ESC17] con dimensiones negativas el frontend no valida y el backend responde 400
+    √ REG-PRY-05 [ESC19] la lista de proyectos muestra el proyecto creado y el total en las estadísticas
+    √ REG-PRY-06 [ESC24] el botón Comprar de un material vinculado lo agrega al carrito
+    √ REG-PRY-07 [ESC17] un proyecto de paredes exige la altura
+    √ REG-PRY-08 [ESC20] personaliza el cálculo: paredes 4x3x2.5 m, 1 puerta, 1 ventana y patrón diagonal (15%) (5527ms)
+    √ REG-PRY-09 [ESC21] excluir insumos opcionales (crucetas y herramientas) los quita del cálculo
+    √ REG-PRY-10 [ESC22] 'Usar en Proyecto' desde la ficha vincula el producto a un proyecto existente (5503ms)
+    √ REG-PRY-11 [ESC23] cambia el estado, edita el nombre y elimina un proyecto propio (9547ms)
+
+
+  11 passing (50s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        11                                                                               │
+  │ Passing:      11                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     49 seconds                                                                       │
+  │ Spec Ran:     proyectos.cy.ts                                                                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  resenas-stock.cy.ts                                                             (8 of 8)
+
+
+  Regresión · Reseñas y stock (ESC25, ESC26, ESC30)
+    √ REG-RES-01 [ESC30] sin sesión, la sección de reseñas invita a iniciar sesión
+    √ REG-RES-02 [ESC30] calificar exige estrellas; con 4 estrellas publica la reseña y actualiza el promedio
+    √ REG-RES-03 [ESC30] DEF-20: los botones de estrellas no tienen nombre accesible
+    √ REG-STK-01 [ESC25/ESC28] la reserva descuenta el stock visible en el catálogo y el pedido lo consume
+    √ REG-STK-03 [ESC25] DEF-21: el carrito no muestra la cuenta regresiva de la reserva (la API no envía updatedAt)
+    √ REG-STK-02 [ESC26] pedir más unidades que el stock marca el ítem como envío diferido (backorder)
+
+
+  6 passing (14s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     13 seconds                                                                       │
+  │ Spec Ran:     resenas-stock.cy.ts                                                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  admin.cy.ts                              00:27       11       11        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  autenticacion.cy.ts                      00:31       18       18        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  carrito.cy.ts                            00:20        8        8        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  catalogo.cy.ts                           00:17       14       14        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  checkout-pedidos.cy.ts                   00:20        6        6        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  perfil.cy.ts                             00:17        5        5        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  proyectos.cy.ts                          00:49       11       11        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  resenas-stock.cy.ts                      00:13        6        6        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        03:18       79       79        -        -        -  
+
+exit=0

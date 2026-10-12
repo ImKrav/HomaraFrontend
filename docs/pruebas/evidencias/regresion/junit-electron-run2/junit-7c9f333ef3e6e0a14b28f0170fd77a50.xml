@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="15.019" tests="5" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-12T21:54:11" tests="0" file="cypress\e2e\regresion\perfil.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Regresión · Perfil (ESC04, ESC05)" timestamp="2026-10-12T21:54:11" tests="5" time="15.017" failures="0">
+    <testcase name="Regresión · Perfil (ESC04, ESC05) REG-PER-01 [ESC04] /cuenta muestra nombre, correo, ubicación sin especificar y contadores en 0" time="3.394" classname="REG-PER-01 [ESC04] /cuenta muestra nombre, correo, ubicación sin especificar y contadores en 0">
+    </testcase>
+    <testcase name="Regresión · Perfil (ESC04, ESC05) REG-PER-02 [ESC05] edita teléfono, ciudad y departamento; persiste y se refleja en la tarjeta" time="4.388" classname="REG-PER-02 [ESC05] edita teléfono, ciudad y departamento; persiste y se refleja en la tarjeta">
+    </testcase>
+    <testcase name="Regresión · Perfil (ESC04, ESC05) REG-PER-03 [ESC05] con nombre vacío muestra el error de campos requeridos y no guarda" time="2.279" classname="REG-PER-03 [ESC05] con nombre vacío muestra el error de campos requeridos y no guarda">
+    </testcase>
+    <testcase name="Regresión · Perfil (ESC04, ESC05) REG-PER-04 [ESC05] cancelar la edición cierra el modal sin enviar cambios" time="2.408" classname="REG-PER-04 [ESC05] cancelar la edición cierra el modal sin enviar cambios">
+    </testcase>
+    <testcase name="Regresión · Perfil (ESC04, ESC05) REG-PER-05 [ESC03] el botón Cerrar Sesión de la cuenta termina la sesión" time="1.774" classname="REG-PER-05 [ESC03] el botón Cerrar Sesión de la cuenta termina la sesión">
+    </testcase>
+  </testsuite>
+</testsuites>

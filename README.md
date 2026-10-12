@@ -154,3 +154,27 @@ npm test
 # Generar reporte de cobertura (LCOV en ./coverage/lcov.info)
 npm run test:coverage
 ```
+
+---
+
+## 🧪 Pruebas
+
+El frontend tiene dos niveles de pruebas automatizadas:
+
+- **Vitest + Testing Library** (`tests/`): lógica y pantallas con backend simulado.
+  `npm test`, `npm run test:regression`. Detalle en [`tests/README.md`](tests/README.md).
+- **Cypress, axe-core y Lighthouse** (`cypress/`, `scripts/lighthouse.mjs`): pruebas
+  de caja negra contra el stack desplegado (frontend `:3000` + backend `:5000`).
+
+| Script | Suite |
+|---|---|
+| `npm run test:e2e` | Regresión E2E de los flujos principales (también `:chrome` / `:edge`) |
+| `npm run test:api` | Contrato y regresión de la API que consume el frontend |
+| `npm run test:component` | Componentes aislados (Cypress Component Testing con Vite) |
+| `npm run test:interfaz` | Responsive (móvil/tablet/escritorio), menú móvil, idioma y tema |
+| `npm run test:a11y` | Accesibilidad WCAG 2.1 A/AA (axe-core), teclado y etiquetas |
+| `npm run test:lighthouse` | Rendimiento, accesibilidad, buenas prácticas y SEO |
+| `npm run cy:open` | Runner interactivo de Cypress |
+
+Documentación, matriz de trazabilidad por escenario (ESC), resultados, evidencias
+y defectos encontrados: **[`docs/pruebas/`](docs/pruebas/README.md)**.

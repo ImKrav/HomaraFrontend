@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="12.612" tests="8" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-12T22:11:27" tests="0" file="cypress\e2e\regresion\carrito.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Regresión · Carrito (ESC13-ESC16)" timestamp="2026-10-12T22:11:27" tests="8" time="12.611" failures="0">
+    <testcase name="Regresión · Carrito (ESC13-ESC16) REG-CAR-01 [ESC13] agrega un producto desde el detalle: toast de éxito y contador del navbar en 1" time="1.940" classname="REG-CAR-01 [ESC13] agrega un producto desde el detalle: toast de éxito y contador del navbar en 1">
+    </testcase>
+    <testcase name="Regresión · Carrito (ESC13-ESC16) REG-CAR-02 [ESC13] el carrito muestra el producto agregado con su precio unitario" time="1.428" classname="REG-CAR-02 [ESC13] el carrito muestra el producto agregado con su precio unitario">
+    </testcase>
+    <testcase name="Regresión · Carrito (ESC13-ESC16) REG-CAR-03 [ESC14] los botones + y − modifican la cantidad y recalculan el subtotal" time="1.757" classname="REG-CAR-03 [ESC14] los botones + y − modifican la cantidad y recalculan el subtotal">
+    </testcase>
+    <testcase name="Regresión · Carrito (ESC13-ESC16) REG-CAR-04 [ESC14] el botón − no baja la cantidad de 1 (límite inferior)" time="1.456" classname="REG-CAR-04 [ESC14] el botón − no baja la cantidad de 1 (límite inferior)">
+    </testcase>
+    <testcase name="Regresión · Carrito (ESC13-ESC16) REG-CAR-05 [ESC15] eliminar el único ítem deja el carrito vacío y el contador en 0" time="1.464" classname="REG-CAR-05 [ESC15] eliminar el único ítem deja el carrito vacío y el contador en 0">
+    </testcase>
+    <testcase name="Regresión · Carrito (ESC13-ESC16) REG-CAR-06 [ESC16] por debajo de $500.000 cobra envío de $25.000 y total = subtotal + envío" time="1.359" classname="REG-CAR-06 [ESC16] por debajo de $500.000 cobra envío de $25.000 y total = subtotal + envío">
+    </testcase>
+    <testcase name="Regresión · Carrito (ESC13-ESC16) REG-CAR-07 [ESC16] desde $500.000 el envío es gratis y el total es igual al subtotal" time="1.331" classname="REG-CAR-07 [ESC16] desde $500.000 el envío es gratis y el total es igual al subtotal">
+    </testcase>
+    <testcase name="Regresión · Carrito (ESC13-ESC16) REG-CAR-08 [ESC13] sin sesión, agregar al carrito responde 401 y redirige a /login" time="1.435" classname="REG-CAR-08 [ESC13] sin sesión, agregar al carrito responde 401 y redirige a /login">
+    </testcase>
+  </testsuite>
+</testsuites>

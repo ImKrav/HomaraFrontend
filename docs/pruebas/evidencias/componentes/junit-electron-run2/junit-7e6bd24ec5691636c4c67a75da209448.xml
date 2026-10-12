@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="3.236" tests="15" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-12T21:57:54" tests="0" file="cypress\component\navegacion-feedback.cy.tsx" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Componentes · Pagination" timestamp="2026-10-12T21:57:54" tests="6" time="1.264" failures="0">
+    <testcase name="Componentes · Pagination CMP-PAG-01 con una sola página no renderiza nada" time="0.131" classname="CMP-PAG-01 con una sola página no renderiza nada">
+    </testcase>
+    <testcase name="Componentes · Pagination CMP-PAG-02 muestra el rango, deshabilita &apos;Anterior&apos; en la página 1 y marca la actual" time="0.211" classname="CMP-PAG-02 muestra el rango, deshabilita &apos;Anterior&apos; en la página 1 y marca la actual">
+    </testcase>
+    <testcase name="Componentes · Pagination CMP-PAG-03 navegar a la última página llama onPageChange y deshabilita &apos;Siguiente&apos;" time="0.372" classname="CMP-PAG-03 navegar a la última página llama onPageChange y deshabilita &apos;Siguiente&apos;">
+    </testcase>
+    <testcase name="Componentes · Pagination CMP-PAG-04 con muchas páginas resume con puntos suspensivos alrededor de la actual" time="0.122" classname="CMP-PAG-04 con muchas páginas resume con puntos suspensivos alrededor de la actual">
+    </testcase>
+    <testcase name="Componentes · Pagination CMP-PAG-05 traduce sus textos al inglés con LanguageProvider" time="0.099" classname="CMP-PAG-05 traduce sus textos al inglés con LanguageProvider">
+    </testcase>
+    <testcase name="Componentes · Pagination CMP-PAG-06 DEF-14: los íconos ChevronLeft/Right no están en LucideIcon y se dibuja el ícono de ayuda (?)" time="0.083" classname="CMP-PAG-06 DEF-14: los íconos ChevronLeft/Right no están en LucideIcon y se dibuja el ícono de ayuda (?)">
+    </testcase>
+  </testsuite>
+  <testsuite name="Componentes · Toast" timestamp="2026-10-12T21:57:55" tests="4" time="0.746" failures="0">
+    <testcase name="Componentes · Toast CMP-TST-01 showToast muestra una alerta con el mensaje y el estilo del tipo" time="0.123" classname="CMP-TST-01 showToast muestra una alerta con el mensaje y el estilo del tipo">
+    </testcase>
+    <testcase name="Componentes · Toast CMP-TST-02 apila varias notificaciones y cada tipo usa su color" time="0.148" classname="CMP-TST-02 apila varias notificaciones y cada tipo usa su color">
+    </testcase>
+    <testcase name="Componentes · Toast CMP-TST-03 el botón Cerrar descarta la notificación" time="0.201" classname="CMP-TST-03 el botón Cerrar descarta la notificación">
+    </testcase>
+    <testcase name="Componentes · Toast CMP-TST-04 se oculta sola al cumplirse la duración (reloj controlado)" time="0.148" classname="CMP-TST-04 se oculta sola al cumplirse la duración (reloj controlado)">
+    </testcase>
+  </testsuite>
+  <testsuite name="Componentes · AuthCard y AuthRequiredState" timestamp="2026-10-12T21:57:56" tests="3" time="0.721" failures="0">
+    <testcase name="Componentes · AuthCard y AuthRequiredState CMP-AUT-01 AuthCard muestra subtítulo y contenido; sin error no muestra el aviso" time="0.348" classname="CMP-AUT-01 AuthCard muestra subtítulo y contenido; sin error no muestra el aviso">
+    </testcase>
+    <testcase name="Componentes · AuthCard y AuthRequiredState CMP-AUT-02 AuthCard con errorMsg muestra el error y respeta maxWidth=2xl" time="0.146" classname="CMP-AUT-02 AuthCard con errorMsg muestra el error y respeta maxWidth=2xl">
+    </testcase>
+    <testcase name="Componentes · AuthCard y AuthRequiredState CMP-AUT-03 AuthRequiredState ofrece enlaces a /login y /register" time="0.129" classname="CMP-AUT-03 AuthRequiredState ofrece enlaces a /login y /register">
+    </testcase>
+  </testsuite>
+  <testsuite name="Componentes · SearchBar" timestamp="2026-10-12T21:57:56" tests="2" time="0.503" failures="0">
+    <testcase name="Componentes · SearchBar CMP-SBR-01 al presionar Enter invoca onSearch con el texto escrito" time="0.358" classname="CMP-SBR-01 al presionar Enter invoca onSearch con el texto escrito">
+    </testcase>
+    <testcase name="Componentes · SearchBar CMP-SBR-02 sincroniza el valor inicial y usa el placeholder en inglés" time="0.077" classname="CMP-SBR-02 sincroniza el valor inicial y usa el placeholder en inglés">
+    </testcase>
+  </testsuite>
+</testsuites>

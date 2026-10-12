@@ -1,0 +1,186 @@
+[
+  {
+    "pagina": "inicio",
+    "ruta": "/",
+    "perfil": "escritorio",
+    "corridas": 3,
+    "lighthouse": "12.8.2",
+    "fecha": "2026-10-12T22:13:30.762Z",
+    "puntajes": {
+      "performance": 100,
+      "accessibility": 96,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metricas": {
+      "first-contentful-paint": "0.2 s",
+      "largest-contentful-paint": "0.6 s",
+      "total-blocking-time": "0 ms",
+      "cumulative-layout-shift": "0",
+      "speed-index": "0.4 s"
+    },
+    "oportunidades": [
+      "Reduce unused JavaScript (Est savings of 25 KiB)",
+      "Avoid serving legacy JavaScript to modern browsers (Est savings of 13 KiB)",
+      "Eliminate render-blocking resources (Est savings of 0 ms)"
+    ],
+    "fallasAccesibilidad": [
+      "color-contrast",
+      "label-content-name-mismatch"
+    ]
+  },
+  {
+    "pagina": "catalogo",
+    "ruta": "/catalogo",
+    "perfil": "escritorio",
+    "corridas": 3,
+    "lighthouse": "12.8.2",
+    "fecha": "2026-10-12T22:14:51.203Z",
+    "puntajes": {
+      "performance": 100,
+      "accessibility": 90,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metricas": {
+      "first-contentful-paint": "0.2 s",
+      "largest-contentful-paint": "0.4 s",
+      "total-blocking-time": "10 ms",
+      "cumulative-layout-shift": "0.059",
+      "speed-index": "0.5 s"
+    },
+    "oportunidades": [
+      "Reduce unused JavaScript (Est savings of 24 KiB)",
+      "Avoid serving legacy JavaScript to modern browsers (Est savings of 13 KiB)"
+    ],
+    "fallasAccesibilidad": [
+      "color-contrast",
+      "heading-order",
+      "select-name",
+      "label-content-name-mismatch"
+    ]
+  },
+  {
+    "pagina": "login",
+    "ruta": "/login",
+    "perfil": "escritorio",
+    "corridas": 3,
+    "lighthouse": "12.8.2",
+    "fecha": "2026-10-12T22:15:59.216Z",
+    "puntajes": {
+      "performance": 100,
+      "accessibility": 94,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metricas": {
+      "first-contentful-paint": "0.2 s",
+      "largest-contentful-paint": "0.4 s",
+      "total-blocking-time": "60 ms",
+      "cumulative-layout-shift": "0.024",
+      "speed-index": "0.5 s"
+    },
+    "oportunidades": [
+      "Reduce unused JavaScript (Est savings of 25 KiB)",
+      "Avoid serving legacy JavaScript to modern browsers (Est savings of 13 KiB)"
+    ],
+    "fallasAccesibilidad": [
+      "color-contrast",
+      "heading-order",
+      "label-content-name-mismatch"
+    ]
+  },
+  {
+    "pagina": "inicio",
+    "ruta": "/",
+    "perfil": "movil",
+    "corridas": 3,
+    "lighthouse": "12.8.2",
+    "fecha": "2026-10-12T22:16:34.209Z",
+    "puntajes": {
+      "performance": 79,
+      "accessibility": 96,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metricas": {
+      "first-contentful-paint": "0.8 s",
+      "largest-contentful-paint": "2.0 s",
+      "total-blocking-time": "860 ms",
+      "cumulative-layout-shift": "0",
+      "speed-index": "1.3 s"
+    },
+    "oportunidades": [
+      "Eliminate render-blocking resources (Est savings of 0 ms)",
+      "Reduce unused JavaScript (Est savings of 25 KiB)",
+      "Avoid serving legacy JavaScript to modern browsers (Est savings of 13 KiB)"
+    ],
+    "fallasAccesibilidad": [
+      "color-contrast",
+      "label-content-name-mismatch"
+    ]
+  },
+  {
+    "pagina": "catalogo",
+    "ruta": "/catalogo",
+    "perfil": "movil",
+    "corridas": 3,
+    "lighthouse": "12.8.2",
+    "fecha": "2026-10-12T22:17:40.611Z",
+    "puntajes": {
+      "performance": 73,
+      "accessibility": 90,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metricas": {
+      "first-contentful-paint": "0.8 s",
+      "largest-contentful-paint": "2.0 s",
+      "total-blocking-time": "640 ms",
+      "cumulative-layout-shift": "0.22",
+      "speed-index": "1.5 s"
+    },
+    "oportunidades": [
+      "Eliminate render-blocking resources (Est savings of 0 ms)",
+      "Reduce unused JavaScript (Est savings of 24 KiB)",
+      "Avoid serving legacy JavaScript to modern browsers (Est savings of 13 KiB)"
+    ],
+    "fallasAccesibilidad": [
+      "color-contrast",
+      "heading-order",
+      "select-name",
+      "label-content-name-mismatch"
+    ]
+  },
+  {
+    "pagina": "login",
+    "ruta": "/login",
+    "perfil": "movil",
+    "corridas": 3,
+    "lighthouse": "12.8.2",
+    "fecha": "2026-10-12T22:18:59.537Z",
+    "puntajes": {
+      "performance": 90,
+      "accessibility": 94,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metricas": {
+      "first-contentful-paint": "0.8 s",
+      "largest-contentful-paint": "2.0 s",
+      "total-blocking-time": "350 ms",
+      "cumulative-layout-shift": "0.07",
+      "speed-index": "1.5 s"
+    },
+    "oportunidades": [
+      "Eliminate render-blocking resources (Est savings of 0 ms)",
+      "Reduce unused JavaScript (Est savings of 25 KiB)",
+      "Avoid serving legacy JavaScript to modern browsers (Est savings of 13 KiB)"
+    ],
+    "fallasAccesibilidad": [
+      "color-contrast",
+      "heading-order",
+      "label-content-name-mismatch"
+    ]
+  }
+]

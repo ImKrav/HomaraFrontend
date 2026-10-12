@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="47.178" tests="23" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-12T22:01:21" tests="0" file="cypress\e2e\interfaz\responsive.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Interfaz · Responsive (ESC39) en Electron" timestamp="2026-10-12T22:01:21" tests="1" time="0.000" failures="0">
+    <testcase name="Interfaz · Responsive (ESC39) en Electron INT-RSP-GRID [ESC39] la grilla del catálogo pasa de 1 a 2 y 4 columnas según el ancho" time="4.143" classname="INT-RSP-GRID [ESC39] la grilla del catálogo pasa de 1 a 2 y 4 columnas según el ancho">
+    </testcase>
+  </testsuite>
+  <testsuite name="Viewport movil (375x667)" timestamp="2026-10-12T22:01:25" tests="6" time="12.420" failures="0">
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport movil (375x667) INT-RSP [ESC39/ESC44] / se adapta a movil sin scroll horizontal" time="0.911" classname="INT-RSP [ESC39/ESC44] / se adapta a movil sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport movil (375x667) INT-RSP [ESC39/ESC44] /catalogo se adapta a movil sin scroll horizontal" time="3.322" classname="INT-RSP [ESC39/ESC44] /catalogo se adapta a movil sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport movil (375x667) INT-RSP [ESC39/ESC44] /login se adapta a movil sin scroll horizontal" time="3.214" classname="INT-RSP [ESC39/ESC44] /login se adapta a movil sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport movil (375x667) INT-RSP [ESC39/ESC44] /register se adapta a movil sin scroll horizontal" time="3.220" classname="INT-RSP [ESC39/ESC44] /register se adapta a movil sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport movil (375x667) INT-RSP [ESC39/ESC44] /carrito se adapta a movil sin scroll horizontal" time="0.455" classname="INT-RSP [ESC39/ESC44] /carrito se adapta a movil sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport movil (375x667) INT-RSP [ESC39] detalle de producto se adapta a movil" time="0.542" classname="INT-RSP [ESC39] detalle de producto se adapta a movil">
+    </testcase>
+  </testsuite>
+  <testsuite name="Viewport tablet (768x1024)" timestamp="2026-10-12T22:01:38" tests="6" time="12.986" failures="0">
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport tablet (768x1024) INT-RSP [ESC39/ESC44] / se adapta a tablet sin scroll horizontal" time="0.693" classname="INT-RSP [ESC39/ESC44] / se adapta a tablet sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport tablet (768x1024) INT-RSP [ESC39/ESC44] /catalogo se adapta a tablet sin scroll horizontal" time="3.369" classname="INT-RSP [ESC39/ESC44] /catalogo se adapta a tablet sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport tablet (768x1024) INT-RSP [ESC39/ESC44] /login se adapta a tablet sin scroll horizontal" time="3.257" classname="INT-RSP [ESC39/ESC44] /login se adapta a tablet sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport tablet (768x1024) INT-RSP [ESC39/ESC44] /register se adapta a tablet sin scroll horizontal" time="3.277" classname="INT-RSP [ESC39/ESC44] /register se adapta a tablet sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport tablet (768x1024) INT-RSP [ESC39/ESC44] /carrito se adapta a tablet sin scroll horizontal" time="0.713" classname="INT-RSP [ESC39/ESC44] /carrito se adapta a tablet sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport tablet (768x1024) INT-RSP [ESC39] detalle de producto se adapta a tablet" time="0.761" classname="INT-RSP [ESC39] detalle de producto se adapta a tablet">
+    </testcase>
+  </testsuite>
+  <testsuite name="Viewport escritorio (1440x900)" timestamp="2026-10-12T22:01:51" tests="6" time="13.061" failures="0">
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport escritorio (1440x900) INT-RSP [ESC39/ESC44] / se adapta a escritorio sin scroll horizontal" time="0.698" classname="INT-RSP [ESC39/ESC44] / se adapta a escritorio sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport escritorio (1440x900) INT-RSP [ESC39/ESC44] /catalogo se adapta a escritorio sin scroll horizontal" time="3.402" classname="INT-RSP [ESC39/ESC44] /catalogo se adapta a escritorio sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport escritorio (1440x900) INT-RSP [ESC39/ESC44] /login se adapta a escritorio sin scroll horizontal" time="3.403" classname="INT-RSP [ESC39/ESC44] /login se adapta a escritorio sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport escritorio (1440x900) INT-RSP [ESC39/ESC44] /register se adapta a escritorio sin scroll horizontal" time="3.360" classname="INT-RSP [ESC39/ESC44] /register se adapta a escritorio sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport escritorio (1440x900) INT-RSP [ESC39/ESC44] /carrito se adapta a escritorio sin scroll horizontal" time="0.610" classname="INT-RSP [ESC39/ESC44] /carrito se adapta a escritorio sin scroll horizontal">
+    </testcase>
+    <testcase name="Interfaz · Responsive (ESC39) en Electron Viewport escritorio (1440x900) INT-RSP [ESC39] detalle de producto se adapta a escritorio" time="0.857" classname="INT-RSP [ESC39] detalle de producto se adapta a escritorio">
+    </testcase>
+  </testsuite>
+  <testsuite name="Interfaz · Navegación móvil (ESC39)" timestamp="2026-10-12T22:02:04" tests="4" time="4.260" failures="0">
+    <testcase name="Interfaz · Navegación móvil (ESC39) INT-MOV-01 [ESC39] en móvil se oculta la navegación de escritorio y aparece el botón Menú" time="0.158" classname="INT-MOV-01 [ESC39] en móvil se oculta la navegación de escritorio y aparece el botón Menú">
+    </testcase>
+    <testcase name="Interfaz · Navegación móvil (ESC39) INT-MOV-02 [ESC39] el menú móvil se abre, navega al catálogo y se cierra" time="3.329" classname="INT-MOV-02 [ESC39] el menú móvil se abre, navega al catálogo y se cierra">
+    </testcase>
+    <testcase name="Interfaz · Navegación móvil (ESC39) INT-MOV-03 [ESC39] DEF-16: el botón Menú no expone aria-expanded ni aria-controls" time="0.314" classname="INT-MOV-03 [ESC39] DEF-16: el botón Menú no expone aria-expanded ni aria-controls">
+    </testcase>
+    <testcase name="Interfaz · Navegación móvil (ESC39) INT-MOV-04 [ESC39] en escritorio el botón Menú no se muestra" time="0.144" classname="INT-MOV-04 [ESC39] en escritorio el botón Menú no se muestra">
+    </testcase>
+  </testsuite>
+</testsuites>

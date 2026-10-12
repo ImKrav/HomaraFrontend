@@ -1,0 +1,468 @@
+[
+  {
+    "pagina": "inicio",
+    "ruta": "/",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:29.764Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 3,
+        "ejemplos": [
+          ".px-1\\.5.py-1.gap-1\\.5:nth-child(1) > .px-1\\.5.text-text-muted.text-\\[10px\\]",
+          ".bg-transparent",
+          ".px-1\\.5.py-1.gap-1\\.5:nth-child(2) > .px-1\\.5.text-text-muted.text-\\[10px\\]"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "inicio-oscuro",
+    "ruta": "/",
+    "tema": "dark",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:32.647Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 56,
+        "ejemplos": [
+          "h1 > .text-zinc-400",
+          ".sm\\:text-base",
+          ".border-zinc-700"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "catalogo",
+    "ruta": "/catalogo",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:35.994Z",
+    "total": 2,
+    "porImpacto": {
+      "serious": 1,
+      "critical": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 3,
+        "ejemplos": [
+          ".px-1\\.5.py-1.gap-1\\.5:nth-child(1) > .px-1\\.5.font-bold.uppercase",
+          ".bg-transparent",
+          ".px-1\\.5.py-1.gap-1\\.5:nth-child(2) > .px-1\\.5.font-bold.uppercase"
+        ]
+      },
+      {
+        "regla": "select-name",
+        "impacto": "critical",
+        "descripcion": "Select element must have an accessible name",
+        "wcag": [
+          "wcag2a",
+          "wcag412"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/select-name?application=axeAPI",
+        "nodos": 2,
+        "ejemplos": [
+          "#min-rating",
+          "#sort-by"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "detalle-producto",
+    "ruta": "/catalogo/cmv5no2a1000d42o9hv271iku",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:37.457Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 4,
+        "ejemplos": [
+          ".rounded-xl > .mt-1",
+          ".px-1\\.5.gap-1\\.5.py-1:nth-child(1) > .px-1\\.5.text-\\[10px\\].text-text-muted",
+          ".bg-transparent"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "login",
+    "ruta": "/login",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:38.944Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 3,
+        "ejemplos": [
+          ".px-1\\.5.py-1.bg-bg-surface-light:nth-child(1) > .px-1\\.5.text-\\[10px\\].text-text-muted",
+          ".border-transparent",
+          ".px-1\\.5.py-1.bg-bg-surface-light:nth-child(2) > .px-1\\.5.text-\\[10px\\].text-text-muted"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "login-oscuro",
+    "ruta": "/login",
+    "tema": "dark",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:40.670Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 6,
+        "ejemplos": [
+          ".text-text-muted.text-xs:nth-child(1)",
+          ".px-1\\.5.py-1.bg-bg-surface-light:nth-child(1) > .px-1\\.5.text-\\[10px\\].text-text-muted",
+          ".border-transparent"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "registro",
+    "ruta": "/register",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:42.205Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 3,
+        "ejemplos": [
+          ".px-1\\.5.py-1.bg-bg-surface-light:nth-child(1) > .px-1\\.5.text-\\[10px\\].font-bold",
+          ".bg-transparent",
+          ".px-1\\.5.py-1.bg-bg-surface-light:nth-child(2) > .px-1\\.5.text-\\[10px\\].font-bold"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "carrito-invitado",
+    "ruta": "/carrito",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:43.295Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 3,
+        "ejemplos": [
+          ".gap-1\\.5.px-1\\.5.py-1:nth-child(1) > .px-1\\.5.text-\\[10px\\].text-text-muted",
+          ".bg-transparent",
+          ".gap-1\\.5.px-1\\.5.py-1:nth-child(2) > .px-1\\.5.text-\\[10px\\].text-text-muted"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "cuenta",
+    "ruta": "/cuenta",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:49.743Z",
+    "total": 2,
+    "porImpacto": {
+      "serious": 2
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 3,
+        "ejemplos": [
+          ".px-1\\.5.py-1.gap-1\\.5:nth-child(1) > .px-1\\.5.text-\\[10px\\].uppercase",
+          ".bg-transparent",
+          ".px-1\\.5.py-1.gap-1\\.5:nth-child(2) > .px-1\\.5.text-\\[10px\\].uppercase"
+        ]
+      },
+      {
+        "regla": "nested-interactive",
+        "impacto": "serious",
+        "descripcion": "Interactive controls must not be nested",
+        "wcag": [
+          "wcag2a",
+          "wcag412"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/nested-interactive?application=axeAPI",
+        "nodos": 5,
+        "ejemplos": [
+          ".space-y-4 > .card-hover.rounded-xl.p-6:nth-child(1)",
+          ".space-y-4 > .card-hover.rounded-xl.p-6:nth-child(2)",
+          ".space-y-4 > .card-hover.rounded-xl.p-6:nth-child(3)"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "proyectos",
+    "ruta": "/proyectos",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:52.657Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 3,
+        "ejemplos": [
+          ".px-1\\.5.py-1.bg-bg-surface-light:nth-child(1) > .px-1\\.5.text-\\[10px\\].uppercase",
+          ".bg-transparent",
+          ".px-1\\.5.py-1.bg-bg-surface-light:nth-child(2) > .px-1\\.5.text-\\[10px\\].uppercase"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "proyecto-nuevo",
+    "ruta": "/proyectos/nuevo",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:54.603Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 4,
+        "ejemplos": [
+          ".mt-1",
+          ".px-1\\.5.py-1.bg-bg-surface-light:nth-child(1) > .px-1\\.5.text-\\[10px\\].uppercase",
+          ".bg-transparent"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "checkout",
+    "ruta": "/checkout",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:58:56.683Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 3,
+        "ejemplos": [
+          ".px-1\\.5.py-1.bg-bg-surface-light:nth-child(1) > .px-1\\.5.text-\\[10px\\].uppercase",
+          ".bg-transparent",
+          ".px-1\\.5.py-1.bg-bg-surface-light:nth-child(2) > .px-1\\.5.text-\\[10px\\].uppercase"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "admin-dashboard",
+    "ruta": "/admin",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:59:01.024Z",
+    "total": 2,
+    "porImpacto": {
+      "serious": 2
+    },
+    "violaciones": [
+      {
+        "regla": "aria-prohibited-attr",
+        "impacto": "serious",
+        "descripcion": "Elements must only use permitted ARIA attributes",
+        "wcag": [
+          "wcag2a",
+          "wcag412"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=axeAPI",
+        "nodos": 12,
+        "ejemplos": [
+          "div[title=\"Ventas de Enero: $ 2.500.000\"]",
+          "div[title=\"Ventas de Febrero: $ 3.800.000\"]",
+          "div[title=\"Ventas de Marzo: $ 2.998.000\"]"
+        ]
+      },
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 1,
+        "ejemplos": [
+          ".rounded-md"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "admin-productos",
+    "ruta": "/admin/productos",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-12T21:59:05.359Z",
+    "total": 2,
+    "porImpacto": {
+      "serious": 1,
+      "critical": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 1,
+        "ejemplos": [
+          ".rounded-md"
+        ]
+      },
+      {
+        "regla": "select-name",
+        "impacto": "critical",
+        "descripcion": "Select element must have an accessible name",
+        "wcag": [
+          "wcag2a",
+          "wcag412"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/select-name?application=axeAPI",
+        "nodos": 2,
+        "ejemplos": [
+          "div:nth-child(2) > select",
+          "div:nth-child(3) > select"
+        ]
+      }
+    ]
+  }
+]

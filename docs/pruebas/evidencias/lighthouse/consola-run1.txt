@@ -1,0 +1,21 @@
+
+> frontend@0.1.0 test:lighthouse
+> node scripts/lighthouse.mjs
+
+[lighthouse] escritorio /          performance=100  accessibility=96  best-practices=100  seo=100  LCP=0.6 s  TBT=0 ms  CLS=0
+[lighthouse] escritorio /catalogo  performance=100  accessibility=90  best-practices=100  seo=100  LCP=0.4 s  TBT=10 ms  CLS=0.059
+[lighthouse] escritorio /login     performance=100  accessibility=94  best-practices=100  seo=100  LCP=0.4 s  TBT=60 ms  CLS=0.024
+[lighthouse] movil      /          performance=79  accessibility=96  best-practices=100  seo=100  LCP=2.0 s  TBT=860 ms  CLS=0
+[lighthouse] movil      /catalogo  performance=73  accessibility=90  best-practices=100  seo=100  LCP=2.0 s  TBT=640 ms  CLS=0.22
+[lighthouse] movil      /login     performance=90  accessibility=94  best-practices=100  seo=100  LCP=2.0 s  TBT=350 ms  CLS=0.07
+
+| Página | Perfil | Performance | Accessibility | Best Practices | SEO | FCP | LCP | TBT | CLS |
+|---|---|---|---|---|---|---|---|---|---|
+| / | escritorio | 100 | 96 | 100 | 100 | 0.2 s | 0.6 s | 0 ms | 0 |
+| /catalogo | escritorio | 100 | 90 | 100 | 100 | 0.2 s | 0.4 s | 10 ms | 0.059 |
+| /login | escritorio | 100 | 94 | 100 | 100 | 0.2 s | 0.4 s | 60 ms | 0.024 |
+| / | movil | 79 | 96 | 100 | 100 | 0.8 s | 2.0 s | 860 ms | 0 |
+| /catalogo | movil | 73 | 90 | 100 | 100 | 0.8 s | 2.0 s | 640 ms | 0.22 |
+| /login | movil | 90 | 94 | 100 | 100 | 0.8 s | 2.0 s | 350 ms | 0.07 |
+
+Reportes en docs\pruebas\evidencias\lighthouse

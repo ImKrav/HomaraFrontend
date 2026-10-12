@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="17.137" tests="14" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-12T21:49:20" tests="0" file="cypress\e2e\regresion\catalogo.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Regresión · Catálogo (ESC08-ESC12)" timestamp="2026-10-12T21:49:20" tests="14" time="17.131" failures="0">
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-01 [ESC08] lista los productos del backend con el conteo correcto (máx. 25 por página)" time="1.220" classname="REG-CAT-01 [ESC08] lista los productos del backend con el conteo correcto (máx. 25 por página)">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-02 [ESC08] la paginación avanza a la página 2 y muestra el rango correcto" time="1.009" classname="REG-CAT-02 [ESC08] la paginación avanza a la página 2 y muestra el rango correcto">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-03 [ESC09] la búsqueda por nombre encuentra el producto y actualiza la URL" time="2.040" classname="REG-CAT-03 [ESC09] la búsqueda por nombre encuentra el producto y actualiza la URL">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-04 [ESC09] una búsqueda sin coincidencias muestra el estado vacío y permite volver al catálogo" time="1.749" classname="REG-CAT-04 [ESC09] una búsqueda sin coincidencias muestra el estado vacío y permite volver al catálogo">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-05 [ESC09] el filtro de calificación 4.5+ muestra solo los productos que lo cumplen" time="0.867" classname="REG-CAT-05 [ESC09] el filtro de calificación 4.5+ muestra solo los productos que lo cumplen">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-06 [ESC09] ordenar por precio ascendente deja los precios en orden no decreciente" time="0.971" classname="REG-CAT-06 [ESC09] ordenar por precio ascendente deja los precios en orden no decreciente">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-07 [ESC09] ordenar por precio descendente pone primero el más caro" time="1.018" classname="REG-CAT-07 [ESC09] ordenar por precio descendente pone primero el más caro">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-08 [ESC11] filtrar por categoría consulta al backend con ?category y solo muestra esa categoría" time="1.368" classname="REG-CAT-08 [ESC11] filtrar por categoría consulta al backend con ?category y solo muestra esa categoría">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-09 [ESC11] la URL /catalogo?category=herramientas llega filtrada (enlace del footer)" time="0.618" classname="REG-CAT-09 [ESC11] la URL /catalogo?category=herramientas llega filtrada (enlace del footer)">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-10 [ESC10] el detalle muestra nombre, precio, descripción y stock del producto" time="0.607" classname="REG-CAT-10 [ESC10] el detalle muestra nombre, precio, descripción y stock del producto">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-11 [ESC10] navega del catálogo al detalle al hacer clic en una tarjeta" time="1.212" classname="REG-CAT-11 [ESC10] navega del catálogo al detalle al hacer clic en una tarjeta">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-12 [ESC10] un id inexistente muestra el mensaje de producto no encontrado" time="0.526" classname="REG-CAT-12 [ESC10] un id inexistente muestra el mensaje de producto no encontrado">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-13 [ESC10] DEF-02: el breadcrumb de categoría usa ?cat= y el catálogo lo ignora (muestra todo)" time="1.265" classname="REG-CAT-13 [ESC10] DEF-02: el breadcrumb de categoría usa ?cat= y el catálogo lo ignora (muestra todo)">
+    </testcase>
+    <testcase name="Regresión · Catálogo (ESC08-ESC12) REG-CAT-14 [ESC12] la vitrina del inicio carga recomendados, ofertas y más vendidos" time="0.902" classname="REG-CAT-14 [ESC12] la vitrina del inicio carga recomendados, ofertas y más vendidos">
+    </testcase>
+  </testsuite>
+</testsuites>

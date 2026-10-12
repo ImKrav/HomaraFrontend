@@ -1,0 +1,195 @@
+
+> frontend@0.1.0 test:component
+> cypress run --component
+
+
+
+DevTools listening on ws://127.0.0.1:50453/devtools/browser/642effff-5d70-419c-927b-01b78a4332af
+Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
+We detected that you have versions of dependencies that are not officially supported:
+
+ - `vite`. Expected ^4.0.0 || ^5.0.0 || ^6.0.0, found 7.3.6.
+
+If you're experiencing problems, ensure your dependencies are on a supported version and restart Cypress.
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        14.5.4                                                                         │
+  │ Browser:        Electron 130 (headless)                                                        │
+  │ Node Version:   v24.14.1 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          3 found (comercio.cy.tsx, navegacion-feedback.cy.tsx, ui-basicos.cy.tsx)       │
+  │ Searched:       cypress/component/**/*.cy.tsx                                                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  comercio.cy.tsx                                                                 (1 of 3)
+
+
+  Componentes · ProductCard
+    √ CMP-PRD-01 muestra nombre, categoría traducida, precio, precio original y unidad (452ms)
+    √ CMP-PRD-02 calcula el descuento (-25%) y muestra la insignia 'Nuevo' (131ms)
+    √ CMP-PRD-03 pinta tantas estrellas como la parte entera del rating y el número de reseñas (138ms)
+    √ CMP-PRD-04 sin stock muestra 'Envío Diferido' y sin precio original no muestra descuento (151ms)
+    √ CMP-PRD-05 toda la tarjeta enlaza al detalle /catalogo/:id
+    √ CMP-PRD-06 en inglés traduce la categoría y la insignia (141ms)
+
+  Componentes · CartItem
+    √ CMP-CIT-01 muestra nombre, precio unitario, cantidad y subtotal (precio × cantidad) (229ms)
+    √ CMP-CIT-02 + incrementa y − decrementa (nunca por debajo de 1) vía onQuantityChange (495ms)
+    √ CMP-CIT-03 el botón Eliminar invoca onRemove (168ms)
+    √ CMP-CIT-04 con updatedAt reciente muestra la cuenta regresiva de la reserva (15 min) (260ms)
+    √ CMP-CIT-05 con updatedAt de hace más de 15 minutos indica que la reserva expiró
+    √ CMP-CIT-06 en backorder muestra la cantidad diferida
+
+  Componentes · OrderSummaryBreakdown
+    √ CMP-OSB-01 muestra subtotal, envío y total con formato COP (194ms)
+    √ CMP-OSB-02 con envío 0 muestra la etiqueta de envío gratis
+
+
+  14 passing (3s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        14                                                                               │
+  │ Passing:      14                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     3 seconds                                                                        │
+  │ Spec Ran:     comercio.cy.tsx                                                                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  navegacion-feedback.cy.tsx                                                      (2 of 3)
+
+
+  Componentes · Pagination
+    √ CMP-PAG-01 con una sola página no renderiza nada
+    √ CMP-PAG-02 muestra el rango, deshabilita 'Anterior' en la página 1 y marca la actual (193ms)
+    √ CMP-PAG-03 navegar a la última página llama onPageChange y deshabilita 'Siguiente' (373ms)
+    √ CMP-PAG-04 con muchas páginas resume con puntos suspensivos alrededor de la actual
+    √ CMP-PAG-05 traduce sus textos al inglés con LanguageProvider
+    √ CMP-PAG-06 DEF-14: los íconos ChevronLeft/Right no están en LucideIcon y se dibuja el ícono de ayuda (?)
+
+  Componentes · Toast
+    √ CMP-TST-01 showToast muestra una alerta con el mensaje y el estilo del tipo
+    √ CMP-TST-02 apila varias notificaciones y cada tipo usa su color (135ms)
+    √ CMP-TST-03 el botón Cerrar descarta la notificación (200ms)
+    √ CMP-TST-04 se oculta sola al cumplirse la duración (reloj controlado) (144ms)
+
+  Componentes · AuthCard y AuthRequiredState
+    √ CMP-AUT-01 AuthCard muestra subtítulo y contenido; sin error no muestra el aviso (168ms)
+    √ CMP-AUT-02 AuthCard con errorMsg muestra el error y respeta maxWidth=2xl (140ms)
+    √ CMP-AUT-03 AuthRequiredState ofrece enlaces a /login y /register
+
+  Componentes · SearchBar
+    √ CMP-SBR-01 al presionar Enter invoca onSearch con el texto escrito (368ms)
+    √ CMP-SBR-02 sincroniza el valor inicial y usa el placeholder en inglés
+
+
+  15 passing (3s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        15                                                                               │
+  │ Passing:      15                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     navegacion-feedback.cy.tsx                                                       │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  ui-basicos.cy.tsx                                                               (3 of 3)
+
+
+  Componentes · Button
+    √ CMP-BTN-01 renderiza el texto, es type=button por defecto y usa la variante primary (211ms)
+    √ CMP-BTN-02 invoca onClick una vez por clic (323ms)
+    √ CMP-BTN-03 deshabilitado: atributo disabled, estilos y no dispara onClick (192ms)
+    √ CMP-BTN-04 con href se renderiza como enlace <a> y aplica tamaño y ancho completo
+    √ CMP-BTN-05 type=submit envía el formulario que lo contiene (200ms)
+    √ CMP-BTN-06 la variante "primary" es visible y enfocable con teclado
+    √ CMP-BTN-06 la variante "secondary" es visible y enfocable con teclado
+    √ CMP-BTN-06 la variante "outline" es visible y enfocable con teclado
+    √ CMP-BTN-06 la variante "ghost" es visible y enfocable con teclado
+    √ CMP-BTN-06 la variante "danger" es visible y enfocable con teclado
+    √ CMP-BTN-06 la variante "white" es visible y enfocable con teclado
+
+  Componentes · Input
+    √ CMP-INP-01 con id, la etiqueta queda asociada: clic en el label enfoca el campo (173ms)
+    √ CMP-INP-02 propaga onChange con el valor escrito (286ms)
+    √ CMP-INP-03 con error muestra el mensaje y pinta borde y etiqueta en rojo
+    √ CMP-INP-04 deshabilitado no permite escribir
+    √ CMP-INP-05 DEF-12: sin id (como en /register y el modal de perfil) el label NO queda asociado (189ms)
+
+  Componentes · Badge
+    √ CMP-BDG-01 la variante "default" aplica la clase bg-zinc-100
+    √ CMP-BDG-01 la variante "success" aplica la clase bg-emerald-50
+    √ CMP-BDG-01 la variante "warning" aplica la clase bg-amber-50
+    √ CMP-BDG-01 la variante "error" aplica la clase bg-rose-50
+    √ CMP-BDG-01 la variante "info" aplica la clase bg-sky-50
+    √ CMP-BDG-02 el tamaño sm usa menos relleno que md
+
+  Componentes · Card
+    √ CMP-CRD-01 sin onClick es un <div>; con onClick es un <button> que dispara el evento (182ms)
+
+  Componentes · SearchInput
+    √ CMP-SRC-01 escribe, notifica cada cambio y muestra el botón de limpiar solo con texto (308ms)
+    √ CMP-SRC-02 el botón de limpiar vacía el campo (onChange con cadena vacía) (457ms)
+    √ CMP-SRC-03 DEF-13/DEF-14: el botón de limpiar solo se anuncia como "X" (letra, no ícono) y el campo no tiene label
+
+
+  26 passing (5s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        26                                                                               │
+  │ Passing:      26                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     4 seconds                                                                        │
+  │ Spec Ran:     ui-basicos.cy.tsx                                                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  comercio.cy.tsx                          00:03       14       14        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  navegacion-feedback.cy.tsx               00:02       15       15        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  ui-basicos.cy.tsx                        00:04       26       26        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        00:11       55       55        -        -        -  
+
+exit=0

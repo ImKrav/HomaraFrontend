@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="25.202" tests="18" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-12T22:10:59" tests="0" file="cypress\e2e\regresion\autenticacion.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)" timestamp="2026-10-12T22:10:59" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="ESC01 · Registro de usuario" timestamp="2026-10-12T22:10:59" tests="5" time="12.681" failures="0">
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC01 · Registro de usuario REG-AUT-01 [ESC01] registra un usuario con datos válidos y lo lleva a /cuenta" time="3.520" classname="REG-AUT-01 [ESC01] registra un usuario con datos válidos y lo lleva a /cuenta">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC01 · Registro de usuario REG-AUT-02 [ESC01] rechaza un correo ya registrado y muestra el error del backend" time="2.081" classname="REG-AUT-02 [ESC01] rechaza un correo ya registrado y muestra el error del backend">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC01 · Registro de usuario REG-AUT-03 [ESC01] no envía la petición si las contraseñas no coinciden" time="2.341" classname="REG-AUT-03 [ESC01] no envía la petición si las contraseñas no coinciden">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC01 · Registro de usuario REG-AUT-04 [ESC01] DEF-01: el frontend acepta claves de 6-7 caracteres que el backend rechaza (mín. 8)" time="2.256" classname="REG-AUT-04 [ESC01] DEF-01: el frontend acepta claves de 6-7 caracteres que el backend rechaza (mín. 8)">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC01 · Registro de usuario REG-AUT-05 [ESC01] rechaza en el cliente una clave de menos de 6 caracteres" time="2.158" classname="REG-AUT-05 [ESC01] rechaza en el cliente una clave de menos de 6 caracteres">
+    </testcase>
+  </testsuite>
+  <testsuite name="ESC02 · Inicio de sesión" timestamp="2026-10-12T22:11:12" tests="4" time="4.960" failures="0">
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC02 · Inicio de sesión REG-AUT-06 [ESC02] inicia sesión con credenciales válidas y guarda el token" time="1.245" classname="REG-AUT-06 [ESC02] inicia sesión con credenciales válidas y guarda el token">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC02 · Inicio de sesión REG-AUT-07 [ESC02] con clave incorrecta muestra un mensaje genérico y no crea sesión" time="1.331" classname="REG-AUT-07 [ESC02] con clave incorrecta muestra un mensaje genérico y no crea sesión">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC02 · Inicio de sesión REG-AUT-08 [ESC02] con un correo inexistente muestra el MISMO mensaje genérico (no revela cuentas)" time="1.642" classname="REG-AUT-08 [ESC02] con un correo inexistente muestra el MISMO mensaje genérico (no revela cuentas)">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC02 · Inicio de sesión REG-AUT-09 [ESC02] no envía el formulario con campos vacíos (validación nativa required)" time="0.469" classname="REG-AUT-09 [ESC02] no envía el formulario con campos vacíos (validación nativa required)">
+    </testcase>
+  </testsuite>
+  <testsuite name="ESC03 · Cierre de sesión" timestamp="2026-10-12T22:11:17" tests="1" time="3.685" failures="0">
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC03 · Cierre de sesión REG-AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra el token y redirige a /login" time="3.382" classname="REG-AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra el token y redirige a /login">
+    </testcase>
+  </testsuite>
+  <testsuite name="ESC07 · Rutas privadas y rol de administrador" timestamp="2026-10-12T22:11:21" tests="8" time="3.872" failures="0">
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC07 · Rutas privadas y rol de administrador REG-AUT-11 [ESC07] sin sesión, /cuenta redirige a /login" time="0.448" classname="REG-AUT-11 [ESC07] sin sesión, /cuenta redirige a /login">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC07 · Rutas privadas y rol de administrador REG-AUT-11 [ESC07] sin sesión, /proyectos/nuevo redirige a /login" time="0.367" classname="REG-AUT-11 [ESC07] sin sesión, /proyectos/nuevo redirige a /login">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC07 · Rutas privadas y rol de administrador REG-AUT-11 [ESC07] sin sesión, /checkout redirige a /login" time="0.390" classname="REG-AUT-11 [ESC07] sin sesión, /checkout redirige a /login">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC07 · Rutas privadas y rol de administrador REG-AUT-12 [ESC07] sin sesión, /carrito muestra el aviso de inicio de sesión requerido" time="0.217" classname="REG-AUT-12 [ESC07] sin sesión, /carrito muestra el aviso de inicio de sesión requerido">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC07 · Rutas privadas y rol de administrador REG-AUT-13 [ESC07] sin sesión, /admin redirige a /login" time="0.192" classname="REG-AUT-13 [ESC07] sin sesión, /admin redirige a /login">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC07 · Rutas privadas y rol de administrador REG-AUT-14 [ESC07] un CUSTOMER que entra a /admin es devuelto al inicio" time="0.412" classname="REG-AUT-14 [ESC07] un CUSTOMER que entra a /admin es devuelto al inicio">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC07 · Rutas privadas y rol de administrador REG-AUT-15 [ESC07] un token inválido se descarta (401) y la ruta privada termina en /login" time="0.438" classname="REG-AUT-15 [ESC07] un token inválido se descarta (401) y la ruta privada termina en /login">
+    </testcase>
+    <testcase name="Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07) ESC07 · Rutas privadas y rol de administrador REG-AUT-16 [ESC07] DEF-05: un fallo de red al validar la sesión (no un 401) también borra el token" time="0.627" classname="REG-AUT-16 [ESC07] DEF-05: un fallo de red al validar la sesión (no un 401) también borra el token">
+    </testcase>
+  </testsuite>
+</testsuites>

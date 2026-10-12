@@ -1,0 +1,181 @@
+
+> frontend@0.1.0 test:interfaz
+> cypress run --spec "cypress/e2e/interfaz/**/*.cy.ts"
+
+
+
+DevTools listening on ws://127.0.0.1:57555/devtools/browser/1e81a556-7c24-4a7a-9a65-5ded0f0085a0
+Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        14.5.4                                                                         │
+  │ Browser:        Electron 130 (headless)                                                        │
+  │ Node Version:   v24.14.1 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          2 found (idioma-tema.cy.ts, responsive.cy.ts)                                  │
+  │ Searched:       C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\e2e\interfaz\**\ │
+  │                 *.cy.ts                                                                        │
+  │ Experiments:    experimentalRunAllSpecs=true                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  idioma-tema.cy.ts                                                               (1 of 2)
+
+
+  Interfaz · Idioma y tema (ESC40)
+    Tema claro / oscuro
+      √ INT-TEM-01 [ESC40] sin preferencia guardada, el tema sigue a prefers-color-scheme del sistema
+      √ INT-TEM-02 [ESC40] 'Alternar tema' pasa de claro a oscuro, lo guarda y persiste al recargar y navegar
+      √ INT-TEM-04 [ESC40] 'Alternar tema' pasa de oscuro a claro y también persiste
+      √ INT-TEM-03 [ESC40] el tema guardado se aplica al cargar y el fondo cambia de color
+    Idioma español / inglés
+      √ INT-IDI-01 [ESC40] cambiar a EN traduce la navegación y la página, y se guarda en localStorage
+      √ INT-IDI-02 [ESC40] el idioma inglés persiste al recargar y al navegar
+      √ INT-IDI-03 [ESC40] volver a ES restaura los textos en español
+      √ INT-IDI-04 [ESC40] DEF-15: en inglés el atributo <html lang> sigue en 'es'
+      √ INT-IDI-05 [ESC40] DEF-17: el error de contraseñas no coincidentes del registro no se traduce
+
+
+  9 passing (15s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        9                                                                                │
+  │ Passing:      9                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  3                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     15 seconds                                                                       │
+  │ Spec Ran:     idioma-tema.cy.ts                                                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\idioma     (1280x720)
+     -tema.cy.ts\tema-oscuro.png                                                                    
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\idioma     (1280x720)
+     -tema.cy.ts\tema-claro.png                                                                     
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\idioma     (1280x720)
+     -tema.cy.ts\idioma-en-catalogo.png                                                             
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  responsive.cy.ts                                                                (2 of 2)
+
+
+  Interfaz · Responsive (ESC39) en Electron
+    √ INT-RSP-GRID [ESC39] la grilla del catálogo pasa de 1 a 2 y 4 columnas según el ancho
+    Viewport movil (375x667)
+      √ INT-RSP [ESC39/ESC44] / se adapta a movil sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /catalogo se adapta a movil sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /login se adapta a movil sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /register se adapta a movil sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /carrito se adapta a movil sin scroll horizontal
+      √ INT-RSP [ESC39] detalle de producto se adapta a movil
+    Viewport tablet (768x1024)
+      √ INT-RSP [ESC39/ESC44] / se adapta a tablet sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /catalogo se adapta a tablet sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /login se adapta a tablet sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /register se adapta a tablet sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /carrito se adapta a tablet sin scroll horizontal
+      √ INT-RSP [ESC39] detalle de producto se adapta a tablet
+    Viewport escritorio (1440x900)
+      √ INT-RSP [ESC39/ESC44] / se adapta a escritorio sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /catalogo se adapta a escritorio sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /login se adapta a escritorio sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /register se adapta a escritorio sin scroll horizontal
+      √ INT-RSP [ESC39/ESC44] /carrito se adapta a escritorio sin scroll horizontal
+      √ INT-RSP [ESC39] detalle de producto se adapta a escritorio
+
+  Interfaz · Navegación móvil (ESC39)
+    √ INT-MOV-01 [ESC39] en móvil se oculta la navegación de escritorio y aparece el botón Menú
+    √ INT-MOV-02 [ESC39] el menú móvil se abre, navega al catálogo y se cierra
+    √ INT-MOV-03 [ESC39] DEF-16: el botón Menú no expone aria-expanded ni aria-controls
+    √ INT-MOV-04 [ESC39] en escritorio el botón Menú no se muestra
+
+
+  23 passing (45s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        23                                                                               │
+  │ Passing:      23                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  19                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     45 seconds                                                                       │
+  │ Spec Ran:     responsive.cy.ts                                                                 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (375x667)
+     sive.cy.ts\electron\movil-inicio.png                                                           
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (375x667)
+     sive.cy.ts\electron\movil-catalogo.png                                                         
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (375x667)
+     sive.cy.ts\electron\movil-login.png                                                            
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (375x667)
+     sive.cy.ts\electron\movil-registro.png                                                         
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (375x667)
+     sive.cy.ts\electron\movil-carrito-sin-sesion.png                                               
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (375x667)
+     sive.cy.ts\electron\movil-detalle-producto.png                                                 
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (768x720)
+     sive.cy.ts\electron\tablet-inicio.png                                                          
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (768x720)
+     sive.cy.ts\electron\tablet-catalogo.png                                                        
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (768x720)
+     sive.cy.ts\electron\tablet-login.png                                                           
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (768x720)
+     sive.cy.ts\electron\tablet-registro.png                                                        
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (768x720)
+     sive.cy.ts\electron\tablet-carrito-sin-sesion.png                                              
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (768x720)
+     sive.cy.ts\electron\tablet-detalle-producto.png                                                
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon     (1280x720)
+     sive.cy.ts\electron\escritorio-inicio.png                                                      
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon     (1280x720)
+     sive.cy.ts\electron\escritorio-catalogo.png                                                    
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon     (1280x720)
+     sive.cy.ts\electron\escritorio-login.png                                                       
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon     (1280x720)
+     sive.cy.ts\electron\escritorio-registro.png                                                    
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon     (1280x720)
+     sive.cy.ts\electron\escritorio-carrito-sin-sesion.png                                          
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon     (1280x720)
+     sive.cy.ts\electron\escritorio-detalle-producto.png                                            
+  -  C:\Users\jdmg2\WebstormProjects\Homara\HomaraFrontend\cypress\screenshots\respon      (375x667)
+     sive.cy.ts\movil-menu-abierto.png                                                              
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  idioma-tema.cy.ts                        00:15        9        9        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  responsive.cy.ts                         00:45       23       23        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        01:00       32       32        -        -        -  
+
+exit=0

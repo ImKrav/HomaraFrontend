@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="15.144" tests="9" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-12T22:02:22" tests="0" file="cypress\e2e\interfaz\idioma-tema.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Interfaz · Idioma y tema (ESC40)" timestamp="2026-10-12T22:02:22" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Tema claro / oscuro" timestamp="2026-10-12T22:02:22" tests="4" time="5.383" failures="0">
+    <testcase name="Interfaz · Idioma y tema (ESC40) Tema claro / oscuro INT-TEM-01 [ESC40] sin preferencia guardada, el tema sigue a prefers-color-scheme del sistema" time="0.886" classname="INT-TEM-01 [ESC40] sin preferencia guardada, el tema sigue a prefers-color-scheme del sistema">
+    </testcase>
+    <testcase name="Interfaz · Idioma y tema (ESC40) Tema claro / oscuro INT-TEM-02 [ESC40] &apos;Alternar tema&apos; pasa de claro a oscuro, lo guarda y persiste al recargar y navegar" time="2.017" classname="INT-TEM-02 [ESC40] &apos;Alternar tema&apos; pasa de claro a oscuro, lo guarda y persiste al recargar y navegar">
+    </testcase>
+    <testcase name="Interfaz · Idioma y tema (ESC40) Tema claro / oscuro INT-TEM-04 [ESC40] &apos;Alternar tema&apos; pasa de oscuro a claro y también persiste" time="1.068" classname="INT-TEM-04 [ESC40] &apos;Alternar tema&apos; pasa de oscuro a claro y también persiste">
+    </testcase>
+    <testcase name="Interfaz · Idioma y tema (ESC40) Tema claro / oscuro INT-TEM-03 [ESC40] el tema guardado se aplica al cargar y el fondo cambia de color" time="0.913" classname="INT-TEM-03 [ESC40] el tema guardado se aplica al cargar y el fondo cambia de color">
+    </testcase>
+  </testsuite>
+  <testsuite name="Idioma español / inglés" timestamp="2026-10-12T22:02:28" tests="5" time="9.757" failures="0">
+    <testcase name="Interfaz · Idioma y tema (ESC40) Idioma español / inglés INT-IDI-01 [ESC40] cambiar a EN traduce la navegación y la página, y se guarda en localStorage" time="3.463" classname="INT-IDI-01 [ESC40] cambiar a EN traduce la navegación y la página, y se guarda en localStorage">
+    </testcase>
+    <testcase name="Interfaz · Idioma y tema (ESC40) Idioma español / inglés INT-IDI-02 [ESC40] el idioma inglés persiste al recargar y al navegar" time="0.663" classname="INT-IDI-02 [ESC40] el idioma inglés persiste al recargar y al navegar">
+    </testcase>
+    <testcase name="Interfaz · Idioma y tema (ESC40) Idioma español / inglés INT-IDI-03 [ESC40] volver a ES restaura los textos en español" time="0.505" classname="INT-IDI-03 [ESC40] volver a ES restaura los textos en español">
+    </testcase>
+    <testcase name="Interfaz · Idioma y tema (ESC40) Idioma español / inglés INT-IDI-04 [ESC40] DEF-15: en inglés el atributo &lt;html lang&gt; sigue en &apos;es&apos;" time="0.213" classname="INT-IDI-04 [ESC40] DEF-15: en inglés el atributo &lt;html lang&gt; sigue en &apos;es&apos;">
+    </testcase>
+    <testcase name="Interfaz · Idioma y tema (ESC40) Idioma español / inglés INT-IDI-05 [ESC40] DEF-17: el error de contraseñas no coincidentes del registro no se traduce" time="4.466" classname="INT-IDI-05 [ESC40] DEF-17: el error de contraseñas no coincidentes del registro no se traduce">
+    </testcase>
+  </testsuite>
+</testsuites>
