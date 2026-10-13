@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>ESC27 - Checkout con datos incompletos. Objetivo: verificar que si se dejan vacíos campos obligatorios (dirección y ciudad) el pedido no se envía: la validación del formulario marca los campos como faltantes, no aparece el toast de éxito y se permanece en /checkout.</description>
+   <name>TC09_Checkout_Campos_Faltantes</name>
+   <tag>ESC27,negativo,checkout</tag>
+   <comment></comment>
+   <testCaseGuid>96275d01-b1b5-4287-9291-5135100a8a8f</testCaseGuid>
+   <variable>
+      <defaultValue>'Rodillo'</defaultValue>
+      <description>Término para encontrar el producto</description>
+      <id>d965f3f8-a31e-4768-97b7-f4ff6f9aaa3b</id>
+      <masked>false</masked>
+      <name>terminoBusqueda</name>
+   </variable>
+   <variable>
+      <defaultValue>'Rodillo de Pintura Antigoteo 23cm'</defaultValue>
+      <description>Producto que se agrega antes de ir al checkout</description>
+      <id>715bfce9-aba9-41ef-97f9-fd75f94e5777</id>
+      <masked>false</masked>
+      <name>nombreProducto</name>
+   </variable>
+</TestCaseEntity>

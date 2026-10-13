@@ -1,0 +1,24 @@
+<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="16.792697">
+<testsuite name="autenticacion.spec.ts" timestamp="2026-10-12T22:37:37.010Z" hostname="chromium" tests="8" failures="0" skipped="0" time="14.619" errors="0">
+<testcase name="Autenticación de clientes › ESC01 - Registro de usuario › SP-01 Camila se registra con datos válidos y queda autenticada" classname="autenticacion.spec.ts" time="2.338">
+</testcase>
+<testcase name="Autenticación de clientes › ESC01 - Registro de usuario › SP-02 no permite registrar un correo que ya existe" classname="autenticacion.spec.ts" time="1.422">
+</testcase>
+<testcase name="Autenticación de clientes › ESC01 - Registro de usuario › SP-03 no permite registrarse si las contraseñas no coinciden" classname="autenticacion.spec.ts" time="1.432">
+</testcase>
+<testcase name="Autenticación de clientes › ESC01 - Registro de usuario › SP-04 contraseña de 7 caracteres: el formulario pide mínimo 6 pero el backend exige 8 (DEF-01)" classname="autenticacion.spec.ts" time="1.461">
+<properties>
+<property name="defecto" value="DEF-01: el registro indica &quot;Mínimo 6 caracteres&quot; pero el backend exige 8">
+</property>
+</properties>
+</testcase>
+<testcase name="Autenticación de clientes › ESC02 - Inicio de sesión › SP-05 Camila inicia sesión con credenciales válidas y llega a su cuenta" classname="autenticacion.spec.ts" time="1.773">
+</testcase>
+<testcase name="Autenticación de clientes › ESC02 - Inicio de sesión › SP-06 rechaza una contraseña incorrecta" classname="autenticacion.spec.ts" time="1.502">
+</testcase>
+<testcase name="Autenticación de clientes › ESC02 - Inicio de sesión › SP-07 rechaza un correo que no está registrado con el mismo mensaje genérico" classname="autenticacion.spec.ts" time="1.173">
+</testcase>
+<testcase name="Autenticación de clientes › ESC03 - Cierre de sesión › SP-08 Camila cierra sesión, pierde el token y ya no puede ver su cuenta" classname="autenticacion.spec.ts" time="3.518">
+</testcase>
+</testsuite>
+</testsuites>

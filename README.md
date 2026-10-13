@@ -154,3 +154,18 @@ npm test
 # Generar reporte de cobertura (LCOV en ./coverage/lcov.info)
 npm run test:coverage
 ```
+
+---
+
+## 🧪 Pruebas
+
+El frontend tiene dos niveles de pruebas automatizadas:
+
+- **Vitest + Testing Library** (`tests/`): lógica y pantallas con backend simulado.
+  `npm test`, `npm run test:regression`. Detalle en [`tests/README.md`](tests/README.md).
+- **Lighthouse** (`scripts/lighthouse.mjs`, `npm run test:lighthouse`): rendimiento,
+  accesibilidad, buenas prácticas y SEO contra el stack desplegado (frontend `:3000`
+  + backend `:5000`).
+
+Documentación, resultados, evidencias y defectos encontrados:
+**[`docs/pruebas/`](docs/pruebas/README.md)**.

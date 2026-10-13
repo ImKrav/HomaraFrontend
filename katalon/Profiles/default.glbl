@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description>Perfil por defecto para ejecutar contra el entorno local</description>
+   <name>default</name>
+   <tag></tag>
+   <defaultProfile>true</defaultProfile>
+   <GlobalVariableEntity>
+      <description>URL base del frontend Next.js (proxy de /api/v1 hacia el backend :5000)</description>
+      <initValue>'http://localhost:3000'</initValue>
+      <name>baseUrl</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Correo del usuario con rol ADMIN</description>
+      <initValue>'admin@homara.co'</initValue>
+      <name>adminEmail</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Contraseña del usuario ADMIN</description>
+      <initValue>'123456'</initValue>
+      <name>adminPassword</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Correo del usuario con rol CUSTOMER</description>
+      <initValue>'juan@email.com'</initValue>
+      <name>clienteEmail</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Contraseña del usuario CUSTOMER</description>
+      <initValue>'123456'</initValue>
+      <name>clientePassword</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Nombre que muestra la barra de navegación para el cliente</description>
+      <initValue>'Juan'</initValue>
+      <name>clienteNombre</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Tiempo máximo (segundos) de las esperas explícitas</description>
+      <initValue>15</initValue>
+      <name>timeout</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

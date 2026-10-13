@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataFileEntity>
+   <description>Términos de búsqueda que deben devolver productos y número mínimo esperado</description>
+   <name>Busqueda_Con_Resultados</name>
+   <tag></tag>
+   <containsHeaders>true</containsHeaders>
+   <csvSeperator>COMMA</csvSeperator>
+   <dataFileGUID>792aa1cc-ed1d-47d5-b66e-688efd0c133b</dataFileGUID>
+   <dataSourceUrl>Data Files/Busqueda_Con_Resultados.csv</dataSourceUrl>
+   <driver>CSV</driver>
+   <isInternalPath>true</isInternalPath>
+   <query></query>
+   <secureUserAccount>false</secureUserAccount>
+   <sheetName></sheetName>
+   <usingGlobalDBSetting>false</usingGlobalDBSetting>
+</DataFileEntity>

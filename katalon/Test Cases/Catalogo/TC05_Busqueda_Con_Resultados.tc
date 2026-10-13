@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>ESC09 - Búsqueda en el catálogo. Objetivo: verificar que al buscar un término existente se muestran productos, el texto "Resultados para" con el término y un conteo mayor o igual al mínimo esperado.</description>
+   <name>TC05_Busqueda_Con_Resultados</name>
+   <tag>ESC09,positivo,busqueda,data-driven</tag>
+   <comment></comment>
+   <testCaseGuid>98bcbaba-06f2-4090-9962-35f0ed7a4243</testCaseGuid>
+   <variable>
+      <defaultValue>'Porcelanato'</defaultValue>
+      <description>Término de búsqueda</description>
+      <id>44f32d68-0815-44e7-90de-6520ed81677d</id>
+      <masked>false</masked>
+      <name>termino</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>Número mínimo de productos esperados</description>
+      <id>104d4108-e049-498a-ad50-1e6872106dcb</id>
+      <masked>false</masked>
+      <name>minimoResultados</name>
+   </variable>
+</TestCaseEntity>

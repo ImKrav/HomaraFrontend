@@ -1,0 +1,234 @@
+
+ RUN  v3.2.7 C:/Users/KRAV/Documents/Alejo/Homara/HomaraFrontend
+
+ ✓ tests/regression/REG-QTY.test.mts > REG-QTY-01  Separa número y unidad en las cantidades que emite el backend 5ms
+ ✓ tests/regression/REG-QTY.test.mts > REG-QTY-02  Acepta coma decimal y cantidades sin unidad 1ms
+ ✓ tests/regression/REG-QTY.test.mts > REG-QTY-03  Lo que no empieza por número vuelve como 1 unidad del texto original 0ms
+ ✓ tests/regression/REG-QTY.test.mts > REG-QTY-04  Una cantidad de cero se trata como 1 para no anular el precio 1ms
+ ✓ tests/regression/REG-QTY.test.mts > REG-QTY-05  Una entrada patológica de 50 000 caracteres se resuelve en tiempo lineal 1ms
+ ✓ tests/utils.test.mts > fmt-01  Formatea pesos enteros sin decimales 35ms
+ ✓ tests/utils.test.mts > fmt-02  Cero se formatea como 0 sin decimales 1ms
+ ✓ tests/utils.test.mts > fmt-03  Millones llevan separador de miles 1ms
+ ✓ tests/utils.test.mts > status-label-01  Traduce el estado normalizando mayúsculas 1ms
+ ✓ tests/utils.test.mts > status-label-02  Devuelve el valor original si el estado no está en el diccionario 0ms
+ ✓ tests/utils.test.mts > status-label-03  Cadena vacía devuelve cadena vacía 0ms
+ ✓ tests/utils.test.mts > status-color-01  Devuelve las clases del estado conocido 1ms
+ ✓ tests/utils.test.mts > status-color-02  Cae al color slate por defecto para estados desconocidos o vacíos 1ms
+ ✓ tests/utils.test.mts > mat-name-01  Nombre fijo: usa el fallback en inglés cuando la clave no está traducida 1ms
+ ✓ tests/utils.test.mts > mat-name-02  Nombre fijo: usa la traducción del diccionario cuando existe 1ms
+ ✓ tests/utils.test.mts > mat-name-03  Nombre fijo por prefijo (startsWith) 1ms
+ ✓ tests/utils.test.mts > mat-name-04  Revestimiento dinámico: reemplaza el nombre de superficie 1ms
+ ✓ tests/utils.test.mts > mat-name-05  Revestimiento dinámico: reemplaza superficie y sufijo Pared 1ms
+ ✓ tests/utils.test.mts > mat-name-06  Nombre no reconocido pasa sin cambios 0ms
+ ✓ tests/utils.test.mts > mat-note-01  Nota nula devuelve null 1ms
+ ✓ tests/utils.test.mts > mat-note-02  Extrae el % de desperdicio y usa el fallback en inglés 1ms
+ ✓ tests/utils.test.mts > mat-note-03  Notas fijas exactas con fallback 1ms
+ ✓ tests/utils.test.mts > mat-note-04  Interpola {waste} en la traducción del diccionario 1ms
+ ✓ tests/utils.test.mts > mat-note-05  Nota sin patrón conocido pasa sin cambios 0ms
+ ✓ tests/toast.test.mts > toast-01  Despacha homara:toast con el detalle completo 4ms
+ ✓ tests/toast.test.mts > toast-02  Usa tipo 'info' y duración 4000 por defecto 1ms
+ ✓ tests/toast.test.mts > toast-03  Genera ids distintos en llamados sucesivos 2ms
+ ✓ tests/toast.test.mts > toast-04  Sin window (SSR) no hace nada y no lanza 0ms
+ ✓ tests/regression/REG-I18N.test.mts > REG-I18N-01  Traduce los nombres fijos de insumos y herramientas 5ms
+ ✓ tests/regression/REG-I18N.test.mts > REG-I18N-02  Traduce la superficie de los revestimientos generados, incluido el sufijo Pared 1ms
+ ✓ tests/regression/REG-I18N.test.mts > REG-I18N-03  Traduce las notas fijas de insumos y herramientas 1ms
+ ✓ tests/regression/REG-I18N.test.mts > REG-I18N-04  Traduce las notas con % de desperdicio conservando el porcentaje 1ms
+ ✓ tests/regression/REG-I18N.test.mts > REG-I18N-05  Traduce las notas de pegante y boquilla vinculados a un producto real 17ms
+ ✓ tests/translations.test.mts > i18n-01  translations exporta idiomas es y en 4ms
+ ✓ tests/translations.test.mts > i18n-02  códigos de locale válidos para es y en 1ms
+ ✓ tests/translations.test.mts > i18n-03  secciones principales presentes en ambos diccionarios 2ms
+ ✓ tests/api.test.mts > api-url-01  Une el endpoint relativo con NEXT_PUBLIC_API_URL 7ms
+ ✓ tests/api.test.mts > api-url-02  Quita el prefijo de versión /api/v1/ hardcodeado en el llamador 1ms
+ ✓ tests/api.test.mts > api-url-03  Quita cualquier /api/vN/ (ej. /api/v2/) 1ms
+ ✓ tests/api.test.mts > api-url-04  Quita el prefijo /api/ sin versión 1ms
+ ✓ tests/api.test.mts > api-url-05  Agrega la barra inicial si el endpoint no la trae 1ms
+ ✓ tests/api.test.mts > api-url-06  Deja pasar una URL absoluta sin tocarla 1ms
+ ✓ tests/api.test.mts > api-hdr-01  Pone Content-Type application/json cuando hay cuerpo 2ms
+ ✓ tests/api.test.mts > api-hdr-02  No pone Content-Type en peticiones sin cuerpo 1ms
+ ✓ tests/api.test.mts > api-hdr-03  Respeta un Content-Type explícito del llamador 1ms
+ ✓ tests/api.test.mts > api-hdr-04  Adjunta el token JWT de localStorage como Bearer 1ms
+ ✓ tests/api.test.mts > api-hdr-05  No manda Authorization si no hay token guardado 1ms
+ ✓ tests/api.test.mts > api-res-01  Devuelve el JSON parseado cuando la respuesta es OK 3ms
+ ✓ tests/api.test.mts > api-res-02  Lanza con el mensaje del campo `error` del cuerpo en respuesta no OK 1ms
+ ✓ tests/api.test.mts > api-res-03  Lanza con mensaje genérico si el cuerpo de error no es JSON 1ms
+ ✓ tests/api.test.mts > api-res-04  En 401 borra el token y despacha el evento auth:401 1ms
+ ✓ tests/api.test.mts > api-res-05  En error que no es 401 no toca el token ni despacha evento 1ms
+ ✓ tests/api.test.mts > api-verbo-01  api.put manda método PUT y cuerpo serializado 1ms
+ ✓ tests/api.test.mts > api-verbo-02  api.delete manda método DELETE sin cuerpo 1ms
+ ✓ tests/ui/cuenta.test.tsx > ui-acc-01  Sin sesión la cuenta redirige al login 66ms
+stderr | tests/ui/cuenta.test.tsx > ui-acc-02  Muestra el perfil, los contadores, los proyectos y el historial de pedidos
+In HTML, <button> cannot be a descendant of <button>.
+This will cause a hydration error.
+
+  <AuthProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <CuentaPage>
+          <div className="max-w-6xl ...">
+            <h1>
+            <div className="grid grid-...">
+              <div>
+              <div className="lg:col-spa...">
+                <div>
+                <div>
+                  <h2>
+                  <div className="space-y-4">
+                    <Card hover={true} className="cursor-poi..." onClick={function onClick}>
+>                     <button
+>                       type="button"
+>                       onClick={function onClick}
+>                       className={"\n    bg-bg-surface rounded-xl border border-border\n    p-6\n    card-hover curs..."}
+>                     >
+                        <div className="flex flex-...">
+                          <div>
+                          <div className="text-right">
+                            <p>
+>                           <button
+>                             className="text-xs text-primary font-semibold hover:underline mt-1 cursor-pointer"
+>                             onClick={function onClick}
+>                           >
+            ...
+        ...
+
+<button> cannot contain a nested <button>.
+See this log for the ancestor stack trace.
+
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-01  Sin sesión, 'Mis proyectos' invita a iniciar sesión 126ms
+stderr | tests/ui/admin.test.tsx > ui-adm-02  Si el backend falla, el tablero muestra el error
+Error cargando datos del dashboard: Error: Base de datos caída
+    at apiFetch (C:\Users\KRAV\Documents\Alejo\Homara\HomaraFrontend\app\lib\api.ts:63:11)
+    at async Promise.all (index 1)
+    at fetchData (C:\Users\KRAV\Documents\Alejo\Homara\HomaraFrontend\app\(admin)\admin\page.tsx:36:43)
+
+ ✓ tests/ui/admin.test.tsx > ui-adm-01  El tablero muestra las métricas traducidas y las ventas por mes 360ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-cart-01  Sin sesión, el carrito pide iniciar sesión o registrarse 431ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-02  Si el backend falla, el tablero muestra el error 46ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-cart-02  Muestra ítems, subtotal, envío, total y el umbral de envío gratis 229ms
+ ✓ tests/ui/cuenta.test.tsx > ui-acc-02  Muestra el perfil, los contadores, los proyectos y el historial de pedidos 233ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-cart-03  Con envío gratis muestra 'Gratis' y oculta el aviso del umbral 65ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-cart-04  Un ítem bajo pedido muestra la advertencia y cuántas unidades faltan 84ms
+ ✓ tests/regression/REG-ADM.test.tsx > REG-ADM-01  Un cliente autenticado no ve el panel y vuelve a la tienda 166ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-cart-05  Un carrito vacío invita a ir al catálogo 48ms
+ ✓ tests/ui/cuenta.test.tsx > ui-acc-03  Sin pedidos ni proyectos ofrece crear un proyecto e ir al catálogo 449ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-01  Lista los productos del backend con su conteo y las categorías como filtros 806ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-cart-06  Los botones + y − actualizan la cantidad del ítem sin bajar de 1 266ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-cart-07  Quitar un ítem lo elimina del backend y recarga el carrito 198ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-chk-01  Sin sesión, el checkout redirige al login y vuelve después 25ms
+ ✓ tests/ui/auth.test.tsx > ui-auth-01  Iniciar sesión guarda el token y lleva a la cuenta 1365ms
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-02  Lista los proyectos con contadores por estado y acceso a crear uno 1043ms
+ ✓ tests/ui/cuenta.test.tsx > ui-acc-04  Ver un pedido abre su detalle con dirección e ítems; Escape lo cierra 548ms
+ ✓ tests/regression/REG-AUTH.test.tsx > REG-AUTH-01  Iniciar sesión guarda el JWT y lleva a la cuenta 1340ms
+ ✓ tests/regression/REG-AUTH.test.tsx > REG-AUTH-02  Proyectos, cuenta y checkout son privados; el catálogo es público 76ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-chk-02  Precarga los datos del usuario y el resumen del carrito 164ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-02  Por defecto ordena por popularidad y el selector cambia a precio ascendente 500ms
+ ✓ tests/regression/REG-CART.test.tsx > REG-CART-01  Cambiar cantidad y quitar usan el id del ítem del carrito, no el del producto 947ms
+ ✓ tests/regression/REG-CART.test.tsx > REG-CART-02  El resumen muestra exactamente los montos que calcula el backend 76ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-03  Lista el catálogo con sus contadores y la búsqueda filtra por nombre 912ms
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-03  El detalle muestra estado, área, presupuesto, materiales y ficha técnica 266ms
+stderr | tests/regression/REG-AUTH.test.tsx > REG-AUTH-03  Un 401 en cualquier llamada borra el token y cierra la sesión
+Error: Token expirado
+    at apiFetch (C:\Users\KRAV\Documents\Alejo\Homara\HomaraFrontend\app\lib\api.ts:63:11)
+    at handleSaveProfile (C:\Users\KRAV\Documents\Alejo\Homara\HomaraFrontend\app\(shop)\cuenta\page.tsx:84:19)
+
+ ✓ tests/regression/REG-CAT.test.tsx > REG-CAT-01  Agregar desde la ficha envía el producto y el contador de la barra sube 1114ms
+ ✓ tests/regression/REG-AUTH.test.tsx > REG-AUTH-03  Un 401 en cualquier llamada borra el token y cierra la sesión 273ms
+ ✓ tests/regression/REG-CAT.test.tsx > REG-CAT-02  Una categoría en la URL filtra el catálogo en el backend con ?category= 112ms
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-04  Cambiar el estado lo guarda en el backend y confirma 217ms
+ ✓ tests/regression/REG-CART.test.tsx > REG-CART-03  El checkout envía la dirección del usuario y el método de pago elegido 365ms
+stderr | tests/regression/REG-PROY.test.tsx > REG-PROY-01  Una pared de 4 × 2,5 m con 1,5 m² deducidos se envía con 8,5 m² netos
+Not implemented: navigation to another Document
+
+ ✓ tests/ui/auth.test.tsx > ui-auth-02  Credenciales incorrectas muestran el error del backend y no guardan token 588ms
+ ✓ tests/regression/REG-AUTH.test.tsx > REG-AUTH-04  Editar el perfil envía los datos a /users/me 321ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-03  La búsqueda filtra por nombre o descripción y se puede limpiar 577ms
+ ✓ tests/regression/REG-PROY.test.tsx > REG-PROY-01  Una pared de 4 × 2,5 m con 1,5 m² deducidos se envía con 8,5 m² netos 1951ms
+ ✓ tests/ui/general.test.tsx > ui-gen-01  La portada muestra recomendados, ofertas y más vendidos de la vitrina 1449ms
+ ✓ tests/regression/REG-CAT.test.tsx > REG-CAT-03  La búsqueda y el orden por precio funcionan juntos en el cliente 181ms
+ ✓ tests/ui/cuenta.test.tsx > ui-acc-05  Editar el perfil guarda los cambios y recarga el usuario 789ms
+ ✓ tests/regression/REG-CAT.test.tsx > REG-CAT-04  La portada muestra las tres secciones de la vitrina 267ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-chk-03  Pagar envía el pedido con el método elegido y lleva a proyectos 692ms
+ ✓ tests/ui/general.test.tsx > ui-gen-02  El contador del carrito suma unidades y se refresca con el evento cartUpdated 152ms
+ ✓ tests/ui/general.test.tsx > ui-gen-03  Sin sesión la barra ofrece iniciar sesión 81ms
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-05  Borrar pide confirmación, elimina el proyecto y vuelve al listado 402ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-chk-04  Si faltan datos obligatorios avisa y no crea el pedido 183ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-04  Elegir una categoría pide al backend solo esa categoría 268ms
+stderr | tests/ui/carrito-checkout.test.tsx > ui-chk-05  Un rechazo del backend muestra su mensaje y no sale del checkout
+Error: El carrito está vacío
+    at apiFetch (C:\Users\KRAV\Documents\Alejo\Homara\HomaraFrontend\app\lib\api.ts:63:11)
+    at handleCheckout (C:\Users\KRAV\Documents\Alejo\Homara\HomaraFrontend\app\(shop)\checkout\page.tsx:87:20)
+
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-06  Editar lleva al asistente en modo edición 202ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-05  Sin resultados muestra el estado vacío y 'Ver todo' restablece los filtros 176ms
+ ✓ tests/ui/carrito-checkout.test.tsx > ui-chk-05  Un rechazo del backend muestra su mensaje y no sale del checkout 220ms
+ ✓ tests/ui/cuenta.test.tsx > ui-acc-06  El perfil no se guarda sin nombre 417ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-06  La ficha muestra nombre, precio, descuento y stock disponible 73ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-07  Un producto sin stock se ofrece bajo pedido con su advertencia 50ms
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-07  Sumar una unidad recalcula el precio proporcional y sincroniza la lista 214ms
+ ✓ tests/ui/general.test.tsx > ui-gen-04  El menú de un administrador incluye el panel y cerrar sesión borra el token 296ms
+ ✓ tests/regression/REG-ADM.test.tsx > REG-ADM-02  Una oferta se guarda como precio de venta y el normal como precio original 2367ms
+ ✓ tests/ui/cuenta.test.tsx > ui-acc-07  Cerrar sesión borra el token y vuelve al login 155ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-08  Agregar al carrito envía el producto con cantidad 1 y confirma con un aviso 95ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-09  Un producto inexistente muestra el mensaje de no encontrado 16ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-10  Sin sesión, las reseñas invitan a iniciar sesión en lugar del formulario 33ms
+ ✓ tests/ui/cuenta.test.tsx > ui-acc-08  El detalle de un pedido pagado con tarjeta muestra el medio de pago legible 203ms
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-08  Quitar un material pide confirmación y lo saca de la lista 171ms
+stderr | tests/regression/REG-PROY.test.tsx > REG-PROY-02  El patrón diagonal fija 15% de desperdicio
+Not implemented: navigation to another Document
+
+ ✓ tests/ui/general.test.tsx > ui-gen-05  Cambiar a inglés traduce la navegación y recuerda el idioma 320ms
+ ✓ tests/ui/general.test.tsx > ui-gen-06  El botón de tema alterna el modo oscuro y lo recuerda 81ms
+ ✓ tests/ui/general.test.tsx > ui-gen-07  La barra lateral admin enlaza tablero, productos, inventario y pedidos 52ms
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-09  Guardar sin nombre avisa qué campo falta y no crea nada 202ms
+ ✓ tests/regression/REG-PROY.test.tsx > REG-PROY-02  El patrón diagonal fija 15% de desperdicio 917ms
+ ✓ tests/regression/REG-ADM.test.tsx > REG-ADM-03  Cambiar el estado de un pedido usa su id interno y el estado en mayúsculas 384ms
+ ✓ tests/regression/REG-ADM.test.tsx > REG-ADM-04  El inventario clasifica el stock con los umbrales 0 / < 50 / ≥ 50 75ms
+ ✓ tests/regression/REG-PROY.test.tsx > REG-PROY-03  El editor reescala el precio al cambiar la cantidad (precio unitario constante) 169ms
+ ✓ tests/regression/REG-ADM.test.tsx > REG-ADM-05  El tablero traduce al inglés las métricas que el backend envía en español 149ms
+ ✓ tests/ui/auth.test.tsx > ui-auth-03  El registro valida que las contraseñas coincidan antes de llamar al backend 1315ms
+ ✓ tests/regression/REG-PROY.test.tsx > REG-PROY-04  El listado cuenta los proyectos por estado (cantidades distintas por estado) 173ms
+ ✓ tests/regression/REG-AUTH.test.tsx > REG-AUTH-05  El registro no llama al backend si las contraseñas no coinciden 1231ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-11  Calificar exige estrellas y luego envía calificación y comentario 669ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-12  Quien ya reseñó ve la insignia en lugar del formulario 107ms
+stderr | tests/ui/proyectos.test.tsx > ui-proy-10  Un piso de 5 × 4 m se envía con 20 m² netos, desperdicio 10% y la cerámica sugerida
+Not implemented: navigation to another Document
+
+ ✓ tests/ui/admin.test.tsx > ui-adm-04  Dar de alta un producto envía precios enteros, unidad, categoría e imagen por defecto 2219ms
+stderr | tests/ui/catalogo.test.tsx > ui-cat-13  Asignar el producto a un proyecto lo vincula con el tipo de material detectado
+Not implemented: navigation to another Document
+
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-10  Un piso de 5 × 4 m se envía con 20 m² netos, desperdicio 10% y la cerámica sugerida 768ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-13  Asignar el producto a un proyecto lo vincula con el tipo de material detectado 262ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-14  Sin sesión, 'usar en proyecto' ofrece iniciar sesión volviendo a la ficha 108ms
+ ✓ tests/ui/catalogo.test.tsx > ui-cat-15  El enlace de categoría de la ficha filtra el catálogo por esa categoría 18ms
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-11  Una pared exige la altura 388ms
+ ✓ tests/regression/REG-AUTH.test.tsx > REG-AUTH-06  Un registro válido guarda el JWT y lleva a la cuenta 1155ms
+stderr | tests/ui/proyectos.test.tsx > ui-proy-12  En modo edición precarga el proyecto y guarda con PUT
+Not implemented: navigation to another Document
+
+ ✓ tests/ui/auth.test.tsx > ui-auth-04  El registro envía solo los campos llenos y entra a la cuenta 1341ms
+ ✓ tests/ui/auth.test.tsx > ui-auth-05  Una ruta privada sin sesión redirige al login y no muestra el contenido 14ms
+ ✓ tests/ui/auth.test.tsx > ui-auth-06  Una ruta pública se muestra sin sesión y una privada con sesión 30ms
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-12  En modo edición precarga el proyecto y guarda con PUT 461ms
+ ✓ tests/ui/auth.test.tsx > ui-auth-07  El panel admin rechaza a un cliente y admite a un administrador 77ms
+ ✓ tests/ui/auth.test.tsx > ui-auth-08  Un 401 del backend cierra la sesión y manda al login 31ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-05  Con precio de oferta se cobra la oferta y el precio normal queda como original 1202ms
+stderr | tests/ui/proyectos.test.tsx > ui-proy-13  Un error del backend al crear se muestra y no se sale del asistente
+Error: Tipo de material no soportado.
+    at apiFetch (C:\Users\KRAV\Documents\Alejo\Homara\HomaraFrontend\app\lib\api.ts:63:11)
+    at handleSaveProject (C:\Users\KRAV\Documents\Alejo\Homara\HomaraFrontend\app\(shop)\proyectos\nuevo\page.tsx:539:15)
+
+ ✓ tests/ui/proyectos.test.tsx > ui-proy-13  Un error del backend al crear se muestra y no se sale del asistente 417ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-06  Rechaza una oferta igual o mayor al precio normal sin llamar al backend 1110ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-07  Un formulario incompleto muestra el error de campos obligatorios 184ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-08  Editar un producto precarga sus datos y guarda con PUT 276ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-09  Eliminar un producto pide confirmación y lo borra 156ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-10  Los pedidos se listan con contadores y se filtran por estado 110ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-11  Cambiar el estado desde el detalle actualiza el pedido con su id interno 199ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-12  El inventario marca cada producto como sin stock, bajo o normal 63ms
+ ✓ tests/ui/admin.test.tsx > ui-adm-13  El filtro de alertas deja solo los productos con stock bajo 112ms
+
+ Test Files  18 passed (18)
+      Tests  152 passed (152)
+   Start at  21:00:09
+   Duration  14.34s (transform 4.72s, setup 17.89s, collect 18.79s, tests 42.22s, environment 42.37s, prepare 7.39s)
+
