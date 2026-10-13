@@ -2,7 +2,7 @@
 
 Suite de pruebas de extremo a extremo (E2E) del frontend de Homara, escrita con el **patrón Screenplay** usando
 **Serenity/JS 3** sobre **Playwright Test** y TypeScript. Vive en su propia carpeta con su propio `package.json`,
-aislada del frontend (Next.js), de Cypress (raíz) y de Katalon (`katalon/`).
+aislada del frontend (Next.js) y de Katalon (`katalon/`).
 
 | Elemento | Valor |
 |---|---|
@@ -320,8 +320,6 @@ e2e-screenplay/
 
 ## 6. Nota para el pipeline del frontend
 
-El `tsconfig.json` raíz del frontend incluye `**/*.ts` y solo excluye `cypress`, así que también abarca esta carpeta.
-En local no genera errores, porque `e2e-screenplay/node_modules` existe. Pero un `npm run build` en CI que solo
-instale las dependencias de la raíz no encontrará los módulos `@serenity-js/*`. Se recomienda agregar
-`"e2e-screenplay"` (y `"katalon"`) al `exclude` del `tsconfig.json` raíz. ESLint de la raíz ya pasa sin errores
-sobre esta carpeta.
+El `tsconfig.json` raíz del frontend excluye `e2e-screenplay` y `katalon`, así que un `npm run build` en CI que solo
+instale las dependencias de la raíz no intenta resolver los módulos `@serenity-js/*`. ESLint de la raíz ya pasa sin
+errores sobre esta carpeta.

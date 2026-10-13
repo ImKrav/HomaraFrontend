@@ -19,8 +19,6 @@ npm-debug.log*
 
 # Suites y evidencias de pruebas (no forman parte de la imagen)
 **/node_modules
-cypress
-cypress.config.ts
 e2e-screenplay
 katalon
 docs

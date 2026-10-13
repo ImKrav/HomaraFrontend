@@ -127,8 +127,8 @@ casos con datos, más 9 casos sin datos).
   *Data Binding* de la suite.
 - **La colección:** abrir `TSC_Homara_Positivos_y_Negativos` y pulsar *Execute*.
 
-Recomendación: ejecutar las suites **sin otras pruebas corriendo en paralelo** contra la misma aplicación (Cypress o
-Serenity/JS del mismo repositorio), porque todas comparten el carrito del usuario `juan@email.com`.
+Recomendación: ejecutar las suites **sin otras pruebas corriendo en paralelo** contra la misma aplicación
+(Serenity/JS del mismo repositorio), porque todas comparten el carrito del usuario `juan@email.com`.
 
 ### 3.3 Ejecutar por consola (katalonc)
 
@@ -362,7 +362,7 @@ Katalon (compilación de los scripts en Katalon, binding de datos, generación d
 3. **Mensaje de campos faltantes del checkout:** los campos obligatorios tienen `required`, así que el navegador
    bloquea el envío antes de que se muestre el toast "Por favor completa todos los campos requeridos."; TC09 verifica
    la validación del navegador (`validity.valueMissing`).
-4. **Ejecuciones en paralelo:** si otras suites (Cypress, Serenity/JS) usan al mismo tiempo la cuenta
+4. **Ejecuciones en paralelo:** si otras suites (Serenity/JS) usan al mismo tiempo la cuenta
    `juan@email.com`, los casos de carrito pueden fallar por cambios ajenos en el carrito.
 
 ---

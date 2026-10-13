@@ -49,7 +49,7 @@ complementa la accesibilidad de [INTERFAZ-ACCESIBILIDAD.md](INTERFAZ-ACCESIBILID
 | **Móvil: bloqueo del hilo principal** (DEF-26). TBT 350-890 ms y Performance 73-90; la evaluación y compilación de JavaScript domina el trabajo del hilo principal (≈ 2,2 s en catálogo móvil; *bootup-time* 1,0 s) | [catálogo móvil](evidencias/lighthouse/catalogo-movil.report.html) → *Minimize main-thread work*, *Reduce JavaScript execution time* | Media | Cargar de forma diferida las secciones de la vitrina y los componentes de administración; revisar dependencias del bundle cliente (todo el árbol es `"use client"`) |
 | **Móvil: desplazamiento de diseño en /catalogo** (DEF-26). CLS 0,22 (umbral "bueno" ≤ 0,1): el esqueleto de carga de 8 tarjetas se reemplaza por 25 productos y empuja el `<footer>` | *layout-shifts* señala el `footer` | Media | Reservar altura para la grilla (min-height) o renderizar el mismo número de esqueletos que el tamaño de página |
 | **JavaScript sin usar / legado**: ≈ 25 KiB de JS no usado y ≈ 13 KiB de polyfills para navegadores antiguos en todas las páginas | *Reduce unused JavaScript*, *Avoid serving legacy JavaScript* | Baja | Ajustar `browserslist` a navegadores modernos y dividir código por ruta |
-| **Accessibility 90-96** (consistente con axe): *color-contrast* (todas), *select-name* (catálogo), *heading-order* (catálogo y login), *label-content-name-mismatch* (botón de tema) | sección Accessibility de cada reporte | ver DEF-19, DEF-22, DEF-25 | Ver [INTERFAZ-ACCESIBILIDAD.md](INTERFAZ-ACCESIBILIDAD.md) |
+| **Accessibility 90-96**: *color-contrast* (todas), *select-name* (catálogo), *heading-order* (catálogo y login), *label-content-name-mismatch* (botón de tema) | sección Accessibility de cada reporte | ver DEF-19, DEF-22, DEF-25 | Ver tabla de defectos |
 | **Best Practices 100 y SEO 100** en todas las páginas y perfiles (título y descripción definidos en `layout.tsx`, sin errores de consola, HTTPS no aplica en local) | — | — | — |
 
 **Estabilidad entre ejecuciones**: escritorio idéntico (100/96·90·94/100/100);
@@ -57,10 +57,13 @@ en móvil la variación de Performance fue de ±1 en inicio y login y de 73 → 
 catálogo, explicada por el TBT (640 ms vs 360 ms), métrica sensible a la carga de
 la máquina. Por eso se reporta la mediana de 3 corridas.
 
-## Defecto registrado
+## Defectos registrados
 
 | ID | Severidad | Descripción | Recomendación |
 |---|---|---|---|
+| DEF-19 | Alta | WCAG 4.1.2: `<select>` de calificación/orden del catálogo y filtros de `/admin/productos` sin nombre accesible | `<label htmlFor>` o `aria-label` en cada select |
+| DEF-22 | Media | WCAG 1.4.3: contraste insuficiente en etiquetas de 10 px en `text-muted` del pie (todas las páginas) y textos secundarios en tema oscuro | Oscurecer `--text-muted` en claro (p. ej. `#52525B`) y aclarar `zinc-400/700` en oscuro; evitar 10 px |
+| DEF-25 | Baja | WCAG 2.5.3 / 1.3.1: el botón de tema tiene `aria-label="Alternar tema"` pero muestra "Claro/Oscuro" (*label-content-name-mismatch*); salto de encabezados h1 → h3 en catálogo y login (*heading-order*) | Incluir el texto visible en el nombre accesible; respetar la jerarquía de encabezados |
 | DEF-26 | Media | En perfil móvil el inicio y el catálogo tienen TBT de 360-890 ms y el catálogo un CLS de 0,22 (> 0,1), con Performance 73-80 | Ver tabla de análisis: diferir JS no crítico y reservar espacio para la grilla |
 
 ## Evidencia

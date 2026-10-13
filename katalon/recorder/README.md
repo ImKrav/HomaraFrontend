@@ -21,7 +21,7 @@ en el formato nativo de Katalon Recorder.
 | Aplicación | Frontend en `http://localhost:3000` (hace proxy de `/api/v1` al backend en `:5000`) con los datos semilla. Las URL de las suites son absolutas: si la aplicación corre en otra dirección hay que reemplazar `http://localhost:3000` en los `.html`. |
 | Usuarios semilla | `admin@homara.co` / `123456` (ADMIN) y `juan@email.com` / `123456` (CUSTOMER). |
 | Catálogo | Deben existir con stock *Pintura Koraza Caneca 5 Galones* (549.000 COP) y *Rodillo de Pintura Antigoteo 23cm*. |
-| Ejecución aislada | No correr al mismo tiempo Cypress, Serenity/JS ni Katalon Studio contra la misma aplicación: todos usan el carrito de `juan@email.com`. |
+| Ejecución aislada | No correr al mismo tiempo Serenity/JS ni Katalon Studio contra la misma aplicación: todos usan el carrito de `juan@email.com`. |
 
 ## 2. Estructura
 
