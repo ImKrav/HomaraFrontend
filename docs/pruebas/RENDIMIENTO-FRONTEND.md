@@ -1,7 +1,6 @@
 # Rendimiento del frontend · Lighthouse
 
-**Escenarios**: ESC38 (rendimiento, lado cliente) · ESC39 (experiencia en móvil) ·
-complementa la accesibilidad de [INTERFAZ-ACCESIBILIDAD.md](INTERFAZ-ACCESIBILIDAD.md).
+**Escenarios**: ESC38 (rendimiento, lado cliente) · ESC39 (experiencia en móvil).
 
 ## Configuración
 
