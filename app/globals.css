@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* El tema lo elige la app (clase .dark en <html>), no solo el sistema: dark: debe seguirla (DEF-22). */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ============================================
    Homara — Design System (Obsidian & Steel)
    ============================================ */

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="15.101" tests="6" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T17:39:35" tests="0" file="cypress/e2e/regresion/checkout-pedidos.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Regresión · Checkout y pedidos (ESC27-ESC29)" timestamp="2026-10-26T17:39:35" tests="6" time="15.101" failures="0">
+    <testcase name="Regresión · Checkout y pedidos (ESC27-ESC29) REG-CHK-01 [ESC27] precarga los datos del usuario y resume el carrito con su total" time="0.984" classname="REG-CHK-01 [ESC27] precarga los datos del usuario y resume el carrito con su total">
+    </testcase>
+    <testcase name="Regresión · Checkout y pedidos (ESC27-ESC29) REG-CHK-02 [ESC27] con campos obligatorios vacíos el navegador bloquea el envío (required)" time="0.697" classname="REG-CHK-02 [ESC27] con campos obligatorios vacíos el navegador bloquea el envío (required)">
+    </testcase>
+    <testcase name="Regresión · Checkout y pedidos (ESC27-ESC29) REG-CHK-03 [ESC27] si se omite la validación nativa, la app advierte con un toast y no crea el pedido" time="0.587" classname="REG-CHK-03 [ESC27] si se omite la validación nativa, la app advierte con un toast y no crea el pedido">
+    </testcase>
+    <testcase name="Regresión · Checkout y pedidos (ESC27-ESC29) REG-CHK-04 [ESC28] con datos válidos crea el pedido ORD-YYYY-NNN, vacía el carrito y confirma" time="2.596" classname="REG-CHK-04 [ESC28] con datos válidos crea el pedido ORD-YYYY-NNN, vacía el carrito y confirma">
+    </testcase>
+    <testcase name="Regresión · Checkout y pedidos (ESC27-ESC29) REG-CHK-05 [ESC29] el pedido creado aparece en el historial de /cuenta y su detalle se puede abrir" time="6.223" classname="REG-CHK-05 [ESC29] el pedido creado aparece en el historial de /cuenta y su detalle se puede abrir">
+    </testcase>
+    <testcase name="Regresión · Checkout y pedidos (ESC27-ESC29) REG-CHK-06 [ESC28] con el carrito vacío el backend rechaza el pedido y la app muestra el error" time="2.255" classname="REG-CHK-06 [ESC28] con el carrito vacío el backend rechaza el pedido y la app muestra el error">
+    </testcase>
+  </testsuite>
+</testsuites>

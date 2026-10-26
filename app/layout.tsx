@@ -28,13 +28,21 @@ export const metadata: Metadata = {
   ],
 };
 
+const THEME_BOOTSTRAP =
+  "try{var t=localStorage.getItem('homara_theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${plusJakartaSans.variable} font-sans h-full antialiased`}>
+    <html lang="es" className={`${plusJakartaSans.variable} font-sans h-full antialiased`} suppressHydrationWarning>
+      <head>
+        {/* Aplica el tema guardado antes de pintar: sin esto la página se veía clara y transicionaba
+            a oscura tras hidratar (parpadeo y contraste insuficiente durante la transición, DEF-22). */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
+      </head>
       <body className="min-h-full flex flex-col bg-bg-base text-text-primary transition-colors duration-200">
         <AuthProvider>
           <ThemeProvider>

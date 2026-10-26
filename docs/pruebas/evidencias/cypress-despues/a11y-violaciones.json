@@ -1,0 +1,161 @@
+[
+  {
+    "pagina": "inicio",
+    "ruta": "/",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:11.951Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "inicio-oscuro",
+    "ruta": "/",
+    "tema": "dark",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:13.436Z",
+    "total": 1,
+    "porImpacto": {
+      "serious": 1
+    },
+    "violaciones": [
+      {
+        "regla": "color-contrast",
+        "impacto": "serious",
+        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
+        "wcag": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodos": 20,
+        "ejemplos": [
+          ".py-2.hover\\:text-text-primary[href=\"/\"]",
+          ".py-2.hover\\:text-text-primary[href$=\"catalogo\"]",
+          "a[href$=\"proyectos\"]"
+        ]
+      }
+    ]
+  },
+  {
+    "pagina": "catalogo",
+    "ruta": "/catalogo",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:17.545Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "detalle-producto",
+    "ruta": "/catalogo/cmvphxoq0000bir7doos2ls6i",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:18.267Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "login",
+    "ruta": "/login",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:21.974Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "login-oscuro",
+    "ruta": "/login",
+    "tema": "dark",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:25.694Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "registro",
+    "ruta": "/register",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:29.379Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "carrito-invitado",
+    "ruta": "/carrito",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:30.014Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "cuenta",
+    "ruta": "/cuenta",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:39.827Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "proyectos",
+    "ruta": "/proyectos",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:40.680Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "proyecto-nuevo",
+    "ruta": "/proyectos/nuevo",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:44.532Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "checkout",
+    "ruta": "/checkout",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:45.490Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "admin-dashboard",
+    "ruta": "/admin",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:52.621Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  },
+  {
+    "pagina": "admin-productos",
+    "ruta": "/admin/productos",
+    "tema": "light",
+    "navegador": "electron",
+    "fecha": "2026-10-26T17:32:54.209Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
+  }
+]
