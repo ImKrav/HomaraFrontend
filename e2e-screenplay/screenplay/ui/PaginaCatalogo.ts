@@ -5,7 +5,8 @@ export const PaginaCatalogo = {
     barraDeBusqueda: () => PageElement.located(By.id('search-bar')).describedAs('la barra de búsqueda'),
     /** Texto "N productos técnicos encontrados" (o "Actualizando..." mientras carga). */
     contadorDeResultados: () =>
-        PageElement.located(By.xpath('//p[contains(normalize-space(.),"productos técnicos encontrados")]'))
+        // h2 desde DEF-25 (orden de encabezados); antes era un <p>
+        PageElement.located(By.xpath('//h2[contains(normalize-space(.),"productos técnicos encontrados")]'))
             .describedAs('el contador de resultados'),
     tarjetasDeProducto: () => PageElements.located(By.css('main a[href^="/catalogo/"]')).describedAs('las tarjetas de producto'),
     nombresDeProductos: () => PageElements.located(By.css('main a[href^="/catalogo/"] h3')).describedAs('los nombres de productos'),

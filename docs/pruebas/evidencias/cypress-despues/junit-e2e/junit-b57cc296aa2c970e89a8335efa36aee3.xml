@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="22.078" tests="11" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T18:00:08" tests="0" file="cypress/e2e/regresion/admin.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Regresión · Administración (ESC31-ESC34)" timestamp="2026-10-26T18:00:08" tests="11" time="22.076" failures="0">
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-01 [ESC31] el dashboard carga las métricas del backend" time="0.709" classname="REG-ADM-01 [ESC31] el dashboard carga las métricas del backend">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-02 [ESC32] el formulario de producto exige los campos obligatorios" time="3.183" classname="REG-ADM-02 [ESC32] el formulario de producto exige los campos obligatorios">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-03 [ESC32] rechaza un precio en 0 con el mensaje de validación" time="3.099" classname="REG-ADM-03 [ESC32] rechaza un precio en 0 con el mensaje de validación">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-04 [ESC32] crea un producto propio y luego lo elimina (CRUD)" time="6.431" classname="REG-ADM-04 [ESC32] crea un producto propio y luego lo elimina (CRUD)">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-05 [ESC33] el inventario muestra las estadísticas y la tabla de stock" time="0.284" classname="REG-ADM-05 [ESC33] el inventario muestra las estadísticas y la tabla de stock">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-06 [ESC34] el administrador cambia el estado de un pedido propio de la prueba" time="0.774" classname="REG-ADM-06 [ESC34] el administrador cambia el estado de un pedido propio de la prueba">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-07 [ESC34] DEF-06 corregido: el buscador de pedidos filtra por ciudad sin errores" time="0.470" classname="REG-ADM-07 [ESC34] DEF-06 corregido: el buscador de pedidos filtra por ciudad sin errores">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-08 [ESC32] edita el precio de un producto propio y el cambio persiste" time="1.469" classname="REG-ADM-08 [ESC32] edita el precio de un producto propio y el cambio persiste">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-09 [ESC33] el filtro de alertas del inventario deja solo los productos con stock bajo" time="0.542" classname="REG-ADM-09 [ESC33] el filtro de alertas del inventario deja solo los productos con stock bajo">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-10 [ESC34] el filtro por estado deja solo los pedidos con ese estado" time="0.546" classname="REG-ADM-10 [ESC34] el filtro por estado deja solo los pedidos con ese estado">
+    </testcase>
+    <testcase name="Regresión · Administración (ESC31-ESC34) REG-ADM-11 [ESC06] el menú de usuario del ADMIN muestra &apos;Panel Admin&apos; y lleva al dashboard" time="0.534" classname="REG-ADM-11 [ESC06] el menú de usuario del ADMIN muestra &apos;Panel Admin&apos; y lleva al dashboard">
+    </testcase>
+  </testsuite>
+</testsuites>

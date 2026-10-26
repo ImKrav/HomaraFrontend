@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="2.346" tests="10" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T17:55:53" tests="0" file="cypress/e2e/api/proyectos-admin.api.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="API · Proyectos (ESC17, ESC19)" timestamp="2026-10-26T17:55:53" tests="6" time="1.414" failures="0">
+    <testcase name="API · Proyectos (ESC17, ESC19) API-PRY-01 [ESC17] POST /projects sin token → 401" time="0.159" classname="API-PRY-01 [ESC17] POST /projects sin token → 401">
+    </testcase>
+    <testcase name="API · Proyectos (ESC17, ESC19) API-PRY-02 [ESC17/ESC18] POST /projects válido → 201 EN_PROGRESO con materiales y costo estimado" time="0.174" classname="API-PRY-02 [ESC17/ESC18] POST /projects válido → 201 EN_PROGRESO con materiales y costo estimado">
+    </testcase>
+    <testcase name="API · Proyectos (ESC17, ESC19) API-PRY-03 [ESC17] validaciones: nombre vacío y longitud negativa → 400" time="0.180" classname="API-PRY-03 [ESC17] validaciones: nombre vacío y longitud negativa → 400">
+    </testcase>
+    <testcase name="API · Proyectos (ESC17, ESC19) API-PRY-04 [ESC19/ESC36] GET /projects lista solo los propios; otro usuario no puede modificar ni borrar" time="0.350" classname="API-PRY-04 [ESC19/ESC36] GET /projects lista solo los propios; otro usuario no puede modificar ni borrar">
+    </testcase>
+    <testcase name="API · Proyectos (ESC17, ESC19) API-PRY-06 [ESC19/ESC36] DEF-11 corregido: GET /projects/:id de OTRO usuario responde 403 (como PUT y DELETE)" time="0.250" classname="API-PRY-06 [ESC19/ESC36] DEF-11 corregido: GET /projects/:id de OTRO usuario responde 403 (como PUT y DELETE)">
+    </testcase>
+    <testcase name="API · Proyectos (ESC17, ESC19) API-PRY-05 [ESC19] DELETE /projects/:id elimina el proyecto propio" time="0.178" classname="API-PRY-05 [ESC19] DELETE /projects/:id elimina el proyecto propio">
+    </testcase>
+  </testsuite>
+  <testsuite name="API · Administración (ESC31-ESC34)" timestamp="2026-10-26T17:55:54" tests="4" time="0.931" failures="0">
+    <testcase name="API · Administración (ESC31-ESC34) API-ADM-01 [ESC06/ESC31/ESC33] GET /admin/metrics: sin token 401, CUSTOMER 403, ADMIN 200" time="0.248" classname="API-ADM-01 [ESC06/ESC31/ESC33] GET /admin/metrics: sin token 401, CUSTOMER 403, ADMIN 200">
+    </testcase>
+    <testcase name="API · Administración (ESC31-ESC34) API-ADM-01 [ESC06/ESC31/ESC33] GET /admin/inventory: sin token 401, CUSTOMER 403, ADMIN 200" time="0.076" classname="API-ADM-01 [ESC06/ESC31/ESC33] GET /admin/inventory: sin token 401, CUSTOMER 403, ADMIN 200">
+    </testcase>
+    <testcase name="API · Administración (ESC31-ESC34) API-ADM-02 [ESC33] /admin/inventory: estadísticas coherentes con la lista de productos" time="0.389" classname="API-ADM-02 [ESC33] /admin/inventory: estadísticas coherentes con la lista de productos">
+    </testcase>
+    <testcase name="API · Administración (ESC31-ESC34) API-ADM-03 [ESC32] POST /products: CUSTOMER 403; ADMIN con datos incompletos 400; ADMIN válido 201 y DELETE 200" time="0.132" classname="API-ADM-03 [ESC32] POST /products: CUSTOMER 403; ADMIN con datos incompletos 400; ADMIN válido 201 y DELETE 200">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,13 +1,13 @@
-<testsuites id="" name="" tests="33" failures="0" skipped="0" errors="0" time="70.944575">
-<testsuite name="features/admin-productos.feature.spec.js" timestamp="2026-10-26T14:14:03.242Z" hostname="chromium" tests="2" failures="0" skipped="0" time="18.061" errors="0">
-<testcase name="Administración de productos › SP-32 Crear un producto y luego eliminarlo" classname="features/admin-productos.feature.spec.js" time="10.396">
+<testsuites id="" name="" tests="33" failures="0" skipped="0" errors="0" time="63.04359600000001">
+<testsuite name="features/admin-productos.feature.spec.js" timestamp="2026-10-26T18:07:54.002Z" hostname="chromium" tests="2" failures="0" skipped="0" time="15.539" errors="0">
+<testcase name="Administración de productos › SP-32 Crear un producto y luego eliminarlo" classname="features/admin-productos.feature.spec.js" time="9.311">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-admin-productos.f-e4101-producto-y-luego-eliminarlo-chromium/attachments/SP-32-Crear-un-producto-y-luego-eliminarlo-2c87e297b2aafc0ae5b4fa6a6e9c299ec77aa1e4.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Administración de productos › SP-33 No se puede crear un producto con precio 0" classname="features/admin-productos.feature.spec.js" time="7.665">
+<testcase name="Administración de productos › SP-33 No se puede crear un producto con precio 0" classname="features/admin-productos.feature.spec.js" time="6.228">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-admin-productos.f-f953e-ar-un-producto-con-precio-0-chromium/attachments/SP-33-No-se-puede-crear-un-producto-con-precio-0-1bec6840f7d7ca23c3d71e448f11d48b09037efc.png]]
@@ -15,57 +15,57 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="features/autenticacion.feature.spec.js" timestamp="2026-10-26T14:14:03.242Z" hostname="chromium" tests="8" failures="0" skipped="0" time="27.922" errors="0">
-<testcase name="Autenticación de clientes › ESC01 - Solo se crea la cuenta con datos válidos y un correo que no esté registrado › SP-01 Registro con datos válidos" classname="features/autenticacion.feature.spec.js" time="4.448">
+<testsuite name="features/autenticacion.feature.spec.js" timestamp="2026-10-26T18:07:54.002Z" hostname="chromium" tests="8" failures="0" skipped="0" time="24.538" errors="0">
+<testcase name="Autenticación de clientes › ESC01 - Solo se crea la cuenta con datos válidos y un correo que no esté registrado › SP-01 Registro con datos válidos" classname="features/autenticacion.feature.spec.js" time="4.416">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-autenticacion.fea-41a78--Registro-con-datos-válidos-chromium/attachments/SP-01-Registro-con-datos-validos-635d492465768fef73559992e31e75fb92dc15d4.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Autenticación de clientes › ESC01 - Solo se crea la cuenta con datos válidos y un correo que no esté registrado › SP-02 Registro con un correo que ya existe" classname="features/autenticacion.feature.spec.js" time="3.569">
+<testcase name="Autenticación de clientes › ESC01 - Solo se crea la cuenta con datos válidos y un correo que no esté registrado › SP-02 Registro con un correo que ya existe" classname="features/autenticacion.feature.spec.js" time="2.306">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-autenticacion.fea-95547-con-un-correo-que-ya-existe-chromium/attachments/SP-02-Registro-con-un-correo-que-ya-existe-3111a5875526af44ee554a5267537e91b451de88.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Autenticación de clientes › ESC01 - Solo se crea la cuenta con datos válidos y un correo que no esté registrado › SP-03 Registro con contraseñas que no coinciden" classname="features/autenticacion.feature.spec.js" time="3.273">
+<testcase name="Autenticación de clientes › ESC01 - Solo se crea la cuenta con datos válidos y un correo que no esté registrado › SP-03 Registro con contraseñas que no coinciden" classname="features/autenticacion.feature.spec.js" time="2.468">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-autenticacion.fea-90db2-ontraseñas-que-no-coinciden-chromium/attachments/SP-03-Registro-con-contrasenas-que-no-coinciden-3e5d73c282a3c279cd00b6e923946e242fe7a603.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Autenticación de clientes › ESC01 - Solo se crea la cuenta con datos válidos y un correo que no esté registrado › SP-04 Registro con una contraseña de 7 caracteres" classname="features/autenticacion.feature.spec.js" time="3.774">
+<testcase name="Autenticación de clientes › ESC01 - Solo se crea la cuenta con datos válidos y un correo que no esté registrado › SP-04 Registro con una contraseña de 7 caracteres" classname="features/autenticacion.feature.spec.js" time="2.847">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-autenticacion.fea-5a34e--contraseña-de-7-caracteres-chromium/attachments/SP-04-Registro-con-una-contrasena-de-7-caracteres-e1c36210b40581c649cbd59f9cc14a383c4dec55.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Autenticación de clientes › ESC02 - Solo inicia sesión quien presenta credenciales válidas › SP-05 Inicio de sesión con credenciales válidas" classname="features/autenticacion.feature.spec.js" time="2.859">
+<testcase name="Autenticación de clientes › ESC02 - Solo inicia sesión quien presenta credenciales válidas › SP-05 Inicio de sesión con credenciales válidas" classname="features/autenticacion.feature.spec.js" time="2.774">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-autenticacion.fea-0d7cb-ón-con-credenciales-válidas-chromium/attachments/SP-05-Inicio-de-sesion-con-credenciales-validas-e5d159d602cf0723665b4405f3dc6b9a0dbd3efe.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Autenticación de clientes › ESC02 - Solo inicia sesión quien presenta credenciales válidas › SP-06 Inicio de sesión con una contraseña incorrecta" classname="features/autenticacion.feature.spec.js" time="2.541">
+<testcase name="Autenticación de clientes › ESC02 - Solo inicia sesión quien presenta credenciales válidas › SP-06 Inicio de sesión con una contraseña incorrecta" classname="features/autenticacion.feature.spec.js" time="2.622">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-autenticacion.fea-d691c-n-una-contraseña-incorrecta-chromium/attachments/SP-06-Inicio-de-sesion-con-una-contrasena-incorrecta-f58320ea76b92937014b8cec0b42214d2b5b25de.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Autenticación de clientes › ESC02 - Solo inicia sesión quien presenta credenciales válidas › SP-07 Inicio de sesión con un correo no registrado recibe el mismo mensaje genérico" classname="features/autenticacion.feature.spec.js" time="2.439">
+<testcase name="Autenticación de clientes › ESC02 - Solo inicia sesión quien presenta credenciales válidas › SP-07 Inicio de sesión con un correo no registrado recibe el mismo mensaje genérico" classname="features/autenticacion.feature.spec.js" time="2.654">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-autenticacion.fea-54238-e-el-mismo-mensaje-genérico-chromium/attachments/SP-07-Inicio-de-sesion-con-un-correo-no-registrado-recibe-el-mismo-mensaje-generico-f8a5256bcb4e8c7e265da74f384ade92d0af657a.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Autenticación de clientes › ESC03 - Al cerrar sesión se pierde el acceso a la cuenta › SP-08 Cerrar sesión desde el menú de la cuenta" classname="features/autenticacion.feature.spec.js" time="5.019">
+<testcase name="Autenticación de clientes › ESC03 - Al cerrar sesión se pierde el acceso a la cuenta › SP-08 Cerrar sesión desde el menú de la cuenta" classname="features/autenticacion.feature.spec.js" time="4.451">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-autenticacion.fea-3770c--desde-el-menú-de-la-cuenta-chromium/attachments/SP-08-Cerrar-sesion-desde-el-menu-de-la-cuenta-f501998572c516fb06d3b3bdadb6e847f9210c66.png]]
@@ -73,22 +73,22 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="features/busqueda-catalogo.feature.spec.js" timestamp="2026-10-26T14:14:03.242Z" hostname="chromium" tests="3" failures="0" skipped="0" time="8.528" errors="0">
-<testcase name="Búsqueda en el catálogo › SP-14 Búsqueda con resultados" classname="features/busqueda-catalogo.feature.spec.js" time="3.339">
+<testsuite name="features/busqueda-catalogo.feature.spec.js" timestamp="2026-10-26T18:07:54.002Z" hostname="chromium" tests="3" failures="0" skipped="0" time="6.708" errors="0">
+<testcase name="Búsqueda en el catálogo › SP-14 Búsqueda con resultados" classname="features/busqueda-catalogo.feature.spec.js" time="2.488">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-busqueda-catalogo-746bc--14-Búsqueda-con-resultados-chromium/attachments/SP-14-Busqueda-con-resultados-7db91618c7790a47d6202c1fd604cc8da1936884.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Búsqueda en el catálogo › SP-15 La búsqueda no distingue mayúsculas de minúsculas" classname="features/busqueda-catalogo.feature.spec.js" time="2.603">
+<testcase name="Búsqueda en el catálogo › SP-15 La búsqueda no distingue mayúsculas de minúsculas" classname="features/busqueda-catalogo.feature.spec.js" time="1.862">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-busqueda-catalogo-1836c-ue-mayúsculas-de-minúsculas-chromium/attachments/SP-15-La-busqueda-no-distingue-mayusculas-de-minusculas-2cb284176263c63932c23b0d94a5cf05f97e7b0e.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Búsqueda en el catálogo › SP-16 Búsqueda sin coincidencias" classname="features/busqueda-catalogo.feature.spec.js" time="2.586">
+<testcase name="Búsqueda en el catálogo › SP-16 Búsqueda sin coincidencias" classname="features/busqueda-catalogo.feature.spec.js" time="2.358">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-busqueda-catalogo-ec868--Búsqueda-sin-coincidencias-chromium/attachments/SP-16-Busqueda-sin-coincidencias-16d73e0b4a06e85a76b0f669f4eb29bad959de26.png]]
@@ -96,99 +96,87 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="features/carrito.feature.spec.js" timestamp="2026-10-26T14:14:03.242Z" hostname="chromium" tests="8" failures="0" skipped="0" time="57.66" errors="0">
-<testcase name="Carrito de compras › SP-17 Agregar un producto al carrito" classname="features/carrito.feature.spec.js" time="8.032">
+<testsuite name="features/carrito.feature.spec.js" timestamp="2026-10-26T18:07:54.002Z" hostname="chromium" tests="8" failures="0" skipped="0" time="54.325" errors="0">
+<testcase name="Carrito de compras › SP-17 Agregar un producto al carrito" classname="features/carrito.feature.spec.js" time="6.753">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-carrito.feature-C-fc140-egar-un-producto-al-carrito-chromium/attachments/SP-17-Agregar-un-producto-al-carrito-6e7300474e2e69cc154ba8b701fc255a24869bb0.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Carrito de compras › SP-18 Agregar dos veces el mismo producto acumula la cantidad en una sola línea" classname="features/carrito.feature.spec.js" time="8.538">
+<testcase name="Carrito de compras › SP-18 Agregar dos veces el mismo producto acumula la cantidad en una sola línea" classname="features/carrito.feature.spec.js" time="8.812">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-carrito.feature-C-0af3e--cantidad-en-una-sola-línea-chromium/attachments/SP-18-Agregar-dos-veces-el-mismo-producto-acumula-la-cantidad-en-una-sola-linea-853426a2d34acf5a0cec626fa77a26ecbf66d00b.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Carrito de compras › SP-19 Aumentar la cantidad recalcula el subtotal" classname="features/carrito.feature.spec.js" time="7.375">
+<testcase name="Carrito de compras › SP-19 Aumentar la cantidad recalcula el subtotal" classname="features/carrito.feature.spec.js" time="8.008">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-carrito.feature-C-0e9a1-tidad-recalcula-el-subtotal-chromium/attachments/SP-19-Aumentar-la-cantidad-recalcula-el-subtotal-ffc0248da20ccb55f8878d52acb5ca8ad00e5c2f.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Carrito de compras › SP-20 Disminuir la cantidad vuelve a cobrar el envío" classname="features/carrito.feature.spec.js" time="8.458">
+<testcase name="Carrito de compras › SP-20 Disminuir la cantidad vuelve a cobrar el envío" classname="features/carrito.feature.spec.js" time="8.041">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-carrito.feature-C-becea-ad-vuelve-a-cobrar-el-envío-chromium/attachments/SP-20-Disminuir-la-cantidad-vuelve-a-cobrar-el-envio-e26951446e2a456db250264948688063d31838c1.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Carrito de compras › SP-21 Eliminar el único producto deja el carrito vacío" classname="features/carrito.feature.spec.js" time="7.403">
+<testcase name="Carrito de compras › SP-21 Eliminar el único producto deja el carrito vacío" classname="features/carrito.feature.spec.js" time="8.577">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-carrito.feature-C-de015-ducto-deja-el-carrito-vacío-chromium/attachments/SP-21-Eliminar-el-unico-producto-deja-el-carrito-vacio-5e6591ad2b18d2c6a8dc20f049e1be151ec62614.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Carrito de compras › SP-22 Con subtotal menor a $ 500.000 se cobra el envío" classname="features/carrito.feature.spec.js" time="6.639">
+<testcase name="Carrito de compras › SP-22 Con subtotal menor a $ 500.000 se cobra el envío" classname="features/carrito.feature.spec.js" time="4.998">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-carrito.feature-C-a6bfa-a-500-000-se-cobra-el-envío-chromium/attachments/SP-22-Con-subtotal-menor-a-500-000-se-cobra-el-envio-bac66f86834f63b3fbd69aae8ee508be58a7ebbc.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Carrito de compras › SP-23 Con subtotal mayor a $ 500.000 el envío es gratis" classname="features/carrito.feature.spec.js" time="5.265">
+<testcase name="Carrito de compras › SP-23 Con subtotal mayor a $ 500.000 el envío es gratis" classname="features/carrito.feature.spec.js" time="4.694">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-carrito.feature-C-332ed--500-000-el-envío-es-gratis-chromium/attachments/SP-23-Con-subtotal-mayor-a-500-000-el-envio-es-gratis-51a2d7992bcb4e05967f1d5718cff4748dc4b641.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Carrito de compras › SP-24 Con subtotal exactamente igual a $ 500.000 el envío es gratis" classname="features/carrito.feature.spec.js" time="5.95">
-<properties>
-<property name="fail" value="">
-</property>
-</properties>
+<testcase name="Carrito de compras › SP-24 Con subtotal exactamente igual a $ 500.000 el envío es gratis" classname="features/carrito.feature.spec.js" time="4.442">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-carrito.feature-C-8683e--500-000-el-envío-es-gratis-chromium/attachments/SP-24-Con-subtotal-exactamente-igual-a-500-000-el-envio-es-gratis-51f0b2b8e2f3ea3b51ad72c70bfbea9cdd32fcea.png]]
-
-[[ATTACHMENT|../test-results/features-carrito.feature-C-8683e--500-000-el-envío-es-gratis-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="features/checkout.feature.spec.js" timestamp="2026-10-26T14:14:03.242Z" hostname="chromium" tests="4" failures="0" skipped="0" time="50.898" errors="0">
-<testcase name="Checkout › SP-25 El navegador bloquea el pago si faltan los datos de envío" classname="features/checkout.feature.spec.js" time="8.539">
+<testsuite name="features/checkout.feature.spec.js" timestamp="2026-10-26T18:07:54.002Z" hostname="chromium" tests="4" failures="0" skipped="0" time="32.441" errors="0">
+<testcase name="Checkout › SP-25 El navegador bloquea el pago si faltan los datos de envío" classname="features/checkout.feature.spec.js" time="9.19">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-checkout.feature--cadf5-i-faltan-los-datos-de-envío-chromium/attachments/SP-25-El-navegador-bloquea-el-pago-si-faltan-los-datos-de-envio-7ef770b329bfbfb64099daa99e6cbd2425269c50.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Checkout › SP-26 La aplicación avisa si faltan datos aunque se salte la validación del navegador" classname="features/checkout.feature.spec.js" time="7.387">
+<testcase name="Checkout › SP-26 La aplicación avisa si faltan datos aunque se salte la validación del navegador" classname="features/checkout.feature.spec.js" time="8.109">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-checkout.feature--e0033-la-validación-del-navegador-chromium/attachments/SP-26-La-aplicacion-avisa-si-faltan-datos-aunque-se-salte-la-validacion-del-navegador-b0492dc7df2de983b3380b98400ba71a73a446f0.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Checkout › SP-27 Los datos de envío con solo espacios se tratan como vacíos" classname="features/checkout.feature.spec.js" time="28.538">
-<properties>
-<property name="fail" value="">
-</property>
-</properties>
+<testcase name="Checkout › SP-27 Los datos de envío con solo espacios se tratan como vacíos" classname="features/checkout.feature.spec.js" time="7.03">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-checkout.feature--0126a-acios-se-tratan-como-vacíos-chromium/attachments/SP-27-Los-datos-de-envio-con-solo-espacios-se-tratan-como-vacios-6e759996ce5b953f30cc5ce1ac5c9b78ed344c7f.png]]
-
-[[ATTACHMENT|../test-results/features-checkout.feature--0126a-acios-se-tratan-como-vacíos-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Checkout › SP-28 Checkout completo genera el pedido" classname="features/checkout.feature.spec.js" time="6.434">
+<testcase name="Checkout › SP-28 Checkout completo genera el pedido" classname="features/checkout.feature.spec.js" time="8.112">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-checkout.feature--04ed2-t-completo-genera-el-pedido-chromium/attachments/SP-28-Checkout-completo-genera-el-pedido-87a1395fc36528c924e9fa4b26ae33ef52dc9c41.png]]
@@ -196,22 +184,22 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="features/proyectos.feature.spec.js" timestamp="2026-10-26T14:14:03.242Z" hostname="chromium" tests="3" failures="0" skipped="0" time="15.318" errors="0">
-<testcase name="Crear proyecto › SP-29 Crear un proyecto de piso con datos válidos" classname="features/proyectos.feature.spec.js" time="5.448">
+<testsuite name="features/proyectos.feature.spec.js" timestamp="2026-10-26T18:07:54.002Z" hostname="chromium" tests="3" failures="0" skipped="0" time="14.907" errors="0">
+<testcase name="Crear proyecto › SP-29 Crear un proyecto de piso con datos válidos" classname="features/proyectos.feature.spec.js" time="5.75">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-proyectos.feature-c46c8-o-de-piso-con-datos-válidos-chromium/attachments/SP-29-Crear-un-proyecto-de-piso-con-datos-validos-359ce29921ffe352abbba4be372da8da959bec60.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Crear proyecto › SP-30 No se puede guardar un proyecto sin nombre" classname="features/proyectos.feature.spec.js" time="4.825">
+<testcase name="Crear proyecto › SP-30 No se puede guardar un proyecto sin nombre" classname="features/proyectos.feature.spec.js" time="4.354">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-proyectos.feature-f7c21-rdar-un-proyecto-sin-nombre-chromium/attachments/SP-30-No-se-puede-guardar-un-proyecto-sin-nombre-76610b70a17c9dfe59ecdc80b74d712cc060cc16.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Crear proyecto › SP-31 No se puede guardar un proyecto de piso sin el ancho" classname="features/proyectos.feature.spec.js" time="5.045">
+<testcase name="Crear proyecto › SP-31 No se puede guardar un proyecto de piso sin el ancho" classname="features/proyectos.feature.spec.js" time="4.803">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-proyectos.feature-d4e4b-oyecto-de-piso-sin-el-ancho-chromium/attachments/SP-31-No-se-puede-guardar-un-proyecto-de-piso-sin-el-ancho-36d5ff14760eab8d5314dae640dc150a46e51f22.png]]
@@ -219,36 +207,36 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="features/rutas-privadas.feature.spec.js" timestamp="2026-10-26T14:14:03.242Z" hostname="chromium" tests="5" failures="0" skipped="0" time="10.412" errors="0">
-<testcase name="Protección de rutas privadas › &lt;caso&gt; Una visitante sin sesión que abre &lt;ruta&gt; es enviada al inicio de sesión › SP-09 Una visitante sin sesión que abre /proyectos es enviada al inicio de sesión" classname="features/rutas-privadas.feature.spec.js" time="1.339">
+<testsuite name="features/rutas-privadas.feature.spec.js" timestamp="2026-10-26T18:07:54.002Z" hostname="chromium" tests="5" failures="0" skipped="0" time="11.675" errors="0">
+<testcase name="Protección de rutas privadas › &lt;caso&gt; Una visitante sin sesión que abre &lt;ruta&gt; es enviada al inicio de sesión › SP-09 Una visitante sin sesión que abre /proyectos es enviada al inicio de sesión" classname="features/rutas-privadas.feature.spec.js" time="1.304">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-rutas-privadas.fe-76f85-enviada-al-inicio-de-sesión-chromium/attachments/SP-09-Una-visitante-sin-sesion-que-abre-proyectos-es-enviada-al-inicio-de-sesion-2b6a0018d284d763ef3b901461689c099d2c8f6a.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Protección de rutas privadas › &lt;caso&gt; Una visitante sin sesión que abre &lt;ruta&gt; es enviada al inicio de sesión › SP-10 Una visitante sin sesión que abre /cuenta es enviada al inicio de sesión" classname="features/rutas-privadas.feature.spec.js" time="1.212">
+<testcase name="Protección de rutas privadas › &lt;caso&gt; Una visitante sin sesión que abre &lt;ruta&gt; es enviada al inicio de sesión › SP-10 Una visitante sin sesión que abre /cuenta es enviada al inicio de sesión" classname="features/rutas-privadas.feature.spec.js" time="2.072">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-rutas-privadas.fe-ece00-enviada-al-inicio-de-sesión-chromium/attachments/SP-10-Una-visitante-sin-sesion-que-abre-cuenta-es-enviada-al-inicio-de-sesion-3093e1fc765fee2aba0c79e55a7f545813622191.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Protección de rutas privadas › &lt;caso&gt; Una visitante sin sesión que abre &lt;ruta&gt; es enviada al inicio de sesión › SP-11 Una visitante sin sesión que abre /checkout es enviada al inicio de sesión" classname="features/rutas-privadas.feature.spec.js" time="1.221">
+<testcase name="Protección de rutas privadas › &lt;caso&gt; Una visitante sin sesión que abre &lt;ruta&gt; es enviada al inicio de sesión › SP-11 Una visitante sin sesión que abre /checkout es enviada al inicio de sesión" classname="features/rutas-privadas.feature.spec.js" time="1.429">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-rutas-privadas.fe-f0f31-enviada-al-inicio-de-sesión-chromium/attachments/SP-11-Una-visitante-sin-sesion-que-abre-checkout-es-enviada-al-inicio-de-sesion-725d7ce125e177f9d2c138b894ae7bac54fd6644.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Protección de rutas privadas › SP-12 Una clienta no puede entrar al panel de administración" classname="features/rutas-privadas.feature.spec.js" time="3.414">
+<testcase name="Protección de rutas privadas › SP-12 Una clienta no puede entrar al panel de administración" classname="features/rutas-privadas.feature.spec.js" time="3.793">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-rutas-privadas.fe-eaf88--al-panel-de-administración-chromium/attachments/SP-12-Una-clienta-no-puede-entrar-al-panel-de-administracion-2365530c007e97922ba980757ba7456b4a1a28d3.png]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Protección de rutas privadas › SP-13 El administrador sí puede entrar al panel de administración" classname="features/rutas-privadas.feature.spec.js" time="3.226">
+<testcase name="Protección de rutas privadas › SP-13 El administrador sí puede entrar al panel de administración" classname="features/rutas-privadas.feature.spec.js" time="3.077">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/features-rutas-privadas.fe-377af--al-panel-de-administración-chromium/attachments/SP-13-El-administrador-si-puede-entrar-al-panel-de-administracion-f1727c586acfd86224c99117ca29e9de932055fe.png]]

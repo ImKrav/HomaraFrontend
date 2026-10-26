@@ -4,7 +4,7 @@
     "ruta": "/",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:11.951Z",
+    "fecha": "2026-10-26T17:54:29.364Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -14,36 +14,17 @@
     "ruta": "/",
     "tema": "dark",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:13.436Z",
-    "total": 1,
-    "porImpacto": {
-      "serious": 1
-    },
-    "violaciones": [
-      {
-        "regla": "color-contrast",
-        "impacto": "serious",
-        "descripcion": "Elements must meet minimum color contrast ratio thresholds",
-        "wcag": [
-          "wcag2aa",
-          "wcag143"
-        ],
-        "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
-        "nodos": 20,
-        "ejemplos": [
-          ".py-2.hover\\:text-text-primary[href=\"/\"]",
-          ".py-2.hover\\:text-text-primary[href$=\"catalogo\"]",
-          "a[href$=\"proyectos\"]"
-        ]
-      }
-    ]
+    "fecha": "2026-10-26T17:54:30.516Z",
+    "total": 0,
+    "porImpacto": {},
+    "violaciones": []
   },
   {
     "pagina": "catalogo",
     "ruta": "/catalogo",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:17.545Z",
+    "fecha": "2026-10-26T17:54:34.792Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -53,7 +34,7 @@
     "ruta": "/catalogo/cmvphxoq0000bir7doos2ls6i",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:18.267Z",
+    "fecha": "2026-10-26T17:54:35.622Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -63,7 +44,7 @@
     "ruta": "/login",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:21.974Z",
+    "fecha": "2026-10-26T17:54:39.322Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -73,7 +54,7 @@
     "ruta": "/login",
     "tema": "dark",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:25.694Z",
+    "fecha": "2026-10-26T17:54:43.029Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -83,7 +64,7 @@
     "ruta": "/register",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:29.379Z",
+    "fecha": "2026-10-26T17:54:46.685Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -93,7 +74,7 @@
     "ruta": "/carrito",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:30.014Z",
+    "fecha": "2026-10-26T17:54:47.385Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -103,7 +84,7 @@
     "ruta": "/cuenta",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:39.827Z",
+    "fecha": "2026-10-26T17:54:57.186Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -113,7 +94,7 @@
     "ruta": "/proyectos",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:40.680Z",
+    "fecha": "2026-10-26T17:54:57.997Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -123,7 +104,7 @@
     "ruta": "/proyectos/nuevo",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:44.532Z",
+    "fecha": "2026-10-26T17:55:01.825Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -133,7 +114,7 @@
     "ruta": "/checkout",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:45.490Z",
+    "fecha": "2026-10-26T17:55:02.792Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -143,7 +124,7 @@
     "ruta": "/admin",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:52.621Z",
+    "fecha": "2026-10-26T17:55:09.923Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []
@@ -153,7 +134,7 @@
     "ruta": "/admin/productos",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T17:32:54.209Z",
+    "fecha": "2026-10-26T17:55:11.369Z",
     "total": 0,
     "porImpacto": {},
     "violaciones": []

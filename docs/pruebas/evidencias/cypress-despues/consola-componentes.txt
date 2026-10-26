@@ -1,6 +1,6 @@
-[14831:1026/174116.769807:ERROR:node_bindings.cc(379)] Most NODE_OPTIONs are not supported in packaged apps. See documentation for more details.
+[24908:1026/180404.574210:ERROR:node_bindings.cc(379)] Most NODE_OPTIONs are not supported in packaged apps. See documentation for more details.
 
-DevTools listening on ws://127.0.0.1:36201/devtools/browser/75139e44-5540-4843-a0a0-984e76bfd828
+DevTools listening on ws://127.0.0.1:38391/devtools/browser/872ef985-08a0-43e8-8876-6532644da418
 Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
 We detected that you have versions of dependencies that are not officially supported:
 
@@ -29,7 +29,7 @@ resize:  can't open terminal /dev/tty
 
 
   Componentes · ProductCard
-    ✓ CMP-PRD-01 muestra nombre, categoría traducida, precio, precio original y unidad (138ms)
+    ✓ CMP-PRD-01 muestra nombre, categoría traducida, precio, precio original y unidad (144ms)
     ✓ CMP-PRD-02 calcula el descuento (-25%) y muestra la insignia 'Nuevo'
     ✓ CMP-PRD-03 pinta tantas estrellas como la parte entera del rating y el número de reseñas
     ✓ CMP-PRD-04 sin stock muestra 'Envío Diferido' y sin precio original no muestra descuento
@@ -38,7 +38,7 @@ resize:  can't open terminal /dev/tty
 
   Componentes · CartItem
     ✓ CMP-CIT-01 muestra nombre, precio unitario, cantidad y subtotal (precio × cantidad)
-    ✓ CMP-CIT-02 + incrementa y − decrementa (nunca por debajo de 1) vía onQuantityChange (292ms)
+    ✓ CMP-CIT-02 + incrementa y − decrementa (nunca por debajo de 1) vía onQuantityChange (332ms)
     ✓ CMP-CIT-03 el botón Eliminar invoca onRemove
     ✓ CMP-CIT-04 con updatedAt reciente muestra la cuenta regresiva de la reserva (15 min)
     ✓ CMP-CIT-05 con updatedAt de hace más de 15 minutos indica que la reserva expiró
@@ -49,7 +49,7 @@ resize:  can't open terminal /dev/tty
     ✓ CMP-OSB-02 con envío 0 muestra la etiqueta de envío gratis
 
 
-  14 passing (1s)
+  14 passing (2s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome.json
 
@@ -77,7 +77,7 @@ resize:  can't open terminal /dev/tty
   Componentes · Pagination
     ✓ CMP-PAG-01 con una sola página no renderiza nada
     ✓ CMP-PAG-02 muestra el rango, deshabilita 'Anterior' en la página 1 y marca la actual
-    ✓ CMP-PAG-03 navegar a la última página llama onPageChange y deshabilita 'Siguiente' (242ms)
+    ✓ CMP-PAG-03 navegar a la última página llama onPageChange y deshabilita 'Siguiente' (238ms)
     ✓ CMP-PAG-04 con muchas páginas resume con puntos suspensivos alrededor de la actual
     ✓ CMP-PAG-05 traduce sus textos al inglés con LanguageProvider
     ✓ CMP-PAG-06 DEF-14 corregido: los botones de paginación dibujan ChevronLeft/Right (no el ícono de ayuda)
@@ -85,7 +85,7 @@ resize:  can't open terminal /dev/tty
   Componentes · Toast
     ✓ CMP-TST-01 showToast muestra una alerta con el mensaje y el estilo del tipo
     ✓ CMP-TST-02 apila varias notificaciones y cada tipo usa su color
-    ✓ CMP-TST-03 el botón Cerrar descarta la notificación (142ms)
+    ✓ CMP-TST-03 el botón Cerrar descarta la notificación (144ms)
     ✓ CMP-TST-04 se oculta sola al cumplirse la duración (reloj controlado)
 
   Componentes · AuthCard y AuthRequiredState
@@ -94,7 +94,7 @@ resize:  can't open terminal /dev/tty
     ✓ CMP-AUT-03 AuthRequiredState ofrece enlaces a /login y /register
 
   Componentes · SearchBar
-    ✓ CMP-SBR-01 al presionar Enter invoca onSearch con el texto escrito (272ms)
+    ✓ CMP-SBR-01 al presionar Enter invoca onSearch con el texto escrito (287ms)
     ✓ CMP-SBR-02 sincroniza el valor inicial y usa el placeholder en inglés
 
 
@@ -125,10 +125,10 @@ resize:  can't open terminal /dev/tty
 
   Componentes · Button
     ✓ CMP-BTN-01 renderiza el texto, es type=button por defecto y usa la variante primary
-    ✓ CMP-BTN-02 invoca onClick una vez por clic (226ms)
-    ✓ CMP-BTN-03 deshabilitado: atributo disabled, estilos y no dispara onClick (130ms)
+    ✓ CMP-BTN-02 invoca onClick una vez por clic (229ms)
+    ✓ CMP-BTN-03 deshabilitado: atributo disabled, estilos y no dispara onClick (127ms)
     ✓ CMP-BTN-04 con href se renderiza como enlace <a> y aplica tamaño y ancho completo
-    ✓ CMP-BTN-05 type=submit envía el formulario que lo contiene (136ms)
+    ✓ CMP-BTN-05 type=submit envía el formulario que lo contiene (138ms)
     ✓ CMP-BTN-06 la variante "primary" es visible y enfocable con teclado
     ✓ CMP-BTN-06 la variante "secondary" es visible y enfocable con teclado
     ✓ CMP-BTN-06 la variante "outline" es visible y enfocable con teclado
@@ -137,11 +137,11 @@ resize:  can't open terminal /dev/tty
     ✓ CMP-BTN-06 la variante "white" es visible y enfocable con teclado
 
   Componentes · Input
-    ✓ CMP-INP-01 con id, la etiqueta queda asociada: clic en el label enfoca el campo (131ms)
-    ✓ CMP-INP-02 propaga onChange con el valor escrito (234ms)
+    ✓ CMP-INP-01 con id, la etiqueta queda asociada: clic en el label enfoca el campo (138ms)
+    ✓ CMP-INP-02 propaga onChange con el valor escrito (232ms)
     ✓ CMP-INP-03 con error muestra el mensaje y pinta borde y etiqueta en rojo
     ✓ CMP-INP-04 deshabilitado no permite escribir
-    ✓ CMP-INP-05 DEF-12 corregido: sin id explícito el label queda asociado con un id generado (141ms)
+    ✓ CMP-INP-05 DEF-12 corregido: sin id explícito el label queda asociado con un id generado (144ms)
 
   Componentes · Badge
     ✓ CMP-BDG-01 la variante "default" aplica la clase bg-zinc-100
@@ -152,11 +152,11 @@ resize:  can't open terminal /dev/tty
     ✓ CMP-BDG-02 el tamaño sm usa menos relleno que md
 
   Componentes · Card
-    ✓ CMP-CRD-01 sin onClick es un <div>; con onClick es un <button> que dispara el evento (141ms)
+    ✓ CMP-CRD-01 sin onClick es un <div>; con onClick es un <button> que dispara el evento (132ms)
 
   Componentes · SearchInput
-    ✓ CMP-SRC-01 escribe, notifica cada cambio y muestra el botón de limpiar solo con texto (257ms)
-    ✓ CMP-SRC-02 el botón de limpiar vacía el campo (onChange con cadena vacía) (372ms)
+    ✓ CMP-SRC-01 escribe, notifica cada cambio y muestra el botón de limpiar solo con texto (254ms)
+    ✓ CMP-SRC-02 el botón de limpiar vacía el campo (onChange con cadena vacía) (364ms)
     ✓ CMP-SRC-03 DEF-13/DEF-14 corregidos: el campo y el botón de limpiar tienen nombre accesible y el botón dibuja el ícono X
 
 
