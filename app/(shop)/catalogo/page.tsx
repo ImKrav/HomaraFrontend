@@ -27,8 +27,7 @@ function CatalogoContent() {
   const { t } = useLanguage();
 
   const ITEMS_PER_PAGE = 25;
-  // DEF-26: tantos esqueletos como productos por página, para que la grilla no empuje el pie (CLS).
-  const SKELETON_KEYS = Array.from({ length: ITEMS_PER_PAGE }, (_, i) => `sk-${i}`);
+  const SKELETON_KEYS = ["sk-1", "sk-2", "sk-3", "sk-4", "sk-5", "sk-6", "sk-7", "sk-8"];
 
   // Sincronizar parámetros desde la URL
   useEffect(() => {
@@ -132,7 +131,7 @@ function CatalogoContent() {
   }, [selectedCategory, searchQuery, minRating, sortBy]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in min-h-screen">
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-2">
@@ -303,8 +302,10 @@ function CatalogoContent() {
 export default function CatalogoPage() {
   const { t } = useLanguage();
   return (
+    // DEF-26: el HTML inicial es este fallback; con 70vh el pie quedaba a la vista y la grilla lo
+    // empujaba al cargar (CLS 0,22). Con al menos una pantalla de alto, el pie arranca fuera de vista.
     <Suspense fallback={
-      <div className="min-h-[70vh] flex flex-col items-center justify-center gap-4">
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
         <p className="text-sm text-text-secondary">{t("catalog.updating")}</p>
       </div>

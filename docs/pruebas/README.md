@@ -7,6 +7,7 @@ las pruebas unitarias/de interfaz con Vitest que ya existen en `tests/` (ver
 
 | Documento | Contenido |
 |---|---|
+| [../REFACTORIZACION.md](../REFACTORIZACION.md) | **Refactorización guiada por las pruebas:** cada defecto encontrado, cómo se corrigió y la comparación antes/después (Vitest, Cypress, Screenplay, axe y Lighthouse en la misma máquina). |
 | [CYPRESS.md](CYPRESS.md) | Suites Cypress: flujos E2E completos, regresión por funcionalidad, API, seguridad, interfaz, accesibilidad (axe-core) y componentes. Cómo ejecutarlas, resultados, **matriz de trazabilidad prueba → ESC → resultado**, defectos y evidencias (reporte HTML con capturas, JUnit y consola). |
 | [RENDIMIENTO-FRONTEND.md](RENDIMIENTO-FRONTEND.md) | Auditoría Lighthouse (Performance, Accessibility, Best Practices, SEO) de `/`, `/catalogo` y `/login` en escritorio y móvil. |
 | [evidencias/](evidencias/) | Consola de cada ejecución, reporte HTML y JUnit de Cypress (`evidencias/cypress/`) y reportes HTML/JSON de Lighthouse. |
