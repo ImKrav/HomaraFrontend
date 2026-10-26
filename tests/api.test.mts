@@ -135,14 +135,15 @@ test("api-hdr-03", "Respeta un Content-Type explícito del llamador", async () =
   });
 });
 
-test("api-hdr-04", "Adjunta el token JWT de localStorage como Bearer", async () => {
-  // Arrange
+test("api-hdr-04", "La sesión viaja en la cookie HttpOnly: credentials include y nunca un Bearer de localStorage", async () => {
+  // Arrange — un token heredado de versiones anteriores no debe usarse
   await conEntorno({ token: "tok_123" }, async ({ fetch }) => {
     // Act
     await api.get("/cuenta");
 
     // Assert
-    expect(optsLlamada(fetch).headers.get("Authorization")).toBe("Bearer tok_123");
+    expect(optsLlamada(fetch).credentials).toBe("include");
+    expect(optsLlamada(fetch).headers.get("Authorization")).toBe(null);
   });
 });
 
@@ -196,7 +197,7 @@ test("api-res-03", "Lanza con mensaje genérico si el cuerpo de error no es JSON
   );
 });
 
-test("api-res-04", "En 401 borra el token y despacha el evento auth:401", async () => {
+test("api-res-04", "En 401 despacha el evento auth:401", async () => {
   // Arrange
   await conEntorno(
     { token: "tok_viejo", respuesta: () => ({ status: 401, body: { error: "no autorizado" } }) },
@@ -206,7 +207,6 @@ test("api-res-04", "En 401 borra el token y despacha el evento auth:401", async 
 
       // Assert
       expect((e as Error).message).toBe("no autorizado");
-      expect(env.store.has("homara_token")).toBe(false);
       expect(env.eventos.length).toBe(1);
       expect(env.eventos[0].type).toBe("auth:401");
     },

@@ -22,10 +22,24 @@ const MUTACIONES = [
   },
   {
     modulo: "Autenticación",
-    cambio: "Un 401 ya no borra el token guardado",
+    cambio: "Un 401 ya no cierra la sesión en la interfaz",
     archivo: "app/lib/api.ts",
-    buscar: 'localStorage.removeItem("homara_token");',
-    poner: "/* token conservado */",
+    buscar: 'window.dispatchEvent(new Event("auth:401"));',
+    poner: "/* 401 ignorado */",
+  },
+  {
+    modulo: "Seguridad",
+    cambio: "Las peticiones dejan de enviar la cookie de sesión",
+    archivo: "app/lib/api.ts",
+    buscar: 'credentials: "include",',
+    poner: "",
+  },
+  {
+    modulo: "Seguridad",
+    cambio: "El login vuelve a guardar el JWT en localStorage",
+    archivo: "app/context/AuthContext.tsx",
+    buscar: "        setUser(response.data.user);\n        // Desencadenar",
+    poner: '        localStorage.setItem("homara_token", response.data.token);\n        setUser(response.data.user);\n        // Desencadenar',
   },
   {
     modulo: "Autenticación",

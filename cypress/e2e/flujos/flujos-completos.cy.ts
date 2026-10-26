@@ -96,7 +96,7 @@ describe("Flujos E2E completos", () => {
       // 6. Cierre de sesión
       cy.get("main").contains("button", "Cerrar Sesión").click();
       cy.location("pathname").should("eq", "/login");
-      cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
+      cy.getCookie("homara_session").should("be.null");
     });
   });
 

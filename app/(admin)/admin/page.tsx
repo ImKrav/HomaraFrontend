@@ -32,7 +32,7 @@ export default function AdminDashboard() {
         setLoading(true);
         setError(null);
         
-        // El api client automáticamente inyecta el token Bearer desde localStorage
+        // La cookie HttpOnly de sesión viaja sola con cada petición del api client
         const [ordersJson, metricsJson] = await Promise.all([
           api.get("/api/v1/orders?admin=true"),
           api.get("/api/v1/admin/metrics")

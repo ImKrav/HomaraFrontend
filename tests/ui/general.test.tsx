@@ -79,7 +79,7 @@ test("ui-gen-03", "Sin sesión la barra ofrece iniciar sesión", async () => {
   expect(await screen.findByRole("link", { name: es("nav.login") })).toHaveAttribute("href", "/login");
 });
 
-test("ui-gen-04", "El menú de un administrador incluye el panel y cerrar sesión borra el token", async () => {
+test("ui-gen-04", "El menú de un administrador incluye el panel y cerrar sesión borra la cookie en el backend", async () => {
   // Arrange
   const backend = backendFalso({ "GET /cart": { id: "c", items: [] } });
   conSesion(backend, ADMIN);
@@ -92,7 +92,7 @@ test("ui-gen-04", "El menú de un administrador incluye el panel y cerrar sesió
 
   // Assert
   expect(panel).toBe("/admin");
-  expect(localStorage.getItem("homara_token")).toBeNull();
+  expect(backend.de("POST /users/logout")).toHaveLength(1);
   expect(router.push).toHaveBeenCalledWith("/login");
 });
 

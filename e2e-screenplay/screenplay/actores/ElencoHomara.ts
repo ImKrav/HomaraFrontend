@@ -9,7 +9,7 @@ import type { NotasDelActor } from './NotasDelActor';
  *
  * Define QUÉ PUEDE HACER cada actor (sus habilidades / Abilities):
  *  - BrowseTheWebWithPlaywright: usar un navegador propio (contexto aislado, con su
- *    propio localStorage y por lo tanto su propia sesión `homara_token`).
+ *    propias cookies y por lo tanto su propia sesión `homara_session`).
  *  - CallAnApi: hablar directamente con la API REST del backend (preparar datos,
  *    limpiar estado y verificar efectos que no se ven en la UI).
  *  - TakeNotes: recordar datos entre pasos (correo registrado, token, ids creados).

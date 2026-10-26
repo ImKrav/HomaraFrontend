@@ -6,7 +6,8 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/a
 
 /**
  * Realiza una petición fetch unificada al backend de Homara.
- * Inyecta automáticamente el token JWT almacenado en localStorage.
+ * La sesión viaja en la cookie HttpOnly `homara_session` que emite el backend (DEF-SEG-FE-02):
+ * ningún script de la página puede leer el token.
  */
 export async function apiFetch(endpoint: string, options: RequestInit = {}) {
   let cleanEndpoint = endpoint;
@@ -35,15 +36,8 @@ export async function apiFetch(endpoint: string, options: RequestInit = {}) {
     headers.set("Content-Type", "application/json");
   }
 
-  // Si estamos en el lado del cliente (navegador), adjuntar token de autenticación
-  if (typeof window !== "undefined") {
-    const token = localStorage.getItem("homara_token");
-    if (token) {
-      headers.set("Authorization", `Bearer ${token}`);
-    }
-  }
-
   const response = await fetch(url, {
+    credentials: "include", // envía la cookie también si NEXT_PUBLIC_API_URL apunta a otro puerto del mismo sitio
     ...options,
     headers,
   });
@@ -57,7 +51,6 @@ export async function apiFetch(endpoint: string, options: RequestInit = {}) {
       // Ignorar fallo de parseo de JSON
     }
     if (response.status === 401 && typeof window !== "undefined") {
-      localStorage.removeItem("homara_token");
       window.dispatchEvent(new Event("auth:401"));
     }
     throw new Error(errorMessage);

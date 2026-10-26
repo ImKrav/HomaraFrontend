@@ -106,7 +106,7 @@ describe("Seguridad · Interfaz (ESC07, ESC35, ESC36)", () => {
       });
     });
 
-    it("SEG-UI-06 [ESC35] el token no aparece en la URL, en el DOM ni en una cookie legible", () => {
+    it("SEG-UI-06 [ESC35] el token no aparece en la URL, en el DOM, en localStorage ni en una cookie legible", () => {
       cy.iniciarSesionConToken(usuario);
       cy.visit("/cuenta");
       cy.contains("h1", "Mi Cuenta").should("be.visible");
@@ -114,6 +114,7 @@ describe("Seguridad · Interfaz (ESC07, ESC35, ESC36)", () => {
       cy.document().then((doc) => {
         expect(doc.documentElement.outerHTML).not.to.include(usuario.token);
         expect(doc.cookie).not.to.include(usuario.token);
+        expect(JSON.stringify({ ...doc.defaultView!.localStorage })).not.to.include(usuario.token);
       });
     });
 
@@ -127,12 +128,12 @@ describe("Seguridad · Interfaz (ESC07, ESC35, ESC36)", () => {
 
     it("SEG-UI-08 [ESC07] tras cerrar sesión, volver atrás hasta /cuenta no muestra los datos de la cuenta", () => {
       cy.iniciarSesionConToken(usuario);
-      cy.intercept("GET", "**/api/v1/users/me").as("me");
+      cy.intercept("GET", "**/api/v1/users/session").as("sesion");
       cy.visit("/cuenta");
-      cy.wait("@me");
+      cy.wait("@sesion");
       cy.contains(usuario.email).should("be.visible");
       // Navegación del lado del cliente: /cuenta queda en el historial sin recargar la
-      // página (un cy.visit con /users/me en vuelo dispararía DEF-05 y cerraría la sesión).
+      // página (un cy.visit con /users/session en vuelo dispararía DEF-05 y cerraría la sesión).
       cy.get("nav").contains("a", "Catálogo").click();
       cy.location("pathname").should("eq", "/catalogo");
       cy.get("nav").contains("button", "Sara").click();
@@ -145,21 +146,18 @@ describe("Seguridad · Interfaz (ESC07, ESC35, ESC36)", () => {
       // De vuelta en /cuenta, la ruta privada vuelve a exigir sesión.
       cy.location("pathname").should("eq", "/login");
       cy.contains(usuario.email).should("not.exist");
-      cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
+      cy.getCookie("homara_session").should("be.null");
     });
 
-    it("SEG-UI-09 [ESC07] un token falso con rol ADMIN (alg none) en localStorage no abre /admin", () => {
+    it("SEG-UI-09 [ESC07] un token falso con rol ADMIN (alg none) en la cookie de sesión no abre /admin", () => {
       const falso = `${b64url({ alg: "none", typ: "JWT" })}.${b64url({ id: "admin-001", role: "ADMIN" })}.`;
-      cy.intercept("GET", "**/api/v1/users/me").as("me");
-      cy.visit("/admin", {
-        onBeforeLoad(win) {
-          win.localStorage.setItem("homara_token", falso);
-        },
-      });
-      cy.wait("@me").its("response.statusCode").should("eq", 401);
+      cy.setCookie("homara_session", falso, { httpOnly: true, sameSite: "strict" });
+      cy.intercept("GET", "**/api/v1/users/session").as("sesion");
+      cy.visit("/admin");
+      cy.wait("@sesion").its("response.body.data").should("be.null");
       cy.location("pathname").should("eq", "/login");
       cy.contains("h1", /Dashboard|Panel/i).should("not.exist");
-      cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
+      cy.getCookie("homara_session").should("be.null");
     });
   });
 
@@ -172,16 +170,22 @@ describe("Seguridad · Interfaz (ESC07, ESC35, ESC36)", () => {
       });
     });
 
-    // ABIERTO (fuera del alcance de la refactorización, ver docs/REFACTORIZACION.md): migrar a cookie
-    // HttpOnly cambia el contrato de autenticación de ambos repos. Mitigado con CSP y React (sin XSS hallado).
-    it("DEF-SEG-FE-02 [ESC35] (abierto) la sesión vive en localStorage (legible por cualquier script) y no en una cookie HttpOnly", () => {
+    it("DEF-SEG-FE-02 corregido [ESC35] el login deja la sesión en una cookie HttpOnly y SameSite=Strict, no en localStorage", () => {
       cy.crearUsuarioApi("seg-storage").then((u) => {
-        cy.iniciarSesionConToken(u);
-        cy.visit("/");
-        cy.window().then((win) => {
-          expect(win.localStorage.getItem("homara_token")).to.eq(u.token);
+        cy.intercept("POST", "**/api/v1/users/login").as("login");
+        cy.visit("/login");
+        cy.get("#email").type(u.email);
+        cy.get("#password").type(u.password, { log: false });
+        cy.get("form").find('button[type="submit"]').click();
+        cy.wait("@login").its("response.headers.set-cookie").should("match", /homara_session=.*HttpOnly.*SameSite=Strict/i);
+        cy.location("pathname").should("eq", "/cuenta");
+        cy.getCookie("homara_session").should((c) => {
+          expect(c).to.include({ httpOnly: true, sameSite: "strict" });
         });
-        cy.getCookies().should("have.length", 0);
+        cy.document().its("cookie").should("not.include", "homara_session");
+        cy.window().then((win) => {
+          expect(JSON.stringify({ ...win.localStorage })).not.to.match(/eyJ/);
+        });
       });
     });
   });

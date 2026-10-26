@@ -49,7 +49,10 @@ const patron = (clave: string) => {
  * responde 404.
  */
 export function backendFalso(rutas: Record<string, Programada> = {}): BackendFalso {
-  const tabla = new Map<string, Programada>(Object.entries(rutas));
+  // Por defecto no hay sesión (la cookie HttpOnly no existe en jsdom: la sesión es lo que responda el backend).
+  const tabla = new Map<string, Programada>(
+    Object.entries({ "GET /users/session": null, "POST /users/logout": null, ...rutas }),
+  );
   const fallos = new Map<string, { status: number; error: string }>();
   const llamadas: Llamada[] = [];
 
@@ -124,9 +127,9 @@ export const CLIENTE = {
 
 export const ADMIN = { ...CLIENTE, id: "usr_admin", email: "admin@homara.co", firstName: "Admin", role: "ADMIN" };
 
-/** Deja una sesión iniciada: token guardado y `/users/me` devolviendo al usuario. */
+/** Deja una sesión iniciada: la cookie la representa el backend, que reconoce al usuario. */
 export function conSesion(backend: BackendFalso, usuario: Record<string, unknown> = CLIENTE) {
-  localStorage.setItem("homara_token", "token-de-prueba");
+  backend.responder("GET /users/session", usuario);
   backend.responder("GET /users/me", usuario);
 }
 

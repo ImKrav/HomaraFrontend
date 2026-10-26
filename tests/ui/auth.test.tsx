@@ -11,7 +11,7 @@ import RegisterPage from "@/app/(shop)/register/page";
 import RequireAuth from "@/app/components/RequireAuth";
 import RequireAdmin from "@/app/components/RequireAdmin";
 
-test("ui-auth-01", "Iniciar sesión guarda el token y lleva a la cuenta", async () => {
+test("ui-auth-01", "Iniciar sesión lleva a la cuenta sin guardar el token en el navegador (cookie HttpOnly)", async () => {
   // Arrange
   const backend = backendFalso({ "POST /users/login": { token: "jwt-nuevo", user: CLIENTE } });
   const { usuario } = renderizar(<LoginPage />, { ruta: "/login" });
@@ -24,7 +24,7 @@ test("ui-auth-01", "Iniciar sesión guarda el token y lleva a la cuenta", async 
   // Assert
   await waitFor(() => expect(router.push).toHaveBeenCalledWith("/cuenta"));
   expect(backend.de("POST /users/login")[0].cuerpo).toStrictEqual({ email: "ana@homara.com", password: "ClaveSegura8" });
-  expect(localStorage.getItem("homara_token")).toBe("jwt-nuevo");
+  expect(Object.values(localStorage)).not.toContain("jwt-nuevo");
 });
 
 test("ui-auth-02", "Credenciales incorrectas muestran el error del backend y no guardan token", async () => {
@@ -85,7 +85,7 @@ test("ui-auth-04", "El registro envía solo los campos llenos y entra a la cuent
     lastName: "Rojas",
     city: "Medellín",
   });
-  expect(localStorage.getItem("homara_token")).toBe("jwt-registro");
+  expect(Object.values(localStorage)).not.toContain("jwt-registro");
 });
 
 test("ui-auth-05", "Una ruta privada sin sesión redirige al login y no muestra el contenido", async () => {

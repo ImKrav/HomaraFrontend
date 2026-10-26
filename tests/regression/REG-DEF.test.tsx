@@ -65,8 +65,8 @@ test("REG-DEF-02", "DEF-29: si el catálogo no carga, se avisa y 'Reintentar' lo
 test("REG-DEF-03", "DEF-01/DEF-17: el registro exige 8 caracteres como el backend, con mensaje traducido", async () => {
   // Arrange
   const backend = backendFalso();
-  const { usuario, container } = renderizar(<RegisterPage />, { ruta: "/register" });
-  container.querySelector("form")!.noValidate = true;
+  const { usuario } = renderizar(<RegisterPage />, { ruta: "/register" });
+  (await screen.findByRole("button", { name: "Registrarme y Comenzar" })).closest("form")!.noValidate = true;
   await usuario.type(screen.getByLabelText(es("auth.first_name"), { exact: false }), "Ana");
   await usuario.type(screen.getByLabelText(es("auth.last_name"), { exact: false }), "Rojas");
   await usuario.type(screen.getByLabelText(es("auth.email"), { exact: false }), "ana@homara.com");
@@ -128,7 +128,6 @@ test("REG-DEF-05", "DEF-30: el stock negativo se etiqueta aparte y entra en el f
 
 test("REG-DEF-06", "DEF-05: un error de red al validar la sesión no la cierra", async () => {
   // Arrange
-  localStorage.setItem("homara_token", "token-de-prueba");
   vi.stubGlobal("fetch", vi.fn(() => Promise.reject(new TypeError("Failed to fetch"))));
 
   // Act
@@ -136,7 +135,7 @@ test("REG-DEF-06", "DEF-05: un error de red al validar la sesión no la cierra",
   await waitFor(() => expect(fetch).toHaveBeenCalled());
 
   // Assert
-  expect(localStorage.getItem("homara_token")).toBe("token-de-prueba");
+  expect(fetch).not.toHaveBeenCalledWith(expect.stringContaining("/users/logout"), expect.anything());
   expect(router.push).not.toHaveBeenCalledWith("/login");
 });
 
@@ -224,4 +223,23 @@ test("REG-DEF-10", "DEF-04: el asistente rechaza dimensiones no positivas antes 
   const aviso = es("projects.positive_field_alert").replace("{field}", es("projects.length"));
   expect(await screen.findByRole("alert")).toHaveTextContent(aviso);
   expect(backend.de("POST /projects")).toHaveLength(0);
+});
+
+test("REG-DEF-11", "DEF-SEG-FE-02: la sesión viaja en la cookie HttpOnly; el JWT nunca llega a localStorage", async () => {
+  // Arrange
+  const backend = backendFalso({ "POST /users/login": { token: "jwt-secreto", user: ADMIN } });
+  const { usuario } = renderizar(<LoginPage />, { ruta: "/login" });
+  await usuario.type(await screen.findByLabelText(/Correo Electrónico/), "admin@homara.co");
+  await usuario.type(screen.getByLabelText(/Contraseña/), "ClaveSegura8");
+
+  // Act
+  await usuario.click(screen.getByRole("button", { name: "Iniciar Sesión" }));
+  await waitFor(() => expect(router.push).toHaveBeenCalled());
+
+  // Assert
+  const opciones = vi.mocked(fetch).mock.calls.map(([, o]) => o as RequestInit);
+  expect(backend.de("POST /users/login")).toHaveLength(1);
+  expect(opciones.every((o) => o.credentials === "include")).toBe(true);
+  expect(opciones.some((o) => new Headers(o.headers).has("Authorization"))).toBe(false);
+  expect(Object.values(localStorage)).not.toContain("jwt-secreto");
 });
