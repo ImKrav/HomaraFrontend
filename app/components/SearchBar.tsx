@@ -50,6 +50,7 @@ export default function SearchBar({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={placeholder || t("catalog.search_placeholder")}
+          aria-label={placeholder || t("catalog.search_placeholder")}
           className="w-full bg-bg-surface-light border border-border rounded-none pl-12 pr-4 py-3 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-200"
           id="search-bar"
         />

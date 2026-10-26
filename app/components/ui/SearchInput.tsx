@@ -5,6 +5,7 @@ interface SearchInputProps {
   value: string;
   onChange: (value: string) => void;
   className?: string;
+  clearLabel?: string;
 }
 
 export default function SearchInput({
@@ -12,6 +13,7 @@ export default function SearchInput({
   value,
   onChange,
   className = "",
+  clearLabel = "Limpiar búsqueda",
 }: Readonly<SearchInputProps>) {
   return (
     <div className={`relative ${className}`.trim()}>
@@ -20,6 +22,7 @@ export default function SearchInput({
       </span>
       <input
         type="text"
+        aria-label={placeholder}
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -29,6 +32,7 @@ export default function SearchInput({
         <button
           type="button"
           onClick={() => onChange("")}
+          aria-label={clearLabel}
           className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary cursor-pointer"
         >
           <LucideIcon name="X" size={14} />

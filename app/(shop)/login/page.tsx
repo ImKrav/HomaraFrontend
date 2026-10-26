@@ -10,6 +10,13 @@ import LucideIcon from "@/app/components/ui/LucideIcon";
 import AuthCard from "@/app/components/AuthCard";
 import { useLanguage } from "@/app/context/LanguageContext";
 
+// OBS-05: tras iniciar sesión se vuelve a la página que pidió el login (?redirect=).
+// Solo se aceptan rutas internas: "/x" sí; "//sitio" o "/\sitio" (redirección abierta) no.
+function redirectTarget(): string {
+  const target = new URLSearchParams(window.location.search).get("redirect");
+  return target && /^\/(?![/\\])/.test(target) ? target : "/cuenta";
+}
+
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +29,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      router.push("/cuenta");
+      router.push(redirectTarget());
     }
   }, [isAuthenticated, router]);
 
@@ -33,7 +40,7 @@ export default function LoginPage() {
 
     try {
       await login(email, password);
-      router.push("/cuenta");
+      router.push(redirectTarget());
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Credenciales incorrectas. Intenta de nuevo.";
       setErrorMsg(message);

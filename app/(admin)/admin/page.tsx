@@ -151,6 +151,7 @@ export default function AdminDashboard() {
 
                   <div className="flex-1 w-full flex items-end">
                     <div
+                      role="img"
                       title={`Ventas de ${monthName}: ${formatPrice(val)}`}
                       aria-label={`Ventas de ${monthName}: ${formatPrice(val)}`}
                       className="w-full bg-primary/20 rounded-t-md hover:bg-primary/50 transition-all duration-200 cursor-pointer"
@@ -188,7 +189,7 @@ export default function AdminDashboard() {
               charts.topCategories.map((cat: { name: string; pct: number }) => (
                 <div key={cat.name}>
                   <div className="flex justify-between text-sm mb-1">
-                    <span className="text-text-secondary">{t(`categories.${cat.name}`) || cat.name}</span>
+                    <span className="text-text-secondary">{t(`categories.${cat.name}`, cat.name)}</span>
                     <span className="text-text-primary font-medium">
                       {cat.pct}%
                     </span>
@@ -267,7 +268,7 @@ export default function AdminDashboard() {
                     </td>
                     <td className="py-3 px-4">
                       <Badge variant={statusVariant} size="sm">
-                        {t(`status.${order.status?.toLowerCase()}`) || order.status}
+                        {t(`status.${order.status?.toLowerCase()}`, order.status)}
                       </Badge>
                     </td>
                     <td className="py-3 px-4 text-right font-medium text-text-primary">

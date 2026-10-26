@@ -121,7 +121,7 @@ describe("Seguridad · Interfaz (ESC07, ESC35, ESC36)", () => {
       cy.visit("/login");
       cy.get("#password").should("have.attr", "type", "password");
       cy.visit("/register");
-      cy.get('input[placeholder="Mínimo 6 caracteres"]').should("have.attr", "type", "password");
+      cy.get('input[placeholder="Mínimo 8 caracteres"]').should("have.attr", "type", "password");
       cy.get('input[placeholder="Repite la contraseña"]').should("have.attr", "type", "password");
     });
 
@@ -164,16 +164,17 @@ describe("Seguridad · Interfaz (ESC07, ESC35, ESC36)", () => {
   });
 
   context("Cabeceras HTTP del frontend (ESC35)", () => {
-    it("DEF-SEG-FE-01 [ESC35] el frontend anuncia Next.js y no envía X-Frame-Options ni CSP (clickjacking)", () => {
+    it("DEF-SEG-FE-01 corregido [ESC35] el frontend no anuncia Next.js y prohíbe embeberse en un iframe", () => {
       cy.request("/").then(({ headers }) => {
-        // Seguro: sin X-Powered-By (poweredByHeader: false) y con frame-ancestors / X-Frame-Options.
-        expect(headers["x-powered-by"]).to.eq("Next.js");
-        expect(headers).not.to.have.property("x-frame-options");
-        expect(headers).not.to.have.property("content-security-policy");
+        expect(headers).not.to.have.property("x-powered-by");
+        expect(headers["x-frame-options"]).to.eq("DENY");
+        expect(headers["content-security-policy"]).to.include("frame-ancestors 'none'");
       });
     });
 
-    it("DEF-SEG-FE-02 [ESC35] la sesión vive en localStorage (legible por cualquier script) y no en una cookie HttpOnly", () => {
+    // ABIERTO (fuera del alcance de la refactorización, ver docs/REFACTORIZACION.md): migrar a cookie
+    // HttpOnly cambia el contrato de autenticación de ambos repos. Mitigado con CSP y React (sin XSS hallado).
+    it("DEF-SEG-FE-02 [ESC35] (abierto) la sesión vive en localStorage (legible por cualquier script) y no en una cookie HttpOnly", () => {
       cy.crearUsuarioApi("seg-storage").then((u) => {
         cy.iniciarSesionConToken(u);
         cy.visit("/");

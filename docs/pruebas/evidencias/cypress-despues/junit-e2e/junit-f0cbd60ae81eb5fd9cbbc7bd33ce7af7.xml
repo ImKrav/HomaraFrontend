@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="43.325" tests="14" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T17:54:28" tests="0" file="cypress/e2e/accesibilidad/axe-paginas.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Accesibilidad · axe-core WCAG 2.1 A/AA" timestamp="2026-10-26T17:54:28" tests="14" time="43.324" failures="0">
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] inicio (/) no agrega violaciones críticas nuevas" time="0.939" classname="A11Y-AXE [ESC39/ESC40] inicio (/) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] inicio-oscuro (/) no agrega violaciones críticas nuevas" time="0.525" classname="A11Y-AXE [ESC39/ESC40] inicio-oscuro (/) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] catalogo (/catalogo) no agrega violaciones críticas nuevas" time="3.890" classname="A11Y-AXE [ESC39/ESC40] catalogo (/catalogo) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] detalle-producto (/catalogo/:primero) no agrega violaciones críticas nuevas" time="0.493" classname="A11Y-AXE [ESC39/ESC40] detalle-producto (/catalogo/:primero) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] login (/login) no agrega violaciones críticas nuevas" time="3.363" classname="A11Y-AXE [ESC39/ESC40] login (/login) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] login-oscuro (/login) no agrega violaciones críticas nuevas" time="3.372" classname="A11Y-AXE [ESC39/ESC40] login-oscuro (/login) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] registro (/register) no agrega violaciones críticas nuevas" time="3.347" classname="A11Y-AXE [ESC39/ESC40] registro (/register) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] carrito-invitado (/carrito) no agrega violaciones críticas nuevas" time="0.338" classname="A11Y-AXE [ESC39/ESC40] carrito-invitado (/carrito) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] cuenta (/cuenta) no agrega violaciones críticas nuevas" time="9.476" classname="A11Y-AXE [ESC39/ESC40] cuenta (/cuenta) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] proyectos (/proyectos) no agrega violaciones críticas nuevas" time="0.520" classname="A11Y-AXE [ESC39/ESC40] proyectos (/proyectos) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] proyecto-nuevo (/proyectos/nuevo) no agrega violaciones críticas nuevas" time="3.406" classname="A11Y-AXE [ESC39/ESC40] proyecto-nuevo (/proyectos/nuevo) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] checkout (/checkout) no agrega violaciones críticas nuevas" time="0.653" classname="A11Y-AXE [ESC39/ESC40] checkout (/checkout) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] admin-dashboard (/admin) no agrega violaciones críticas nuevas" time="6.769" classname="A11Y-AXE [ESC39/ESC40] admin-dashboard (/admin) no agrega violaciones críticas nuevas">
+    </testcase>
+    <testcase name="Accesibilidad · axe-core WCAG 2.1 A/AA A11Y-AXE [ESC39/ESC40] admin-productos (/admin/productos) no agrega violaciones críticas nuevas" time="1.085" classname="A11Y-AXE [ESC39/ESC40] admin-productos (/admin/productos) no agrega violaciones críticas nuevas">
+    </testcase>
+  </testsuite>
+</testsuites>

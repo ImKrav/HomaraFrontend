@@ -181,71 +181,75 @@ describe("Seguridad · API (ESC06, ESC35, ESC36, ESC41)", () => {
     });
   });
 
-  context("Defectos abiertos (comportamiento observado)", () => {
-    it("DEF-SEG-01 [ESC35] un token de ADMIN forjado con el secreto por defecto es aceptado", () => {
+  context("Defectos corregidos (antes: comportamiento observado)", () => {
+    it("DEF-SEG-01 corregido [ESC35] un token de ADMIN forjado con el secreto por defecto se rechaza (401)", () => {
       cy.task("firmarJwt", {
         payload: { ...ADMIN_SEMILLA, iat: Math.floor(Date.now() / 1000), exp: Math.floor(Date.now() / 1000) + 600 },
         secreto: Cypress.env("jwtSecretoPorDefecto"),
       }).then((forjado) => {
-        // Seguro: 401. Hoy 200 porque el backend arranca con el secreto embebido/público.
-        cy.api("GET", "/admin/metrics", { token: forjado as string }).its("status").should("eq", 200);
+        // Antes 200: el backend arrancaba con el secreto embebido/público. Ahora JWT_SECRET es obligatorio.
+        cy.api("GET", "/admin/metrics", { token: forjado as string }).its("status").should("eq", 401);
       });
     });
 
-    it("DEF-SEG-03/04/05 [ESC36] sin token, ?userId=<ajeno> expone pedidos, proyectos y carrito de otro usuario", () => {
+    it("DEF-SEG-03/04/05 corregido [ESC36] sin token, ?userId=<ajeno> no expone pedidos, proyectos ni carrito", () => {
       cy.agregarAlCarritoApi(victima.token, productoId, 2);
       cy.api("POST", "/projects", { token: victima.token, body: { name: "Privado", type: "PISO", area: 15 } });
-      cy.api("GET", `/cart?userId=${victima.id}`).its("body.data.items").should("have.length", 1);
+      cy.api("GET", `/cart?userId=${victima.id}`).its("body.data.items").should("have.length", 0);
       cy.api("POST", "/orders", {
         token: victima.token,
         body: { paymentMethod: "cash", shippingAddress: "Calle 1", shippingCity: "Cali", shippingState: "Valle" },
       });
-      // Seguro: listas vacías o 401. Hoy entrega los datos de la víctima a cualquiera.
-      cy.api("GET", `/orders?userId=${victima.id}`).its("body.data").should("have.length.at.least", 1);
-      cy.api("GET", `/projects?userId=${victima.id}`).its("body.data").should("have.length.at.least", 1);
+      cy.api("GET", `/orders?userId=${victima.id}`).its("body.data").should("have.length", 0);
+      cy.api("GET", `/projects?userId=${victima.id}`).its("body.data").should("have.length", 0);
     });
 
-    it("DEF-SEG-06 [ESC36] GET /orders/:numero sin token expone el pedido y la dirección del cliente", () => {
+    it("DEF-SEG-06 corregido [ESC36] GET /orders/:numero sin token responde 401 sin datos del cliente", () => {
       cy.agregarAlCarritoApi(victima.token, productoId, 1);
       cy.api("POST", "/orders", {
         token: victima.token,
         body: { paymentMethod: "card", shippingAddress: "Dirección privada 123", shippingCity: "Neiva", shippingState: "Huila" },
       }).then(({ body }) => {
         cy.api("GET", `/orders/${body.data.orderNumber}`).then((res) => {
-          expect(res.status, "seguro: 401").to.eq(200);
-          expect(JSON.stringify(res.body)).to.include("Dirección privada 123");
+          expect(res.status).to.eq(401);
+          expect(JSON.stringify(res.body)).not.to.include("Dirección privada 123");
         });
       });
     });
 
-    it("DEF-SEG-08 [ESC36] GET /users/:id entrega el teléfono de otro usuario", () => {
+    it("DEF-SEG-08 corregido [ESC36] GET /users/:id de otro usuario responde 403 sin su teléfono", () => {
       cy.api("GET", `/users/${victima.id}`, { token: atacante.token }).then((res) => {
-        expect(res.status, "seguro: 403").to.eq(200);
-        expect(res.body.data.phone).to.eq("300 111 2222");
+        expect(res.status).to.eq(403);
+        expect(JSON.stringify(res.body)).not.to.include("300 111 2222");
       });
     });
 
-    it("DEF-SEG-09 [ESC35] PUT /users/:id devuelve el hash bcrypt de la contraseña", () => {
-      cy.api("PUT", `/users/${atacante.id}`, { token: atacante.token, body: { city: "Tunja" } })
-        .its("body.data.password")
-        .should("match", /^\$2[aby]\$\d{2}\$/);
+    it("DEF-SEG-09 corregido [ESC35] PUT /users/:id no devuelve el hash de la contraseña", () => {
+      cy.api("PUT", `/users/${atacante.id}`, { token: atacante.token, body: { city: "Tunja" } }).then((res) => {
+        expect(res.status).to.eq(200);
+        expect(res.body.data).not.to.have.property("password");
+      });
     });
 
-    it("DEF-SEG-10 [ESC35] faltan cabeceras de seguridad (X-Content-Type-Options, X-Frame-Options)", () => {
+    it("DEF-SEG-10 corregido [ESC35] la API envía cabeceras de seguridad (helmet)", () => {
       cy.api("GET", "/categories").its("headers").then((h) => {
-        expect(h).not.to.have.property("x-content-type-options");
-        expect(h).not.to.have.property("x-frame-options");
+        expect(h["x-content-type-options"]).to.eq("nosniff");
+        expect(h["x-frame-options"]).to.eq("SAMEORIGIN");
+        expect(h["content-security-policy"]).to.include("frame-ancestors");
       });
     });
 
-    it("DEF-SEG-11 [ESC35] el login no limita intentos: 20 fallos seguidos, ninguno con 429", () => {
+    it("DEF-SEG-11 corregido [ESC35] el login bloquea con 429 tras 10 intentos fallidos", () => {
       const estados: number[] = [];
-      Cypress._.times(20, () => {
+      Cypress._.times(12, () => {
         cy.api("POST", "/users/login", { body: { email: atacante.email, password: claveDePrueba() } }).then((r) => {
           estados.push(r.status);
         });
       });
-      cy.wrap(estados).should("have.length", 20).and("not.include", 429).and("include", 401);
+      cy.wrap(estados).should("have.length", 12).then(() => {
+        expect(estados.slice(0, 10)).to.deep.equal(Array(10).fill(401));
+        expect(estados.slice(10)).to.deep.equal([429, 429]);
+      });
     });
   });
 });

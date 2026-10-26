@@ -4,7 +4,7 @@
 
 import { screen, waitFor } from "@testing-library/react";
 import { test, expect } from "../harness.mjs";
-import { backendFalso, conSesion, renderizar, CLIENTE, ADMIN } from "./soporte";
+import { backendFalso, conSesion, renderizar, es, CLIENTE, ADMIN } from "./soporte";
 import { router } from "./navegacion.mjs";
 import LoginPage from "@/app/(shop)/login/page";
 import RegisterPage from "@/app/(shop)/register/page";
@@ -51,7 +51,7 @@ test("ui-auth-03", "El registro valida que las contraseñas coincidan antes de l
   await usuario.type(await screen.findByPlaceholderText("Juan"), "Ana");
   await usuario.type(screen.getByPlaceholderText("Pérez"), "Rojas");
   await usuario.type(screen.getByPlaceholderText("juan@email.com"), "ana@homara.com");
-  await usuario.type(screen.getByPlaceholderText("Mínimo 6 caracteres"), "ClaveSegura8");
+  await usuario.type(screen.getByPlaceholderText(es("auth.password_placeholder")), "ClaveSegura8");
   await usuario.type(screen.getByPlaceholderText("Repite la contraseña"), "OtraClave8");
 
   // Act
@@ -69,7 +69,7 @@ test("ui-auth-04", "El registro envía solo los campos llenos y entra a la cuent
   await usuario.type(await screen.findByPlaceholderText("Juan"), "Ana");
   await usuario.type(screen.getByPlaceholderText("Pérez"), "Rojas");
   await usuario.type(screen.getByPlaceholderText("juan@email.com"), "ana@homara.com");
-  await usuario.type(screen.getByPlaceholderText("Mínimo 6 caracteres"), "ClaveSegura8");
+  await usuario.type(screen.getByPlaceholderText(es("auth.password_placeholder")), "ClaveSegura8");
   await usuario.type(screen.getByPlaceholderText("Repite la contraseña"), "ClaveSegura8");
   await usuario.type(screen.getByPlaceholderText("Bogotá"), "Medellín");
 

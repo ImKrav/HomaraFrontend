@@ -197,7 +197,7 @@ test("ui-cat-11", "Calificar exige estrellas y luego envía calificación y come
   const { usuario } = renderizar(<ProductDetailPage />, { ruta: "/catalogo/prd_1", params: { id: "prd_1" } });
   const comentario = await screen.findByLabelText(es("reviews.comment_label"));
   const formulario = comentario.closest("form")!;
-  const [, , , cuartaEstrella] = within(formulario).getAllByRole("button");
+  const cuartaEstrella = within(formulario).getByRole("radio", { name: es("reviews.star_many").replace("{n}", "4") });
   await usuario.type(comentario, "Muy buen acabado");
 
   // Act
@@ -208,7 +208,8 @@ test("ui-cat-11", "Calificar exige estrellas y luego envía calificación y come
 
   // Assert
   expect(errorSinEstrellas).toBe(es("reviews.rating_required_error"));
-  expect(await screen.findByText(es("reviews.success_title"))).toBeInTheDocument();
+  // Aviso en línea + toast (OBS-04: el toast sigue visible aunque se recarguen las reseñas)
+  expect((await screen.findAllByText(es("reviews.success_title"))).length).toBeGreaterThan(0);
   expect(backend.de("POST /products/:id/reviews")).toHaveLength(1);
   expect(backend.de("POST /products/:id/reviews")[0].cuerpo).toStrictEqual({ rating: 4, comment: "Muy buen acabado" });
 });
@@ -264,15 +265,15 @@ test("ui-cat-14", "Sin sesión, 'usar en proyecto' ofrece iniciar sesión volvie
   expect(router.push).toHaveBeenCalledWith("/login?redirect=/catalogo/prd_1");
 });
 
-// Defecto abierto F-2 (ver la tabla en tests/README.md): se espera que falle.
-test.fails("ui-cat-15", "El enlace de categoría de la ficha filtra el catálogo por esa categoría", async () => {
+// Defecto F-2 corregido (ver "Defectos corregidos" en tests/README.md).
+test("ui-cat-15", "El enlace de categoría de la ficha filtra el catálogo por esa categoría", async () => {
   // Arrange
   fichaBackend();
 
   // Act
   renderizar(<ProductDetailPage />, { ruta: "/catalogo/prd_1", params: { id: "prd_1" } });
 
-  // Assert — DEFECTO: el enlace usa ?cat= y el catálogo solo lee ?category=
+  // Assert — F-2 corregido: antes el enlace usaba ?cat= y el catálogo solo lee ?category=
   const migas = (await screen.findByRole("navigation")).querySelectorAll("a");
   expect(migas[1].getAttribute("href")).toBe("/catalogo?category=pisos-ceramicas");
 });

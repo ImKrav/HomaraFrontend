@@ -1,3 +1,7 @@
+"use client";
+
+import { useId } from "react";
+
 interface InputProps {
   label?: string;
   placeholder?: string;
@@ -12,6 +16,7 @@ interface InputProps {
   icon?: React.ReactNode;
   error?: string;
   step?: string;
+  min?: string;
 }
 
 export default function Input({
@@ -28,12 +33,16 @@ export default function Input({
   icon,
   error,
   step,
+  min,
 }: Readonly<InputProps>) {
+  // DEF-12: sin id el <label> no queda asociado al campo (clic y lectores de pantalla).
+  const autoId = useId();
+  const inputId = id ?? autoId;
   return (
     <div className={`flex flex-col gap-1.5 ${className}`}>
       {label && (
         <label
-          htmlFor={id}
+          htmlFor={inputId}
           className={`text-sm font-medium ${error ? "text-error" : "text-text-secondary"}`}
         >
           {label}
@@ -48,7 +57,7 @@ export default function Input({
         )}
         <input
           type={type}
-          id={id}
+          id={inputId}
           name={name}
           placeholder={placeholder}
           value={value}
@@ -56,6 +65,8 @@ export default function Input({
           required={required}
           disabled={disabled}
           step={step}
+          min={min}
+          aria-invalid={error ? true : undefined}
           className={`
             w-full bg-bg-surface border rounded-none
             px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted

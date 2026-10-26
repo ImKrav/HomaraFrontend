@@ -11,7 +11,7 @@ export default function CategoryCard({ category }: Readonly<CategoryCardProps>) 
   const { t } = useLanguage();
   return (
     <Link
-      href={`/catalogo?cat=${category.slug}`}
+      href={`/catalogo?category=${category.slug}`}
       className="group block"
     >
       <div className="relative bg-bg-surface rounded-none border border-border p-5 card-hover overflow-hidden text-center flex flex-col items-center justify-center min-h-[120px]">
@@ -26,7 +26,7 @@ export default function CategoryCard({ category }: Readonly<CategoryCardProps>) 
             {t("categories." + category.slug) || category.name}
           </h3>
           <p className="mt-1 text-[10px] text-text-muted font-medium">
-            {category.productCount} {t("cart.products_count")}
+            {category.productCount} {t(category.productCount === 1 ? "cart.product_count_one" : "cart.products_count")}
           </p>
         </div>
       </div>

@@ -161,6 +161,15 @@ Cada corrida deja en `cypress/reports/index.html` el reporte HTML, en
 
 ## Defectos encontrados
 
+> **Estado tras la refactorización:** todos los defectos de estas tablas están
+> **corregidos** (en este repositorio o en el backend) salvo **DEF-SEG-FE-02**
+> (sesión en `localStorage`, abierto) y las observaciones de producto **OBS-02** y
+> **OBS-06**. Las pruebas `DEF-*` ya no fijan el comportamiento observado: afirman
+> el corregido. Antes/después de cada uno en [`../REFACTORIZACION.md`](../REFACTORIZACION.md)
+> y en `HomaraBackend/docs/REFACTORIZACION.md`. Las evidencias de la corrida
+> anterior se conservan en [`evidencias/cypress/`](evidencias/cypress/); las de la
+> corrida final en [`evidencias/cypress-despues/`](evidencias/cypress-despues/).
+
 Severidad: **Crítica** (seguridad o datos de terceros), **Alta** (rompe una
 funcionalidad o expone datos), **Media** (funciona con errores visibles o
 incumple una regla), **Baja** (cosmético o menor).

@@ -112,13 +112,13 @@ describe("Flujos E2E · Errores y recuperación", () => {
     campo("juan@email.com").type(Cypress.env("clienteEmail"));
 
     // 1. Clave demasiado corta (validación del cliente)
-    campo("Mínimo 6 caracteres").type(clave.slice(0, 5), { log: false });
+    campo("Mínimo 8 caracteres").type(clave.slice(0, 5), { log: false });
     campo("Repite la contraseña").type(clave.slice(0, 5), { log: false });
     cy.contains("button", "Registrarme y Comenzar").click();
-    cy.contains("La contraseña debe tener al menos 6 caracteres.").should("be.visible");
+    cy.contains("La contraseña debe tener al menos 8 caracteres.").should("be.visible");
 
     // 2. Las contraseñas no coinciden
-    campo("Mínimo 6 caracteres").clear().type(clave, { log: false });
+    campo("Mínimo 8 caracteres").clear().type(clave, { log: false });
     campo("Repite la contraseña").clear().type(`${clave}x`, { log: false });
     cy.contains("button", "Registrarme y Comenzar").click();
     cy.contains("Las contraseñas no coinciden.").should("be.visible");
@@ -153,7 +153,7 @@ describe("Flujos E2E · Errores y recuperación", () => {
     evidencia("FLU-19 2 cuenta con su primer proyecto");
   });
 
-  it("FLU-20 [ESC08→ESC41→ESC09→ESC13] DEF-29: con el catálogo caído la app muestra un catálogo vacío sin aviso; al recargar se recupera y el cliente compra", () => {
+  it("FLU-20 [ESC08→ESC41→ESC09→ESC13] DEF-29 corregido: con el catálogo caído la app avisa del error; 'Reintentar' lo recupera y el cliente compra", () => {
     cy.crearProductoApi(adminToken, { price: 22000 }).then((producto) => {
       creados.push(producto.id);
       cy.crearUsuarioApi("flujo-caida", { firstName: "Dora" }).then((usuario) => {
@@ -163,15 +163,14 @@ describe("Flujos E2E · Errores y recuperación", () => {
         cy.intercept("GET", "**/api/v1/products", { statusCode: 500, body: { success: false, error: "Error interno" } }).as("caido");
         cy.visit("/catalogo");
         cy.wait("@caido");
-        // Esperado: un aviso de error con opción de reintentar. Observado: "0 productos" sin explicación.
-        cy.contains("0 productos técnicos encontrados").should("be.visible");
+        // Antes: "0 productos" sin explicación. Ahora: aviso de error con "Reintentar".
+        cy.get('main [role="alert"]').should("contain.text", "No pudimos cargar el catálogo");
         cy.get('main a[href^="/catalogo/"]').should("have.length", 0);
-        cy.get('[role="alert"]').should("not.exist");
         evidencia("FLU-20 1 catálogo caído");
 
-        // 2. El servicio vuelve: recarga y el flujo de compra continúa
+        // 2. El servicio vuelve: "Reintentar" recarga los productos y el flujo de compra continúa
         cy.intercept("GET", "**/api/v1/products", (req) => req.continue()).as("productos");
-        cy.reload();
+        cy.get('main [role="alert"]').contains("button", "Reintentar").click();
         cy.wait("@productos").its("response.statusCode").should("eq", 200);
         cy.get('main a[href^="/catalogo/"]').should("have.length.at.least", 1);
         cy.get("#search-bar").type(`${producto.name}{enter}`);

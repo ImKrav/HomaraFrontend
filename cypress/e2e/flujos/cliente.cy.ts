@@ -116,7 +116,8 @@ describe("Flujos E2E · Cliente", () => {
           // 3. El detalle del pedido en la cuenta muestra esa dirección
           cy.get("nav").contains("button", "Paula").click();
           cy.contains("a", "Mi Cuenta").click();
-          cy.contains("p", numero).closest("button").contains("Ver detalles de entrega").click();
+          // DEF-23: la tarjeta ya no es un botón; su único control es "Ver detalles de entrega"
+          cy.contains("p", numero).parents().filter(":has(button)").first().contains("button", "Ver detalles de entrega").click();
           cy.get('[aria-modal="true"]').should("contain.text", perfil.address).and("contain.text", perfil.city);
           evidencia("FLU-04 3 detalle con dirección del perfil");
         });
@@ -179,7 +180,7 @@ describe("Flujos E2E · Cliente", () => {
       cy.crearUsuarioApi("flujo-ingles", { firstName: "Emma" }).then((usuario) => {
         // 1. Preferencias desde la interfaz: EN + oscuro
         cy.visit("/", { onBeforeLoad: (win) => win.localStorage.setItem("homara_theme", "light") });
-        cy.get('button[aria-label="Alternar tema"]').click();
+        cy.get('button[aria-label$="Alternar tema"]').click();
         cy.get("footer").contains("button", /^EN$/).click();
         cy.get("html").should("have.class", "dark");
 

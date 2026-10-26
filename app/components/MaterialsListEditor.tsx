@@ -145,7 +145,7 @@ export default function MaterialsListEditor({
           <Button
             variant="outline"
             size="sm"
-            href={`/catalogo?cat=${catSlug}`}
+            href={`/catalogo?category=${catSlug}`}
             className="flex items-center gap-1.5 py-1.5 px-3 text-xs font-bold shadow-sm"
           >
             <LucideIcon name="Plus" size={14} />

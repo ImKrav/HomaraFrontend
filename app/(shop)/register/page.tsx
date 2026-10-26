@@ -9,6 +9,8 @@ import Button from "@/app/components/ui/Button";
 import AuthCard from "@/app/components/AuthCard";
 import { useLanguage } from "@/app/context/LanguageContext";
 
+const MIN_PASSWORD_LENGTH = 8;
+
 export default function RegisterPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -41,12 +43,13 @@ export default function RegisterPage() {
     setErrorMsg("");
 
     if (password !== confirmPassword) {
-      setErrorMsg("Las contraseñas no coinciden.");
+      setErrorMsg(t("auth.password_mismatch"));
       return;
     }
 
-    if (password.length < 6) {
-      setErrorMsg("La contraseña debe tener al menos 6 caracteres.");
+    // DEF-01: misma regla que el backend (registerSchema: mínimo 8).
+    if (password.length < MIN_PASSWORD_LENGTH) {
+      setErrorMsg(t("auth.password_too_short"));
       return;
     }
 

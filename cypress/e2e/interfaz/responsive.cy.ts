@@ -97,11 +97,11 @@ describe("Interfaz · Navegación móvil (ESC39)", () => {
     cy.get("nav .animate-slide-down").should("not.exist");
   });
 
-  it("INT-MOV-03 [ESC39] DEF-16: el botón Menú no expone aria-expanded ni aria-controls", () => {
+  it("INT-MOV-03 [ESC39] DEF-16 corregido: el botón Menú expone aria-expanded y aria-controls", () => {
     cy.visit("/");
-    cy.get('button[aria-label="Menú"]').click();
-    cy.get('button[aria-label="Menú"]').should("not.have.attr", "aria-expanded");
-    cy.get('button[aria-label="Menú"]').should("not.have.attr", "aria-controls");
+    cy.get('button[aria-label="Menú"]').should("have.attr", "aria-expanded", "false").click();
+    cy.get('button[aria-label="Menú"]').should("have.attr", "aria-expanded", "true").and("have.attr", "aria-controls", "menu-movil");
+    cy.get("#menu-movil").should("be.visible");
   });
 
   it("INT-MOV-04 [ESC39] en escritorio el botón Menú no se muestra", () => {

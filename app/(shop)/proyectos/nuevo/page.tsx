@@ -42,6 +42,7 @@ interface ProjectData {
 interface ProjectFormValidation {
   isValid: boolean;
   missingFieldKey?: "name" | "length" | "width" | "height";
+  invalidFieldKey?: "length" | "width" | "height";
 }
 
 function validateProjectForm(
@@ -67,7 +68,24 @@ function validateProjectForm(
     if (!width.trim()) return { isValid: false, missingFieldKey: "width" };
     if (!height.trim()) return { isValid: false, missingFieldKey: "height" };
   }
+  // DEF-04: toda dimensión ingresada debe ser positiva (el backend responde 400 si no).
+  const dimensions = { length, width, height } as const;
+  for (const key of ["length", "width", "height"] as const) {
+    if (dimensions[key].trim() && !(Number(dimensions[key]) > 0)) {
+      return { isValid: false, invalidFieldKey: key };
+    }
+  }
   return { isValid: true };
+}
+
+// DEF-27: tipo de material que corresponde al producto elegido con "Usar en Proyecto".
+function materialTypeForProduct(product: { name: string; categorySlug?: string }): string {
+  const nameLower = product.name.toLowerCase();
+  if (product.categorySlug === "pinturas") return "pintura";
+  if (nameLower.includes("porcelanato")) return "porcelanato";
+  if (nameLower.includes("madera") || nameLower.includes("laminad")) return "madera";
+  if (nameLower.includes("vinilo") || nameLower.includes("pvc") || nameLower.includes("spc")) return "vinilo";
+  return "ceramica";
 }
 
 function calculateGrossArea(type: string, l: number, w: number, h: number): number {
@@ -321,6 +339,7 @@ function NuevoProyectoContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const editId = searchParams.get("edit");
+  const preselectedProductId = searchParams.get("selectedProductId");
   const { t, language } = useLanguage();
 
   const [loading, setLoading] = useState(false);
@@ -441,17 +460,28 @@ function NuevoProyectoContent() {
     });
   }, [catalogProducts, materialType]);
 
-  // Auto-seleccionar primer producto filtrado si la selección actual ya no es válida para este tipo
+  // DEF-27: "Usar en Proyecto" llega con ?selectedProductId=; se ajusta el tipo de material a ese producto.
+  useEffect(() => {
+    if (editId || !preselectedProductId) return;
+    api.get(`/api/v1/products/${preselectedProductId}`)
+      .then((res) => {
+        if (res.success && res.data) setMaterialType(materialTypeForProduct(res.data as CatalogProduct));
+      })
+      .catch((err) => console.error("Error fetching preselected product:", err));
+  }, [editId, preselectedProductId]);
+
+  // Auto-seleccionar el producto preelegido (o el primero filtrado) si la selección actual ya no es válida para este tipo
   useEffect(() => {
     if (!editId && filteredCatalogProducts.length > 0) {
       const isStillAvailable = filteredCatalogProducts.some((p) => p.id === selectedProductId);
       if (!isStillAvailable) {
-        setSelectedProductId(filteredCatalogProducts[0].id);
+        const preselected = filteredCatalogProducts.find((p) => p.id === preselectedProductId);
+        setSelectedProductId((preselected ?? filteredCatalogProducts[0]).id);
       }
     } else if (!editId && filteredCatalogProducts.length === 0) {
       setSelectedProductId("");
     }
-  }, [filteredCatalogProducts, editId, selectedProductId]);
+  }, [filteredCatalogProducts, editId, selectedProductId, preselectedProductId]);
 
   // Manejar el cambio automático de desperdicio al cambiar de patrón
   const handlePatternChange = (pattern: string) => {
@@ -495,17 +525,17 @@ function NuevoProyectoContent() {
   // Guardar proyecto (Crear o Actualizar)
   const handleSaveProject = async () => {
     const validation = validateProjectForm(name, type, length, width, height);
-    if (!validation.isValid && validation.missingFieldKey) {
+    if (!validation.isValid) {
       const fieldLabels: Record<string, string> = {
         name: t("projects.descriptive_name_label"),
         length: t("projects.length"),
         width: t("projects.width"),
         height: t("projects.height"),
       };
-      showToast(
-        t("projects.required_field_alert").replace("{field}", fieldLabels[validation.missingFieldKey]),
-        "warning"
-      );
+      const message = validation.missingFieldKey
+        ? t("projects.required_field_alert").replace("{field}", fieldLabels[validation.missingFieldKey])
+        : t("projects.positive_field_alert").replace("{field}", fieldLabels[validation.invalidFieldKey!]);
+      showToast(message, "warning");
       return;
     }
 
@@ -687,6 +717,7 @@ function NuevoProyectoContent() {
                     step="0.01"
                     placeholder="Ej: 4.5"
                     id="length"
+                    min="0.01"
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
                     required
@@ -697,6 +728,7 @@ function NuevoProyectoContent() {
                     step="0.01"
                     placeholder="Ej: 3.2"
                     id="width"
+                    min="0.01"
                     value={width}
                     onChange={(e) => setWidth(e.target.value)}
                     required={type !== "pared"}
@@ -707,6 +739,7 @@ function NuevoProyectoContent() {
                     step="0.01"
                     placeholder="Ej: 2.4"
                     id="height"
+                    min="0.01"
                     value={height}
                     onChange={(e) => setHeight(e.target.value)}
                     required={type === "pared" || type === "integral"}

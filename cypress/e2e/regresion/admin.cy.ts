@@ -155,7 +155,7 @@ describe("Regresión · Administración (ESC31-ESC34)", () => {
     });
   });
 
-  it("REG-ADM-07 [ESC34] DEF-06: escribir en el buscador de pedidos rompe la página (orderNumber indefinido)", () => {
+  it("REG-ADM-07 [ESC34] DEF-06 corregido: el buscador de pedidos filtra por ciudad sin errores", () => {
     const errores: string[] = [];
     cy.on("uncaught:exception", (err) => {
       errores.push(err.message);
@@ -166,11 +166,9 @@ describe("Regresión · Administración (ESC31-ESC34)", () => {
     cy.wait("@pedidos");
     cy.get('input[placeholder^="Buscar"]').type("Pasto");
 
-    // Comportamiento observado: el filtro evalúa order.orderNumber.toLowerCase() y
-    // el listado no trae ese campo → TypeError y la pantalla deja de mostrar la tabla.
-    cy.wrap(errores).should("have.length.greaterThan", 0);
-    cy.then(() => expect(errores.join(" ")).to.match(/toLowerCase|Minified React error/));
-    cy.get("table").should("not.exist");
+    // Antes: order.orderNumber.toLowerCase() sobre un campo inexistente → TypeError y sin tabla.
+    cy.get("table").should("be.visible");
+    cy.wrap(errores).should("have.length", 0);
   });
   it("REG-ADM-08 [ESC32] edita el precio de un producto propio y el cambio persiste", () => {
     cy.crearProductoApi(adminToken, { price: 20000 }).then((p) => {

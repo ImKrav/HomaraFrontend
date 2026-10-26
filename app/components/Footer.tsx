@@ -75,9 +75,9 @@ export default function Footer() {
           {/* Link Columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h3 className="text-sm font-semibold text-text-primary mb-4">
+              <h2 className="text-sm font-semibold text-text-primary mb-4">
                 {title}
-              </h3>
+              </h2>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
@@ -136,7 +136,8 @@ export default function Footer() {
               <button
                 onClick={toggleTheme}
                 className="px-2.5 py-1 bg-bg-surface border border-border text-text-primary hover:border-primary hover:text-primary transition-all duration-150 cursor-pointer flex items-center gap-1.5 shadow-sm text-[10px] font-bold uppercase tracking-wider rounded-none"
-                aria-label={t("footer.theme_toggle")}
+                // DEF-25 (WCAG 2.5.3): el nombre accesible empieza por el texto visible ("Claro"/"Oscuro").
+                aria-label={`${theme === "light" ? t("footer.theme_light") : t("footer.theme_dark")} · ${t("footer.theme_toggle")}`}
               >
                 {theme === "light" ? (
                   <>

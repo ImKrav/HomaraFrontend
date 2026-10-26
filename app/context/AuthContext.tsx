@@ -74,8 +74,9 @@ export function AuthProvider({ children }: Readonly<{ children: React.ReactNode 
         logout();
       }
     } catch (error) {
+      // DEF-05: un 401 ya lo resuelve api.ts (borra el token y emite "auth:401"). Un error de red
+      // o una petición abortada al navegar no invalida la sesión: se conserva el token y se reintenta.
       console.error("Error validando sesión:", error);
-      logout();
     } finally {
       setLoading(false);
     }
@@ -83,6 +84,8 @@ export function AuthProvider({ children }: Readonly<{ children: React.ReactNode 
 
   useEffect(() => {
     refreshUser();
+    window.addEventListener("online", refreshUser);
+    return () => window.removeEventListener("online", refreshUser);
   }, [refreshUser]);
 
   useEffect(() => {

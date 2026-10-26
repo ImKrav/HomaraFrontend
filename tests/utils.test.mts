@@ -289,9 +289,10 @@ test("mat-note-02", "Extrae el % de desperdicio y usa el fallback en inglés", (
 test("mat-note-03", "Notas fijas exactas con fallback", () => {
   // Arrange
   const casos: Array<[unknown, unknown]> = [
-    ["Pegante real vinculado", "Linked real adhesive: 1 bag per 4m²"],
+    // F-1: textos completos que emite el backend (antes la clave era solo el prefijo y nunca coincidía)
+    ["Pegante real vinculado: 1 bulto por cada 4m²", "Linked real adhesive: 1 bag per 4m²"],
     ["25kg c/u (Rendimiento: 4m²/bulto)", "25kg each (Yield: 4m²/bag)"],
-    ["Boquilla real vinculada", "Linked real grout: 1 kg per 8m²"],
+    ["Boquilla real vinculada: 1 kg por cada 8m²", "Linked real grout: 1 kg per 8m²"],
     ["Rendimiento: 8m²/kg", "Yield: 8m²/kg"],
     ["100 unidades c/u (Rendimiento: 15m²/bolsa)", "100 units each (Yield: 15m²/bag)"],
     ["20m² c/u (Aislamiento acústico y de humedad)", "20m² each (Acoustic and moisture barrier)"],
@@ -327,7 +328,7 @@ test("mat-note-04", "Interpola {waste} en la traducción del diccionario", () =>
     ["Rendimiento aproximado de 30m² (+5%)", "Rendimiento aprox +5%"],
     ["+15% desperdicio por colocación", "+15% colocación"],
     ["Paredes estimadas (+12%)", "Paredes +12%"],
-    ["Pegante real vinculado", "Pegante vinculado real"],
+    ["Pegante real vinculado: 1 bulto por cada 4m²", "Pegante vinculado real"],
   ];
 
   // Act

@@ -189,10 +189,12 @@ build de producción (`next build` + `next start`) en `:3000`. La suite se ejecu
 el mismo resultado (`evidencias/consola-corrida-1.txt`, `-2.txt`, `-3.txt`); los reportes HTML (Cucumber y
 Playwright), el JUnit y las capturas corresponden a la tercera corrida.
 
-**Resumen:** 33 escenarios: **31 pasan** y **2 fallan por defectos reales** del sistema (DEF-02 y DEF-03), marcados
-como fallo esperado. Playwright informa `33 passed` y el JUnit `tests="33" failures="0"` porque esos dos fallos son
-los esperados. El reportero de Serenity/JS y el reporte de Cucumber los cuentan como fallidos ("Execution Summary"
-en la consola; "31 / 33 passed" en `reporte-cucumber.html`), con el paso exacto que no se cumple.
+**Resumen (después de la refactorización):** 33 escenarios, **33 pasan**. SP-24 (DEF-02) y SP-27 (DEF-03), que antes
+fallaban por defectos reales y estaban marcados `@fail`, ahora pasan sin esa marca porque los defectos se corrigieron
+(ver `../docs/REFACTORIZACION.md`). Corrida final: [`evidencias/consola-corrida-final.txt`](evidencias/consola-corrida-final.txt);
+las corridas anteriores están en [`evidencias/antes-refactorizacion/`](evidencias/antes-refactorizacion/).
+
+**Resumen (antes):** 33 escenarios: 31 pasaban y 2 fallaban por defectos reales del sistema (DEF-02 y DEF-03).
 
 | Feature | Escenarios | Pasan | Fallan (defecto conocido) |
 |---|---|---|---|
@@ -299,7 +301,7 @@ contra el frontend y el backend reales. La columna "Base" indica qué caso exist
 | SP-21 | ESC15 | Eliminar el ítem | Mensaje "Tu carrito está vacío", contador = 0, backend 0 unidades | Se cumplió | Pasa | `capturas/SP-21-Eliminar-el-unico-producto-deja-el-carrito-vacio.png` |
 | SP-22 | ESC16 | Subtotal < 500.000 (1 × 250.000) | Envío 25.000, total 275.000 | Envío $ 25.000, total $ 275.000 | Pasa | `capturas/SP-22-Con-subtotal-menor-a-500-000-se-cobra-el-envio.png` |
 | SP-23 | ESC16 | Subtotal > 500.000 (3 × 250.000) | Envío "Gratis", total 750.000 | Envío "Gratis", total $ 750.000 | Pasa | `capturas/SP-23-Con-subtotal-mayor-a-500-000-el-envio-es-gratis.png` |
-| SP-24 | ESC16 | Subtotal = 500.000 (valor límite, RN-031 "igual o mayor") | Envío "Gratis", total 500.000 | Envío **$ 25.000**, total **$ 525.000** | **Falla: defecto DEF-02** (fallo esperado) | `capturas/SP-24-Con-subtotal-exactamente-igual-a-500-000-el-envio-es-gratis.png` |
+| SP-24 | ESC16 | Subtotal = 500.000 (valor límite, RN-031 "igual o mayor") | Envío "Gratis", total 500.000 | Envío **$ 25.000**, total **$ 525.000** | Fallaba por DEF-02; **pasa tras la corrección** | `capturas/SP-24-Con-subtotal-exactamente-igual-a-500-000-el-envio-es-gratis.png` |
 
 ### ESC27 / ESC28: Checkout (`checkout.feature`)
 
@@ -307,7 +309,7 @@ contra el frontend y el backend reales. La columna "Base" indica qué caso exist
 |---|---|---|---|---|---|---|
 | SP-25 | ESC27 | Pagar sin teléfono, dirección, ciudad ni departamento | El navegador bloquea el envío (campos `:invalid`), sigue en `/checkout`, 0 pedidos, el carrito intacto | Campos `phone`, `address`, `city`, `state` inválidos; 0 pedidos | Pasa | `capturas/SP-25-El-navegador-bloquea-el-pago-si-faltan-los-datos-de-envio.png` |
 | SP-26 | ESC27 | Validación propia de la app con campos vacíos (saltando la validación nativa) | Toast de advertencia "Por favor completa todos los campos requeridos.", 0 pedidos | Toast mostrado, 0 pedidos | Pasa | `capturas/SP-26-La-aplicacion-avisa-si-faltan-datos-aunque-se-salte-la-validacion-del-navegador.png` |
-| SP-27 | ESC27 | Datos de envío con solo espacios ("   ") | Se tratan como vacíos: toast de advertencia, 0 pedidos | Se creó el pedido y se mostró "¡Pedido realizado con éxito!" | **Falla: defecto DEF-03** (fallo esperado) | `capturas/SP-27-Los-datos-de-envio-con-solo-espacios-se-tratan-como-vacios.png` |
+| SP-27 | ESC27 | Datos de envío con solo espacios ("   ") | Se tratan como vacíos: toast de advertencia, 0 pedidos | Se creó el pedido y se mostró "¡Pedido realizado con éxito!" | Fallaba por DEF-03; **pasa tras la corrección** | `capturas/SP-27-Los-datos-de-envio-con-solo-espacios-se-tratan-como-vacios.png` |
 | SP-28 | ESC28, ESC27 | Checkout completo | Toast "¡Pedido realizado con éxito!", redirige a `/proyectos`, 1 pedido de 275.000 en el backend, carrito vacío | Se cumplió | Pasa | `capturas/SP-28-Checkout-completo-genera-el-pedido.png` |
 
 ### ESC17: Crear proyecto (`proyectos.feature`)
@@ -327,7 +329,7 @@ contra el frontend y el backend reales. La columna "Base" indica qué caso exist
 
 ---
 
-## 5. Defectos encontrados
+## 5. Defectos encontrados (corregidos en la refactorización)
 
 | ID | Severidad | Escenario | Descripción | Pasos para reproducir | Esperado | Obtenido |
 |---|---|---|---|---|---|---|

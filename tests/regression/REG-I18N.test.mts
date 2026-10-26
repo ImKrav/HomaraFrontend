@@ -106,8 +106,8 @@ test("REG-I18N-04", "Traduce las notas con % de desperdicio conservando el porce
   ]);
 });
 
-// Defecto abierto F-1 (ver la tabla en tests/README.md): se espera que falle.
-test.fails("REG-I18N-05", "Traduce las notas de pegante y boquilla vinculados a un producto real", () => {
+// Defecto F-1 corregido (ver "Defectos corregidos" en tests/README.md).
+test("REG-I18N-05", "Traduce las notas de pegante y boquilla vinculados a un producto real", () => {
   // Arrange — textos exactos que emite el backend (REG-MAT-01 / REG-MAT-02 y CP-F-PROY-02-07).
   const notas = [
     "Pegante real vinculado: 1 bulto por cada 4m²",
@@ -119,7 +119,12 @@ test.fails("REG-I18N-05", "Traduce las notas de pegante y boquilla vinculados a 
   // Act
   const traducidas = notas.map((n) => translateMaterialNote(n, tIdentidad));
 
-  // Assert — DEFECTO: el diccionario usa "Pegante real vinculado" como clave exacta
-  // y el backend siempre agrega ": <rendimiento>", así que nunca coincide.
-  notas.forEach((nota, i) => expect.soft(traducidas[i], `sin traducir: ${nota}`).not.toBe(nota));
+  // Assert — antes el diccionario usaba "Pegante real vinculado" como clave exacta
+  // y el backend siempre agrega ": <rendimiento>", así que nunca coincidía.
+  expect(traducidas).toStrictEqual([
+    "Linked real adhesive: 1 bag per 4m²",
+    "Linked real adhesive: 1 unit of 10kg per 1.6m²",
+    "Linked real grout: 1 kg per 8m²",
+    "Linked real grout: 1 unit of 2kg per 16m²",
+  ]);
 });

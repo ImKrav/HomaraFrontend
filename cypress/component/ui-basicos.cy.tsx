@@ -104,11 +104,11 @@ describe("Componentes · Input", () => {
     cy.get("#bloqueado").should("be.disabled").and("have.value", "fijo");
   });
 
-  it("CMP-INP-05 DEF-12: sin id (como en /register y el modal de perfil) el label NO queda asociado", () => {
+  it("CMP-INP-05 DEF-12 corregido: sin id explícito el label queda asociado con un id generado", () => {
     cy.mount(<InputControlado label="Nombre" placeholder="Juan" />);
-    cy.contains("label", "Nombre").should("not.have.attr", "for");
+    cy.contains("label", "Nombre").should("have.attr", "for");
     cy.contains("label", "Nombre").click();
-    cy.get('input[placeholder="Juan"]').should("not.have.focus");
+    cy.get('input[placeholder="Juan"]').should("have.focus");
   });
 });
 
@@ -188,14 +188,11 @@ describe("Componentes · SearchInput", () => {
     cy.get("button").should("not.exist");
   });
 
-  it("CMP-SRC-03 DEF-13/DEF-14: el botón de limpiar solo se anuncia como \"X\" (letra, no ícono) y el campo no tiene label", () => {
+  it("CMP-SRC-03 DEF-13/DEF-14 corregidos: el campo y el botón de limpiar tienen nombre accesible y el botón dibuja el ícono X", () => {
     cy.mount(<SearchInput placeholder="Buscar" value="algo" onChange={() => undefined} />);
-    cy.get("button").should("not.have.attr", "aria-label");
-    cy.get("button").should("not.have.attr", "title");
-    // "X" no está en el mapa de LucideIcon: se pinta la letra X como texto.
-    cy.get("button").invoke("text").should("eq", "X");
-    cy.get("button svg").should("not.exist");
-    cy.get("input").should("not.have.attr", "aria-label");
-    cy.get("input").should("not.have.attr", "id");
+    cy.get("button").should("have.attr", "aria-label", "Limpiar búsqueda");
+    cy.get("button svg").should("have.class", "lucide-x");
+    cy.get("button").invoke("text").should("eq", "");
+    cy.get("input").should("have.attr", "aria-label", "Buscar");
   });
 });

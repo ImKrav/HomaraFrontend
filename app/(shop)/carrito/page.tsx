@@ -135,7 +135,7 @@ export default function CarritoPage() {
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-text-secondary">
-                    {t("cart.subtotal")} ({cartItems.length} {t("cart.products_count")})
+                    {t("cart.subtotal")} ({cartItems.length} {t(cartItems.length === 1 ? "cart.product_count_one" : "cart.products_count")})
                   </span>
                   <span className="text-text-primary font-medium">
                     {formatPrice(subtotal)}

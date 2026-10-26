@@ -154,12 +154,13 @@ describe("Regresión · Catálogo (ESC08-ESC12)", () => {
     cy.contains("No se encontraron productos coincidentes").should("be.visible");
   });
 
-  it("REG-CAT-13 [ESC10] DEF-02: el breadcrumb de categoría usa ?cat= y el catálogo lo ignora (muestra todo)", () => {
+  it("REG-CAT-13 [ESC10] DEF-02 corregido: el breadcrumb de categoría filtra el catálogo por esa categoría", () => {
     const p = productos.find((x) => x.categorySlug === "pinturas") ?? productos[0];
+    const deLaCategoria = productos.filter((x) => x.categorySlug === p.categorySlug).length;
     cy.visit(`/catalogo/${p.id}`);
-    cy.get("main nav a").eq(1).should("have.attr", "href", `/catalogo?cat=${p.categorySlug}`).click();
-    cy.wait("@productos").its("request.url").should("not.include", "category=");
-    cy.contains(`${productos.length} productos técnicos encontrados`).should("be.visible");
+    cy.get("main nav a").eq(1).should("have.attr", "href", `/catalogo?category=${p.categorySlug}`).click();
+    cy.wait("@productos").its("request.url").should("include", `category=${p.categorySlug}`);
+    cy.contains(`${deLaCategoria} productos técnicos encontrados`).should("be.visible");
   });
 
   it("REG-CAT-14 [ESC12] la vitrina del inicio carga recomendados, ofertas y más vendidos", () => {

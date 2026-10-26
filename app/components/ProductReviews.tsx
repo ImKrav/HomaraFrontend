@@ -7,6 +7,7 @@ import { api } from "@/app/lib/api";
 import Button from "@/app/components/ui/Button";
 import Badge from "@/app/components/ui/Badge";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { showToast } from "@/app/lib/toast";
 
 interface Review {
   id: string;
@@ -77,6 +78,8 @@ export default function ProductReviews({ productId }: Readonly<ProductReviewsPro
 
       if (res.success) {
         setSuccess(true);
+        // OBS-04: el aviso en línea desaparece al recargar las reseñas; el toast sigue visible.
+        showToast(t("reviews.success_title"), "success");
         setRating(0);
         setComment("");
         // Reload reviews locally
@@ -157,17 +160,22 @@ export default function ProductReviews({ productId }: Readonly<ProductReviewsPro
                   <label className="text-[10px] uppercase tracking-wider font-bold text-text-secondary block">
                     {t("reviews.rating_label")}
                   </label>
-                  <div className="flex items-center gap-1.5">
+                  {/* DEF-20: grupo con nombre y estado; cada estrella anuncia su valor */}
+                  <div className="flex items-center gap-1.5" role="radiogroup" aria-label={t("reviews.rating_label")}>
                     {[1, 2, 3, 4, 5].map((star) => (
                       <button
                         key={star}
                         type="button"
+                        role="radio"
+                        aria-checked={rating === star}
+                        aria-label={t(star === 1 ? "reviews.star_one" : "reviews.star_many").replace("{n}", String(star))}
                         onClick={() => setRating(star)}
                         onMouseEnter={() => setHoverRating(star)}
                         onMouseLeave={() => setHoverRating(0)}
                         className="text-2xl transition-transform duration-100 hover:scale-110 focus:outline-none cursor-pointer"
                       >
                         <svg
+                          aria-hidden="true"
                           className={`h-7 w-7 ${
                             star <= (hoverRating || rating)
                               ? "text-amber-500"

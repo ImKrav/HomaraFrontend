@@ -6,6 +6,7 @@
 // Uso:  npm run test:lighthouse            (requiere el stack corriendo en :3000)
 //       LH_BASE_URL=http://otro:3000 npm run test:lighthouse
 //       LH_RONDAS=3 npm run test:lighthouse  (mediana de N corridas por página)
+//       LH_SALIDA=otra/carpeta npm run test:lighthouse  (no sobrescribe las evidencias)
 
 import fs from "node:fs";
 import path from "node:path";
@@ -17,7 +18,7 @@ import * as chromeLauncher from "chrome-launcher";
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const BASE = process.env.LH_BASE_URL ?? "http://localhost:3000";
 const RONDAS = Number(process.env.LH_RONDAS ?? 1);
-const SALIDA = path.join(raiz, "docs", "pruebas", "evidencias", "lighthouse");
+const SALIDA = process.env.LH_SALIDA ? path.resolve(process.env.LH_SALIDA) : path.join(raiz, "docs", "pruebas", "evidencias", "lighthouse");
 const PAGINAS = [
   { id: "inicio", ruta: "/" },
   { id: "catalogo", ruta: "/catalogo" },

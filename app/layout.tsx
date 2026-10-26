@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from "@/app/context/AuthContext";
 import { ThemeProvider } from "@/app/context/ThemeContext";
 import { LanguageProvider } from "@/app/context/LanguageContext";
+import SkipLink from "@/app/components/SkipLink";
 import ToastContainer from "@/app/components/ui/Toast";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -27,17 +28,25 @@ export const metadata: Metadata = {
   ],
 };
 
+const THEME_BOOTSTRAP =
+  "try{var t=localStorage.getItem('homara_theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${plusJakartaSans.variable} font-sans h-full antialiased`}>
+    <html lang="es" className={`${plusJakartaSans.variable} font-sans h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-bg-base text-text-primary transition-colors duration-200">
+        {/* Aplica el tema guardado antes de pintar el contenido: sin esto la página se veía clara y
+            transicionaba a oscura tras hidratar (parpadeo y contraste insuficiente, DEF-22). Va en
+            <body> y no en <head>: herramientas como Cypress inyectan scripts en <head> y desalinean la hidratación. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
         <AuthProvider>
           <ThemeProvider>
             <LanguageProvider>
+              <SkipLink />
               {children}
               <ToastContainer />
             </LanguageProvider>

@@ -35,6 +35,19 @@ import {
   Users,
   Grid,
   Clock,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  Scale,
+  Info,
+  DoorOpen,
+  Tv,
+  AlertCircle,
+  Check,
+  MapPin,
+  PieChart,
+  ShoppingBag,
+  TrendingDown,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<LucideProps>> = {
@@ -109,6 +122,20 @@ const iconMap: Record<string, React.ComponentType<LucideProps>> = {
   "Tag": Tag,
   "Users": Users,
   "Clock": Clock,
+  // DEF-14: antes se dibujaba el ícono de ayuda (?) o el nombre como texto.
+  "ChevronLeft": ChevronLeft,
+  "ChevronRight": ChevronRight,
+  "X": X,
+  "Scale": Scale,
+  "Info": Info,
+  "DoorOpen": DoorOpen,
+  "Tv": Tv,
+  "AlertCircle": AlertCircle,
+  "Check": Check,
+  "MapPin": MapPin,
+  "PieChart": PieChart,
+  "ShoppingBag": ShoppingBag,
+  "TrendingDown": TrendingDown,
   
   // Category Slugs
   "pisos-ceramicas": Layers,
@@ -153,5 +180,6 @@ export default function LucideIcon({ name, className = "", size = 20 }: Readonly
     return <HelpCircle className={className} size={size} />;
   }
 
-  return <IconComponent className={className} size={size} />;
+  // Los íconos son decorativos: el nombre accesible lo da el control que los contiene.
+  return <IconComponent className={className} size={size} aria-hidden="true" />;
 }

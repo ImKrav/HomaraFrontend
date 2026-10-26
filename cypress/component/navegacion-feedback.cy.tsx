@@ -78,10 +78,10 @@ describe("Componentes · Pagination", () => {
     cy.contains("p", "Showing").should("contain.text", "of");
   });
 
-  it("CMP-PAG-06 DEF-14: los íconos ChevronLeft/Right no están en LucideIcon y se dibuja el ícono de ayuda (?)", () => {
+  it("CMP-PAG-06 DEF-14 corregido: los botones de paginación dibujan ChevronLeft/Right (no el ícono de ayuda)", () => {
     cy.montar(<PaginacionControlada total={68} alCambiar={() => undefined} />);
-    cy.get('button[aria-label="Anterior"] svg').should("have.class", "lucide-circle-question-mark");
-    cy.get('button[aria-label="Siguiente"] svg').should("have.class", "lucide-circle-question-mark");
+    cy.get('button[aria-label="Anterior"] svg').should("have.class", "lucide-chevron-left");
+    cy.get('button[aria-label="Siguiente"] svg').should("have.class", "lucide-chevron-right");
   });
 });
 

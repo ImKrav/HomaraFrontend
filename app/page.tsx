@@ -44,7 +44,7 @@ export default function StorefrontHome() {
     <>
       <Navbar />
 
-      <main className="flex-1 bg-bg-base">
+      <main id="contenido" tabIndex={-1} className="flex-1 bg-bg-base focus:outline-none">
         {/* ============================================
            SECCIÓN DE BANNERS PROMOCIONALES (GRID ASIMÉTRICO)
            ============================================ */}
@@ -68,9 +68,9 @@ export default function StorefrontHome() {
                 </div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase leading-[1.1] max-w-2xl mb-4">
                   {t("home.material_calc")}<br />
-                  <span className="text-zinc-400">{t("home.exact_one_click")}</span>
+                  <span className="text-zinc-400 dark:text-zinc-600">{t("home.exact_one_click")}</span>
                 </h1>
-                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-xl mb-8 font-medium">
+                <p className="text-zinc-400 dark:text-zinc-600 text-sm sm:text-base leading-relaxed max-w-xl mb-8 font-medium">
                   {t("hero.subtitle")}
                 </p>
               </div>
@@ -79,7 +79,7 @@ export default function StorefrontHome() {
                 <Button href="/proyectos/nuevo" variant="white" className="uppercase tracking-wider text-xs font-bold w-full sm:w-auto">
                   {t("projects.new_project")}
                 </Button>
-                <Link href="/catalogo" className="px-6 py-3 border border-zinc-700 hover:border-bg-base text-zinc-300 hover:text-bg-base text-xs uppercase tracking-wider font-bold transition-all duration-200 w-full sm:w-auto text-center">
+                <Link href="/catalogo" className="px-6 py-3 border border-zinc-700 dark:border-zinc-400 hover:border-bg-base text-zinc-300 dark:text-zinc-700 hover:text-bg-base text-xs uppercase tracking-wider font-bold transition-all duration-200 w-full sm:w-auto text-center">
                   {t("hero.cta_catalog")}
                 </Link>
               </div>
@@ -173,11 +173,11 @@ export default function StorefrontHome() {
           <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(to_right,#FFF_1px,transparent_1px),linear-gradient(to_bottom,#FFF_1px,transparent_1px)] [background-size:24px_24px]" />
           
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-            <span className="text-[10px] uppercase tracking-widest font-extrabold text-zinc-400">Homara Project Suite</span>
+            <span className="text-[10px] uppercase tracking-widest font-extrabold text-zinc-400 dark:text-zinc-600">Homara Project Suite</span>
             <h2 className="text-2xl sm:text-3xl font-bold text-bg-base uppercase mt-1 mb-4 tracking-tight">
               {t("home.cta_title")}
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto mb-8 font-medium leading-relaxed">
+            <p className="text-xs sm:text-sm text-zinc-400 dark:text-zinc-600 max-w-xl mx-auto mb-8 font-medium leading-relaxed">
               {t("home.cta_desc")}
             </p>
             <Button href="/proyectos/nuevo" variant="white" size="lg" className="uppercase tracking-wider text-xs font-bold px-8">

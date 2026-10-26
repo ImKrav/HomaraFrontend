@@ -29,14 +29,14 @@ Característica: Autenticación de clientes
       Y sigue en la página "/register"
       Y no queda ninguna sesión en el navegador
 
-    # DEF-01: el formulario indica "Mínimo 6 caracteres" pero el backend exige 8 (RN-002).
+    # DEF-01 corregido: el formulario indica y valida el mínimo real de 8 caracteres (RN-002).
     @DEF-01
     Escenario: SP-04 Registro con una contraseña de 7 caracteres
       Dado que Camila no tiene cuenta en Homara
       Cuando Camila intenta registrarse con una contraseña de 7 caracteres
       Entonces el registro muestra un error que contiene "al menos 8 caracteres"
       Y sigue en la página "/register"
-      Pero el campo de contraseña sigue indicando "Mínimo 6 caracteres"
+      Y el campo de contraseña sigue indicando "Mínimo 8 caracteres"
 
   @ESC02
   Regla: ESC02 - Solo inicia sesión quien presenta credenciales válidas

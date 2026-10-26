@@ -60,7 +60,7 @@ test("REG-CART-03", "El checkout envía la dirección del usuario y el método d
   await usuario.click(screen.getByRole("button", { name: new RegExp(es("checkout.pay_btn")) }));
 
   // Assert
-  await waitFor(() => expect(router.push).toHaveBeenCalledWith("/proyectos"));
+  await waitFor(() => expect(router.push).toHaveBeenCalledWith("/cuenta"));
   expect(backend.de("POST /orders")[0].cuerpo).toMatchObject({
     paymentMethod: "cash",
     shippingAddress: "Calle 1 #2-3",

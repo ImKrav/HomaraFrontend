@@ -65,13 +65,14 @@ describe("Regresión · Reseñas y stock (ESC25, ESC26, ESC30)", () => {
     cy.api("GET", `/products/${producto.id}`).its("body.data").should("include", { rating: 4, reviews: 1 });
   });
 
-  it("REG-RES-03 [ESC30] DEF-20: los botones de estrellas no tienen nombre accesible", () => {
+  it("REG-RES-03 [ESC30] DEF-20 corregido: las estrellas forman un grupo de radio con nombre y estado", () => {
     cy.iniciarSesionConToken(usuario);
     cy.visit(`/catalogo/${producto.id}`);
-    cy.contains("label", "Tu Calificación").parent().find("button").should("have.length", 5).each(($b) => {
-      expect($b.attr("aria-label"), "aria-label").to.eq(undefined);
-      expect($b.text().trim(), "texto visible").to.eq("");
+    cy.get('[role="radiogroup"]').find('[role="radio"]').should("have.length", 5).each(($b, i) => {
+      expect($b.attr("aria-label")).to.eq(i === 0 ? "1 estrella" : `${i + 1} estrellas`);
+      expect($b.attr("aria-checked")).to.eq("false");
     });
+    cy.get('[role="radio"][aria-label="4 estrellas"]').click().should("have.attr", "aria-checked", "true");
   });
 
   it("REG-STK-01 [ESC25/ESC28] la reserva descuenta el stock visible en el catálogo y el pedido lo consume", () => {
@@ -87,14 +88,14 @@ describe("Regresión · Reseñas y stock (ESC25, ESC26, ESC30)", () => {
     cy.api("GET", `/products/${producto.id}`).its("body.data.stockQuantity").should("eq", 1);
   });
 
-  it("REG-STK-03 [ESC25] DEF-21: el carrito no muestra la cuenta regresiva de la reserva (la API no envía updatedAt)", () => {
+  it("REG-STK-03 [ESC25] DEF-21 corregido: el carrito muestra la cuenta regresiva de la reserva (la API envía updatedAt)", () => {
     cy.agregarAlCarritoApi(usuario.token, producto.id, 1);
-    cy.api("GET", "/cart", { token: usuario.token }).its("body.data.items.0").should("not.have.property", "updatedAt");
+    cy.api("GET", "/cart", { token: usuario.token }).its("body.data.items.0").should("have.property", "updatedAt");
     cy.iniciarSesionConToken(usuario);
     cy.visit("/carrito");
     cy.contains("h3", producto.name).should("be.visible");
-    // CartItem solo pinta "Stock reservado por: mm:ss" si recibe updatedAt (ver CMP-CIT-04).
-    cy.contains("Stock reservado por:").should("not.exist");
+    // CartItem pinta "Stock reservado por: mm:ss" cuando recibe updatedAt (ver CMP-CIT-04).
+    cy.contains(/Stock reservado por:\s*1[0-4]:\d{2}/).should("be.visible");
   });
 
   it("REG-STK-02 [ESC26] pedir más unidades que el stock marca el ítem como envío diferido (backorder)", () => {

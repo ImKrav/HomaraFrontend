@@ -86,12 +86,12 @@ describe("Accesibilidad · Teclado y foco", () => {
     cy.location("pathname").should("eq", "/cuenta");
   });
 
-  it("A11Y-TEC-04 DEF-18: no existe un enlace 'Saltar al contenido' como primer elemento enfocable", () => {
+  it("A11Y-TEC-04 DEF-18 corregido: el primer Tab enfoca 'Saltar al contenido' y lleva al <main>", () => {
     cy.press(Cypress.Keyboard.Keys.TAB);
-    cy.document().then((doc) => {
-      expect(doc.activeElement?.textContent?.trim() ?? "").not.to.match(/saltar|skip/i);
-    });
-    cy.get('a[href^="#"]').filter(':contains("contenido")').should("not.exist");
+    cy.focused().should("have.attr", "href", "#contenido").and("contain.text", "Saltar al contenido");
+    cy.focused().click();
+    cy.location("hash").should("eq", "#contenido");
+    cy.get("main#contenido").should("exist");
   });
 });
 
@@ -104,24 +104,23 @@ describe("Accesibilidad · Etiquetas de formularios", () => {
     cy.get('label[for="password"]').should("contain.text", "Contraseña");
   });
 
-  it("A11Y-LBL-02 DEF-12: /register tiene campos SIN etiqueta asociada (labels sin for / inputs sin id)", () => {
+  it("A11Y-LBL-02 DEF-12 corregido: /register asocia cada etiqueta a su campo", () => {
     cy.visit("/register");
     cy.get('input[placeholder="Juan"]').should("be.visible");
-    controlesSinEtiqueta().then((sinEtiqueta) => {
-      cy.task("log", `[etiquetas] /register sin etiqueta (${sinEtiqueta.length}): ${sinEtiqueta.join(", ")}`);
-      // Los 10 campos del formulario dependen solo del placeholder.
-      expect(sinEtiqueta).to.have.length(10);
+    controlesSinEtiqueta().should("deep.equal", []);
+    // clic en la etiqueta enfoca el campo
+    cy.contains("label", "Nombre").should("have.attr", "for").then((id) => {
+      cy.contains("label", "Nombre").click();
+      cy.focused().should("have.attr", "id", id);
     });
-    cy.contains("label", "Nombre").should("not.have.attr", "for");
   });
 
-  it("A11Y-LBL-03 DEF-19: en /catalogo los selects de calificación y orden no tienen etiqueta", () => {
+  it("A11Y-LBL-03 DEF-19 corregido: en /catalogo los selects de calificación y orden tienen etiqueta", () => {
     cy.visit("/catalogo");
     cy.contains("productos técnicos encontrados").should("be.visible");
-    controlesSinEtiqueta().then((sinEtiqueta) => {
-      cy.task("log", `[etiquetas] /catalogo sin etiqueta: ${sinEtiqueta.join(", ")}`);
-      expect(sinEtiqueta).to.include.members(["select[placeholder=\"\"]#min-rating", "select[placeholder=\"\"]#sort-by"]);
-    });
+    controlesSinEtiqueta().should("deep.equal", []);
+    cy.get('label[for="min-rating"]').should("exist");
+    cy.get('label[for="sort-by"]').should("exist");
   });
 
   it("A11Y-LBL-04 /checkout: los campos de contacto y envío están etiquetados", () => {

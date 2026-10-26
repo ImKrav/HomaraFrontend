@@ -73,9 +73,8 @@ Característica: Carrito de compras
     Y el envío es gratis
     Y el total es $ 750.000
 
-  # DEF-02: RN-031 dice "igual o mayor a $ 500.000", pero el backend usa "subtotal > 500000".
-  # @fail lo marca como fallo esperado: si el defecto se corrige, Playwright avisará para quitar la marca.
-  @ESC16 @DEF-02 @fail
+  # DEF-02 corregido: RN-031 "igual o mayor a $ 500.000" (antes el backend usaba "subtotal > 500000").
+  @ESC16 @DEF-02
   Escenario: SP-24 Con subtotal exactamente igual a $ 500.000 el envío es gratis
     Dado que Camila agrega 2 unidades del producto de apoyo al carrito
     Cuando abre su carrito

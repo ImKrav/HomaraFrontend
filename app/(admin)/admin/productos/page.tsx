@@ -298,6 +298,7 @@ export default function AdminProductosPage() {
         {/* Search */}
         <SearchInput
           placeholder={t("catalog.search_placeholder")}
+          clearLabel={t("catalog.clean_search")}
           value={searchQuery}
           onChange={setSearchQuery}
         />
@@ -307,12 +308,13 @@ export default function AdminProductosPage() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
+            aria-label={t("admin.filter_category")}
             className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
           >
             <option value="all">{t("catalog.all_categories")}</option>
             {categories.map((cat) => (
               <option key={cat.id} value={cat.id}>
-                {t(`categories.${cat.slug}`) || cat.name}
+                {t(`categories.${cat.slug}`, cat.name)}
               </option>
             ))}
           </select>
@@ -323,6 +325,7 @@ export default function AdminProductosPage() {
           <select
             value={selectedStock}
             onChange={(e) => setSelectedStock(e.target.value)}
+            aria-label={t("admin.filter_stock")}
             className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
           >
             <option value="all">{t("catalog.all_categories")} ({t("admin.stock_col")})</option>
@@ -379,7 +382,7 @@ export default function AdminProductosPage() {
                     </div>
                   </td>
                   <td className="py-3 px-4 text-text-secondary font-medium">
-                    {t(`categories.${product.categorySlug}`) || t(`categories.${product.category}`) || product.category}
+                    {t(`categories.${product.categorySlug}`, t(`categories.${product.category}`, product.category))}
                   </td>
                   <td className="py-3 px-4 text-right font-semibold text-text-primary">
                     <div className="flex flex-col items-end">
@@ -518,7 +521,7 @@ export default function AdminProductosPage() {
                     <option value="" disabled>{t("admin.select_category_placeholder")}</option>
                     {categories.map((c) => (
                       <option key={c.id} value={c.id}>
-                        {t(`categories.${c.slug}`) || t(`categories.${c.name}`) || c.name}
+                        {t(`categories.${c.slug}`, t(`categories.${c.name}`, c.name))}
                       </option>
                     ))}
                   </select>
