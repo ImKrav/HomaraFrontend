@@ -126,7 +126,7 @@ describe("Regresión · Carrito (ESC13-ESC16)", () => {
     valorResumen(/^Subtotal/).should("eq", formatoCOP(producto.price));
     valorResumen(/^Envío$/).should("eq", formatoCOP(ENVIO));
     valorResumen(/^Total$/).should("eq", formatoCOP(producto.price + ENVIO));
-    cy.contains(`Envío gratis en compras mayores a`)
+    cy.contains(`Envío gratis en compras desde`)
       .invoke("text")
       .then((t) => expect(normalizar(t)).to.contain(formatoCOP(UMBRAL_ENVIO_GRATIS)));
   });
@@ -141,7 +141,7 @@ describe("Regresión · Carrito (ESC13-ESC16)", () => {
     valorResumen(/^Subtotal/).should("eq", formatoCOP(subtotal));
     valorResumen(/^Envío$/).should("eq", "Gratis");
     valorResumen(/^Total$/).should("eq", formatoCOP(subtotal));
-    cy.contains("Envío gratis en compras mayores a").should("not.exist");
+    cy.contains("Envío gratis en compras desde").should("not.exist");
   });
 
   it("REG-CAR-08 [ESC13] sin sesión, agregar al carrito responde 401 y redirige a /login", () => {
