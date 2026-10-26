@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="43.790" tests="6" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T12:36:46" tests="0" file="cypress/e2e/flujos/cliente.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Flujos E2E · Cliente" timestamp="2026-10-26T12:36:46" tests="6" time="43.788" failures="0">
+    <testcase name="Flujos E2E · Cliente FLU-03 [ESC12→ESC11→ESC09→ESC10→ESC13→ESC02] un visitante explora desde el inicio, intenta comprar sin sesión, inicia sesión y agrega al carrito" time="7.421" classname="FLU-03 [ESC12→ESC11→ESC09→ESC10→ESC13→ESC02] un visitante explora desde el inicio, intenta comprar sin sesión, inicia sesión y agrega al carrito">
+    </testcase>
+    <testcase name="Flujos E2E · Cliente FLU-04 [ESC05→ESC09→ESC13→ESC27→ESC28→ESC29] el cliente completa su perfil y el checkout usa esos datos de envío" time="5.524" classname="FLU-04 [ESC05→ESC09→ESC13→ESC27→ESC28→ESC29] el cliente completa su perfil y el checkout usa esos datos de envío">
+    </testcase>
+    <testcase name="Flujos E2E · Cliente FLU-05 [ESC13→ESC16→ESC15→ESC14→ESC27→ESC28] el carrito con varios productos gana y pierde el envío gratis según el subtotal" time="5.618" classname="FLU-05 [ESC13→ESC16→ESC15→ESC14→ESC27→ESC28] el carrito con varios productos gana y pierde el envío gratis según el subtotal">
+    </testcase>
+    <testcase name="Flujos E2E · Cliente FLU-06 [ESC40→ESC02→ESC09→ESC13→ESC27→ESC28] una compra completa en inglés y con tema oscuro mantiene las preferencias" time="8.208" classname="FLU-06 [ESC40→ESC02→ESC09→ESC13→ESC27→ESC28] una compra completa en inglés y con tema oscuro mantiene las preferencias">
+    </testcase>
+    <testcase name="Flujos E2E · Cliente FLU-07 [ESC39→ESC02→ESC09→ESC13→ESC27→ESC28] un cliente compra desde el celular con el menú móvil" time="7.977" classname="FLU-07 [ESC39→ESC02→ESC09→ESC13→ESC27→ESC28] un cliente compra desde el celular con el menú móvil">
+    </testcase>
+    <testcase name="Flujos E2E · Cliente FLU-08 [ESC28→ESC30→ESC03→ESC10] tras comprar, el cliente califica el producto y otro visitante ve la reseña" time="6.648" classname="FLU-08 [ESC28→ESC30→ESC03→ESC10] tras comprar, el cliente califica el producto y otro visitante ve la reseña">
+    </testcase>
+  </testsuite>
+</testsuites>

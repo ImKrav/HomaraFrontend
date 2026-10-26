@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="7.054" tests="6" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T12:43:37" tests="0" file="cypress/e2e/regresion/resenas-stock.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Regresión · Reseñas y stock (ESC25, ESC26, ESC30)" timestamp="2026-10-26T12:43:37" tests="6" time="7.054" failures="0">
+    <testcase name="Regresión · Reseñas y stock (ESC25, ESC26, ESC30) REG-RES-01 [ESC30] sin sesión, la sección de reseñas invita a iniciar sesión" time="0.788" classname="REG-RES-01 [ESC30] sin sesión, la sección de reseñas invita a iniciar sesión">
+    </testcase>
+    <testcase name="Regresión · Reseñas y stock (ESC25, ESC26, ESC30) REG-RES-02 [ESC30] calificar exige estrellas; con 4 estrellas publica la reseña y actualiza el promedio" time="1.664" classname="REG-RES-02 [ESC30] calificar exige estrellas; con 4 estrellas publica la reseña y actualiza el promedio">
+    </testcase>
+    <testcase name="Regresión · Reseñas y stock (ESC25, ESC26, ESC30) REG-RES-03 [ESC30] DEF-20: los botones de estrellas no tienen nombre accesible" time="0.601" classname="REG-RES-03 [ESC30] DEF-20: los botones de estrellas no tienen nombre accesible">
+    </testcase>
+    <testcase name="Regresión · Reseñas y stock (ESC25, ESC26, ESC30) REG-STK-01 [ESC25/ESC28] la reserva descuenta el stock visible en el catálogo y el pedido lo consume" time="0.421" classname="REG-STK-01 [ESC25/ESC28] la reserva descuenta el stock visible en el catálogo y el pedido lo consume">
+    </testcase>
+    <testcase name="Regresión · Reseñas y stock (ESC25, ESC26, ESC30) REG-STK-03 [ESC25] DEF-21: el carrito no muestra la cuenta regresiva de la reserva (la API no envía updatedAt)" time="0.624" classname="REG-STK-03 [ESC25] DEF-21: el carrito no muestra la cuenta regresiva de la reserva (la API no envía updatedAt)">
+    </testcase>
+    <testcase name="Regresión · Reseñas y stock (ESC25, ESC26, ESC30) REG-STK-02 [ESC26] pedir más unidades que el stock marca el ítem como envío diferido (backorder)" time="0.646" classname="REG-STK-02 [ESC26] pedir más unidades que el stock marca el ítem como envío diferido (backorder)">
+    </testcase>
+  </testsuite>
+</testsuites>

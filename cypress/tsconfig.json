@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["cypress", "node", "cypress-axe", "cypress-mochawesome-reporter"],
+    "isolatedModules": false,
+    "noEmit": true,
+    "incremental": false,
+    "plugins": []
+  },
+  "include": ["**/*.ts", "**/*.tsx", "../cypress.config.ts", "../app/**/*.d.ts"],
+  "exclude": []
+}

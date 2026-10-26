@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="3.175" tests="26" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T03:51:44" tests="0" file="cypress/component/ui-basicos.cy.tsx" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Componentes · Button" timestamp="2026-10-26T03:51:44" tests="11" time="1.137" failures="0">
+    <testcase name="Componentes · Button CMP-BTN-01 renderiza el texto, es type=button por defecto y usa la variante primary" time="0.087" classname="CMP-BTN-01 renderiza el texto, es type=button por defecto y usa la variante primary">
+    </testcase>
+    <testcase name="Componentes · Button CMP-BTN-02 invoca onClick una vez por clic" time="0.225" classname="CMP-BTN-02 invoca onClick una vez por clic">
+    </testcase>
+    <testcase name="Componentes · Button CMP-BTN-03 deshabilitado: atributo disabled, estilos y no dispara onClick" time="0.126" classname="CMP-BTN-03 deshabilitado: atributo disabled, estilos y no dispara onClick">
+    </testcase>
+    <testcase name="Componentes · Button CMP-BTN-04 con href se renderiza como enlace &lt;a&gt; y aplica tamaño y ancho completo" time="0.052" classname="CMP-BTN-04 con href se renderiza como enlace &lt;a&gt; y aplica tamaño y ancho completo">
+    </testcase>
+    <testcase name="Componentes · Button CMP-BTN-05 type=submit envía el formulario que lo contiene" time="0.130" classname="CMP-BTN-05 type=submit envía el formulario que lo contiene">
+    </testcase>
+    <testcase name="Componentes · Button CMP-BTN-06 la variante &quot;primary&quot; es visible y enfocable con teclado" time="0.066" classname="CMP-BTN-06 la variante &quot;primary&quot; es visible y enfocable con teclado">
+    </testcase>
+    <testcase name="Componentes · Button CMP-BTN-06 la variante &quot;secondary&quot; es visible y enfocable con teclado" time="0.062" classname="CMP-BTN-06 la variante &quot;secondary&quot; es visible y enfocable con teclado">
+    </testcase>
+    <testcase name="Componentes · Button CMP-BTN-06 la variante &quot;outline&quot; es visible y enfocable con teclado" time="0.052" classname="CMP-BTN-06 la variante &quot;outline&quot; es visible y enfocable con teclado">
+    </testcase>
+    <testcase name="Componentes · Button CMP-BTN-06 la variante &quot;ghost&quot; es visible y enfocable con teclado" time="0.049" classname="CMP-BTN-06 la variante &quot;ghost&quot; es visible y enfocable con teclado">
+    </testcase>
+    <testcase name="Componentes · Button CMP-BTN-06 la variante &quot;danger&quot; es visible y enfocable con teclado" time="0.056" classname="CMP-BTN-06 la variante &quot;danger&quot; es visible y enfocable con teclado">
+    </testcase>
+    <testcase name="Componentes · Button CMP-BTN-06 la variante &quot;white&quot; es visible y enfocable con teclado" time="0.064" classname="CMP-BTN-06 la variante &quot;white&quot; es visible y enfocable con teclado">
+    </testcase>
+  </testsuite>
+  <testsuite name="Componentes · Input" timestamp="2026-10-26T03:51:45" tests="5" time="0.741" failures="0">
+    <testcase name="Componentes · Input CMP-INP-01 con id, la etiqueta queda asociada: clic en el label enfoca el campo" time="0.144" classname="CMP-INP-01 con id, la etiqueta queda asociada: clic en el label enfoca el campo">
+    </testcase>
+    <testcase name="Componentes · Input CMP-INP-02 propaga onChange con el valor escrito" time="0.239" classname="CMP-INP-02 propaga onChange con el valor escrito">
+    </testcase>
+    <testcase name="Componentes · Input CMP-INP-03 con error muestra el mensaje y pinta borde y etiqueta en rojo" time="0.060" classname="CMP-INP-03 con error muestra el mensaje y pinta borde y etiqueta en rojo">
+    </testcase>
+    <testcase name="Componentes · Input CMP-INP-04 deshabilitado no permite escribir" time="0.050" classname="CMP-INP-04 deshabilitado no permite escribir">
+    </testcase>
+    <testcase name="Componentes · Input CMP-INP-05 DEF-12: sin id (como en /register y el modal de perfil) el label NO queda asociado" time="0.141" classname="CMP-INP-05 DEF-12: sin id (como en /register y el modal de perfil) el label NO queda asociado">
+    </testcase>
+  </testsuite>
+  <testsuite name="Componentes · Badge" timestamp="2026-10-26T03:51:45" tests="6" time="0.402" failures="0">
+    <testcase name="Componentes · Badge CMP-BDG-01 la variante &quot;default&quot; aplica la clase bg-zinc-100" time="0.049" classname="CMP-BDG-01 la variante &quot;default&quot; aplica la clase bg-zinc-100">
+    </testcase>
+    <testcase name="Componentes · Badge CMP-BDG-01 la variante &quot;success&quot; aplica la clase bg-emerald-50" time="0.059" classname="CMP-BDG-01 la variante &quot;success&quot; aplica la clase bg-emerald-50">
+    </testcase>
+    <testcase name="Componentes · Badge CMP-BDG-01 la variante &quot;warning&quot; aplica la clase bg-amber-50" time="0.062" classname="CMP-BDG-01 la variante &quot;warning&quot; aplica la clase bg-amber-50">
+    </testcase>
+    <testcase name="Componentes · Badge CMP-BDG-01 la variante &quot;error&quot; aplica la clase bg-rose-50" time="0.049" classname="CMP-BDG-01 la variante &quot;error&quot; aplica la clase bg-rose-50">
+    </testcase>
+    <testcase name="Componentes · Badge CMP-BDG-01 la variante &quot;info&quot; aplica la clase bg-sky-50" time="0.050" classname="CMP-BDG-01 la variante &quot;info&quot; aplica la clase bg-sky-50">
+    </testcase>
+    <testcase name="Componentes · Badge CMP-BDG-02 el tamaño sm usa menos relleno que md" time="0.050" classname="CMP-BDG-02 el tamaño sm usa menos relleno que md">
+    </testcase>
+  </testsuite>
+  <testsuite name="Componentes · Card" timestamp="2026-10-26T03:51:46" tests="1" time="0.155" failures="0">
+    <testcase name="Componentes · Card CMP-CRD-01 sin onClick es un &lt;div&gt;; con onClick es un &lt;button&gt; que dispara el evento" time="0.131" classname="CMP-CRD-01 sin onClick es un &lt;div&gt;; con onClick es un &lt;button&gt; que dispara el evento">
+    </testcase>
+  </testsuite>
+  <testsuite name="Componentes · SearchInput" timestamp="2026-10-26T03:51:46" tests="3" time="0.738" failures="0">
+    <testcase name="Componentes · SearchInput CMP-SRC-01 escribe, notifica cada cambio y muestra el botón de limpiar solo con texto" time="0.252" classname="CMP-SRC-01 escribe, notifica cada cambio y muestra el botón de limpiar solo con texto">
+    </testcase>
+    <testcase name="Componentes · SearchInput CMP-SRC-02 el botón de limpiar vacía el campo (onChange con cadena vacía)" time="0.359" classname="CMP-SRC-02 el botón de limpiar vacía el campo (onChange con cadena vacía)">
+    </testcase>
+    <testcase name="Componentes · SearchInput CMP-SRC-03 DEF-13/DEF-14: el botón de limpiar solo se anuncia como &quot;X&quot; (letra, no ícono) y el campo no tiene label" time="0.067" classname="CMP-SRC-03 DEF-13/DEF-14: el botón de limpiar solo se anuncia como &quot;X&quot; (letra, no ícono) y el campo no tiene label">
+    </testcase>
+  </testsuite>
+</testsuites>

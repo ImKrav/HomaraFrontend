@@ -8,7 +8,7 @@ def inNode(String cmd, String extraEnv = '') {
           -w "\$WORKSPACE" \\
           -e HOME="\$WORKSPACE" \\
           -e npm_config_cache="\$WORKSPACE/.npm" \\
-          -e NEXT_PUBLIC_API_URL -e NEXT_TELEMETRY_DISABLED -e CI \\
+          -e NEXT_PUBLIC_API_URL -e NEXT_TELEMETRY_DISABLED -e CI -e CYPRESS_INSTALL_BINARY \\
           ${extraEnv} \\
           node:24-alpine sh -c '${cmd}'
     """
@@ -44,6 +44,8 @@ pipeline {
         NEXT_PUBLIC_API_URL     = "${params.API_URL}"
         NEXT_TELEMETRY_DISABLED = '1'
         CI                      = 'true'
+        // Las suites Cypress se ejecutan contra el stack desplegado, no en este pipeline.
+        CYPRESS_INSTALL_BINARY  = '0'
     }
 
     stages {

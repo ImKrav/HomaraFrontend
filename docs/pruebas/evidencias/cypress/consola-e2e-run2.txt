@@ -1,0 +1,1721 @@
+[29210:1026/124525.814957:ERROR:node_bindings.cc(379)] Most NODE_OPTIONs are not supported in packaged apps. See documentation for more details.
+
+DevTools listening on ws://127.0.0.1:45199/devtools/browser/275fb061-8f84-459b-a1a1-83501ef8bfdf
+Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
+
+================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        14.5.4                                                                         │
+  │ Browser:        Electron 130 (headless)                                                        │
+  │ Node Version:   v22.22.0 (/opt/node22/bin/node)                                                │
+  │ Specs:          24 found (accesibilidad/axe-paginas.cy.ts, accesibilidad/teclado-etiquetas.cy. │
+  │                 ts, api/carrito-pedidos.api.cy.ts, api/catalogo.api.cy.ts, api/errores-integri │
+  │                 dad.api.cy.ts, api/proyectos-admin.api.cy.ts, api/usuarios.api.cy.ts, flujos/a │
+  │                 dmin.cy.ts, flujos/clie...)                                                    │
+  │ Searched:       cypress/e2e/**/*.cy.ts                                                         │
+  │ Experiments:    experimentalRunAllSpecs=true                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Remove output folder /home/user/HomaraFrontend/cypress/reports
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  accesibilidad/axe-paginas.cy.ts                                                (1 of 24)
+
+
+  Accesibilidad · axe-core WCAG 2.1 A/AA
+[axe] inicio: 1 reglas violadas -> color-contrast(serious, 3 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] inicio (/) no agrega violaciones críticas nuevas
+[axe] inicio-oscuro: 1 reglas violadas -> color-contrast(serious, 71 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] inicio-oscuro (/) no agrega violaciones críticas nuevas
+[axe] catalogo: 2 reglas violadas -> color-contrast(serious, 3 nodos), select-name(critical, 2 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] catalogo (/catalogo) no agrega violaciones críticas nuevas
+[axe] detalle-producto: 1 reglas violadas -> color-contrast(serious, 5 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] detalle-producto (/catalogo/:primero) no agrega violaciones críticas nuevas
+[axe] login: 1 reglas violadas -> color-contrast(serious, 3 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] login (/login) no agrega violaciones críticas nuevas
+[axe] login-oscuro: 1 reglas violadas -> color-contrast(serious, 6 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] login-oscuro (/login) no agrega violaciones críticas nuevas
+[axe] registro: 1 reglas violadas -> color-contrast(serious, 3 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] registro (/register) no agrega violaciones críticas nuevas
+[axe] carrito-invitado: 1 reglas violadas -> color-contrast(serious, 3 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] carrito-invitado (/carrito) no agrega violaciones críticas nuevas
+[axe] cuenta: 1 reglas violadas -> color-contrast(serious, 3 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] cuenta (/cuenta) no agrega violaciones críticas nuevas (9536ms)
+[axe] proyectos: 1 reglas violadas -> color-contrast(serious, 3 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] proyectos (/proyectos) no agrega violaciones críticas nuevas
+[axe] proyecto-nuevo: 1 reglas violadas -> color-contrast(serious, 4 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] proyecto-nuevo (/proyectos/nuevo) no agrega violaciones críticas nuevas
+[axe] checkout: 1 reglas violadas -> color-contrast(serious, 3 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] checkout (/checkout) no agrega violaciones críticas nuevas
+[axe] admin-dashboard: 2 reglas violadas -> aria-prohibited-attr(serious, 12 nodos), color-contrast(serious, 1 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] admin-dashboard (/admin) no agrega violaciones críticas nuevas (6734ms)
+[axe] admin-productos: 2 reglas violadas -> color-contrast(serious, 1 nodos), select-name(critical, 2 nodos)
+    ✓ A11Y-AXE [ESC39/ESC40] admin-productos (/admin/productos) no agrega violaciones críticas nuevas
+
+
+  14 passing (43s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        14                                                                               │
+  │ Passing:      14                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  14                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     42 seconds                                                                       │
+  │ Spec Ran:     accesibilidad/axe-paginas.cy.ts                                                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] inicio () no agrega violaciones críticas nuevas -- after eac               
+     h hook.png                                                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] inicio-oscuro () no agrega violaciones críticas nuevas -- af               
+     ter each hook.png                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] catalogo (catalogo) no agrega violaciones críticas nuevas --               
+      after each hook.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] detalle-producto (catalogoprimero) no agrega violaciones crí               
+     ticas nuevas -- after each hook.png                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] login (login) no agrega violaciones críticas nuevas -- after               
+      each hook.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] login-oscuro (login) no agrega violaciones críticas nuevas -               
+     - after each hook.png                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] registro (register) no agrega violaciones críticas nuevas --               
+      after each hook.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] carrito-invitado (carrito) no agrega violaciones críticas nu               
+     evas -- after each hook.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] cuenta (cuenta) no agrega violaciones críticas nuevas -- aft               
+     er each hook.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] proyectos (proyectos) no agrega violaciones críticas nuevas                
+     -- after each hook.png                                                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] proyecto-nuevo (proyectosnuevo) no agrega violaciones crític               
+     as nuevas -- after each hook.png                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] checkout (checkout) no agrega violaciones críticas nuevas --               
+      after each hook.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] admin-dashboard (admin) no agrega violaciones críticas nueva               
+     s -- after each hook.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/axe-paginas.cy.ts/A1     (1280x720)
+     1Y-AXE [ESC39ESC40] admin-productos (adminproductos) no agrega violaciones críti               
+     cas nuevas -- after each hook.png                                                              
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  accesibilidad/teclado-etiquetas.cy.ts                                          (2 of 24)
+
+
+  Accesibilidad · Teclado y foco
+[teclado] Tabs hasta #email en /login: 8
+    ✓ A11Y-TEC-01 con Tab se llega al formulario de login (correo → contraseña) en orden lógico
+    ✓ A11Y-TEC-02 el campo enfocado tiene un indicador de foco visible distinto al estado normal
+    ✓ A11Y-TEC-03 el login se completa solo con teclado (Enter envía el formulario)
+    ✓ A11Y-TEC-04 DEF-18: no existe un enlace 'Saltar al contenido' como primer elemento enfocable
+
+  Accesibilidad · Etiquetas de formularios
+    ✓ A11Y-LBL-01 /login: todos los campos tienen etiqueta asociada
+[etiquetas] /register sin etiqueta (10): input[placeholder="Juan"], input[placeholder="Pérez"], input[placeholder="juan@email.com"], input[placeholder="Mínimo 6 caracteres"], input[placeholder="Repite la contraseña"], input[placeholder="300 123 4567"], input[placeholder="Calle 123 # 45-67"], input[placeholder="Bogotá"], input[placeholder="Cundinamarca"], input[placeholder="110111"]
+    ✓ A11Y-LBL-02 DEF-12: /register tiene campos SIN etiqueta asociada (labels sin for / inputs sin id)
+[etiquetas] /catalogo sin etiqueta: input[placeholder="Buscar herramientas, cerámicas, pinturas o materiales..."]#search-bar, select[placeholder=""]#min-rating, select[placeholder=""]#sort-by
+    ✓ A11Y-LBL-03 DEF-19: en /catalogo los selects de calificación y orden no tienen etiqueta
+    ✓ A11Y-LBL-04 /checkout: los campos de contacto y envío están etiquetados
+
+
+  8 passing (24s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_001.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        8                                                                                │
+  │ Passing:      8                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  9                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     24 seconds                                                                       │
+  │ Spec Ran:     accesibilidad/teclado-etiquetas.cy.ts                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/teclado-etiquetas.cy     (1280x720)
+     .ts/A11Y-TEC-01 con Tab se llega al formulario de login (correo → contraseña) en               
+      orden lógico -- after each hook.png                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/teclado-etiquetas.cy     (1280x720)
+     .ts/foco-login-email.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/teclado-etiquetas.cy     (1280x720)
+     .ts/A11Y-TEC-02 el campo enfocado tiene un indicador de foco visible distinto al               
+      estado normal -- after each hook.png                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/teclado-etiquetas.cy     (1280x720)
+     .ts/A11Y-TEC-03 el login se completa solo con teclado (Enter envía el formulario               
+     ) -- after each hook.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/teclado-etiquetas.cy     (1280x720)
+     .ts/A11Y-TEC-04 DEF-18 no existe un enlace 'Saltar al contenido' como primer ele               
+     mento enfocable -- after each hook.png                                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/teclado-etiquetas.cy     (1280x720)
+     .ts/A11Y-LBL-01 login todos los campos tienen etiqueta asociada -- after each ho               
+     ok.png                                                                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/teclado-etiquetas.cy     (1280x720)
+     .ts/A11Y-LBL-02 DEF-12 register tiene campos SIN etiqueta asociada (labels sin f               
+     or  inputs sin id) -- after each hook.png                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/teclado-etiquetas.cy     (1280x720)
+     .ts/A11Y-LBL-03 DEF-19 en catalogo los selects de calificación y orden no tienen               
+      etiqueta -- after each hook.png                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/accesibilidad/teclado-etiquetas.cy     (1280x720)
+     .ts/A11Y-LBL-04 checkout los campos de contacto y envío están etiquetados -- aft               
+     er each hook.png                                                                               
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  api/carrito-pedidos.api.cy.ts                                                  (3 of 24)
+
+
+  API · Carrito y pedidos (ESC13-ESC16, ESC28, ESC29, ESC34)
+    ✓ API-CAR-01 [ESC13] GET /cart sin token → carrito invitado vacío; POST /cart/items sin token → 401
+    ✓ API-CAR-02 [ESC13] POST /cart/items → 201 y el carrito refleja ítem, subtotal, envío y total
+    ✓ API-CAR-03 [ESC13] validaciones: productId inválido y cantidades 0 / negativas → 400
+    ✓ API-CAR-04 [ESC14/15] PUT cambia la cantidad (0 → 400) y DELETE elimina el ítem
+    ✓ API-CAR-05 [ESC16] envío gratis cuando el subtotal alcanza $500.000 (regla de negocio)
+    ✓ API-CAR-06 [ESC16] DEF-03: un carrito vacío de un usuario autenticado cobra envío ($25.000)
+    ✓ API-CAR-07 [ESC13] DEF-09: los ítems de GET /cart vienen con categoría 'Sin Categoría'
+    ✓ API-PED-01 [ESC28] POST /orders con carrito vacío → 400 'El carrito está vacío'
+    ✓ API-PED-02 [ESC28/29] POST /orders → 201 ORD-YYYY-NNN, PENDIENTE, totales correctos y aparece en GET /orders
+    ✓ API-PED-03 [ESC29/ESC36] DEF-10: GET /orders?admin=true con un CUSTOMER devuelve pedidos de OTROS clientes
+    ✓ API-PED-05 [ESC29/ESC36] DEF-10: GET /orders/:numero de un pedido AJENO responde 200 (IDOR)
+    ✓ API-PED-04 [ESC06/ESC34] PUT /orders/:id/status: CUSTOMER → 403; ADMIN → 200 (pedido propio de la prueba)
+
+
+  12 passing (3s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_002.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        12                                                                               │
+  │ Passing:      12                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     api/carrito-pedidos.api.cy.ts                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  api/catalogo.api.cy.ts                                                         (4 of 24)
+
+
+  API · Catálogo (ESC08-ESC12)
+    ✓ API-CAT-01 [ESC08] GET /products → 200 { success, data[] } con el contrato que usa ProductCard
+    ✓ API-CAT-02 [ESC11] GET /products?category=pinturas → solo productos de esa categoría
+    ✓ API-CAT-03 [ESC09] OBS-02: GET /products ignora ?search y ?limit (el filtrado lo hace el cliente)
+    ✓ API-CAT-04 [ESC10] GET /products/:id → 200 con el producto; id inexistente → 404
+    ✓ API-CAT-05 [ESC11] GET /categories → 200 con slug, nombre e ícono únicos
+    ✓ API-CAT-06 [ESC12] GET /products/storefront → recommended, offers y bestSellers (las ofertas tienen descuento)
+    ✓ API-CAT-07 [ESC10] GET /products/:id/reviews → 200 con reseñas de 1 a 5 estrellas
+
+
+  7 passing (3s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_003.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        7                                                                                │
+  │ Passing:      7                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     api/catalogo.api.cy.ts                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  api/errores-integridad.api.cy.ts                                               (5 of 24)
+
+
+  API · Errores, credenciales e integridad (ESC35, ESC37, ESC41)
+    ✓ API-ERR-01 [ESC41] todos los errores que consume el frontend usan { success:false, error:string } y el código correcto
+    ✓ API-ERR-02 [ESC41] un JSON mal formado responde 400 con el mismo formato de error
+    ✓ API-SEG-01 [ESC35] la contraseña no viaja en login/registro/me y el token expira (exp en el JWT)
+    ✓ API-INT-01 [ESC37/ESC28] crear el pedido descuenta el inventario exactamente una vez
+
+
+  4 passing (856ms)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_004.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        4                                                                                │
+  │ Passing:      4                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     api/errores-integridad.api.cy.ts                                                 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  api/proyectos-admin.api.cy.ts                                                  (6 of 24)
+
+
+  API · Proyectos (ESC17, ESC19)
+    ✓ API-PRY-01 [ESC17] POST /projects sin token → 401
+    ✓ API-PRY-02 [ESC17/ESC18] POST /projects válido → 201 EN_PROGRESO con materiales y costo estimado
+    ✓ API-PRY-03 [ESC17] validaciones: nombre vacío y longitud negativa → 400
+    ✓ API-PRY-04 [ESC19/ESC36] GET /projects lista solo los propios; otro usuario no puede modificar ni borrar
+    ✓ API-PRY-06 [ESC19/ESC36] DEF-11: GET /projects/:id de OTRO usuario responde 200 con sus datos (IDOR)
+    ✓ API-PRY-05 [ESC19] DELETE /projects/:id elimina el proyecto propio
+
+  API · Administración (ESC31-ESC34)
+    ✓ API-ADM-01 [ESC06/ESC31/ESC33] GET /admin/metrics: sin token 401, CUSTOMER 403, ADMIN 200
+    ✓ API-ADM-01 [ESC06/ESC31/ESC33] GET /admin/inventory: sin token 401, CUSTOMER 403, ADMIN 200
+    ✓ API-ADM-02 [ESC33] /admin/inventory: estadísticas coherentes con la lista de productos
+    ✓ API-ADM-03 [ESC32] POST /products: CUSTOMER 403; ADMIN con datos incompletos 400; ADMIN válido 201 y DELETE 200
+
+
+  10 passing (3s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_005.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      10                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     api/proyectos-admin.api.cy.ts                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  api/usuarios.api.cy.ts                                                         (7 of 24)
+
+
+  API · /users (ESC01, ESC02, ESC04, ESC05, ESC07)
+    ✓ API-USR-01 [ESC02] POST /users/login válido → 200 con token JWT y usuario sin contraseña
+    ✓ API-USR-02 [ESC02] login con clave errada y con correo inexistente → 401 con el mismo mensaje genérico
+    ✓ API-USR-03 [ESC01] POST /users/register válido → 201 con token y rol CUSTOMER
+    ✓ API-USR-04 [ESC01] registro duplicado → 400 'El correo electrónico ya está registrado.'
+    ✓ API-USR-05 [ESC01] registro con clave de 7 caracteres → 400 de validación
+    ✓ API-USR-05 [ESC01] registro con correo mal formado → 400 de validación
+    ✓ API-USR-05 [ESC01] registro con sin nombre → 400 de validación
+    ✓ API-USR-06 [ESC07] GET /users/me sin token → 401 'Token no provisto.'; con token basura → 401
+    ✓ API-USR-07 [ESC04] GET /users/me con token → 200 con datos y contadores
+    ✓ API-USR-08 [ESC05] PUT /users/me actualiza los campos enviados
+    ✓ API-USR-09 [ESC05] DEF-07: la respuesta de PUT /users/me expone el hash de la contraseña
+    ✓ API-USR-10 [ESC05] DEF-08: PUT /users/me acepta firstName vacío (sin validación en el backend)
+
+
+  12 passing (1s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_006.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        12                                                                               │
+  │ Passing:      12                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     1 second                                                                         │
+  │ Spec Ran:     api/usuarios.api.cy.ts                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  flujos/admin.cy.ts                                                             (8 of 24)
+
+
+  Flujos E2E · Administración ↔ clientes
+    ✓ FLU-13 [ESC06→ESC32→ESC09→ESC10] el admin publica, reprecia y retira un producto y el cliente ve cada cambio en el catálogo (11725ms)
+    ✓ FLU-14 [ESC28→ESC34→ESC29] un pedido recorre todos sus estados y el cliente sigue cada avance desde su cuenta (8109ms)
+    ✓ FLU-15 [ESC28→ESC33→ESC25→ESC26] DEF-30: el stock se agota, el admin lo ve en alertas, otro cliente compra en envío diferido y el stock negativo se muestra como 'Stock Bajo' (9753ms)
+    ✓ FLU-16 [ESC28→ESC34→ESC29] DEF-28: el admin cancela un pedido, el cliente lo ve cancelado y el stock no se devuelve
+    ✓ FLU-21 [ESC31→ESC28→ESC34] el dashboard del admin suma el pedido nuevo como activo y, al entregarlo, como venta del mes (6163ms)
+
+
+  5 passing (43s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_007.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        5                                                                                │
+  │ Passing:      5                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  15                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     42 seconds                                                                       │
+  │ Spec Ran:     flujos/admin.cy.ts                                                               │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-13 1 produc     (1280x720)
+     to publicado.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-13 2 client     (1280x720)
+     e ve el nuevo precio.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-13 3 produc     (1280x720)
+     to retirado.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-13 [ESC06→E     (1280x720)
+     SC32→ESC09→ESC10] el admin publica, reprecia y retira un producto y el cliente v               
+     e cada cambio en el catálogo -- after each hook.png                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-14 1 pedido     (1280x720)
+      entregado.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-14 [ESC28→E     (1280x720)
+     SC34→ESC29] un pedido recorre todos sus estados y el cliente sigue cada avance d               
+     esde su cuenta -- after each hook.png                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-15 1 alerta     (1280x720)
+      sin stock.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-15 2 carrit     (1280x720)
+     o en backorder.png                                                                             
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-15 3 stock      (1280x720)
+     negativo como stock bajo.png                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-15 [ESC28→E     (1280x720)
+     SC33→ESC25→ESC26] DEF-30 el stock se agota, el admin lo ve en alertas, otro clie               
+     nte compra en envío diferido y el stock negativo se muestra como 'Stock Bajo' --               
+      after each hook.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-16 1 pedido     (1280x720)
+      cancelado.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-16 [ESC28→E     (1280x720)
+     SC34→ESC29] DEF-28 el admin cancela un pedido, el cliente lo ve cancelado y el s               
+     tock no se devuelve -- after each hook.png                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-21 1 dashbo     (1280x720)
+     ard antes.png                                                                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-21 2 dashbo     (1280x720)
+     ard con la venta.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-21 [ESC31→E     (1280x720)
+     SC28→ESC34] el dashboard del admin suma el pedido nuevo como activo y, al entreg               
+     arlo, como venta del mes -- after each hook.png                                                
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  flujos/cliente.cy.ts                                                           (9 of 24)
+
+
+  Flujos E2E · Cliente
+    ✓ FLU-03 [ESC12→ESC11→ESC09→ESC10→ESC13→ESC02] un visitante explora desde el inicio, intenta comprar sin sesión, inicia sesión y agrega al carrito (7430ms)
+    ✓ FLU-04 [ESC05→ESC09→ESC13→ESC27→ESC28→ESC29] el cliente completa su perfil y el checkout usa esos datos de envío (5642ms)
+    ✓ FLU-05 [ESC13→ESC16→ESC15→ESC14→ESC27→ESC28] el carrito con varios productos gana y pierde el envío gratis según el subtotal (5687ms)
+    ✓ FLU-06 [ESC40→ESC02→ESC09→ESC13→ESC27→ESC28] una compra completa en inglés y con tema oscuro mantiene las preferencias (8204ms)
+    ✓ FLU-07 [ESC39→ESC02→ESC09→ESC13→ESC27→ESC28] un cliente compra desde el celular con el menú móvil (9309ms)
+    ✓ FLU-08 [ESC28→ESC30→ESC03→ESC10] tras comprar, el cliente califica el producto y otro visitante ve la reseña (6778ms)
+
+
+  6 passing (46s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_008.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  19                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     45 seconds                                                                       │
+  │ Spec Ran:     flujos/cliente.cy.ts                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-03 1 fich     (1280x720)
+     a sin sesión.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-03 2 agre     (1280x720)
+     gado tras login.png                                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-03 [ESC12     (1280x720)
+     →ESC11→ESC09→ESC10→ESC13→ESC02] un visitante explora desde el inicio, intenta co               
+     mprar sin sesión, inicia sesión y agrega al carrito -- after each hook.png                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-04 1 perf     (1280x720)
+     il completo.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-04 2 chec     (1280x720)
+     kout precargado.png                                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-04 3 deta     (1280x720)
+     lle con dirección del perfil.png                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-04 [ESC05     (1280x720)
+     →ESC09→ESC13→ESC27→ESC28→ESC29] el cliente completa su perfil y el checkout usa                
+     esos datos de envío -- after each hook.png                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-05 1 enví     (1280x720)
+     o gratis.png                                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-05 2 enví     (1280x720)
+     o cobrado.png                                                                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-05 [ESC13     (1280x720)
+     →ESC16→ESC15→ESC14→ESC27→ESC28] el carrito con varios productos gana y pierde el               
+      envío gratis según el subtotal -- after each hook.png                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-06 1 cuen     (1280x720)
+     ta en inglés y oscuro.png                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-06 2 pedi     (1280x720)
+     do en inglés.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-06 [ESC40     (1280x720)
+     →ESC02→ESC09→ESC13→ESC27→ESC28] una compra completa en inglés y con tema oscuro                
+     mantiene las preferencias -- after each hook.png                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-07 1 fich      (375x667)
+     a en móvil.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-07 2 chec      (375x667)
+     kout en móvil.png                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-07 [ESC39      (375x667)
+     →ESC02→ESC09→ESC13→ESC27→ESC28] un cliente compra desde el celular con el menú m               
+     óvil -- after each hook.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-08 1 rese     (1280x720)
+     ña publicada.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-08 2 visi     (1280x720)
+     tante ve la reseña.png                                                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-08 [ESC28     (1280x720)
+     →ESC30→ESC03→ESC10] tras comprar, el cliente califica el producto y otro visitan               
+     te ve la reseña -- after each hook.png                                                         
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  flujos/errores.cy.ts                                                          (10 of 24)
+
+
+  Flujos E2E · Errores y recuperación
+    ✓ FLU-17 [ESC27→ESC28→ESC41] el pago falla por un error del servidor, el carrito se conserva y el reintento crea el pedido (6057ms)
+    ✓ FLU-18 [ESC07→ESC02→ESC13→ESC28] la sesión vence con productos en el carrito; tras volver a entrar el carrito sigue ahí y la compra termina (9763ms)
+    ✓ FLU-19 [ESC01→ESC17→ESC04] el registro falla tres veces por datos inválidos, el usuario corrige y crea su primer proyecto (19381ms)
+    ✓ FLU-20 [ESC08→ESC41→ESC09→ESC13] DEF-29: con el catálogo caído la app muestra un catálogo vacío sin aviso; al recargar se recupera y el cliente compra
+
+
+  4 passing (42s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_009.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        4                                                                                │
+  │ Passing:      4                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  10                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     41 seconds                                                                       │
+  │ Spec Ran:     flujos/errores.cy.ts                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-17 1 pago     (1280x720)
+      fallido.png                                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-17 [ESC27     (1280x720)
+     →ESC28→ESC41] el pago falla por un error del servidor, el carrito se conserva y                
+     el reintento crea el pedido -- after each hook.png                                             
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-18 1 sesi     (1280x720)
+     ón vencida.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-18 2 comp     (1280x720)
+     ra tras volver a entrar.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-18 [ESC07     (1280x720)
+     →ESC02→ESC13→ESC28] la sesión vence con productos en el carrito; tras volver a e               
+     ntrar el carrito sigue ahí y la compra termina -- after each hook.png                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-19 1 corr     (1280x720)
+     eo duplicado.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-19 2 cuen     (1280x720)
+     ta con su primer proyecto.png                                                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-19 [ESC01     (1280x720)
+     →ESC17→ESC04] el registro falla tres veces por datos inválidos, el usuario corri               
+     ge y crea su primer proyecto -- after each hook.png                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-20 1 catá     (1280x720)
+     logo caído.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-20 [ESC08     (1280x720)
+     →ESC41→ESC09→ESC13] DEF-29 con el catálogo caído la app muestra un catálogo vací               
+     o sin aviso; al recargar se recupera y el cliente compra -- after each hook.png                
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  flujos/flujos-completos.cy.ts                                                 (11 of 24)
+
+
+  Flujos E2E completos
+    ✓ FLU-01 [ESC01→ESC09→ESC13→ESC14→ESC27→ESC28→ESC29→ESC03] un visitante se registra, compra y consulta su pedido (10170ms)
+    FLU-02 · Ciclo cliente ↔ administrador
+      ✓ FLU-02 [ESC33→ESC13→ESC28→ESC34→ESC29] el admin ve el stock, el cliente compra y el admin despacha el pedido (5460ms)
+
+
+  2 passing (16s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_010.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      2                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  10                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     16 seconds                                                                       │
+  │ Spec Ran:     flujos/flujos-completos.cy.ts                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/flujos-completos.cy.ts/FLU-     (1280x720)
+     01 1 registro.png                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/flujos-completos.cy.ts/FLU-     (1280x720)
+     01 2 detalle.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/flujos-completos.cy.ts/FLU-     (1280x720)
+     01 3 carrito.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/flujos-completos.cy.ts/FLU-     (1280x720)
+     01 4 checkout.png                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/flujos-completos.cy.ts/FLU-     (1280x720)
+     01 5 historial.png                                                                             
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/flujos-completos.cy.ts/FLU-     (1280x720)
+     01 [ESC01→ESC09→ESC13→ESC14→ESC27→ESC28→ESC29→ESC03] un visitante se registra, c               
+     ompra y consulta su pedido -- after each hook.png                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/flujos-completos.cy.ts/FLU-     (1280x720)
+     02 1 inventario admin.png                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/flujos-completos.cy.ts/FLU-     (1280x720)
+     02 2 pedido enviado.png                                                                        
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/flujos-completos.cy.ts/FLU-     (1280x720)
+     02 3 cliente ve enviado.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/flujos-completos.cy.ts/FLU-     (1280x720)
+     02 [ESC33→ESC13→ESC28→ESC34→ESC29] el admin ve el stock, el cliente compra y el                
+     admin despacha el pedido -- after each hook.png                                                
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  flujos/proyectos.cy.ts                                                        (12 of 24)
+
+
+  Flujos E2E · Proyectos
+    ✓ FLU-09 [ESC17→ESC18→ESC24→ESC27→ESC28→ESC23→ESC19] el cliente planifica un piso, compra todos sus materiales y cierra el proyecto (8110ms)
+    ✓ FLU-10 [ESC17→ESC20→ESC19→ESC23] ciclo de vida: crea paredes personalizadas, las pausa, las edita y las elimina (11122ms)
+    ✓ FLU-11 [ESC17→ESC10→ESC22→ESC24→ESC13] desde la ficha de un producto lo asigna a su proyecto y lo compra desde el proyecto
+    ✓ FLU-12 [ESC10→ESC22→ESC02→ESC17] DEF-27: un visitante usa 'Crear Primer Proyecto' desde la ficha y el asistente no preselecciona ese producto (9331ms)
+
+
+  4 passing (35s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_011.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        4                                                                                │
+  │ Passing:      4                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  11                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     35 seconds                                                                       │
+  │ Spec Ran:     flujos/proyectos.cy.ts                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-09 1 pr     (1280x720)
+     oyecto calculado.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-09 2 pr     (1280x720)
+     oyecto completado.png                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-09 [ESC     (1280x720)
+     17→ESC18→ESC24→ESC27→ESC28→ESC23→ESC19] el cliente planifica un piso, compra tod               
+     os sus materiales y cierra el proyecto -- after each hook.png                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-10 1 pa     (1280x720)
+     usado.png                                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-10 2 ed     (1280x720)
+     itado.png                                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-10 [ESC     (1280x720)
+     17→ESC20→ESC19→ESC23] ciclo de vida crea paredes personalizadas, las pausa, las                
+     edita y las elimina -- after each hook.png                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-11 1 as     (1280x720)
+     ignar a proyecto.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-11 2 ma     (1280x720)
+     terial en el carrito.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-11 [ESC     (1280x720)
+     17→ESC10→ESC22→ESC24→ESC13] desde la ficha de un producto lo asigna a su proyect               
+     o y lo compra desde el proyecto -- after each hook.png                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-12 1 as     (1280x720)
+     istente desde la ficha.png                                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-12 [ESC     (1280x720)
+     10→ESC22→ESC02→ESC17] DEF-27 un visitante usa 'Crear Primer Proyecto' desde la f               
+     icha y el asistente no preselecciona ese producto -- after each hook.png                       
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  interfaz/idioma-tema.cy.ts                                                    (13 of 24)
+
+
+  Interfaz · Idioma y tema (ESC40)
+    Tema claro / oscuro
+      ✓ INT-TEM-01 [ESC40] sin preferencia guardada, el tema sigue a prefers-color-scheme del sistema
+      ✓ INT-TEM-02 [ESC40] 'Alternar tema' pasa de claro a oscuro, lo guarda y persiste al recargar y navegar
+      ✓ INT-TEM-04 [ESC40] 'Alternar tema' pasa de oscuro a claro y también persiste
+      ✓ INT-TEM-03 [ESC40] el tema guardado se aplica al cargar y el fondo cambia de color
+    Idioma español / inglés
+      ✓ INT-IDI-01 [ESC40] cambiar a EN traduce la navegación y la página, y se guarda en localStorage
+      ✓ INT-IDI-02 [ESC40] el idioma inglés persiste al recargar y al navegar
+      ✓ INT-IDI-03 [ESC40] volver a ES restaura los textos en español
+      ✓ INT-IDI-04 [ESC40] DEF-15: en inglés el atributo <html lang> sigue en 'es'
+      ✓ INT-IDI-05 [ESC40] DEF-17: el error de contraseñas no coincidentes del registro no se traduce
+
+
+  9 passing (16s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_012.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        9                                                                                │
+  │ Passing:      9                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  12                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     15 seconds                                                                       │
+  │ Spec Ran:     interfaz/idioma-tema.cy.ts                                                       │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/INT-TEM     (1280x720)
+     -01 [ESC40] sin preferencia guardada, el tema sigue a prefers-color-scheme del s               
+     istema -- after each hook.png                                                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/tema-os     (1280x720)
+     curo.png                                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/INT-TEM     (1280x720)
+     -02 [ESC40] 'Alternar tema' pasa de claro a oscuro, lo guarda y persiste al reca               
+     rgar y navegar -- after each hook.png                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/tema-cl     (1280x720)
+     aro.png                                                                                        
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/INT-TEM     (1280x720)
+     -04 [ESC40] 'Alternar tema' pasa de oscuro a claro y también persiste -- after e               
+     ach hook.png                                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/INT-TEM     (1280x720)
+     -03 [ESC40] el tema guardado se aplica al cargar y el fondo cambia de color -- a               
+     fter each hook.png                                                                             
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/idioma-     (1280x720)
+     en-catalogo.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/INT-IDI     (1280x720)
+     -01 [ESC40] cambiar a EN traduce la navegación y la página, y se guarda en local               
+     Storage -- after each hook.png                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/INT-IDI     (1280x720)
+     -02 [ESC40] el idioma inglés persiste al recargar y al navegar -- after each hoo               
+     k.png                                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/INT-IDI     (1280x720)
+     -03 [ESC40] volver a ES restaura los textos en español -- after each hook.png                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/INT-IDI     (1280x720)
+     -04 [ESC40] DEF-15 en inglés el atributo html lang sigue en 'es' -- after each h               
+     ook.png                                                                                        
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/idioma-tema.cy.ts/INT-IDI     (1280x720)
+     -05 [ESC40] DEF-17 el error de contraseñas no coincidentes del registro no se tr               
+     aduce -- after each hook.png                                                                   
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  interfaz/responsive.cy.ts                                                     (14 of 24)
+
+
+  Interfaz · Responsive (ESC39) en Electron
+    ✓ INT-RSP-GRID [ESC39] la grilla del catálogo pasa de 1 a 2 y 4 columnas según el ancho
+    Viewport movil (375x667)
+      ✓ INT-RSP [ESC39/ESC44] / se adapta a movil sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /catalogo se adapta a movil sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /login se adapta a movil sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /register se adapta a movil sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /carrito se adapta a movil sin scroll horizontal
+      ✓ INT-RSP [ESC39] detalle de producto se adapta a movil
+    Viewport tablet (768x1024)
+      ✓ INT-RSP [ESC39/ESC44] / se adapta a tablet sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /catalogo se adapta a tablet sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /login se adapta a tablet sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /register se adapta a tablet sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /carrito se adapta a tablet sin scroll horizontal
+      ✓ INT-RSP [ESC39] detalle de producto se adapta a tablet
+    Viewport escritorio (1440x900)
+      ✓ INT-RSP [ESC39/ESC44] / se adapta a escritorio sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /catalogo se adapta a escritorio sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /login se adapta a escritorio sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /register se adapta a escritorio sin scroll horizontal
+      ✓ INT-RSP [ESC39/ESC44] /carrito se adapta a escritorio sin scroll horizontal
+      ✓ INT-RSP [ESC39] detalle de producto se adapta a escritorio
+
+  Interfaz · Navegación móvil (ESC39)
+    ✓ INT-MOV-01 [ESC39] en móvil se oculta la navegación de escritorio y aparece el botón Menú
+    ✓ INT-MOV-02 [ESC39] el menú móvil se abre, navega al catálogo y se cierra
+    ✓ INT-MOV-03 [ESC39] DEF-16: el botón Menú no expone aria-expanded ni aria-controls
+    ✓ INT-MOV-04 [ESC39] en escritorio el botón Menú no se muestra
+
+
+  23 passing (47s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_013.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        23                                                                               │
+  │ Passing:      23                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  42                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     46 seconds                                                                       │
+  │ Spec Ran:     interfaz/responsive.cy.ts                                                        │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP-     (1280x720)
+     GRID [ESC39] la grilla del catálogo pasa de 1 a 2 y 4 columnas según el ancho --               
+      after each hook.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (375x667)
+     /movil-inicio.png                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (375x667)
+     [ESC39ESC44]  se adapta a movil sin scroll horizontal -- after each hook.png                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (375x667)
+     /movil-catalogo.png                                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (375x667)
+     [ESC39ESC44] catalogo se adapta a movil sin scroll horizontal -- after each hook               
+     .png                                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (375x667)
+     /movil-login.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (375x667)
+     [ESC39ESC44] login se adapta a movil sin scroll horizontal -- after each hook.pn               
+     g                                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (375x667)
+     /movil-registro.png                                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (375x667)
+     [ESC39ESC44] register se adapta a movil sin scroll horizontal -- after each hook               
+     .png                                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (375x667)
+     /movil-carrito-sin-sesion.png                                                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (375x667)
+     [ESC39ESC44] carrito se adapta a movil sin scroll horizontal -- after each hook.               
+     png                                                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (375x667)
+     /movil-detalle-producto.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (375x667)
+     [ESC39] detalle de producto se adapta a movil -- after each hook.png                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (768x720)
+     /tablet-inicio.png                                                                             
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (768x720)
+     [ESC39ESC44]  se adapta a tablet sin scroll horizontal -- after each hook.png                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (768x720)
+     /tablet-catalogo.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (768x720)
+     [ESC39ESC44] catalogo se adapta a tablet sin scroll horizontal -- after each hoo               
+     k.png                                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (768x720)
+     /tablet-login.png                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (768x720)
+     [ESC39ESC44] login se adapta a tablet sin scroll horizontal -- after each hook.p               
+     ng                                                                                             
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (768x720)
+     /tablet-registro.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (768x720)
+     [ESC39ESC44] register se adapta a tablet sin scroll horizontal -- after each hoo               
+     k.png                                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (768x720)
+     /tablet-carrito-sin-sesion.png                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (768x720)
+     [ESC39ESC44] carrito se adapta a tablet sin scroll horizontal -- after each hook               
+     .png                                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron      (768x720)
+     /tablet-detalle-producto.png                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP       (768x720)
+     [ESC39] detalle de producto se adapta a tablet -- after each hook.png                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron     (1280x720)
+     /escritorio-inicio.png                                                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP      (1280x720)
+     [ESC39ESC44]  se adapta a escritorio sin scroll horizontal -- after each hook.pn               
+     g                                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron     (1280x720)
+     /escritorio-catalogo.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP      (1280x720)
+     [ESC39ESC44] catalogo se adapta a escritorio sin scroll horizontal -- after each               
+      hook.png                                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron     (1280x720)
+     /escritorio-login.png                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP      (1280x720)
+     [ESC39ESC44] login se adapta a escritorio sin scroll horizontal -- after each ho               
+     ok.png                                                                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron     (1280x720)
+     /escritorio-registro.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP      (1280x720)
+     [ESC39ESC44] register se adapta a escritorio sin scroll horizontal -- after each               
+      hook.png                                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron     (1280x720)
+     /escritorio-carrito-sin-sesion.png                                                             
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP      (1280x720)
+     [ESC39ESC44] carrito se adapta a escritorio sin scroll horizontal -- after each                
+     hook.png                                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/electron     (1280x720)
+     /escritorio-detalle-producto.png                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-RSP      (1280x720)
+     [ESC39] detalle de producto se adapta a escritorio -- after each hook.png                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-MOV-      (375x667)
+     01 [ESC39] en móvil se oculta la navegación de escritorio y aparece el botón Men               
+     ú -- after each hook.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/movil-me      (375x667)
+     nu-abierto.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-MOV-      (375x667)
+     02 [ESC39] el menú móvil se abre, navega al catálogo y se cierra -- after each h               
+     ook.png                                                                                        
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-MOV-      (375x667)
+     03 [ESC39] DEF-16 el botón Menú no expone aria-expanded ni aria-controls -- afte               
+     r each hook.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/interfaz/responsive.cy.ts/INT-MOV-     (1280x720)
+     04 [ESC39] en escritorio el botón Menú no se muestra -- after each hook.png                    
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  regresion/admin.cy.ts                                                         (15 of 24)
+
+
+  Regresión · Administración (ESC31-ESC34)
+    ✓ REG-ADM-01 [ESC31] el dashboard carga las métricas del backend
+    ✓ REG-ADM-02 [ESC32] el formulario de producto exige los campos obligatorios
+    ✓ REG-ADM-03 [ESC32] rechaza un precio en 0 con el mensaje de validación
+    ✓ REG-ADM-04 [ESC32] crea un producto propio y luego lo elimina (CRUD) (6314ms)
+    ✓ REG-ADM-05 [ESC33] el inventario muestra las estadísticas y la tabla de stock
+    ✓ REG-ADM-06 [ESC34] el administrador cambia el estado de un pedido propio de la prueba
+    ✓ REG-ADM-07 [ESC34] DEF-06: escribir en el buscador de pedidos rompe la página (orderNumber indefinido)
+    ✓ REG-ADM-08 [ESC32] edita el precio de un producto propio y el cambio persiste
+    ✓ REG-ADM-09 [ESC33] el filtro de alertas del inventario deja solo los productos con stock bajo
+    ✓ REG-ADM-10 [ESC34] el filtro por estado deja solo los pedidos con ese estado
+    ✓ REG-ADM-11 [ESC06] el menú de usuario del ADMIN muestra 'Panel Admin' y lleva al dashboard
+
+
+  11 passing (23s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_014.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        11                                                                               │
+  │ Passing:      11                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  11                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     22 seconds                                                                       │
+  │ Spec Ran:     regresion/admin.cy.ts                                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-01 [     (1280x720)
+     ESC31] el dashboard carga las métricas del backend -- after each hook.png                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-02 [     (1280x720)
+     ESC32] el formulario de producto exige los campos obligatorios -- after each hoo               
+     k.png                                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-03 [     (1280x720)
+     ESC32] rechaza un precio en 0 con el mensaje de validación -- after each hook.pn               
+     g                                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-04 [     (1280x720)
+     ESC32] crea un producto propio y luego lo elimina (CRUD) -- after each hook.png                
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-05 [     (1280x720)
+     ESC33] el inventario muestra las estadísticas y la tabla de stock -- after each                
+     hook.png                                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-06 [     (1280x720)
+     ESC34] el administrador cambia el estado de un pedido propio de la prueba -- aft               
+     er each hook.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-07 [     (1280x720)
+     ESC34] DEF-06 escribir en el buscador de pedidos rompe la página (orderNumber in               
+     definido) -- after each hook.png                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-08 [     (1280x720)
+     ESC32] edita el precio de un producto propio y el cambio persiste -- after each                
+     hook.png                                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-09 [     (1280x720)
+     ESC33] el filtro de alertas del inventario deja solo los productos con stock baj               
+     o -- after each hook.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-10 [     (1280x720)
+     ESC34] el filtro por estado deja solo los pedidos con ese estado -- after each h               
+     ook.png                                                                                        
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/admin.cy.ts/REG-ADM-11 [     (1280x720)
+     ESC06] el menú de usuario del ADMIN muestra 'Panel Admin' y lleva al dashboard -               
+     - after each hook.png                                                                          
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  regresion/autenticacion.cy.ts                                                 (16 of 24)
+
+
+  Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)
+    ESC01 · Registro de usuario
+      ✓ REG-AUT-01 [ESC01] registra un usuario con datos válidos y lo lleva a /cuenta
+      ✓ REG-AUT-02 [ESC01] rechaza un correo ya registrado y muestra el error del backend
+      ✓ REG-AUT-03 [ESC01] no envía la petición si las contraseñas no coinciden
+      ✓ REG-AUT-04 [ESC01] DEF-01: el frontend acepta claves de 6-7 caracteres que el backend rechaza (mín. 8)
+      ✓ REG-AUT-05 [ESC01] rechaza en el cliente una clave de menos de 6 caracteres
+    ESC02 · Inicio de sesión
+      ✓ REG-AUT-06 [ESC02] inicia sesión con credenciales válidas y guarda el token
+      ✓ REG-AUT-07 [ESC02] con clave incorrecta muestra un mensaje genérico y no crea sesión
+      ✓ REG-AUT-08 [ESC02] con un correo inexistente muestra el MISMO mensaje genérico (no revela cuentas)
+      ✓ REG-AUT-09 [ESC02] no envía el formulario con campos vacíos (validación nativa required)
+    ESC03 · Cierre de sesión
+      ✓ REG-AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra el token y redirige a /login
+    ESC07 · Rutas privadas y rol de administrador
+      ✓ REG-AUT-11 [ESC07] sin sesión, /cuenta redirige a /login
+      ✓ REG-AUT-11 [ESC07] sin sesión, /proyectos/nuevo redirige a /login
+      ✓ REG-AUT-11 [ESC07] sin sesión, /checkout redirige a /login
+      ✓ REG-AUT-12 [ESC07] sin sesión, /carrito muestra el aviso de inicio de sesión requerido
+      ✓ REG-AUT-13 [ESC07] sin sesión, /admin redirige a /login
+      ✓ REG-AUT-14 [ESC07] un CUSTOMER que entra a /admin es devuelto al inicio
+      ✓ REG-AUT-15 [ESC07] un token inválido se descarta (401) y la ruta privada termina en /login
+      ✓ REG-AUT-16 [ESC07] DEF-05: un fallo de red al validar la sesión (no un 401) también borra el token
+
+
+  18 passing (45s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_015.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        18                                                                               │
+  │ Passing:      18                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  18                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     44 seconds                                                                       │
+  │ Spec Ran:     regresion/autenticacion.cy.ts                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-01 [ESC01] registra un usuario con datos válidos y lo lleva a cuenta -- afte               
+     r each hook.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-02 [ESC01] rechaza un correo ya registrado y muestra el error del backend --               
+      after each hook.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-03 [ESC01] no envía la petición si las contraseñas no coinciden -- after eac               
+     h hook.png                                                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-04 [ESC01] DEF-01 el frontend acepta claves de 6-7 caracteres que el backend               
+      rechaza (mín. 8) -- after each hook.png                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-05 [ESC01] rechaza en el cliente una clave de menos de 6 caracteres -- after               
+      each hook.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-06 [ESC02] inicia sesión con credenciales válidas y guarda el token -- after               
+      each hook.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-07 [ESC02] con clave incorrecta muestra un mensaje genérico y no crea sesión               
+      -- after each hook.png                                                                        
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-08 [ESC02] con un correo inexistente muestra el MISMO mensaje genérico (no r               
+     evela cuentas) -- after each hook.png                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-09 [ESC02] no envía el formulario con campos vacíos (validación nativa requi               
+     red) -- after each hook.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra el token y redirige               
+      a login -- after each hook.png                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-11 [ESC07] sin sesión, cuenta redirige a login -- after each hook.png                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-11 [ESC07] sin sesión, proyectosnuevo redirige a login -- after each hook.pn               
+     g                                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-11 [ESC07] sin sesión, checkout redirige a login -- after each hook.png                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-12 [ESC07] sin sesión, carrito muestra el aviso de inicio de sesión requerid               
+     o -- after each hook.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-13 [ESC07] sin sesión, admin redirige a login -- after each hook.png                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-14 [ESC07] un CUSTOMER que entra a admin es devuelto al inicio -- after each               
+      hook.png                                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-15 [ESC07] un token inválido se descarta (401) y la ruta privada termina en                
+     login -- after each hook.png                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
+     AUT-16 [ESC07] DEF-05 un fallo de red al validar la sesión (no un 401) también b               
+     orra el token -- after each hook.png                                                           
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  regresion/carrito.cy.ts                                                       (17 of 24)
+
+
+  Regresión · Carrito (ESC13-ESC16)
+    ✓ REG-CAR-01 [ESC13] agrega un producto desde el detalle: toast de éxito y contador del navbar en 1
+    ✓ REG-CAR-02 [ESC13] el carrito muestra el producto agregado con su precio unitario
+    ✓ REG-CAR-03 [ESC14] los botones + y − modifican la cantidad y recalculan el subtotal
+    ✓ REG-CAR-04 [ESC14] el botón − no baja la cantidad de 1 (límite inferior)
+    ✓ REG-CAR-05 [ESC15] eliminar el único ítem deja el carrito vacío y el contador en 0
+    ✓ REG-CAR-06 [ESC16] por debajo de $500.000 cobra envío de $25.000 y total = subtotal + envío
+    ✓ REG-CAR-07 [ESC16] desde $500.000 el envío es gratis y el total es igual al subtotal
+    ✓ REG-CAR-08 [ESC13] sin sesión, agregar al carrito responde 401 y redirige a /login
+
+
+  8 passing (9s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_016.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        8                                                                                │
+  │ Passing:      8                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  8                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     9 seconds                                                                        │
+  │ Spec Ran:     regresion/carrito.cy.ts                                                          │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/carrito.cy.ts/REG-CAR-01     (1280x720)
+      [ESC13] agrega un producto desde el detalle toast de éxito y contador del navba               
+     r en 1 -- after each hook.png                                                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/carrito.cy.ts/REG-CAR-02     (1280x720)
+      [ESC13] el carrito muestra el producto agregado con su precio unitario -- after               
+      each hook.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/carrito.cy.ts/REG-CAR-03     (1280x720)
+      [ESC14] los botones + y − modifican la cantidad y recalculan el subtotal -- aft               
+     er each hook.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/carrito.cy.ts/REG-CAR-04     (1280x720)
+      [ESC14] el botón − no baja la cantidad de 1 (límite inferior) -- after each hoo               
+     k.png                                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/carrito.cy.ts/REG-CAR-05     (1280x720)
+      [ESC15] eliminar el único ítem deja el carrito vacío y el contador en 0 -- afte               
+     r each hook.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/carrito.cy.ts/REG-CAR-06     (1280x720)
+      [ESC16] por debajo de $500.000 cobra envío de $25.000 y total = subtotal + enví               
+     o -- after each hook.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/carrito.cy.ts/REG-CAR-07     (1280x720)
+      [ESC16] desde $500.000 el envío es gratis y el total es igual al subtotal -- af               
+     ter each hook.png                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/carrito.cy.ts/REG-CAR-08     (1280x720)
+      [ESC13] sin sesión, agregar al carrito responde 401 y redirige a login -- after               
+      each hook.png                                                                                 
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  regresion/catalogo.cy.ts                                                      (18 of 24)
+
+
+  Regresión · Catálogo (ESC08-ESC12)
+    ✓ REG-CAT-01 [ESC08] lista los productos del backend con el conteo correcto (máx. 25 por página)
+    ✓ REG-CAT-02 [ESC08] la paginación avanza a la página 2 y muestra el rango correcto
+    ✓ REG-CAT-03 [ESC09] la búsqueda por nombre encuentra el producto y actualiza la URL
+    ✓ REG-CAT-04 [ESC09] una búsqueda sin coincidencias muestra el estado vacío y permite volver al catálogo
+    ✓ REG-CAT-05 [ESC09] el filtro de calificación 4.5+ muestra solo los productos que lo cumplen
+    ✓ REG-CAT-06 [ESC09] ordenar por precio ascendente deja los precios en orden no decreciente
+    ✓ REG-CAT-07 [ESC09] ordenar por precio descendente pone primero el más caro
+    ✓ REG-CAT-08 [ESC11] filtrar por categoría consulta al backend con ?category y solo muestra esa categoría
+    ✓ REG-CAT-09 [ESC11] la URL /catalogo?category=herramientas llega filtrada (enlace del footer)
+    ✓ REG-CAT-10 [ESC10] el detalle muestra nombre, precio, descripción y stock del producto
+    ✓ REG-CAT-11 [ESC10] navega del catálogo al detalle al hacer clic en una tarjeta
+    ✓ REG-CAT-12 [ESC10] un id inexistente muestra el mensaje de producto no encontrado
+    ✓ REG-CAT-13 [ESC10] DEF-02: el breadcrumb de categoría usa ?cat= y el catálogo lo ignora (muestra todo)
+    ✓ REG-CAT-14 [ESC12] la vitrina del inicio carga recomendados, ofertas y más vendidos
+
+
+  14 passing (27s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_017.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        14                                                                               │
+  │ Passing:      14                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  14                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     27 seconds                                                                       │
+  │ Spec Ran:     regresion/catalogo.cy.ts                                                         │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-0     (1280x720)
+     1 [ESC08] lista los productos del backend con el conteo correcto (máx. 25 por pá               
+     gina) -- after each hook.png                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-0     (1280x720)
+     2 [ESC08] la paginación avanza a la página 2 y muestra el rango correcto -- afte               
+     r each hook.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-0     (1280x720)
+     3 [ESC09] la búsqueda por nombre encuentra el producto y actualiza la URL -- aft               
+     er each hook.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-0     (1280x720)
+     4 [ESC09] una búsqueda sin coincidencias muestra el estado vacío y permite volve               
+     r al catálogo -- after each hook.png                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-0     (1280x720)
+     5 [ESC09] el filtro de calificación 4.5+ muestra solo los productos que lo cumpl               
+     en -- after each hook.png                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-0     (1280x720)
+     6 [ESC09] ordenar por precio ascendente deja los precios en orden no decreciente               
+      -- after each hook.png                                                                        
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-0     (1280x720)
+     7 [ESC09] ordenar por precio descendente pone primero el más caro -- after each                
+     hook.png                                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-0     (1280x720)
+     8 [ESC11] filtrar por categoría consulta al backend con category y solo muestra                
+     esa categoría -- after each hook.png                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-0     (1280x720)
+     9 [ESC11] la URL catalogocategory=herramientas llega filtrada (enlace del footer               
+     ) -- after each hook.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-1     (1280x720)
+     0 [ESC10] el detalle muestra nombre, precio, descripción y stock del producto --               
+      after each hook.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-1     (1280x720)
+     1 [ESC10] navega del catálogo al detalle al hacer clic en una tarjeta -- after e               
+     ach hook.png                                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-1     (1280x720)
+     2 [ESC10] un id inexistente muestra el mensaje de producto no encontrado -- afte               
+     r each hook.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-1     (1280x720)
+     3 [ESC10] DEF-02 el breadcrumb de categoría usa cat= y el catálogo lo ignora (mu               
+     estra todo) -- after each hook.png                                                             
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/catalogo.cy.ts/REG-CAT-1     (1280x720)
+     4 [ESC12] la vitrina del inicio carga recomendados, ofertas y más vendidos -- af               
+     ter each hook.png                                                                              
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  regresion/checkout-pedidos.cy.ts                                              (19 of 24)
+
+
+  Regresión · Checkout y pedidos (ESC27-ESC29)
+    ✓ REG-CHK-01 [ESC27] precarga los datos del usuario y resume el carrito con su total
+    ✓ REG-CHK-02 [ESC27] con campos obligatorios vacíos el navegador bloquea el envío (required)
+    ✓ REG-CHK-03 [ESC27] si se omite la validación nativa, la app advierte con un toast y no crea el pedido
+    ✓ REG-CHK-04 [ESC28] con datos válidos crea el pedido ORD-YYYY-NNN, vacía el carrito y confirma
+    ✓ REG-CHK-05 [ESC29] el pedido creado aparece en el historial de /cuenta y su detalle se puede abrir (6249ms)
+    ✓ REG-CHK-06 [ESC28] con el carrito vacío el backend rechaza el pedido y la app muestra el error
+
+
+  6 passing (19s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_018.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  6                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     18 seconds                                                                       │
+  │ Spec Ran:     regresion/checkout-pedidos.cy.ts                                                 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/checkout-pedidos.cy.ts/R     (1280x720)
+     EG-CHK-01 [ESC27] precarga los datos del usuario y resume el carrito con su tota               
+     l -- after each hook.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/checkout-pedidos.cy.ts/R     (1280x720)
+     EG-CHK-02 [ESC27] con campos obligatorios vacíos el navegador bloquea el envío (               
+     required) -- after each hook.png                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/checkout-pedidos.cy.ts/R     (1280x720)
+     EG-CHK-03 [ESC27] si se omite la validación nativa, la app advierte con un toast               
+      y no crea el pedido -- after each hook.png                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/checkout-pedidos.cy.ts/R     (1280x720)
+     EG-CHK-04 [ESC28] con datos válidos crea el pedido ORD-YYYY-NNN, vacía el carrit               
+     o y confirma -- after each hook.png                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/checkout-pedidos.cy.ts/R     (1280x720)
+     EG-CHK-05 [ESC29] el pedido creado aparece en el historial de cuenta y su detall               
+     e se puede abrir -- after each hook.png                                                        
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/checkout-pedidos.cy.ts/R     (1280x720)
+     EG-CHK-06 [ESC28] con el carrito vacío el backend rechaza el pedido y la app mue               
+     stra el error -- after each hook.png                                                           
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  regresion/perfil.cy.ts                                                        (20 of 24)
+
+
+  Regresión · Perfil (ESC04, ESC05)
+    ✓ REG-PER-01 [ESC04] /cuenta muestra nombre, correo, ubicación sin especificar y contadores en 0
+    ✓ REG-PER-02 [ESC05] edita teléfono, ciudad y departamento; persiste y se refleja en la tarjeta
+    ✓ REG-PER-03 [ESC05] con nombre vacío muestra el error de campos requeridos y no guarda
+    ✓ REG-PER-04 [ESC05] cancelar la edición cierra el modal sin enviar cambios
+    ✓ REG-PER-05 [ESC03] el botón Cerrar Sesión de la cuenta termina la sesión
+
+
+  5 passing (10s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_019.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        5                                                                                │
+  │ Passing:      5                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  5                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     9 seconds                                                                        │
+  │ Spec Ran:     regresion/perfil.cy.ts                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/perfil.cy.ts/REG-PER-01      (1280x720)
+     [ESC04] cuenta muestra nombre, correo, ubicación sin especificar y contadores en               
+      0 -- after each hook.png                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/perfil.cy.ts/REG-PER-02      (1280x720)
+     [ESC05] edita teléfono, ciudad y departamento; persiste y se refleja en la tarje               
+     ta -- after each hook.png                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/perfil.cy.ts/REG-PER-03      (1280x720)
+     [ESC05] con nombre vacío muestra el error de campos requeridos y no guarda -- af               
+     ter each hook.png                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/perfil.cy.ts/REG-PER-04      (1280x720)
+     [ESC05] cancelar la edición cierra el modal sin enviar cambios -- after each hoo               
+     k.png                                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/perfil.cy.ts/REG-PER-05      (1280x720)
+     [ESC03] el botón Cerrar Sesión de la cuenta termina la sesión -- after each hook               
+     .png                                                                                           
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  regresion/proyectos.cy.ts                                                     (21 of 24)
+
+
+  Regresión · Proyectos (ESC17, ESC19, ESC24)
+    ✓ REG-PRY-01 [ESC17] sin nombre muestra la advertencia del campo obligatorio y no envía nada
+    ✓ REG-PRY-02 [ESC17] con nombre pero sin largo advierte por el campo Largo
+    ✓ REG-PRY-03 [ESC17] crea un proyecto de piso 4 x 3 m, calcula 12 m² y abre su detalle
+    ✓ REG-PRY-04 [ESC17] con dimensiones negativas el frontend no valida y el backend responde 400
+    ✓ REG-PRY-05 [ESC19] la lista de proyectos muestra el proyecto creado y el total en las estadísticas
+    ✓ REG-PRY-06 [ESC24] el botón Comprar de un material vinculado lo agrega al carrito
+    ✓ REG-PRY-07 [ESC17] un proyecto de paredes exige la altura
+    ✓ REG-PRY-08 [ESC20] personaliza el cálculo: paredes 4x3x2.5 m, 1 puerta, 1 ventana y patrón diagonal (15%) (6141ms)
+    ✓ REG-PRY-09 [ESC21] excluir insumos opcionales (crucetas y herramientas) los quita del cálculo
+    ✓ REG-PRY-10 [ESC22] 'Usar en Proyecto' desde la ficha vincula el producto a un proyecto existente
+    ✓ REG-PRY-11 [ESC23] cambia el estado, edita el nombre y elimina un proyecto propio (7503ms)
+
+
+  11 passing (35s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_020.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        11                                                                               │
+  │ Passing:      11                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  11                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     35 seconds                                                                       │
+  │ Spec Ran:     regresion/proyectos.cy.ts                                                        │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     01 [ESC17] sin nombre muestra la advertencia del campo obligatorio y no envía na               
+     da -- after each hook.png                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     02 [ESC17] con nombre pero sin largo advierte por el campo Largo -- after each h               
+     ook.png                                                                                        
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     03 [ESC17] crea un proyecto de piso 4 x 3 m, calcula 12 m² y abre su detalle --                
+     after each hook.png                                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     04 [ESC17] con dimensiones negativas el frontend no valida y el backend responde               
+      400 -- after each hook.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     05 [ESC19] la lista de proyectos muestra el proyecto creado y el total en las es               
+     tadísticas -- after each hook.png                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     06 [ESC24] el botón Comprar de un material vinculado lo agrega al carrito -- aft               
+     er each hook.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     07 [ESC17] un proyecto de paredes exige la altura -- after each hook.png                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     08 [ESC20] personaliza el cálculo paredes 4x3x2.5 m, 1 puerta, 1 ventana y patró               
+     n diagonal (15%) -- after each hook.png                                                        
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     09 [ESC21] excluir insumos opcionales (crucetas y herramientas) los quita del cá               
+     lculo -- after each hook.png                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     10 [ESC22] 'Usar en Proyecto' desde la ficha vincula el producto a un proyecto e               
+     xistente -- after each hook.png                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/proyectos.cy.ts/REG-PRY-     (1280x720)
+     11 [ESC23] cambia el estado, edita el nombre y elimina un proyecto propio -- aft               
+     er each hook.png                                                                               
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  regresion/resenas-stock.cy.ts                                                 (22 of 24)
+
+
+  Regresión · Reseñas y stock (ESC25, ESC26, ESC30)
+    ✓ REG-RES-01 [ESC30] sin sesión, la sección de reseñas invita a iniciar sesión
+    ✓ REG-RES-02 [ESC30] calificar exige estrellas; con 4 estrellas publica la reseña y actualiza el promedio
+    ✓ REG-RES-03 [ESC30] DEF-20: los botones de estrellas no tienen nombre accesible
+    ✓ REG-STK-01 [ESC25/ESC28] la reserva descuenta el stock visible en el catálogo y el pedido lo consume
+    ✓ REG-STK-03 [ESC25] DEF-21: el carrito no muestra la cuenta regresiva de la reserva (la API no envía updatedAt)
+    ✓ REG-STK-02 [ESC26] pedir más unidades que el stock marca el ítem como envío diferido (backorder)
+
+
+  6 passing (7s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_021.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  6                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     6 seconds                                                                        │
+  │ Spec Ran:     regresion/resenas-stock.cy.ts                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/resenas-stock.cy.ts/REG-     (1280x720)
+     RES-01 [ESC30] sin sesión, la sección de reseñas invita a iniciar sesión -- afte               
+     r each hook.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/resenas-stock.cy.ts/REG-     (1280x720)
+     RES-02 [ESC30] calificar exige estrellas; con 4 estrellas publica la reseña y ac               
+     tualiza el promedio -- after each hook.png                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/resenas-stock.cy.ts/REG-     (1280x720)
+     RES-03 [ESC30] DEF-20 los botones de estrellas no tienen nombre accesible -- aft               
+     er each hook.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/resenas-stock.cy.ts/REG-     (1280x720)
+     STK-01 [ESC25ESC28] la reserva descuenta el stock visible en el catálogo y el pe               
+     dido lo consume -- after each hook.png                                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/resenas-stock.cy.ts/REG-     (1280x720)
+     STK-03 [ESC25] DEF-21 el carrito no muestra la cuenta regresiva de la reserva (l               
+     a API no envía updatedAt) -- after each hook.png                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/regresion/resenas-stock.cy.ts/REG-     (1280x720)
+     STK-02 [ESC26] pedir más unidades que el stock marca el ítem como envío diferido               
+      (backorder) -- after each hook.png                                                            
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  seguridad/seguridad-ui.cy.ts                                                  (23 of 24)
+
+
+  Seguridad · Interfaz (ESC07, ESC35, ESC36)
+    XSS almacenado y reflejado (ESC35)
+      ✓ SEG-UI-01 [ESC35] una reseña con HTML/JS se muestra como texto y no se ejecuta
+      ✓ SEG-UI-02 [ESC35] el nombre de un proyecto con HTML/JS se muestra como texto en el detalle
+      ✓ SEG-UI-03 [ESC35] un nombre de usuario con HTML/JS se muestra como texto en la barra y en /cuenta
+      ✓ SEG-UI-04 [ESC35] una búsqueda con HTML/JS en la URL se refleja como texto (XSS reflejado)
+    Sesión y navegación (ESC07, ESC35)
+      ✓ SEG-UI-05 [ESC35] ?redirect= a un dominio externo se ignora: tras el login se queda en la app
+      ✓ SEG-UI-06 [ESC35] el token no aparece en la URL, en el DOM ni en una cookie legible
+      ✓ SEG-UI-07 [ESC35] las contraseñas se escriben en campos enmascarados (type=password)
+      ✓ SEG-UI-08 [ESC07] tras cerrar sesión, volver atrás hasta /cuenta no muestra los datos de la cuenta
+      ✓ SEG-UI-09 [ESC07] un token falso con rol ADMIN (alg none) en localStorage no abre /admin
+    Cabeceras HTTP del frontend (ESC35)
+      ✓ DEF-SEG-FE-01 [ESC35] el frontend anuncia Next.js y no envía X-Frame-Options ni CSP (clickjacking)
+      ✓ DEF-SEG-FE-02 [ESC35] la sesión vive en localStorage (legible por cualquier script) y no en una cookie HttpOnly
+
+
+  11 passing (20s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_022.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        11                                                                               │
+  │ Passing:      11                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  11                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     19 seconds                                                                       │
+  │ Spec Ran:     seguridad/seguridad-ui.cy.ts                                                     │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
+     I-01 [ESC35] una reseña con HTMLJS se muestra como texto y no se ejecuta -- afte               
+     r each hook.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
+     I-02 [ESC35] el nombre de un proyecto con HTMLJS se muestra como texto en el det               
+     alle -- after each hook.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
+     I-03 [ESC35] un nombre de usuario con HTMLJS se muestra como texto en la barra y               
+      en cuenta -- after each hook.png                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
+     I-04 [ESC35] una búsqueda con HTMLJS en la URL se refleja como texto (XSS reflej               
+     ado) -- after each hook.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
+     I-05 [ESC35] redirect= a un dominio externo se ignora tras el login se queda en                
+     la app -- after each hook.png                                                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
+     I-06 [ESC35] el token no aparece en la URL, en el DOM ni en una cookie legible -               
+     - after each hook.png                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
+     I-07 [ESC35] las contraseñas se escriben en campos enmascarados (type=password)                
+     -- after each hook.png                                                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
+     I-08 [ESC07] tras cerrar sesión, volver atrás hasta cuenta no muestra los datos                
+     de la cuenta -- after each hook.png                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
+     I-09 [ESC07] un token falso con rol ADMIN (alg none) en localStorage no abre adm               
+     in -- after each hook.png                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/DEF-S     (1280x720)
+     EG-FE-01 [ESC35] el frontend anuncia Next.js y no envía X-Frame-Options ni CSP (               
+     clickjacking) -- after each hook.png                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/DEF-S     (1280x720)
+     EG-FE-02 [ESC35] la sesión vive en localStorage (legible por cualquier script) y               
+      no en una cookie HttpOnly -- after each hook.png                                              
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  seguridad/seguridad.api.cy.ts                                                 (24 of 24)
+
+
+  Seguridad · API (ESC06, ESC35, ESC36, ESC41)
+    Autenticación con JWT (ESC35)
+      ✓ SEG-API-01 [ESC35] un token con la firma alterada se rechaza con 401
+      ✓ SEG-API-02 [ESC35] un token con alg "none" que se declara ADMIN se rechaza con 401
+      ✓ SEG-API-03 [ESC35] un token vencido se rechaza con 401
+      ✓ SEG-API-04 [ESC35] un esquema distinto de Bearer (Basic, token pelado) no autentica
+      ✓ SEG-API-05 [ESC35] el JWT emitido no transporta la contraseña y expira en 7 días o menos
+    Autorización y asignación masiva (ESC06, ESC36)
+      ✓ SEG-API-06 [ESC06] un "role": "ADMIN" enviado en el registro se ignora (queda CUSTOMER)
+      ✓ SEG-API-07 [ESC06] PUT /users/:id con "role": "ADMIN" no escala privilegios
+      ✓ SEG-API-08 [ESC36] un usuario no puede editar el perfil de otro (403) y el perfil queda intacto
+      ✓ SEG-API-09 [ESC36] un usuario no puede cambiar ni borrar ítems del carrito de otro
+      ✓ SEG-API-10 [ESC06] crear, editar y borrar productos exige rol ADMIN (sin token 401, CUSTOMER 403)
+    Validación de entradas e inyección (ESC41)
+      ✓ SEG-API-11 [ESC41] operadores NoSQL y SQL en el login se rechazan por validación (400), sin sesión
+      ✓ SEG-API-12 [ESC41] cadenas de inyección en filtros e ids no provocan errores 500 ni fugas de datos
+      ✓ SEG-API-13 [ESC41] un cuerpo de más de 100 KB se corta con 413
+    Configuración HTTP y CORS (ESC35, ESC36)
+      ✓ SEG-API-14 [ESC36] CORS refleja solo el origen del frontend y nunca el comodín *
+      ✓ SEG-API-15 [ESC35] el backend no anuncia su tecnología (sin X-Powered-By)
+    Defectos abiertos (comportamiento observado)
+      ✓ DEF-SEG-01 [ESC35] un token de ADMIN forjado con el secreto por defecto es aceptado
+      ✓ DEF-SEG-03/04/05 [ESC36] sin token, ?userId=<ajeno> expone pedidos, proyectos y carrito de otro usuario
+      ✓ DEF-SEG-06 [ESC36] GET /orders/:numero sin token expone el pedido y la dirección del cliente
+      ✓ DEF-SEG-08 [ESC36] GET /users/:id entrega el teléfono de otro usuario
+      ✓ DEF-SEG-09 [ESC35] PUT /users/:id devuelve el hash bcrypt de la contraseña
+      ✓ DEF-SEG-10 [ESC35] faltan cabeceras de seguridad (X-Content-Type-Options, X-Frame-Options)
+      ✓ DEF-SEG-11 [ESC35] el login no limita intentos: 20 fallos seguidos, ninguno con 429
+
+
+  22 passing (4s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_023.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        22                                                                               │
+  │ Passing:      22                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     4 seconds                                                                        │
+  │ Spec Ran:     seguridad/seguridad.api.cy.ts                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Start generate report process
+Read and merge jsons from "/home/user/HomaraFrontend/cypress/reports/.jsons"
+Enhance report
+Create HTML report
+HTML report successfully created!
+/home/user/HomaraFrontend/cypress/reports/index.html
+
+================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  accesibilidad/axe-paginas.cy.ts          00:42       14       14        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  accesibilidad/teclado-etiquetas.cy.      00:24        8        8        -        -        - │
+  │    ts                                                                                          │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  api/carrito-pedidos.api.cy.ts            00:02       12       12        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  api/catalogo.api.cy.ts                   00:02        7        7        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  api/errores-integridad.api.cy.ts         862ms        4        4        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  api/proyectos-admin.api.cy.ts            00:02       10       10        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  api/usuarios.api.cy.ts                   00:01       12       12        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  flujos/admin.cy.ts                       00:42        5        5        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  flujos/cliente.cy.ts                     00:45        6        6        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  flujos/errores.cy.ts                     00:41        4        4        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  flujos/flujos-completos.cy.ts            00:16        2        2        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  flujos/proyectos.cy.ts                   00:35        4        4        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  interfaz/idioma-tema.cy.ts               00:15        9        9        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  interfaz/responsive.cy.ts                00:46       23       23        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  regresion/admin.cy.ts                    00:22       11       11        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  regresion/autenticacion.cy.ts            00:44       18       18        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  regresion/carrito.cy.ts                  00:09        8        8        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  regresion/catalogo.cy.ts                 00:27       14       14        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  regresion/checkout-pedidos.cy.ts         00:18        6        6        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  regresion/perfil.cy.ts                   00:09        5        5        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  regresion/proyectos.cy.ts                00:35       11       11        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  regresion/resenas-stock.cy.ts            00:06        6        6        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  seguridad/seguridad-ui.cy.ts             00:19       11       11        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  seguridad/seguridad.api.cy.ts            00:04       22       22        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        08:39      232      232        -        -        -  
+
