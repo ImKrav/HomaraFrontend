@@ -38,12 +38,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${plusJakartaSans.variable} font-sans h-full antialiased`} suppressHydrationWarning>
-      <head>
-        {/* Aplica el tema guardado antes de pintar: sin esto la página se veía clara y transicionaba
-            a oscura tras hidratar (parpadeo y contraste insuficiente durante la transición, DEF-22). */}
-        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
-      </head>
       <body className="min-h-full flex flex-col bg-bg-base text-text-primary transition-colors duration-200">
+        {/* Aplica el tema guardado antes de pintar el contenido: sin esto la página se veía clara y
+            transicionaba a oscura tras hidratar (parpadeo y contraste insuficiente, DEF-22). Va en
+            <body> y no en <head>: herramientas como Cypress inyectan scripts en <head> y desalinean la hidratación. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
         <AuthProvider>
           <ThemeProvider>
             <LanguageProvider>
