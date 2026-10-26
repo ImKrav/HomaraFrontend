@@ -5,6 +5,7 @@
 // cy.session restaura solo el token de la sesión que la prueba pida.
 import "./commands";
 import "cypress-axe";
+import "cypress-mochawesome-reporter/register";
 
 beforeEach(() => {
   // El backend responde con ETag: sin esto, una segunda carga puede volver como
@@ -14,4 +15,12 @@ beforeEach(() => {
     delete req.headers["if-none-match"];
     delete req.headers["if-modified-since"];
   });
+});
+
+// Evidencia: captura del estado final de cada prueba con interfaz. Las specs
+// *.api.cy.ts no abren página; su evidencia es la petición/respuesta (cy.api).
+afterEach(() => {
+  if (Cypress.env("evidencias") && !Cypress.spec.name.endsWith(".api.cy.ts")) {
+    cy.screenshot({ capture: "viewport" });
+  }
 });

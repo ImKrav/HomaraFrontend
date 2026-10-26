@@ -19,6 +19,8 @@ FROM node:22-alpine AS deps
 WORKDIR /app
 RUN apk add --no-cache libc6-compat
 COPY package*.json ./
+# Cypress es solo para pruebas E2E; no se descarga su binario dentro de la imagen.
+ENV CYPRESS_INSTALL_BINARY=0
 RUN npm ci
 
 # ── Stage 2: Build ──

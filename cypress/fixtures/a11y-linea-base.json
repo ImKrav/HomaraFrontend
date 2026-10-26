@@ -1,5 +1,5 @@
 {
-  "descripcion": "Línea base de violaciones axe de impacto CRITICAL aceptadas temporalmente (defectos ya documentados en docs/pruebas/INTERFAZ-ACCESIBILIDAD.md, DEF-19). Una violación crítica que no esté aquí hace fallar la suite.",
+  "descripcion": "Línea base de violaciones axe de impacto CRITICAL aceptadas temporalmente (defectos ya documentados en docs/pruebas/CYPRESS.md, DEF-19). Una violación crítica que no esté aquí hace fallar la suite.",
   "criticas": {
     "catalogo": ["select-name"],
     "admin-productos": ["select-name"]

@@ -56,7 +56,12 @@ describe("Regresión · Reseñas y stock (ESC25, ESC26, ESC30)", () => {
       expect(request.body).to.include({ rating: 4, comment: "Muy buena herramienta para la obra." });
       expect(response?.statusCode).to.be.oneOf([200, 201]);
     });
-    cy.contains("¡Reseña publicada con éxito!").should("be.visible");
+    // "¡Reseña publicada con éxito!" solo vive hasta que fetchReviews() recarga la
+    // lista (OBS-04): se verifica el estado final estable en su lugar.
+    cy.contains("✓ Producto Calificado").should("be.visible");
+    cy.contains("Ya has enviado tu valoración para este artículo técnico.").should("be.visible");
+    cy.get("#comment").should("not.exist");
+    cy.contains('"Muy buena herramienta para la obra."').should("be.visible");
     cy.api("GET", `/products/${producto.id}`).its("body.data").should("include", { rating: 4, reviews: 1 });
   });
 

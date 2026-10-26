@@ -74,6 +74,13 @@ Cypress.Commands.add("api", (metodo, ruta, opciones = {}) => {
     body: opciones.body as Cypress.RequestBody,
     headers: opciones.token ? { Authorization: `Bearer ${opciones.token}` } : {},
     failOnStatusCode: false,
+  }).then((res) => {
+    // Evidencia en el reporte HTML: método, ruta, código y cuerpo (recortado).
+    cy.addTestContext({
+      title: `${metodo} ${ruta} → ${res.status}`,
+      value: JSON.stringify(res.body).slice(0, 1500),
+    });
+    return cy.wrap(res, { log: false });
   });
 });
 

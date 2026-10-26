@@ -159,10 +159,16 @@ npm run test:coverage
 
 ## 🧪 Pruebas
 
-El frontend tiene dos niveles de pruebas automatizadas:
+El frontend tiene tres niveles de pruebas automatizadas:
 
 - **Vitest + Testing Library** (`tests/`): lógica y pantallas con backend simulado.
   `npm test`, `npm run test:regression`. Detalle en [`tests/README.md`](tests/README.md).
+- **Cypress** (`cypress/`): caja negra contra el stack desplegado (frontend `:3000`
+  + backend `:5000`): flujos E2E completos, regresión por funcionalidad, API,
+  seguridad, interfaz/responsive, accesibilidad (axe-core) y componentes aislados.
+  `npm run test:cypress` (todo) o por suite: `test:flujos`, `test:e2e`, `test:api`,
+  `test:seguridad`, `test:interfaz`, `test:a11y`, `test:component`. Detalle en
+  [`docs/pruebas/CYPRESS.md`](docs/pruebas/CYPRESS.md).
 - **Lighthouse** (`scripts/lighthouse.mjs`, `npm run test:lighthouse`): rendimiento,
   accesibilidad, buenas prácticas y SEO contra el stack desplegado (frontend `:3000`
   + backend `:5000`).

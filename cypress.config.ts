@@ -1,6 +1,7 @@
 import { defineConfig } from "cypress";
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import react from "@vitejs/plugin-react";
 
 // ============================================================
@@ -33,6 +34,12 @@ const tareas = {
     fs.writeFileSync(destino, JSON.stringify(previo, null, 2), "utf8");
     return null;
   },
+  /** Firma un JWT HS256 a mano (seguridad: token forjado o expirado). */
+  firmarJwt({ payload, secreto }: { payload: Record<string, unknown>; secreto: string }) {
+    const b64 = (o: unknown) => Buffer.from(JSON.stringify(o)).toString("base64url");
+    const cuerpo = `${b64({ alg: "HS256", typ: "JWT" })}.${b64(payload)}`;
+    return `${cuerpo}.${crypto.createHmac("sha256", secreto).update(cuerpo).digest("base64url")}`;
+  },
   /** Reinicia un archivo JSON de resultados al inicio de una suite. */
   reiniciarArchivo(archivo: string) {
     const destino = path.resolve(raiz, archivo);
@@ -55,12 +62,22 @@ export default defineConfig({
   retries: { runMode: 0, openMode: 0 },
   reporter: "cypress-multi-reporters",
   reporterOptions: {
-    reporterEnabled: "spec, mocha-junit-reporter",
+    // cypress-mochawesome-reporter ya imprime la salida estilo "spec" en consola.
+    reporterEnabled: "cypress-mochawesome-reporter, mocha-junit-reporter",
     mochaJunitReporterReporterOptions: {
       mochaFile: "cypress/results/junit-[hash].xml",
       testsuitesTitle: "Homara - Cypress",
       jenkinsMode: false,
       toConsole: false,
+    },
+    // Reporte HTML de evidencias (un solo archivo con las capturas embebidas).
+    cypressMochawesomeReporterReporterOptions: {
+      reportDir: "cypress/reports",
+      reportPageTitle: "Homara - Evidencias Cypress",
+      charts: true,
+      embeddedScreenshots: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
     },
   },
   env: {
@@ -72,6 +89,10 @@ export default defineConfig({
     clientePassword: "123456",
     // Archivo donde la suite de accesibilidad acumula las violaciones axe
     a11yResultados: "cypress/results/a11y-violaciones.json",
+    // Captura del estado final de cada prueba con interfaz (evidencia en el reporte HTML)
+    evidencias: true,
+    // Secreto JWT por defecto del backend (público en su .env.example); lo usa DEF-SEG-01
+    jwtSecretoPorDefecto: "homara_jwt_secret_key_2026_secure",
   },
   e2e: {
     baseUrl: "http://localhost:3000",
@@ -80,6 +101,8 @@ export default defineConfig({
     experimentalRunAllSpecs: true,
     setupNodeEvents(on) {
       on("task", tareas);
+      // eslint-disable-next-line @typescript-eslint/no-require-imports -- el plugin no publica tipos
+      require("cypress-mochawesome-reporter/plugin")(on);
       // Pantallas consistentes en Chrome/Edge headless
       on("before:browser:launch", (browser, opciones) => {
         if (browser.family === "chromium" && browser.name !== "electron") {

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="20.746" tests="11" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T03:36:24" tests="0" file="cypress/e2e/seguridad/seguridad-ui.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Seguridad · Interfaz (ESC07, ESC35, ESC36)" timestamp="2026-10-26T03:36:24" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="XSS almacenado y reflejado (ESC35)" timestamp="2026-10-26T03:36:24" tests="4" time="8.809" failures="0">
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) XSS almacenado y reflejado (ESC35) SEG-UI-01 [ESC35] una reseña con HTML/JS se muestra como texto y no se ejecuta" time="0.798" classname="SEG-UI-01 [ESC35] una reseña con HTML/JS se muestra como texto y no se ejecuta">
+    </testcase>
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) XSS almacenado y reflejado (ESC35) SEG-UI-02 [ESC35] el nombre de un proyecto con HTML/JS se muestra como texto en el detalle" time="3.103" classname="SEG-UI-02 [ESC35] el nombre de un proyecto con HTML/JS se muestra como texto en el detalle">
+    </testcase>
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) XSS almacenado y reflejado (ESC35) SEG-UI-03 [ESC35] un nombre de usuario con HTML/JS se muestra como texto en la barra y en /cuenta" time="3.084" classname="SEG-UI-03 [ESC35] un nombre de usuario con HTML/JS se muestra como texto en la barra y en /cuenta">
+    </testcase>
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) XSS almacenado y reflejado (ESC35) SEG-UI-04 [ESC35] una búsqueda con HTML/JS en la URL se refleja como texto (XSS reflejado)" time="0.138" classname="SEG-UI-04 [ESC35] una búsqueda con HTML/JS en la URL se refleja como texto (XSS reflejado)">
+    </testcase>
+  </testsuite>
+  <testsuite name="Sesión y navegación (ESC07, ESC35)" timestamp="2026-10-26T03:36:33" tests="5" time="10.708" failures="0">
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) Sesión y navegación (ESC07, ESC35) SEG-UI-05 [ESC35] ?redirect= a un dominio externo se ignora: tras el login se queda en la app" time="1.552" classname="SEG-UI-05 [ESC35] ?redirect= a un dominio externo se ignora: tras el login se queda en la app">
+    </testcase>
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) Sesión y navegación (ESC07, ESC35) SEG-UI-06 [ESC35] el token no aparece en la URL, en el DOM ni en una cookie legible" time="3.101" classname="SEG-UI-06 [ESC35] el token no aparece en la URL, en el DOM ni en una cookie legible">
+    </testcase>
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) Sesión y navegación (ESC07, ESC35) SEG-UI-07 [ESC35] las contraseñas se escriben en campos enmascarados (type=password)" time="0.290" classname="SEG-UI-07 [ESC35] las contraseñas se escriben en campos enmascarados (type=password)">
+    </testcase>
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) Sesión y navegación (ESC07, ESC35) SEG-UI-08 [ESC07] tras cerrar sesión, volver atrás hasta /cuenta no muestra los datos de la cuenta" time="3.735" classname="SEG-UI-08 [ESC07] tras cerrar sesión, volver atrás hasta /cuenta no muestra los datos de la cuenta">
+    </testcase>
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) Sesión y navegación (ESC07, ESC35) SEG-UI-09 [ESC07] un token falso con rol ADMIN (alg none) en localStorage no abre /admin" time="0.289" classname="SEG-UI-09 [ESC07] un token falso con rol ADMIN (alg none) en localStorage no abre /admin">
+    </testcase>
+  </testsuite>
+  <testsuite name="Cabeceras HTTP del frontend (ESC35)" timestamp="2026-10-26T03:36:43" tests="2" time="1.227" failures="0">
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) Cabeceras HTTP del frontend (ESC35) DEF-SEG-FE-01 [ESC35] el frontend anuncia Next.js y no envía X-Frame-Options ni CSP (clickjacking)" time="0.037" classname="DEF-SEG-FE-01 [ESC35] el frontend anuncia Next.js y no envía X-Frame-Options ni CSP (clickjacking)">
+    </testcase>
+    <testcase name="Seguridad · Interfaz (ESC07, ESC35, ESC36) Cabeceras HTTP del frontend (ESC35) DEF-SEG-FE-02 [ESC35] la sesión vive en localStorage (legible por cualquier script) y no en una cookie HttpOnly" time="0.480" classname="DEF-SEG-FE-02 [ESC35] la sesión vive en localStorage (legible por cualquier script) y no en una cookie HttpOnly">
+    </testcase>
+  </testsuite>
+</testsuites>
