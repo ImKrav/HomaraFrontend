@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { Interaction } from '@serenity-js/core';
 import { Page } from '@serenity-js/web';
 
-const CARPETA_CAPTURAS = join(__dirname, '..', '..', 'evidencias', 'capturas');
+export const CARPETA_CAPTURAS =join(__dirname, '..', '..', 'evidencias', 'capturas');
 
 /**
  * Interacción de bajo nivel: guarda una captura de pantalla del navegador del
