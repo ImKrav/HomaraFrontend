@@ -2,10 +2,10 @@
   "name": "homara-e2e-screenplay",
   "version": "1.0.0",
   "private": true,
-  "description": "Pruebas E2E de Homara con el patrón Screenplay (Serenity/JS + Playwright Test)",
+  "description": "Pruebas E2E de Homara con Gherkin y el patrón Screenplay (Serenity/JS + playwright-bdd + Playwright Test)",
   "scripts": {
-    "test": "playwright test",
-    "test:headed": "playwright test --headed",
+    "test": "bddgen && playwright test",
+    "test:headed": "bddgen && playwright test --headed",
     "reporte": "playwright show-report evidencias/reporte-html",
     "lint:tipos": "tsc --noEmit"
   },
@@ -19,6 +19,7 @@
     "@serenity-js/rest": "3.48.0",
     "@serenity-js/web": "3.48.0",
     "@types/node": "^20",
+    "playwright-bdd": "^9.2.1",
     "typescript": "^5"
   }
 }

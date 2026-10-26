@@ -11,8 +11,7 @@ las pruebas unitarias/de interfaz con Vitest que ya existen en `tests/` (ver
 | [RENDIMIENTO-FRONTEND.md](RENDIMIENTO-FRONTEND.md) | Auditoría Lighthouse (Performance, Accessibility, Best Practices, SEO) de `/`, `/catalogo` y `/login` en escritorio y móvil. |
 | [evidencias/](evidencias/) | Consola de cada ejecución, reporte HTML y JUnit de Cypress (`evidencias/cypress/`) y reportes HTML/JSON de Lighthouse. |
 | [evidencias/vitest/](evidencias/vitest/) | Salida de `npm test` (152 casos: lógica, componentes y páginas con Testing Library, regresión `REG-*`) y de `npm run test:regression:demo` (mutación: la suite de regresión detecta 20/20 errores reintroducidos). Detalle de los casos en [`tests/README.md`](../../tests/README.md). |
-| [../../e2e-screenplay/README.md](../../e2e-screenplay/README.md) | E2E con el **patrón Screenplay** (Serenity/JS + Playwright): actores, habilidades, tareas, interacciones y preguntas; trazabilidad ESC y evidencias propias en `e2e-screenplay/evidencias/`. |
-| [../../katalon/recorder/README.md](../../katalon/recorder/README.md) | E2E con **Katalon Recorder** (suites HTML + CSV data-driven), la variante que usa el equipo. El proyecto equivalente para Katalon Studio está en [../../katalon/README.md](../../katalon/README.md). |
+| [../../e2e-screenplay/README.md](../../e2e-screenplay/README.md) | E2E con escenarios **Gherkin** (Dado-Cuando-Entonces, `e2e-screenplay/features/`) ejecutados con el **patrón Screenplay** (Serenity/JS + playwright-bdd + Playwright): actores, habilidades, tareas, interacciones y preguntas; trazabilidad ESC y evidencias propias en `e2e-screenplay/evidencias/`. |
 
 ## Requisitos
 
