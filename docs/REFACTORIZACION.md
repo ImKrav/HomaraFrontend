@@ -209,5 +209,5 @@ hay que mantener el proxy o servir ambos bajo el mismo dominio.
 |---|---|
 | Vitest | **163/163** (+1) |
 | Demo de regresión | **26/26** (+2) |
-| Cypress E2E | 1.ª corrida completa 230/232 y 2.ª 231/232 (causas en las pruebas y en el logout, corregidas arriba); specs de sesión repetidos 2 veces: 36/36. Corrida final: en curso |
+| Cypress E2E | **232/232** en la corrida final (8 min 2 s; antes, 230/232 y 231/232 por las causas corregidas arriba) y componentes **55/55** ([`consola-e2e.txt`](pruebas/evidencias/cypress-despues/consola-e2e.txt)) |
 | Screenplay | **33/33** ([`consola-corrida-final.txt`](../e2e-screenplay/evidencias/consola-corrida-final.txt)) |
