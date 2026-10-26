@@ -55,7 +55,7 @@ export default function ProductCard({ product }: Readonly<ProductCardProps>) {
         <div className="p-4 flex-1 flex flex-col justify-between">
           <div>
             <p className="text-[9px] uppercase tracking-wider font-semibold text-text-muted mb-1.5">
-              {t(`categories.${product.categorySlug}`) || t(`categories.${product.category}`) || product.category}
+              {t(`categories.${product.categorySlug}`, t(`categories.${product.category}`, product.category))}
             </p>
             <h3 className="text-sm font-semibold text-text-primary group-hover:text-text-secondary transition-colors duration-200 line-clamp-2 leading-snug tracking-tight">
               {product.name}

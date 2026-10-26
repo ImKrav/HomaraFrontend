@@ -67,14 +67,13 @@ export default function AdminPedidosPage() {
     setCurrentPage(1);
   }, [searchQuery, selectedStatus, selectedDate]);
 
+  const query = searchQuery.toLowerCase();
   const filteredOrders = orders.filter((order) => {
-    // Search query matches order number/ID, customer name, or address/notes (if any)
-    const matchesSearch =
-      order.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      order.orderNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      order.customer.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      order.shippingAddress?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      order.shippingCity?.toLowerCase().includes(searchQuery.toLowerCase());
+    // DEF-06: el listado no trae `orderNumber` (su `id` ES el número), así que se usa
+    // encadenamiento opcional en todos los campos: escribir en el buscador ya no lanza TypeError.
+    const matchesSearch = [order.id, order.customer, order.shippingAddress, order.shippingCity].some(
+      (field) => field?.toLowerCase().includes(query)
+    );
 
     // Status filter
     const matchesStatus =
@@ -206,6 +205,7 @@ export default function AdminPedidosPage() {
         {/* Search */}
         <SearchInput
           placeholder={t("catalog.search_placeholder")}
+          clearLabel={t("catalog.clean_search")}
           value={searchQuery}
           onChange={setSearchQuery}
         />
@@ -215,6 +215,7 @@ export default function AdminPedidosPage() {
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
+            aria-label={t("admin.filter_status")}
             className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
           >
             <option value="all">{t("catalog.all_categories")} ({t("admin.status_col")})</option>

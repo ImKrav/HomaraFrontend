@@ -11,7 +11,8 @@
     "admin": "Panel Admin",
     "logout": "Cerrar Sesión",
     "logged_in_as": "Conectado como",
-    "menu": "Menú"
+    "menu": "Menú",
+    "skip_to_content": "Saltar al contenido"
   },
   "categories": {
     "pisos-ceramicas": "Pisos y Cerámicas",
@@ -131,8 +132,10 @@
     "demo_admin": "Administrador:",
     "register_basic_info": "Información Básica Obligatoria",
     "shipping_optional": "Detalles de Envío y Contacto (Opcional)",
-    "password_placeholder": "Mínimo 6 caracteres",
-    "repeat_password": "Repite la contraseña"
+    "password_placeholder": "Mínimo 8 caracteres",
+    "repeat_password": "Repite la contraseña",
+    "password_mismatch": "Las contraseñas no coinciden.",
+    "password_too_short": "La contraseña debe tener al menos 8 caracteres."
   },
   "catalog": {
     "title": "Especificaciones de Productos",
@@ -174,7 +177,10 @@
     "available_units": "disponibles",
     "related_products": "Productos Relacionados",
     "remove_item": "Eliminar",
-    "breadcrumb_catalog": "Catálogo"
+    "breadcrumb_catalog": "Catálogo",
+    "load_error": "No pudimos cargar el catálogo",
+    "load_error_desc": "Revisa tu conexión e inténtalo de nuevo.",
+    "retry": "Reintentar"
   },
   "projects": {
     "title": "Mis Proyectos de Remodelación",
@@ -374,8 +380,10 @@
     "note_paint_approx": "Rendimiento aproximado de 30m² c/u con 2 manos (Incluye +{waste}% desperdicio)",
     "note_waste_laying": "+{waste}% de desperdicio por colocación",
     "note_adhesive_linked": "Pegante real vinculado: 1 bulto por cada 4m²",
+    "note_adhesive_linked_weight": "Pegante real vinculado: 1 unidad de {weight}kg por cada {coverage}m²",
     "note_adhesive_flexible_desc": "25kg c/u (Rendimiento: 4m²/bulto)",
     "note_grout_linked": "Boquilla real vinculada: 1 kg por cada 8m²",
+    "note_grout_linked_weight": "Boquilla real vinculada: 1 unidad de {weight}kg por cada {coverage}m²",
     "note_grout_desc": "Rendimiento: 8m²/kg",
     "note_spacers_desc": "100 unidades c/u (Rendimiento: 15m²/bolsa)",
     "note_underlayment_desc": "20m² c/u (Aislamiento acústico y de humedad)",
@@ -431,7 +439,8 @@
       "conn_error": "Error de conexión al cambiar el estado",
       "delete_error": "Error al eliminar el proyecto",
       "delete_conn_error": "Error de conexión al eliminar"
-    }
+    },
+    "positive_field_alert": "El campo {field} debe ser un número mayor que 0."
   },
   "cart": {
     "title": "Carrito de Compras",
@@ -448,7 +457,7 @@
     "products_count": "productos",
     "shipping": "Envío",
     "free": "Gratis",
-    "free_shipping_threshold": "Envío gratis en compras mayores a",
+    "free_shipping_threshold": "Envío gratis en compras desde",
     "total": "Total",
     "checkout_btn": "Ir a Pagar",
     "continue_shopping": "Seguir comprando",
@@ -458,7 +467,8 @@
     "backorder_label": "Envío diferido (Backorder)",
     "backorder_qty": "Envío diferido: {qty} ud",
     "available_reserved": "Reservado de stock disponible",
-    "backorder_badge": "Envío Diferido (Backorder)"
+    "backorder_badge": "Envío Diferido (Backorder)",
+    "product_count_one": "producto"
   },
   "checkout": {
     "title": "Checkout",
@@ -579,7 +589,9 @@
     "loading": "Cargando reseñas...",
     "no_reviews": "Aún no hay opiniones sobre este producto.",
     "no_reviews_desc": "¿Lo has comprado o instalado? Sé el primero en compartir tu calificación técnica con otros usuarios.",
-    "anonymous": "Anon"
+    "anonymous": "Anon",
+    "star_one": "1 estrella",
+    "star_many": "{n} estrellas"
   },
   "home": {
     "smart_estimator": "Estimador Inteligente",
@@ -622,7 +634,8 @@
       "pending_process": "Pendientes / Proceso",
       "sent": "Enviados",
       "delivered": "Entregados",
-      "normal_stock": "Normal"
+      "normal_stock": "Normal",
+      "negative_stock": "Stock negativo (pedidos en espera)"
     },
     "back_to_site": "Volver al sitio",
     "tagline": "Resumen general de tu tienda",
@@ -775,6 +788,9 @@
       "catalog_error": "Error desconocido al cargar catálogo",
       "save_error": "Ocurrió un error al guardar el producto",
       "delete_error": "Ocurrió un error al eliminar el producto"
-    }
+    },
+    "filter_category": "Filtrar por categoría",
+    "filter_stock": "Filtrar por existencias",
+    "filter_status": "Filtrar por estado"
   }
 }

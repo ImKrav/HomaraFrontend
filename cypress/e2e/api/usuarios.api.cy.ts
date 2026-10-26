@@ -98,22 +98,23 @@ describe("API · /users (ESC01, ESC02, ESC04, ESC05, ESC07)", () => {
     });
   });
 
-  it("API-USR-09 [ESC05] DEF-07: la respuesta de PUT /users/me expone el hash de la contraseña", () => {
+  it("API-USR-09 [ESC05] DEF-07 corregido: la respuesta de PUT /users/me NO expone el hash de la contraseña", () => {
     cy.crearUsuarioApi("api-hash").then((u) => {
-      cy.api("PUT", "/users/me", { token: u.token, body: { firstName: "Hash", lastName: "Expuesto" } }).then(({ body }) => {
-        // Comportamiento observado (debería omitirse): campo password con hash bcrypt.
-        expect(body.data).to.have.property("password");
-        expect(body.data.password).to.match(/^\$2[aby]\$\d{2}\$/);
+      cy.api("PUT", "/users/me", { token: u.token, body: { firstName: "Hash", lastName: "Oculto" } }).then(({ status, body }) => {
+        expect(status).to.eq(200);
+        expect(body.data).not.to.have.property("password");
+        expect(body.data).to.include({ firstName: "Hash", lastName: "Oculto" });
       });
     });
   });
 
-  it("API-USR-10 [ESC05] DEF-08: PUT /users/me acepta firstName vacío (sin validación en el backend)", () => {
+  it("API-USR-10 [ESC05] DEF-08 corregido: PUT /users/me rechaza firstName vacío (400)", () => {
     cy.crearUsuarioApi("api-vacio").then((u) => {
       cy.api("PUT", "/users/me", { token: u.token, body: { firstName: "", lastName: "X" } }).then(({ status, body }) => {
-        expect(status).to.eq(200);
-        expect(body.data.firstName).to.eq("");
+        expect(status).to.eq(400);
+        expect(body.success).to.eq(false);
       });
+      cy.api("GET", "/users/me", { token: u.token }).its("body.data.firstName").should("not.eq", "");
     });
   });
 });

@@ -170,7 +170,7 @@ describe("Flujos E2E · Administración ↔ clientes", () => {
     });
   });
 
-  it("FLU-15 [ESC28→ESC33→ESC25→ESC26] DEF-30: el stock se agota, el admin lo ve en alertas, otro cliente compra en envío diferido y el stock negativo se muestra como 'Stock Bajo'", () => {
+  it("FLU-15 [ESC28→ESC33→ESC25→ESC26] DEF-30 corregido: el stock se agota, el admin lo ve en alertas, otro cliente compra en envío diferido y el stock negativo se marca como tal y sigue en 'Sin Stock'", () => {
     cy.crearProductoApi(adminToken, { price: 45000, stockQuantity: 2 }).then((producto) => {
       creados.push(producto.id);
       cy.crearUsuarioApi("flujo-agota-a", { firstName: "Ana" }).then((clienteA) => {
@@ -203,8 +203,8 @@ describe("Flujos E2E · Administración ↔ clientes", () => {
           cy.wait("@pedidoB").its("response.statusCode").should("eq", 201);
           cy.api("GET", `/products/${producto.id}`).its("body.data.stockQuantity").should("eq", 0);
 
-          // 4. En el inventario queda en -1 (unidad comprometida sin stock) y la interfaz lo
-          // etiqueta "Stock Bajo". Esperado: "Sin Stock" o una alerta de stock negativo.
+          // 4. En el inventario queda en -1 (unidad comprometida sin stock): la interfaz lo
+          // etiqueta "Stock negativo" (antes "Stock Bajo") y aparece en el filtro "Sin Stock".
           cy.api("GET", "/admin/inventory", { token: adminToken })
             .its("body.data.products")
             .then((lista: { id: string; stockQuantity: number; stockStatus: string }[]) => {
@@ -212,15 +212,16 @@ describe("Flujos E2E · Administración ↔ clientes", () => {
             });
           comoAdmin();
           cy.visit("/admin/inventario");
+          cy.get('select:has(option[value="out_of_stock"])').select("out_of_stock");
           cy.get('input[placeholder^="Buscar"]').type(producto.name);
-          cy.contains("tr", producto.name).should("contain.text", "-1").and("contain.text", "Stock Bajo");
-          evidencia("FLU-15 3 stock negativo como stock bajo");
+          cy.contains("tr", producto.name).should("contain.text", "-1").and("contain.text", "Stock negativo").and("not.contain.text", "Stock Bajo");
+          evidencia("FLU-15 3 stock negativo etiquetado");
         });
       });
     });
   });
 
-  it("FLU-16 [ESC28→ESC34→ESC29] DEF-28: el admin cancela un pedido, el cliente lo ve cancelado y el stock no se devuelve", () => {
+  it("FLU-16 [ESC28→ESC34→ESC29] DEF-28 corregido: el admin cancela un pedido, el cliente lo ve cancelado y el stock vuelve al inventario", () => {
     cy.crearProductoApi(adminToken, { price: 28000, stockQuantity: 10 }).then((producto) => {
       creados.push(producto.id);
       cy.crearUsuarioApi("flujo-cancela", { firstName: "Ciro" }).then((cliente) => {
@@ -229,8 +230,8 @@ describe("Flujos E2E · Administración ↔ clientes", () => {
           cambiarEstado(numero, "pendiente", "cancelado", "Cancelado");
           clienteVeEstado(cliente, numero, "Cancelado");
           evidencia("FLU-16 1 pedido cancelado");
-          // Esperado: 10 (las 3 unidades vuelven al inventario). Observado: 7.
-          cy.api("GET", `/products/${producto.id}`).its("body.data.stockQuantity").should("eq", 7);
+          // Las 3 unidades vuelven al inventario (antes se quedaba en 7).
+          cy.api("GET", `/products/${producto.id}`).its("body.data.stockQuantity").should("eq", 10);
         });
       });
     });

@@ -10,7 +10,7 @@ function llenarRegistro(datos: { nombre: string; apellido: string; email: string
   cy.get('input[placeholder="Juan"]').type(datos.nombre);
   cy.get('input[placeholder="Pérez"]').type(datos.apellido);
   cy.get('input[placeholder="juan@email.com"]').type(datos.email);
-  cy.get('input[placeholder="Mínimo 6 caracteres"]').type(datos.clave, { log: false });
+  cy.get('input[placeholder="Mínimo 8 caracteres"]').type(datos.clave, { log: false });
   cy.get('input[placeholder="Repite la contraseña"]').type(datos.confirmacion, { log: false });
 }
 
@@ -59,22 +59,22 @@ describe("Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)", () => {
       cy.location("pathname").should("eq", "/register");
     });
 
-    it("REG-AUT-04 [ESC01] DEF-01: el frontend acepta claves de 6-7 caracteres que el backend rechaza (mín. 8)", () => {
-      // El placeholder y la validación del frontend dicen "mínimo 6"; el backend exige 8.
+    it("REG-AUT-04 [ESC01] DEF-01 corregido: el cliente rechaza claves de 7 caracteres con la regla del backend (mín. 8)", () => {
+      cy.get('input[type="password"]').first().should("have.attr", "placeholder", "Mínimo 8 caracteres");
       llenarRegistro({ nombre: "Pablo", apellido: "Mora", email: correoUnico("clave7"), clave: CLAVE.slice(0, 7), confirmacion: CLAVE.slice(0, 7) });
       cy.contains("button", "Registrarme y Comenzar").click();
 
-      // La validación del cliente deja pasar la clave y es el backend quien la rechaza.
-      cy.wait("@registro").its("response.statusCode").should("eq", 400);
-      cy.contains("La contraseña debe tener al menos 8 caracteres").should("be.visible");
+      // Antes la clave pasaba al backend y volvía un 400 técnico.
+      cy.contains("La contraseña debe tener al menos 8 caracteres.").should("be.visible");
+      cy.get("@registro.all").should("have.length", 0);
       cy.location("pathname").should("eq", "/register");
     });
 
-    it("REG-AUT-05 [ESC01] rechaza en el cliente una clave de menos de 6 caracteres", () => {
+    it("REG-AUT-05 [ESC01] rechaza en el cliente una clave de menos de 8 caracteres", () => {
       llenarRegistro({ nombre: "Pablo", apellido: "Mora", email: correoUnico("clave5"), clave: CLAVE.slice(0, 5), confirmacion: CLAVE.slice(0, 5) });
       cy.contains("button", "Registrarme y Comenzar").click();
 
-      cy.contains("La contraseña debe tener al menos 6 caracteres.").should("be.visible");
+      cy.contains("La contraseña debe tener al menos 8 caracteres.").should("be.visible");
       cy.get("@registro.all").should("have.length", 0);
     });
   });
@@ -176,7 +176,7 @@ describe("Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)", () => {
       cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
     });
 
-    it("REG-AUT-16 [ESC07] DEF-05: un fallo de red al validar la sesión (no un 401) también borra el token", () => {
+    it("REG-AUT-16 [ESC07] DEF-05 corregido: un fallo de red al validar la sesión (no un 401) conserva el token", () => {
       // Token válido, pero /users/me sufre un error de red transitorio.
       cy.tokenApi(CLIENTE.email, CLIENTE.password).then((token) => {
         cy.intercept("GET", "**/api/v1/users/me", { forceNetworkError: true }).as("meCaido");
@@ -186,9 +186,8 @@ describe("Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)", () => {
           },
         });
         cy.wait("@meCaido");
-        // Comportamiento observado: AuthContext llama a logout() ante cualquier error.
-        cy.location("pathname").should("eq", "/login");
-        cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
+        // Antes AuthContext llamaba a logout() ante cualquier error; ahora solo un 401 cierra la sesión.
+        cy.window().its("localStorage").invoke("getItem", "homara_token").should("eq", token);
       });
     });
   });

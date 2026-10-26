@@ -109,8 +109,8 @@ describe("Regresión · Checkout y pedidos (ESC27-ESC29)", () => {
       expect(pedido.total).to.eq(pedido.subtotal + pedido.shippingCost);
     });
     cy.get('[role="alert"]').should("contain.text", "¡Pedido realizado con éxito!");
-    // Observación OBS-01: tras pagar, la app redirige a /proyectos (no a la cuenta/pedidos).
-    cy.location("pathname").should("eq", "/proyectos");
+    // OBS-01 corregido: tras pagar se va al historial de pedidos (antes /proyectos).
+    cy.location("pathname").should("eq", "/cuenta");
     cy.get('nav a[aria-label="Carrito"] span').should("not.exist");
     cy.api("GET", "/cart", { token: usuario.token }).its("body.data.items").should("have.length", 0);
   });
@@ -132,7 +132,7 @@ describe("Regresión · Checkout y pedidos (ESC27-ESC29)", () => {
         .should("be.visible")
         .parent()
         .should("contain.text", "Pendiente");
-      cy.contains("p", numero).closest("button").contains("Ver detalles de entrega").click();
+      cy.contains("p", numero).parents().filter(":has(button)").first().contains("button", "Ver detalles de entrega").click();
       cy.wait("@detallePedido").its("response.statusCode").should("eq", 200);
       cy.get('[aria-modal="true"]').should("be.visible").and("contain.text", numero).and("contain.text", "Cali");
       cy.get('[aria-modal="true"]').find('button[aria-label="Cerrar modal"]').click();
@@ -143,9 +143,9 @@ describe("Regresión · Checkout y pedidos (ESC27-ESC29)", () => {
   it("REG-CHK-06 [ESC28] con el carrito vacío el backend rechaza el pedido y la app muestra el error", () => {
     cy.visit("/checkout");
     cy.wait("@carrito");
-    // DEF-03: con el carrito vacío ya se cobra envío ($25.000) en el resumen y el botón.
+    // DEF-03 corregido: con el carrito vacío ya no se cobra envío (antes "Pagar $ 25.000").
     cy.get('button[type="submit"]').invoke("text").then((t) => {
-      expect(normalizar(t)).to.eq(`Pagar ${formatoCOP(ENVIO)}`);
+      expect(normalizar(t)).to.eq(`Pagar ${formatoCOP(0)}`);
     });
     llenarEnvio();
     cy.get('button[type="submit"]').click();

@@ -84,21 +84,21 @@ describe("API · Carrito y pedidos (ESC13-ESC16, ESC28, ESC29, ESC34)", () => {
     });
   });
 
-  it("API-CAR-06 [ESC16] DEF-03: un carrito vacío de un usuario autenticado cobra envío ($25.000)", () => {
+  it("API-CAR-06 [ESC16] DEF-03 corregido: un carrito vacío no cobra envío", () => {
     cy.api("GET", "/cart", { token: usuario.token }).then(({ body }) => {
       expect(body.data.items).to.have.length(0);
       expect(body.data.subtotal).to.eq(0);
-      expect(body.data.shipping).to.eq(ENVIO);
-      expect(body.data.total).to.eq(ENVIO);
+      expect(body.data.shipping).to.eq(0);
+      expect(body.data.total).to.eq(0);
     });
   });
 
-  it("API-CAR-07 [ESC13] DEF-09: los ítems de GET /cart vienen con categoría 'Sin Categoría'", () => {
+  it("API-CAR-07 [ESC13] DEF-09/DEF-21 corregidos: los ítems de GET /cart traen su categoría real y updatedAt", () => {
     cy.agregarAlCarritoApi(usuario.token, producto.id, 1);
     cy.api("GET", "/cart", { token: usuario.token }).then(({ body }) => {
-      // El producto sí tiene categoría en /products; el carrito la pierde.
-      expect(producto.categorySlug).not.to.eq("sin-categoria");
-      expect(body.data.items[0].product.categorySlug).to.eq("sin-categoria");
+      expect(body.data.items[0].product.categorySlug).to.eq(producto.categorySlug);
+      expect(body.data.items[0].product.category).to.eq(producto.category);
+      expect(Date.parse(body.data.items[0].updatedAt)).to.be.closeTo(Date.now(), 5 * 60 * 1000);
     });
   });
 
@@ -136,16 +136,15 @@ describe("API · Carrito y pedidos (ESC13-ESC16, ESC28, ESC29, ESC34)", () => {
     });
   });
 
-  it("API-PED-03 [ESC29/ESC36] DEF-10: GET /orders?admin=true con un CUSTOMER devuelve pedidos de OTROS clientes", () => {
+  it("API-PED-03 [ESC29/ESC36] DEF-10 corregido: GET /orders?admin=true con un CUSTOMER solo devuelve sus pedidos", () => {
     cy.api("GET", "/orders", { token: usuario.token }).its("body.data").should("have.length", 0);
     cy.api("GET", "/orders?admin=true", { token: usuario.token }).then(({ status, body }) => {
-      // Debería ser 403 (o solo los pedidos propios). Se observa 200 con pedidos ajenos.
       expect(status).to.eq(200);
-      expect(body.data.length, "pedidos ajenos visibles").to.be.greaterThan(0);
+      expect(body.data, "sin pedidos ajenos").to.have.length(0);
     });
   });
 
-  it("API-PED-05 [ESC29/ESC36] DEF-10: GET /orders/:numero de un pedido AJENO responde 200 (IDOR)", () => {
+  it("API-PED-05 [ESC29/ESC36] DEF-10 corregido: GET /orders/:numero de un pedido AJENO responde 403", () => {
     cy.crearUsuarioApi("api-ped-dueno").then((dueno) => {
       cy.agregarAlCarritoApi(dueno.token, producto.id, 1);
       cy.api("POST", "/orders", {
@@ -153,9 +152,9 @@ describe("API · Carrito y pedidos (ESC13-ESC16, ESC28, ESC29, ESC34)", () => {
         body: { paymentMethod: "card", shippingAddress: "Dirección privada 123", shippingCity: "Neiva", shippingState: "Huila" },
       }).then(({ body }) => {
         cy.api("GET", `/orders/${body.data.orderNumber}`, { token: usuario.token }).then((r) => {
-          // Debería ser 403/404: otro cliente ve la dirección de envío ajena.
-          expect(r.status).to.eq(200);
-          expect(r.body.data.id).to.eq(body.data.orderNumber);
+          // Antes: 200 con la dirección de envío ajena.
+          expect(r.status).to.eq(403);
+          expect(r.body).not.to.have.property("data");
         });
       });
     });

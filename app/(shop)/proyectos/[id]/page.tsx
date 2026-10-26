@@ -171,7 +171,7 @@ function ProjectSuggestedSection({
             {t("projects.suggested_products_desc")}
           </p>
         </div>
-        <Button variant="outline" href={`/catalogo?cat=${catSlug}`} size="sm">
+        <Button variant="outline" href={`/catalogo?category=${catSlug}`} size="sm">
           {t("projects.view_all_btn")}
         </Button>
       </div>

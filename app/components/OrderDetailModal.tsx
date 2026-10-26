@@ -79,12 +79,21 @@ function getStatusVariant(status: string): "success" | "error" | "info" | "warni
   return "warning";
 }
 
+// F-3: el checkout envía card/pse/cash; se aceptan también los nombres antiguos de los pedidos semilla.
+const PAYMENT_LABEL_KEYS: Record<string, string> = {
+  card: "account.payment_credit_card",
+  tarjeta: "account.payment_credit_card",
+  tarjeta_credito: "account.payment_credit_card",
+  pse: "account.payment_pse",
+  cash: "account.payment_cash",
+  efectivo: "account.payment_cash",
+  contra_entrega: "account.payment_cash",
+};
+
 function getPaymentLabel(method: string, t: (k: string) => string): string {
-  const m = method?.toLowerCase();
-  if (m === "tarjeta_credito") return t("account.card_payment");
-  if (m === "pse") return t("account.pse_payment");
-  if (m === "contra_entrega") return t("account.cod_payment");
-  return method || "—";
+  if (!method) return t("account.payment_unspecified");
+  const key = PAYMENT_LABEL_KEYS[method.toLowerCase()];
+  return key ? t(key) : method;
 }
 
 export default function OrderDetailModal({
@@ -182,7 +191,7 @@ export default function OrderDetailModal({
                   <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">{t("account.status_label")}</p>
                   <div className="mt-1">
                     <Badge variant={getStatusVariant(order.status)} size="sm">
-                      {t(`status.${order.status?.toLowerCase()}`) || order.status}
+                      {t(`status.${order.status?.toLowerCase()}`, order.status)}
                     </Badge>
                   </div>
                 </div>
@@ -273,10 +282,10 @@ export default function OrderDetailModal({
                       </div>
                       <div className="flex-1 min-w-0">
                         <h5 className="text-sm font-bold text-text-primary truncate">{item.productName}</h5>
-                        <p className="text-xs text-text-muted mt-0.5">{t(`categories.${item.category}`) || item.category}</p>
+                        <p className="text-xs text-text-muted mt-0.5">{t(`categories.${item.category}`, item.category)}</p>
                         {item.isBackorder && (
                           <Badge variant="warning" size="sm" className="mt-1 normal-case tracking-normal">
-                            {t("account.backorder_item_tag") || "Envío Diferido"}
+                            {t("account.backorder_item_tag", "Envío Diferido")}
                             {item.backorderQuantity && item.backorderQuantity > 0 ? ` (${item.backorderQuantity} ud)` : ""}
                           </Badge>
                         )}

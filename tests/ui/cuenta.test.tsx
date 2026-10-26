@@ -144,8 +144,8 @@ test("ui-acc-07", "Cerrar sesión borra el token y vuelve al login", async () =>
   expect(router.push).toHaveBeenCalledWith("/login");
 });
 
-// Defecto abierto F-3 (ver la tabla en tests/README.md): se espera que falle.
-test.fails("ui-acc-08", "El detalle de un pedido pagado con tarjeta muestra el medio de pago legible", async () => {
+// Defecto F-3 corregido (ver "Defectos corregidos" en tests/README.md).
+test("ui-acc-08", "El detalle de un pedido pagado con tarjeta muestra el medio de pago legible", async () => {
   // Arrange — "card" es exactamente lo que envía el checkout (ui-chk-03).
   const backend = cuentaConDatos();
   backend.responder("GET /orders/:id", { ...DETALLE, paymentMethod: "card" });
@@ -154,9 +154,10 @@ test.fails("ui-acc-08", "El detalle de un pedido pagado con tarjeta muestra el m
   // Act
   await usuario.click(await screen.findByRole("button", { name: es("account.view_delivery") }));
 
-  // Assert — DEFECTO: el modal solo reconoce "tarjeta_credito", "pse" y "contra_entrega",
-  // y además las claves account.card_payment/pse_payment/cod_payment no existen.
+  // Assert — antes el modal solo reconocía "tarjeta_credito", "pse" y "contra_entrega"
+  // con claves inexistentes, y mostraba "card" tal cual.
   const modal = await screen.findByRole("dialog");
   await within(modal).findByText(/Calle 1 #2-3/);
   expect(within(modal).queryByText("card")).not.toBeInTheDocument();
+  expect(within(modal).getByText(es("account.payment_credit_card"))).toBeInTheDocument();
 });

@@ -34,7 +34,9 @@ test("REG-ADM-02", "Una oferta se guarda como precio de venta y el normal como p
   conSesion(backend, ADMIN);
   const { usuario } = renderizar(<ProductosAdminPage />, { ruta: "/admin/productos" });
   await usuario.click(await screen.findByRole("button", { name: new RegExp(es("admin.add_product_btn")) }));
-  const campo = (clave: string) => screen.getByLabelText(es(clave), { exact: false });
+  // Etiqueta que EMPIEZA por el texto: "Categoría *" del formulario, no "Filtrar por categoría" del listado.
+  const campo = (clave: string) =>
+    screen.getByLabelText(new RegExp(`^${es(clave).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`, "i"));
   await usuario.type(campo("admin.product_name_label"), "Rodillo");
   await usuario.type(campo("admin.description_label"), "Antigoteo");
   await usuario.selectOptions(campo("admin.category_col"), "cat_1");

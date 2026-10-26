@@ -44,7 +44,7 @@ export default function StorefrontHome() {
     <>
       <Navbar />
 
-      <main className="flex-1 bg-bg-base">
+      <main id="contenido" tabIndex={-1} className="flex-1 bg-bg-base focus:outline-none">
         {/* ============================================
            SECCIÓN DE BANNERS PROMOCIONALES (GRID ASIMÉTRICO)
            ============================================ */}

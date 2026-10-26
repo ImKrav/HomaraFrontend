@@ -10,7 +10,7 @@ export default function AdminLayout({
     <RequireAdmin>
       <div className="flex min-h-screen">
         <AdminSidebar />
-        <main className="flex-1 overflow-auto">{children}</main>
+        <main id="contenido" tabIndex={-1} className="flex-1 overflow-auto focus:outline-none">{children}</main>
       </div>
     </RequireAdmin>
   );

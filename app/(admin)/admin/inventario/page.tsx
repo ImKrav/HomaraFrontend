@@ -15,6 +15,10 @@ function getStockInfo(
   stockQuantity: number,
   t: (key: string) => string
 ): { status: "error" | "warning" | "success"; label: string } {
+  // DEF-30: una compra en envío diferido deja el stock en negativo; antes se etiquetaba "Stock Bajo".
+  if (stockQuantity < 0) {
+    return { status: "error", label: t("admin.metrics.negative_stock") };
+  }
   if (stockQuantity === 0) {
     return { status: "error", label: t("admin.metrics.out_of_stock") };
   }
@@ -83,7 +87,7 @@ export default function AdminInventarioPage() {
   const lowStock = products.filter(
     (p: InventoryProduct) => p.stockQuantity > 0 && p.stockQuantity < 50
   );
-  const outOfStock = products.filter((p: InventoryProduct) => !p.inStock);
+  const outOfStock = products.filter((p: InventoryProduct) => p.stockQuantity <= 0);
   const totalUnits = stats.totalUnits || 0;
 
   // Filter products client-side
@@ -98,7 +102,7 @@ export default function AdminInventarioPage() {
     if (selectedAlert === "low_stock") {
       matchesAlert = p.stockQuantity > 0 && p.stockQuantity < 50;
     } else if (selectedAlert === "out_of_stock") {
-      matchesAlert = !p.inStock;
+      matchesAlert = p.stockQuantity <= 0;
     } else if (selectedAlert === "normal_stock") {
       matchesAlert = p.stockQuantity >= 50;
     }
@@ -200,6 +204,7 @@ export default function AdminInventarioPage() {
         {/* Search */}
         <SearchInput
           placeholder={t("catalog.search_placeholder")}
+          clearLabel={t("catalog.clean_search")}
           value={searchQuery}
           onChange={setSearchQuery}
         />
@@ -209,12 +214,13 @@ export default function AdminInventarioPage() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
+            aria-label={t("admin.filter_category")}
             className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
           >
             <option value="all">{t("catalog.all_categories")}</option>
             {categories.map((cat) => (
               <option key={cat} value={cat}>
-                {t(`categories.${cat}`) || cat}
+                {t(`categories.${cat}`, cat)}
               </option>
             ))}
           </select>
@@ -225,6 +231,7 @@ export default function AdminInventarioPage() {
           <select
             value={selectedAlert}
             onChange={(e) => setSelectedAlert(e.target.value)}
+            aria-label={t("admin.filter_stock")}
             className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
           >
             <option value="all">{t("catalog.all_categories")} ({t("admin.stock_col")})</option>
@@ -277,7 +284,7 @@ export default function AdminInventarioPage() {
                       {product.name}
                     </td>
                     <td className="py-3 px-4 text-text-secondary">
-                      {t(`categories.${product.category}`) || product.category}
+                      {t(`categories.${product.category}`, product.category)}
                     </td>
                     <td className="py-3 px-4 text-right font-medium text-text-primary">
                       {product.stockQuantity.toLocaleString()}

@@ -274,12 +274,9 @@ export default function CuentaPage() {
                     (s ? ORDER_STATUS_VARIANTS[s] : undefined) ?? "warning";
 
                   return (
-                    <Card 
-                      key={order.id} 
-                      hover 
-                      className="cursor-pointer" 
-                      onClick={() => handleViewOrderDetails(order.id)}
-                    >
+                    // DEF-23: la tarjeta ya no es un <button> que contiene otro; el único control es
+                    // "Ver entrega", que se estira sobre toda la tarjeta para conservar el clic en cualquier parte.
+                    <Card key={order.id} hover className="relative">
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                         <div>
                           <div className="flex items-center gap-3">
@@ -287,7 +284,7 @@ export default function CuentaPage() {
                               {order.id}
                             </p>
                             <Badge variant={statusVariant} size="sm">
-                              {t(`status.${order.status?.toLowerCase()}`) || order.status}
+                              {t(`status.${order.status?.toLowerCase()}`, order.status)}
                             </Badge>
                           </div>
                           <p className="text-xs text-text-muted mt-1.5 font-medium">
@@ -303,12 +300,10 @@ export default function CuentaPage() {
                           <p className="text-sm font-black text-text-primary">
                             {formatPrice(order.total)}
                           </p>
-                          <button 
-                            className="text-xs text-primary font-semibold hover:underline mt-1 cursor-pointer"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleViewOrderDetails(order.id);
-                            }}
+                          <button
+                            type="button"
+                            className="text-xs text-primary font-semibold hover:underline mt-1 cursor-pointer after:absolute after:inset-0"
+                            onClick={() => handleViewOrderDetails(order.id)}
                           >
                             {t("account.view_delivery")}
                           </button>

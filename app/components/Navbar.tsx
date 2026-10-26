@@ -217,6 +217,8 @@ export default function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 text-text-secondary hover:text-text-primary rounded-none transition-colors"
             aria-label={t("nav.menu")}
+            aria-expanded={mobileOpen}
+            aria-controls="menu-movil"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +248,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden animate-slide-down border-t border-border bg-bg-surface">
+        <div id="menu-movil" className="md:hidden animate-slide-down border-t border-border bg-bg-surface">
           <div className="px-4 py-3 space-y-1">
             {navLinks.map((link) => (
               <Link

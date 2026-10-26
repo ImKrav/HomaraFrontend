@@ -167,7 +167,7 @@
 
   --text-primary: #09090B;
   --text-secondary: #52525B;
-  --text-muted: #71717A;
+  --text-muted: #5E5E66; /* DEF-22: ≥ 4.5:1 sobre todas las superficies claras (antes #71717A, 4.4:1) */
 
   --border: #E4E4E7;
   --border-light: #D4D4D8;
@@ -186,7 +186,7 @@
 
   --text-primary: #FAFAFA;
   --text-secondary: #D4D4D8;
-  --text-muted: #71717A;
+  --text-muted: #A1A1AA; /* DEF-22: ≥ 4.5:1 sobre las superficies oscuras (antes #71717A, 3.7:1) */
 
   --border: #27272A;
   --border-light: #3F3F46;
@@ -203,7 +203,7 @@
 
   --color-text-primary: #FAFAFA;
   --color-text-secondary: #D4D4D8;
-  --color-text-muted: #71717A;
+  --color-text-muted: #A1A1AA;
 
   --color-border: #27272A;
   --color-border-light: #3F3F46;

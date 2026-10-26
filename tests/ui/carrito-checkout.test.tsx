@@ -167,7 +167,7 @@ test("ui-chk-02", "Precarga los datos del usuario y el resumen del carrito", asy
   expect(screen.getByRole("button", { name: new RegExp(es("checkout.pay_btn")) })).toHaveTextContent("102.800");
 });
 
-test("ui-chk-03", "Pagar envía el pedido con el método elegido y lleva a proyectos", async () => {
+test("ui-chk-03", "Pagar envía el pedido con el método elegido y lleva al historial de pedidos (OBS-01)", async () => {
   // Arrange
   const backend = backendFalso();
   conSesion(backend);
@@ -181,7 +181,7 @@ test("ui-chk-03", "Pagar envía el pedido con el método elegido y lleva a proye
   await usuario.click(screen.getByRole("button", { name: new RegExp(es("checkout.pay_btn")) }));
 
   // Assert
-  await waitFor(() => expect(router.push).toHaveBeenCalledWith("/proyectos"));
+  await waitFor(() => expect(router.push).toHaveBeenCalledWith("/cuenta"));
   expect(backend.de("POST /orders")[0].cuerpo).toStrictEqual({
     paymentMethod: "pse",
     shippingAddress: "Calle 1 #2-3",
@@ -223,5 +223,5 @@ test("ui-chk-05", "Un rechazo del backend muestra su mensaje y no sale del check
 
   // Assert
   expect(await screen.findByRole("alert")).toHaveTextContent("El carrito está vacío");
-  expect(router.push).not.toHaveBeenCalledWith("/proyectos");
+  expect(router.push).not.toHaveBeenCalledWith("/cuenta");
 });

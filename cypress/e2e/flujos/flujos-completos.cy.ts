@@ -34,7 +34,7 @@ describe("Flujos E2E completos", () => {
       cy.get('input[placeholder="Juan"]').type("Flor");
       cy.get('input[placeholder="Pérez"]').type("Flujo");
       cy.get('input[placeholder="juan@email.com"]').type(email);
-      cy.get('input[placeholder="Mínimo 6 caracteres"]').type(clave, { log: false });
+      cy.get('input[placeholder="Mínimo 8 caracteres"]').type(clave, { log: false });
       cy.get('input[placeholder="Repite la contraseña"]').type(clave, { log: false });
       cy.contains("button", "Registrarme y Comenzar").click();
       cy.location("pathname").should("eq", "/cuenta");

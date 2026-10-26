@@ -47,7 +47,7 @@ del diccionario real, así que la prueba sigue valiendo si cambia la redacción.
 
 ```bash
 npm install
-npm test                           # corre los 152 casos
+npm test                           # corre los 162 casos
 npm run test:regression            # solo la suite de regresión
 npm run test:regression:demo       # demuestra que la regresión detecta cambios que rompen algo
 npm run test:watch                 # modo watch de Vitest
@@ -56,8 +56,9 @@ npm test -- -t ui-chk-03           # un caso por id (filtro por nombre)
 npm run test:coverage              # cobertura v8 de todo app/
 ```
 
-`npm test` es `vitest run`. Un run limpio es `152 passed (152)` con código 0: los
-3 casos que documentan defectos abiertos están declarados con `test.fails`
+`npm test` es `vitest run`. Un run limpio es `162 passed (162)` con código 0 y
+**sin ningún `test.fails`**: los 3 casos que documentaban defectos abiertos se
+corrigieron en el código (ver `docs/REFACTORIZACION.md`); antes estaban declarados con `test.fails`
 (ver la tabla de defectos). Cobertura actual sobre `app/`: ~86 % de líneas.
 
 ## Qué se cubre
@@ -99,6 +100,7 @@ aserciones fluidas y AAA.
 | `REG-PROY.test.tsx` | Contadores del listado por estado; área neta con deducciones que se envía al backend; desperdicio por patrón; precio proporcional del editor | 4 |
 | `REG-ADM.test.tsx` | Solo ADMIN ve el panel; la oferta se guarda como precio de venta; cambio de estado por id interno; umbrales del inventario; métricas del tablero traducidas | 5 |
 | `REG-QTY.test.mts` | `20f4880` — `parseQuantity` (movida de `MaterialsListEditor.tsx` a `app/lib/utils.ts` para poder probarla): resultados de parseo y tiempo lineal ante una entrada de 50 000 caracteres (la regex anterior tardaba ~5 s, ReDoS) | 5 |
+| `REG-DEF.test.tsx` | Correcciones de la refactorización: buscador de pedidos del admin (DEF-06), catálogo caído con "Reintentar" (DEF-29), mínimo de 8 caracteres traducido (DEF-01/17), espacios en el checkout (DEF-03), stock negativo (DEF-30), sesión ante error de red (DEF-05), `<html lang>` y menú móvil (DEF-15/16), producto preseleccionado (DEF-27), `?redirect=` interno (OBS-05) y dimensiones positivas (DEF-04) | 10 |
 | `REG-I18N.test.mts` | `c492c7c` — contrato de traducción con el backend: cada nombre y nota que emite `calculateMaterials` se reconoce y traduce (contraparte: `HomaraBackend/tests/regression/REG-MAT.ts`) | 5 |
 
 ### Demostración: la suite detecta los cambios que rompen algo
@@ -109,7 +111,7 @@ restaura el archivo byte a byte (también si se interrumpe). Termina con código
 si algún error pasa inadvertido. Salida actual:
 
 ```
-Línea base: 32/32 casos en verde
+Línea base: 42/42 casos en verde
 ✔ detectado  [Autenticación] El checkout deja de ser una ruta privada → REG-AUTH-02
 ✔ detectado  [Autenticación] Un 401 ya no borra el token guardado → REG-AUTH-03
 ✔ detectado  [Autenticación] El registro deja pasar contraseñas distintas → REG-AUTH-05
@@ -130,17 +132,21 @@ Línea base: 32/32 casos en verde
 ✔ detectado  [Administración] El cambio de estado usa el número de pedido en vez del id interno → REG-ADM-03
 ✔ detectado  [Utilidades] Vuelve la regex de cantidades vulnerable a ReDoS → REG-QTY-05
 ✔ detectado  [Traducción] Una nota del backend deja de estar en el diccionario → REG-I18N-03
-Resultado: 20/20 errores detectados por la suite. Código restaurado.
+✔ detectado  [Administración] El buscador de pedidos vuelve a leer orderNumber (TypeError) → REG-ADM-03, REG-DEF-01
+✔ detectado  [Catálogo] Un fallo del catálogo vuelve a verse como '0 productos' → REG-DEF-02
+✔ detectado  [Autenticación] Un error de red vuelve a cerrar la sesión → REG-DEF-06
+✔ detectado  [Autenticación] El login acepta redirecciones externas → REG-DEF-09
+Resultado: 24/24 errores detectados por la suite. Código restaurado.
 ```
 
-## Defectos localizados
+## Defectos localizados — corregidos
 
-Igual que en el backend, un defecto abierto se declara con `test.fails(...)`:
-**se espera que falle** y la suite queda en verde mientras siga abierto. El día
-que se corrija, el caso se pone rojo con «expected to fail, but passed»: es el
-aviso de pasarlo a `test(...)` y tachar la fila.
+Igual que en el backend, un defecto abierto se declaraba con `test.fails(...)`.
+Los tres se **corrigieron** en la refactorización y sus casos volvieron a
+`test(...)`: ahora afirman el comportamiento correcto y pasan. La tabla queda como
+trazabilidad (antes/después en `docs/REFACTORIZACION.md`).
 
-| # | Defecto | Unidad | Caso que lo evidencia |
+| # | Defecto (antes) | Unidad | Caso que lo verifica |
 |---|---|---|---|
 | F-1 | Las notas de pegante y boquilla vinculados nunca se traducen: el diccionario usa `"Pegante real vinculado"` como clave exacta y el backend emite `"Pegante real vinculado: 1 bulto por cada 4m²"` | `translateMaterialNote` | `REG-I18N-05` |
 | F-2 | Los enlaces de categoría usan `?cat=` pero el catálogo solo lee `?category=`: el breadcrumb de la ficha, "Ver todo" de productos sugeridos y "Agregar material" del editor abren el catálogo sin filtrar | `catalogo/[id]/page.tsx`, `proyectos/[id]/page.tsx`, `MaterialsListEditor` | `ui-cat-15` |

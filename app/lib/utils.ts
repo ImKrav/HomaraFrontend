@@ -176,7 +176,7 @@ export interface InventoryProduct {
   price: number;
   stockValue: number;
   inStock: boolean;
-  stockStatus: "sin_stock" | "stock_bajo" | "normal";
+  stockStatus: "stock_negativo" | "sin_stock" | "stock_bajo" | "normal";
 }
 
 export interface AdminChartData {
@@ -251,9 +251,9 @@ export function translateMaterialName(name: string, t: (key: string) => string):
 }
 
 const EXACT_MATERIAL_NOTES: Record<string, readonly [string, string]> = {
-  "Pegante real vinculado": ["projects.note_adhesive_linked", "Linked real adhesive: 1 bag per 4m²"],
+  "Pegante real vinculado: 1 bulto por cada 4m²": ["projects.note_adhesive_linked", "Linked real adhesive: 1 bag per 4m²"],
   "25kg c/u (Rendimiento: 4m²/bulto)": ["projects.note_adhesive_flexible_desc", "25kg each (Yield: 4m²/bag)"],
-  "Boquilla real vinculada": ["projects.note_grout_linked", "Linked real grout: 1 kg per 8m²"],
+  "Boquilla real vinculada: 1 kg por cada 8m²": ["projects.note_grout_linked", "Linked real grout: 1 kg per 8m²"],
   "Rendimiento: 8m²/kg": ["projects.note_grout_desc", "Yield: 8m²/kg"],
   "100 unidades c/u (Rendimiento: 15m²/bolsa)": ["projects.note_spacers_desc", "100 units each (Yield: 15m²/bag)"],
   "20m² c/u (Aislamiento acústico y de humedad)": ["projects.note_underlayment_desc", "20m² each (Acoustic and moisture barrier)"],
@@ -280,6 +280,8 @@ function translateWastePattern(
 }
 
 const WASTE_REGEX = /\+(\d+)%/;
+// F-1: el backend agrega el rendimiento del producto real a la nota ("…: 1 unidad de 10kg por cada 1.6m²").
+const LINKED_WEIGHT_REGEX = /^(Pegante real vinculado|Boquilla real vinculada): 1 unidad de ([\d.]+)kg por cada ([\d.]+)m²$/;
 
 export function translateMaterialNote(note: string | null, t: (key: string) => string): string | null {
   if (!note) return null;
@@ -329,6 +331,14 @@ export function translateMaterialNote(note: string | null, t: (key: string) => s
       waste,
       "Estimated walls (+{waste}% waste)",
     );
+  }
+
+  const linked = LINKED_WEIGHT_REGEX.exec(n);
+  if (linked) {
+    const isAdhesive = linked[1].startsWith("Pegante");
+    const key = isAdhesive ? "projects.note_adhesive_linked_weight" : "projects.note_grout_linked_weight";
+    const fallback = `Linked real ${isAdhesive ? "adhesive" : "grout"}: 1 unit of {weight}kg per {coverage}m²`;
+    return translateWithFallback(t, key, fallback).replace("{weight}", linked[2]).replace("{coverage}", linked[3]);
   }
 
   const exact = EXACT_MATERIAL_NOTES[n];

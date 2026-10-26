@@ -11,7 +11,8 @@
     "admin": "Admin Panel",
     "logout": "Sign Out",
     "logged_in_as": "Logged in as",
-    "menu": "Menu"
+    "menu": "Menu",
+    "skip_to_content": "Skip to content"
   },
   "categories": {
     "pisos-ceramicas": "Floors & Tiles",
@@ -114,8 +115,10 @@
     "demo_admin": "Administrator:",
     "register_basic_info": "Required Basic Information",
     "shipping_optional": "Shipping & Contact Details (Optional)",
-    "password_placeholder": "Minimum 6 characters",
-    "repeat_password": "Repeat password"
+    "password_placeholder": "Minimum 8 characters",
+    "repeat_password": "Repeat password",
+    "password_mismatch": "Passwords do not match.",
+    "password_too_short": "Password must be at least 8 characters long."
   },
   "catalog": {
     "title": "Product Specifications",
@@ -157,7 +160,10 @@
     "available_units": "available",
     "related_products": "Related Products",
     "remove_item": "Remove",
-    "breadcrumb_catalog": "Catalog"
+    "breadcrumb_catalog": "Catalog",
+    "load_error": "We couldn't load the catalog",
+    "load_error_desc": "Check your connection and try again.",
+    "retry": "Retry"
   },
   "projects": {
     "title": "My Remodeling Projects",
@@ -357,8 +363,10 @@
     "note_paint_approx": "Approximate yield of 30m² each with 2 coats (Includes +{waste}% waste)",
     "note_waste_laying": "+{waste}% waste due to layout pattern",
     "note_adhesive_linked": "Linked real adhesive: 1 bag per 4m²",
+    "note_adhesive_linked_weight": "Linked real adhesive: 1 unit of {weight}kg per {coverage}m²",
     "note_adhesive_flexible_desc": "25kg each (Yield: 4m²/bag)",
     "note_grout_linked": "Linked real grout: 1 kg per 8m²",
+    "note_grout_linked_weight": "Linked real grout: 1 unit of {weight}kg per {coverage}m²",
     "note_grout_desc": "Yield: 8m²/kg",
     "note_spacers_desc": "100 units each (Yield: 15m²/bag)",
     "note_underlayment_desc": "20m² each (Acoustic and moisture barrier)",
@@ -414,7 +422,8 @@
       "conn_error": "Connection error changing status",
       "delete_error": "Error deleting project",
       "delete_conn_error": "Connection error deleting"
-    }
+    },
+    "positive_field_alert": "The {field} field must be a number greater than 0."
   },
   "cart": {
     "title": "Shopping Cart",
@@ -431,7 +440,7 @@
     "products_count": "products",
     "shipping": "Shipping",
     "free": "Free",
-    "free_shipping_threshold": "Free shipping on orders over",
+    "free_shipping_threshold": "Free shipping on orders from",
     "total": "Total",
     "checkout_btn": "Proceed to Checkout",
     "continue_shopping": "Continue shopping",
@@ -441,7 +450,8 @@
     "backorder_label": "Delayed shipping (Backorder)",
     "backorder_qty": "Backordered: {qty} units",
     "available_reserved": "Reserved from available stock",
-    "backorder_badge": "Delayed shipping (Backorder)"
+    "backorder_badge": "Delayed shipping (Backorder)",
+    "product_count_one": "product"
   },
   "checkout": {
     "title": "Checkout",
@@ -562,7 +572,9 @@
     "loading": "Loading reviews...",
     "no_reviews": "No reviews yet for this product.",
     "no_reviews_desc": "Have you purchased or installed it? Be the first to share your technical rating with other users.",
-    "anonymous": "Anon"
+    "anonymous": "Anon",
+    "star_one": "1 star",
+    "star_many": "{n} stars"
   },
   "home": {
     "smart_estimator": "Smart Estimator",
@@ -622,7 +634,8 @@
       "pending_process": "Pending / Process",
       "sent": "Sent",
       "delivered": "Delivered",
-      "normal_stock": "Normal"
+      "normal_stock": "Normal",
+      "negative_stock": "Negative stock (backorders)"
     },
     "back_to_site": "Back to site",
     "tagline": "General summary of your store",
@@ -775,6 +788,9 @@
       "catalog_error": "Unknown error loading catalog",
       "save_error": "An error occurred while saving the product",
       "delete_error": "An error occurred while deleting the product"
-    }
+    },
+    "filter_category": "Filter by category",
+    "filter_stock": "Filter by stock",
+    "filter_status": "Filter by status"
   }
 }

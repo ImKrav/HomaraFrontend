@@ -120,7 +120,7 @@ test("ui-gen-06", "El botón de tema alterna el modo oscuro y lo recuerda", asyn
   // Arrange
   backendFalso();
   const { usuario } = renderizar(<Footer />);
-  const boton = await screen.findByRole("button", { name: es("footer.theme_toggle") });
+  const boton = await screen.findByRole("button", { name: new RegExp(es("footer.theme_toggle")) });
   const oscuroAntes = document.documentElement.classList.contains("dark");
 
   // Act

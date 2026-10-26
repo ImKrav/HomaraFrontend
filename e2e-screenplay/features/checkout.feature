@@ -25,8 +25,8 @@ Característica: Checkout
     Y sigue en la página "/checkout"
     Y no tiene ningún pedido registrado
 
-  # DEF-03: el checkout acepta datos formados solo por espacios y crea el pedido.
-  @ESC27 @DEF-03 @fail
+  # DEF-03 corregido: frontend y backend tratan "   " como vacío (antes se creaba el pedido).
+  @ESC27 @DEF-03
   Escenario: SP-27 Los datos de envío con solo espacios se tratan como vacíos
     Cuando paga con teléfono, dirección, ciudad y departamento formados solo por espacios
     Entonces ve el aviso "Por favor completa todos los campos requeridos."
@@ -36,7 +36,7 @@ Característica: Checkout
   Escenario: SP-28 Checkout completo genera el pedido
     Cuando completa sus datos de envío y paga
     Entonces ve el aviso "¡Pedido realizado con éxito!"
-    Y termina en la página "/proyectos"
+    Y termina en la página "/cuenta"
     Y tiene 1 pedido registrado por un total de $ 275.000
     Y el carrito guardado en el servidor tiene 0 unidades
     Y el contador del carrito marca 0

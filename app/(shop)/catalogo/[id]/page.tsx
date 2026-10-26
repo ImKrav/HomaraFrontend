@@ -72,10 +72,10 @@ export default function ProductDetailPage() {
         </Link>
         <span>/</span>
         <Link
-          href={`/catalogo?cat=${product.categorySlug}`}
+          href={`/catalogo?category=${product.categorySlug}`}
           className="hover:text-primary transition-colors"
         >
-          {t(`categories.${product.categorySlug}`) || t(`categories.${product.category}`) || product.category}
+          {t(`categories.${product.categorySlug}`, t(`categories.${product.category}`, product.category))}
         </Link>
         <span>/</span>
         <span className="text-text-secondary truncate">{product.name}</span>
@@ -98,7 +98,7 @@ export default function ProductDetailPage() {
         {/* Info */}
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <Badge>{t(`categories.${product.categorySlug}`) || t(`categories.${product.category}`) || product.category}</Badge>
+            <Badge>{t(`categories.${product.categorySlug}`, t(`categories.${product.category}`, product.category))}</Badge>
             {product.tags.includes("nuevo") && (
               <Badge variant="info">{t("catalog.badge_new")}</Badge>
             )}

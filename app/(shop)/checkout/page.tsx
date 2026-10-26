@@ -77,7 +77,9 @@ export default function CheckoutPage() {
 
   const handleCheckout = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    if (!firstName || !lastName || !email || !phone || !address || !city || !state) {
+    // DEF-03 (ESC27): un campo con solo espacios cuenta como vacío.
+    const required = [firstName, lastName, email, phone, address, city, state];
+    if (required.some((field) => !field.trim())) {
       showToast(t("checkout.required_fields_error"), "warning");
       return;
     }
@@ -86,17 +88,18 @@ export default function CheckoutPage() {
       setProcessing(true);
       const data = await api.post("/api/v1/orders", {
         paymentMethod,
-        shippingAddress: address,
-        shippingCity: city,
-        shippingState: state,
-        shippingZip: zip,
-        shippingNotes: notes
+        shippingAddress: address.trim(),
+        shippingCity: city.trim(),
+        shippingState: state.trim(),
+        shippingZip: zip.trim(),
+        shippingNotes: notes.trim()
       });
 
       if (data.success) {
         window.dispatchEvent(new Event("cartUpdated"));
         showToast(t("checkout.order_success"), "success");
-        router.push("/proyectos");
+        // OBS-01: tras pagar se va al historial de pedidos, no a proyectos.
+        router.push("/cuenta");
       } else {
         showToast(data.error || t("checkout.order_error"), "error");
       }

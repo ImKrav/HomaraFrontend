@@ -15,11 +15,11 @@ describe("Interfaz · Idioma y tema (ESC40)", () => {
     it("INT-TEM-02 [ESC40] 'Alternar tema' pasa de claro a oscuro, lo guarda y persiste al recargar y navegar", () => {
       cy.visit("/", { onBeforeLoad: (win) => win.localStorage.setItem("homara_theme", "light") });
       html().should("not.have.class", "dark");
-      cy.get('button[aria-label="Alternar tema"]').should("contain.text", "Claro").click();
+      cy.get('button[aria-label$="Alternar tema"]').should("contain.text", "Claro").click();
 
       html().should("have.class", "dark");
       cy.window().its("localStorage").invoke("getItem", "homara_theme").should("eq", "dark");
-      cy.get('button[aria-label="Alternar tema"]').should("contain.text", "Oscuro");
+      cy.get('button[aria-label$="Alternar tema"]').should("contain.text", "Oscuro");
       cy.screenshot("tema-oscuro", { capture: "viewport", overwrite: true });
 
       cy.reload();
@@ -31,7 +31,7 @@ describe("Interfaz · Idioma y tema (ESC40)", () => {
     it("INT-TEM-04 [ESC40] 'Alternar tema' pasa de oscuro a claro y también persiste", () => {
       cy.visit("/", { onBeforeLoad: (win) => win.localStorage.setItem("homara_theme", "dark") });
       html().should("have.class", "dark");
-      cy.get('button[aria-label="Alternar tema"]').should("contain.text", "Oscuro").click();
+      cy.get('button[aria-label$="Alternar tema"]').should("contain.text", "Oscuro").click();
 
       html().should("not.have.class", "dark");
       cy.window().its("localStorage").invoke("getItem", "homara_theme").should("eq", "light");
@@ -45,7 +45,7 @@ describe("Interfaz · Idioma y tema (ESC40)", () => {
       html().should("not.have.class", "dark");
       cy.get("body").then(($b) => {
         const fondoClaro = getComputedStyle($b[0]).backgroundColor;
-        cy.get('button[aria-label="Alternar tema"]').click();
+        cy.get('button[aria-label$="Alternar tema"]').click();
         html().should("have.class", "dark");
         cy.get("body").should(($b2) => {
           expect(getComputedStyle($b2[0]).backgroundColor).not.to.eq(fondoClaro);
@@ -84,13 +84,13 @@ describe("Interfaz · Idioma y tema (ESC40)", () => {
       cy.window().its("localStorage").invoke("getItem", "homara_lang").should("eq", "es");
     });
 
-    it("INT-IDI-04 [ESC40] DEF-15: en inglés el atributo <html lang> sigue en 'es'", () => {
+    it("INT-IDI-04 [ESC40] DEF-15 corregido: en inglés el atributo <html lang> pasa a 'en'", () => {
       cy.visit("/", { onBeforeLoad: (win) => win.localStorage.setItem("homara_lang", "en") });
       cy.get("nav").contains("a", "Home").should("exist");
-      html().should("have.attr", "lang", "es");
+      html().should("have.attr", "lang", "en");
     });
 
-    it("INT-IDI-05 [ESC40] DEF-17: el error de contraseñas no coincidentes del registro no se traduce", () => {
+    it("INT-IDI-05 [ESC40] DEF-17 corregido: el error de contraseñas no coincidentes del registro se traduce", () => {
       cy.visit("/register", { onBeforeLoad: (win) => win.localStorage.setItem("homara_lang", "en") });
       cy.contains("button", /Register|Sign up|Create/i).should("exist");
       cy.get('input[placeholder="Juan"]').type("Ann");
@@ -99,7 +99,8 @@ describe("Interfaz · Idioma y tema (ESC40)", () => {
       cy.get('input[type="password"]').eq(0).type("Password1");
       cy.get('input[type="password"]').eq(1).type("Password2");
       cy.get("form").find('button[type="submit"]').click();
-      cy.contains("Las contraseñas no coinciden.").should("be.visible");
+      cy.contains("Passwords do not match.").should("be.visible");
+      cy.contains("Las contraseñas no coinciden.").should("not.exist");
     });
   });
 });

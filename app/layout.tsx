@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from "@/app/context/AuthContext";
 import { ThemeProvider } from "@/app/context/ThemeContext";
 import { LanguageProvider } from "@/app/context/LanguageContext";
+import SkipLink from "@/app/components/SkipLink";
 import ToastContainer from "@/app/components/ui/Toast";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -38,6 +39,7 @@ export default function RootLayout({
         <AuthProvider>
           <ThemeProvider>
             <LanguageProvider>
+              <SkipLink />
               {children}
               <ToastContainer />
             </LanguageProvider>

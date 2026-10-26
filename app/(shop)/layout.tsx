@@ -11,7 +11,7 @@ export default function ShopLayout({
     <>
       <Navbar />
       <RequireAuth>
-        <main className="flex-1">{children}</main>
+        <main id="contenido" tabIndex={-1} className="flex-1 focus:outline-none">{children}</main>
       </RequireAuth>
       <Footer />
     </>

@@ -62,13 +62,12 @@ describe("API · Proyectos (ESC17, ESC19)", () => {
     });
   });
 
-  it("API-PRY-06 [ESC19/ESC36] DEF-11: GET /projects/:id de OTRO usuario responde 200 con sus datos (IDOR)", () => {
+  it("API-PRY-06 [ESC19/ESC36] DEF-11 corregido: GET /projects/:id de OTRO usuario responde 403 (como PUT y DELETE)", () => {
     cy.api("POST", "/projects", { token: usuario.token, body: { name: "Privado", ...PROYECTO_BASE } }).then(({ body }) => {
       cy.crearUsuarioApi("api-proy-idor").then((otro) => {
         cy.api("GET", `/projects/${body.data.id}`, { token: otro.token }).then((r) => {
-          // Debería ser 403/404 como ya ocurre en PUT y DELETE.
-          expect(r.status).to.eq(200);
-          expect(r.body.data).to.include({ name: "Privado", userId: usuario.id });
+          expect(r.status).to.eq(403);
+          expect(r.body).not.to.have.property("data");
         });
       });
     });

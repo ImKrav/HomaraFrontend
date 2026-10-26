@@ -66,7 +66,9 @@ describe("Flujos E2E · Proyectos", () => {
         llenarEnvio();
         cy.get('button[type="submit"]').click();
         cy.wait("@crearPedido").its("response.statusCode").should("eq", 201);
-        cy.location("pathname").should("eq", "/proyectos");
+        // OBS-01: tras pagar se va al historial de pedidos; desde ahí vuelve a sus proyectos
+        cy.location("pathname").should("eq", "/cuenta");
+        cy.visit("/proyectos");
 
         // 4. Marca el proyecto como completado y las estadísticas lo reflejan
         cy.contains("Cocina nueva").click();
@@ -171,7 +173,7 @@ describe("Flujos E2E · Proyectos", () => {
     });
   });
 
-  it("FLU-12 [ESC10→ESC22→ESC02→ESC17] DEF-27: un visitante usa 'Crear Primer Proyecto' desde la ficha y el asistente no preselecciona ese producto", () => {
+  it("FLU-12 [ESC10→ESC22→ESC02→ESC17] DEF-27 y OBS-05 corregidos: el visitante inicia sesión, vuelve a la ficha y el asistente guarda el producto elegido", () => {
     cy.productosApi().then((lista) => {
       const opciones = ceramicas(lista);
       const elegida = opciones.slice(-1)[0];
@@ -185,16 +187,16 @@ describe("Flujos E2E · Proyectos", () => {
         cy.get("#email").type(usuario.email);
         cy.get("#password").type(usuario.password, { log: false });
         cy.get("form").find('button[type="submit"]').click();
-        cy.contains("h1", "Mi Cuenta").should("be.visible");
+        // OBS-05: vuelve a la ficha desde la que pidió el login (antes iba siempre a /cuenta)
+        cy.location("pathname").should("eq", `/catalogo/${elegida.id}`);
 
         // 2. Sin proyectos, ofrece crear el primero con el producto
-        buscarYAbrir(elegida.name);
         cy.contains("button", "Usar en Proyecto").click();
         cy.contains("No tienes proyectos activos").should("be.visible");
         cy.contains("button", "Crear Primer Proyecto").click();
         cy.location("search").should("eq", `?selectedProductId=${elegida.id}`);
 
-        // 3. El asistente ignora ?selectedProductId y guarda el primer producto de la lista
+        // 3. El asistente respeta ?selectedProductId (antes guardaba el primero de la lista)
         cy.get("#project-name").type("Primer proyecto");
         cy.get("#length").type("3");
         cy.get("#width").type("2");
@@ -202,8 +204,7 @@ describe("Flujos E2E · Proyectos", () => {
         cy.contains("button", BOTON_GUARDAR).click();
         cy.wait("@crearProyecto").then(({ request, response }) => {
           expect(response?.statusCode).to.eq(201);
-          // Esperado: elegida.id. Observado: el primero del filtro de cerámicas.
-          expect(request.body.selectedProductId).to.eq(opciones[0].id);
+          expect(request.body.selectedProductId).to.eq(elegida.id);
         });
       });
     });

@@ -21,11 +21,14 @@ function CatalogoContent() {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const { t } = useLanguage();
 
   const ITEMS_PER_PAGE = 25;
-  const SKELETON_KEYS = ["sk-1", "sk-2", "sk-3", "sk-4", "sk-5", "sk-6", "sk-7", "sk-8"];
+  // DEF-26: tantos esqueletos como productos por página, para que la grilla no empuje el pie (CLS).
+  const SKELETON_KEYS = Array.from({ length: ITEMS_PER_PAGE }, (_, i) => `sk-${i}`);
 
   // Sincronizar parámetros desde la URL
   useEffect(() => {
@@ -71,6 +74,7 @@ function CatalogoContent() {
     async function fetchProducts() {
       try {
         setLoading(true);
+        setLoadError(false);
         const endpoint = selectedCategory === "todos" 
           ? "/api/v1/products" 
           : `/api/v1/products?category=${selectedCategory}`;
@@ -79,13 +83,16 @@ function CatalogoContent() {
           setProducts(prodRes.data);
         }
       } catch (error) {
+        // DEF-29: antes el fallo se veía como "0 productos encontrados", sin aviso ni reintento.
         console.error("Error fetching products:", error);
+        setProducts([]);
+        setLoadError(true);
       } finally {
         setLoading(false);
       }
     }
     fetchProducts();
-  }, [selectedCategory]);
+  }, [selectedCategory, reloadKey]);
 
   // Filtrado de productos en el cliente
   const filteredProducts = products.filter((product) => {
@@ -179,7 +186,7 @@ function CatalogoContent() {
               }`}
             >
               <LucideIcon name={cat.slug} size={14} />
-              <span>{t(`categories.${cat.slug}`) || t(`categories.${cat.name}`) || cat.name}</span>
+              <span>{t(`categories.${cat.slug}`, t(`categories.${cat.name}`, cat.name))}</span>
             </button>
           ))}
         </div>
@@ -187,7 +194,7 @@ function CatalogoContent() {
         {/* Sort & Rating Filter */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-6 self-end lg:self-auto w-full lg:w-auto">
           <div className="flex items-center gap-2">
-            <span className="text-[10px] uppercase tracking-wider font-extrabold text-text-muted whitespace-nowrap">{t("catalog.rating")}</span>
+            <label htmlFor="min-rating" className="text-[10px] uppercase tracking-wider font-extrabold text-text-muted whitespace-nowrap">{t("catalog.rating")}</label>
             <select
               value={minRating}
               onChange={(e) => setMinRating(Number(e.target.value))}
@@ -202,7 +209,7 @@ function CatalogoContent() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-[10px] uppercase tracking-wider font-extrabold text-text-muted whitespace-nowrap">{t("catalog.sort_by")}</span>
+            <label htmlFor="sort-by" className="text-[10px] uppercase tracking-wider font-extrabold text-text-muted whitespace-nowrap">{t("catalog.sort_by")}</label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
@@ -218,10 +225,23 @@ function CatalogoContent() {
         </div>
       </div>
 
-      {/* Results count */}
-      <p className="text-xs text-text-muted font-medium mb-6">
+      {/* Results count (h2 para no saltar de h1 a los h3 de las tarjetas: DEF-25) */}
+      <h2 className="text-xs text-text-muted font-medium mb-6" aria-live="polite">
         {loading ? t("catalog.updating") : `${sortedProducts.length} ${t("catalog.results_found")}`}
-      </p>
+      </h2>
+
+      {!loading && loadError && (
+        <div role="alert" className="text-center py-16 bg-bg-surface border border-error/40 mb-6">
+          <h3 className="text-sm font-bold text-text-primary uppercase tracking-tight mb-2">{t("catalog.load_error")}</h3>
+          <p className="text-xs text-text-secondary max-w-xs mx-auto">{t("catalog.load_error_desc")}</p>
+          <button
+            onClick={() => setReloadKey((k) => k + 1)}
+            className="mt-6 px-5 py-2.5 bg-primary text-bg-base text-xs uppercase tracking-wider font-bold border border-primary hover:bg-primary-light transition-colors"
+          >
+            {t("catalog.retry")}
+          </button>
+        </div>
+      )}
 
       {/* Product grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -253,7 +273,7 @@ function CatalogoContent() {
       )}
 
       {/* Empty state */}
-      {!loading && sortedProducts.length === 0 && (
+      {!loading && !loadError && sortedProducts.length === 0 && (
         <div className="text-center py-20 bg-bg-surface border border-border mt-6">
           <div className="text-text-muted mb-4 flex justify-center">
             <LucideIcon name="Search" size={40} />

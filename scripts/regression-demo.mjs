@@ -66,8 +66,8 @@ const MUTACIONES = [
     modulo: "Checkout",
     cambio: "El pedido envía el departamento como ciudad",
     archivo: "app/(shop)/checkout/page.tsx",
-    buscar: "shippingCity: city,",
-    poner: "shippingCity: state,",
+    buscar: "shippingCity: city.trim(),",
+    poner: "shippingCity: state.trim(),",
   },
   {
     modulo: "Cuenta",
@@ -153,6 +153,34 @@ const MUTACIONES = [
     archivo: "app/lib/utils.ts",
     buscar: '"Para retoques y esquinas": [',
     poner: '"Para retoques": [',
+  },
+  {
+    modulo: "Administración",
+    cambio: "El buscador de pedidos vuelve a leer orderNumber (TypeError)",
+    archivo: "app/(admin)/admin/pedidos/page.tsx",
+    buscar: "const matchesSearch = [order.id, order.customer, order.shippingAddress, order.shippingCity].some(",
+    poner: "const matchesSearch = [(order as { orderNumber: string }).orderNumber.toLowerCase(), order.customer].some(",
+  },
+  {
+    modulo: "Catálogo",
+    cambio: "Un fallo del catálogo vuelve a verse como '0 productos'",
+    archivo: "app/(shop)/catalogo/page.tsx",
+    buscar: "        setLoadError(true);\n",
+    poner: "",
+  },
+  {
+    modulo: "Autenticación",
+    cambio: "Un error de red vuelve a cerrar la sesión",
+    archivo: "app/context/AuthContext.tsx",
+    buscar: '      console.error("Error validando sesión:", error);\n',
+    poner: '      console.error("Error validando sesión:", error);\n      logout();\n',
+  },
+  {
+    modulo: "Autenticación",
+    cambio: "El login acepta redirecciones externas",
+    archivo: "app/(shop)/login/page.tsx",
+    buscar: 'return target && /^\\/(?![/\\\\])/.test(target) ? target : "/cuenta";',
+    poner: 'return target ?? "/cuenta";',
   },
 ];
 
