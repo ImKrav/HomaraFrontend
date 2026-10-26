@@ -56,16 +56,16 @@ describe("Regresión · Proyectos (ESC17, ESC19, ESC24)", () => {
     cy.contains("Solo Piso").should("be.visible");
   });
 
-  it("REG-PRY-04 [ESC17] con dimensiones negativas el frontend no valida y el backend responde 400", () => {
+  it("REG-PRY-04 [ESC17] DEF-04 corregido: con dimensiones negativas el frontend avisa y no llama al backend", () => {
     cy.visit("/proyectos/nuevo");
     cy.get("#project-name").type("Proyecto negativo");
     cy.get("#length").type("-4");
     cy.get("#width").type("3");
     cy.contains("button", BOTON_GUARDAR).click();
 
-    // DEF-04: no hay validación de valores positivos en el cliente; el error llega del backend.
-    cy.wait("@crearProyecto").its("response.statusCode").should("eq", 400);
-    cy.get('[role="alert"]').should("contain.text", "Longitud debe ser positiva");
+    // Antes no había validación de valores positivos en el cliente y el error llegaba del backend (400).
+    cy.get('[role="alert"]').should("contain.text", "debe ser un número mayor que 0");
+    cy.get("@crearProyecto.all").should("have.length", 0);
     cy.location("pathname").should("eq", "/proyectos/nuevo");
   });
 
