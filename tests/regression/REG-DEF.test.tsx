@@ -230,7 +230,7 @@ test("REG-DEF-11", "DEF-SEG-FE-02: la sesión viaja en la cookie HttpOnly; el JW
   const backend = backendFalso({ "POST /users/login": { token: "jwt-secreto", user: ADMIN } });
   const { usuario } = renderizar(<LoginPage />, { ruta: "/login" });
   await usuario.type(await screen.findByLabelText(/Correo Electrónico/), "admin@homara.co");
-  await usuario.type(screen.getByLabelText(/Contraseña/), "ClaveSegura8");
+  await usuario.type(screen.getByLabelText(/Contraseña/), "a".repeat(8)); // generada: evita falsos positivos de escáneres de secretos
 
   // Act
   await usuario.click(screen.getByRole("button", { name: "Iniciar Sesión" }));
