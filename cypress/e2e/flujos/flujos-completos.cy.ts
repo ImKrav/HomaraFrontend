@@ -124,6 +124,8 @@ describe("Flujos E2E completos", () => {
       // 1. El admin revisa el inventario del producto nuevo
       cy.iniciarSesion(Cypress.env("adminEmail"), Cypress.env("adminPassword"));
       cy.visit("/admin/inventario");
+      // La tabla pagina de a 25: se filtra por nombre para no depender de la posición.
+      cy.get('input[placeholder^="Buscar"]').type(producto.name);
       cy.contains("tr", producto.name).should("be.visible").and("contain.text", "5");
       evidencia("FLU-02 1 inventario admin");
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="4.604" tests="22" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T12:44:08" tests="0" file="cypress/e2e/seguridad/seguridad.api.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Seguridad · API (ESC06, ESC35, ESC36, ESC41)" timestamp="2026-10-26T12:44:08" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Autenticación con JWT (ESC35)" timestamp="2026-10-26T12:44:08" tests="5" time="0.341" failures="0">
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Autenticación con JWT (ESC35) SEG-API-01 [ESC35] un token con la firma alterada se rechaza con 401" time="0.336" classname="SEG-API-01 [ESC35] un token con la firma alterada se rechaza con 401">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Autenticación con JWT (ESC35) SEG-API-02 [ESC35] un token con alg &quot;none&quot; que se declara ADMIN se rechaza con 401" time="0.036" classname="SEG-API-02 [ESC35] un token con alg &quot;none&quot; que se declara ADMIN se rechaza con 401">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Autenticación con JWT (ESC35) SEG-API-03 [ESC35] un token vencido se rechaza con 401" time="0.052" classname="SEG-API-03 [ESC35] un token vencido se rechaza con 401">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Autenticación con JWT (ESC35) SEG-API-04 [ESC35] un esquema distinto de Bearer (Basic, token pelado) no autentica" time="0.057" classname="SEG-API-04 [ESC35] un esquema distinto de Bearer (Basic, token pelado) no autentica">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Autenticación con JWT (ESC35) SEG-API-05 [ESC35] el JWT emitido no transporta la contraseña y expira en 7 días o menos" time="0.029" classname="SEG-API-05 [ESC35] el JWT emitido no transporta la contraseña y expira en 7 días o menos">
+    </testcase>
+  </testsuite>
+  <testsuite name="Autorización y asignación masiva (ESC06, ESC36)" timestamp="2026-10-26T12:44:08" tests="5" time="0.816" failures="0">
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Autorización y asignación masiva (ESC06, ESC36) SEG-API-06 [ESC06] un &quot;role&quot;: &quot;ADMIN&quot; enviado en el registro se ignora (queda CUSTOMER)" time="0.206" classname="SEG-API-06 [ESC06] un &quot;role&quot;: &quot;ADMIN&quot; enviado en el registro se ignora (queda CUSTOMER)">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Autorización y asignación masiva (ESC06, ESC36) SEG-API-07 [ESC06] PUT /users/:id con &quot;role&quot;: &quot;ADMIN&quot; no escala privilegios" time="0.086" classname="SEG-API-07 [ESC06] PUT /users/:id con &quot;role&quot;: &quot;ADMIN&quot; no escala privilegios">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Autorización y asignación masiva (ESC06, ESC36) SEG-API-08 [ESC36] un usuario no puede editar el perfil de otro (403) y el perfil queda intacto" time="0.085" classname="SEG-API-08 [ESC36] un usuario no puede editar el perfil de otro (403) y el perfil queda intacto">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Autorización y asignación masiva (ESC06, ESC36) SEG-API-09 [ESC36] un usuario no puede cambiar ni borrar ítems del carrito de otro" time="0.159" classname="SEG-API-09 [ESC36] un usuario no puede cambiar ni borrar ítems del carrito de otro">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Autorización y asignación masiva (ESC06, ESC36) SEG-API-10 [ESC06] crear, editar y borrar productos exige rol ADMIN (sin token 401, CUSTOMER 403)" time="0.139" classname="SEG-API-10 [ESC06] crear, editar y borrar productos exige rol ADMIN (sin token 401, CUSTOMER 403)">
+    </testcase>
+  </testsuite>
+  <testsuite name="Validación de entradas e inyección (ESC41)" timestamp="2026-10-26T12:44:09" tests="3" time="0.264" failures="0">
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Validación de entradas e inyección (ESC41) SEG-API-11 [ESC41] operadores NoSQL y SQL en el login se rechazan por validación (400), sin sesión" time="0.085" classname="SEG-API-11 [ESC41] operadores NoSQL y SQL en el login se rechazan por validación (400), sin sesión">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Validación de entradas e inyección (ESC41) SEG-API-12 [ESC41] cadenas de inyección en filtros e ids no provocan errores 500 ni fugas de datos" time="0.055" classname="SEG-API-12 [ESC41] cadenas de inyección en filtros e ids no provocan errores 500 ni fugas de datos">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Validación de entradas e inyección (ESC41) SEG-API-13 [ESC41] un cuerpo de más de 100 KB se corta con 413" time="0.056" classname="SEG-API-13 [ESC41] un cuerpo de más de 100 KB se corta con 413">
+    </testcase>
+  </testsuite>
+  <testsuite name="Configuración HTTP y CORS (ESC35, ESC36)" timestamp="2026-10-26T12:44:09" tests="2" time="0.108" failures="0">
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Configuración HTTP y CORS (ESC35, ESC36) SEG-API-14 [ESC36] CORS refleja solo el origen del frontend y nunca el comodín *" time="0.040" classname="SEG-API-14 [ESC36] CORS refleja solo el origen del frontend y nunca el comodín *">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Configuración HTTP y CORS (ESC35, ESC36) SEG-API-15 [ESC35] el backend no anuncia su tecnología (sin X-Powered-By)" time="0.033" classname="SEG-API-15 [ESC35] el backend no anuncia su tecnología (sin X-Powered-By)">
+    </testcase>
+  </testsuite>
+  <testsuite name="Defectos abiertos (comportamiento observado)" timestamp="2026-10-26T12:44:09" tests="7" time="2.774" failures="0">
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Defectos abiertos (comportamiento observado) DEF-SEG-01 [ESC35] un token de ADMIN forjado con el secreto por defecto es aceptado" time="0.055" classname="DEF-SEG-01 [ESC35] un token de ADMIN forjado con el secreto por defecto es aceptado">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Defectos abiertos (comportamiento observado) DEF-SEG-03/04/05 [ESC36] sin token, ?userId=&lt;ajeno&gt; expone pedidos, proyectos y carrito de otro usuario" time="0.133" classname="DEF-SEG-03/04/05 [ESC36] sin token, ?userId=&lt;ajeno&gt; expone pedidos, proyectos y carrito de otro usuario">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Defectos abiertos (comportamiento observado) DEF-SEG-06 [ESC36] GET /orders/:numero sin token expone el pedido y la dirección del cliente" time="0.086" classname="DEF-SEG-06 [ESC36] GET /orders/:numero sin token expone el pedido y la dirección del cliente">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Defectos abiertos (comportamiento observado) DEF-SEG-08 [ESC36] GET /users/:id entrega el teléfono de otro usuario" time="0.041" classname="DEF-SEG-08 [ESC36] GET /users/:id entrega el teléfono de otro usuario">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Defectos abiertos (comportamiento observado) DEF-SEG-09 [ESC35] PUT /users/:id devuelve el hash bcrypt de la contraseña" time="0.037" classname="DEF-SEG-09 [ESC35] PUT /users/:id devuelve el hash bcrypt de la contraseña">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Defectos abiertos (comportamiento observado) DEF-SEG-10 [ESC35] faltan cabeceras de seguridad (X-Content-Type-Options, X-Frame-Options)" time="0.036" classname="DEF-SEG-10 [ESC35] faltan cabeceras de seguridad (X-Content-Type-Options, X-Frame-Options)">
+    </testcase>
+    <testcase name="Seguridad · API (ESC06, ESC35, ESC36, ESC41) Defectos abiertos (comportamiento observado) DEF-SEG-11 [ESC35] el login no limita intentos: 20 fallos seguidos, ninguno con 429" time="2.234" classname="DEF-SEG-11 [ESC35] el login no limita intentos: 20 fallos seguidos, ninguno con 429">
+    </testcase>
+  </testsuite>
+</testsuites>

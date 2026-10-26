@@ -4,7 +4,7 @@
     "ruta": "/",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:10.588Z",
+    "fecha": "2026-10-26T12:34:48.777Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -33,7 +33,7 @@
     "ruta": "/",
     "tema": "dark",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:12.075Z",
+    "fecha": "2026-10-26T12:34:50.095Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -62,7 +62,7 @@
     "ruta": "/catalogo",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:16.332Z",
+    "fecha": "2026-10-26T12:34:54.247Z",
     "total": 2,
     "porImpacto": {
       "serious": 1,
@@ -104,10 +104,10 @@
   },
   {
     "pagina": "detalle-producto",
-    "ruta": "/catalogo/cmvoo9nfk000bhe7de9nq7suf",
+    "ruta": "/catalogo/cmvoo9nfo000dhe7d784xqhbq",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:17.215Z",
+    "fecha": "2026-10-26T12:34:54.972Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -124,8 +124,8 @@
         "ayuda": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
         "nodos": 4,
         "ejemplos": [
-          ".p-4 > .mt-1",
-          ".px-1\\.5.gap-1\\.5.bg-bg-surface-light:nth-child(1) > .px-1\\.5.text-\\[10px\\].font-bold",
+          ".mt-1.text-text-muted",
+          ".px-1\\.5.gap-1\\.5.py-1:nth-child(1) > .px-1\\.5.text-\\[10px\\].text-text-muted",
           ".bg-transparent"
         ]
       }
@@ -136,7 +136,7 @@
     "ruta": "/login",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:21.022Z",
+    "fecha": "2026-10-26T12:34:58.655Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -165,7 +165,7 @@
     "ruta": "/login",
     "tema": "dark",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:24.881Z",
+    "fecha": "2026-10-26T12:35:02.497Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -194,7 +194,7 @@
     "ruta": "/register",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:28.669Z",
+    "fecha": "2026-10-26T12:35:06.210Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -223,7 +223,7 @@
     "ruta": "/carrito",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:29.369Z",
+    "fecha": "2026-10-26T12:35:06.928Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -252,7 +252,7 @@
     "ruta": "/cuenta",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:39.299Z",
+    "fecha": "2026-10-26T12:35:19.806Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -281,7 +281,7 @@
     "ruta": "/proyectos",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:40.183Z",
+    "fecha": "2026-10-26T12:35:20.602Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -310,7 +310,7 @@
     "ruta": "/proyectos/nuevo",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:44.201Z",
+    "fecha": "2026-10-26T12:35:23.327Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -339,7 +339,7 @@
     "ruta": "/checkout",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:45.328Z",
+    "fecha": "2026-10-26T12:35:24.187Z",
     "total": 1,
     "porImpacto": {
       "serious": 1
@@ -368,7 +368,7 @@
     "ruta": "/admin",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:52.449Z",
+    "fecha": "2026-10-26T12:35:31.173Z",
     "total": 2,
     "porImpacto": {
       "serious": 2
@@ -411,7 +411,7 @@
     "ruta": "/admin/productos",
     "tema": "light",
     "navegador": "electron",
-    "fecha": "2026-10-26T03:30:54.050Z",
+    "fecha": "2026-10-26T12:35:32.602Z",
     "total": 2,
     "porImpacto": {
       "serious": 1,

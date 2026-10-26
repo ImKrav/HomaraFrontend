@@ -113,11 +113,14 @@ describe("API · Administración (ESC31-ESC34)", () => {
     cy.api("GET", "/admin/inventory", { token: admin }).then(({ body }) => {
       const { stats, products } = body.data;
       expect(stats.totalProducts).to.eq(products.length);
-      const sinStock = products.filter((p: { stockQuantity: number }) => p.stockQuantity <= 0).length;
-      expect(stats.outOfStockCount).to.eq(sinStock);
+      // Las compras en envío diferido (backorder) dejan stock negativo: el backend lo cuenta aparte.
+      const contar = (cond: (q: number) => boolean) =>
+        products.filter((p: { stockQuantity: number }) => cond(p.stockQuantity)).length;
+      expect(stats.outOfStockCount).to.eq(contar((q) => q === 0));
+      expect(stats.negativeStockCount).to.eq(contar((q) => q < 0));
       products.forEach((p: { stockValue: number; price: number; stockQuantity: number; stockStatus: string }) => {
-        expect(p.stockValue).to.eq(p.price * Math.max(0, p.stockQuantity));
-        expect(p.stockStatus).to.be.oneOf(["sin_stock", "stock_bajo", "normal"]);
+        expect(p.stockValue).to.eq(p.price * p.stockQuantity);
+        expect(p.stockStatus).to.be.oneOf(["sin_stock", "stock_bajo", "normal", "stock_negativo"]);
       });
     });
   });

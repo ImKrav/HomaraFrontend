@@ -1,6 +1,6 @@
-[16103:1026/033003.892891:ERROR:node_bindings.cc(379)] Most NODE_OPTIONs are not supported in packaged apps. See documentation for more details.
+[26736:1026/123440.337349:ERROR:node_bindings.cc(379)] Most NODE_OPTIONs are not supported in packaged apps. See documentation for more details.
 
-DevTools listening on ws://127.0.0.1:34801/devtools/browser/d8924009-2c4e-4e42-a7ca-b19039aa4934
+DevTools listening on ws://127.0.0.1:42269/devtools/browser/e1245ea9-d5d8-492e-8073-4064abf477a9
 Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
 
 ================================================================================
@@ -11,10 +11,10 @@ Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
   │ Cypress:        14.5.4                                                                         │
   │ Browser:        Electron 130 (headless)                                                        │
   │ Node Version:   v22.22.0 (/opt/node22/bin/node)                                                │
-  │ Specs:          20 found (accesibilidad/axe-paginas.cy.ts, accesibilidad/teclado-etiquetas.cy. │
-  │                 ts, flujos/flujos-completos.cy.ts, api/carrito-pedidos.api.cy.ts, api/catalogo │
-  │                 .api.cy.ts, api/errores-integridad.api.cy.ts, api/proyectos-admin.api.cy.ts, a │
-  │                 pi/usuarios.api.cy.ts, ...)                                                    │
+  │ Specs:          24 found (accesibilidad/axe-paginas.cy.ts, accesibilidad/teclado-etiquetas.cy. │
+  │                 ts, flujos/admin.cy.ts, flujos/cliente.cy.ts, flujos/errores.cy.ts, flujos/flu │
+  │                 jos-completos.cy.ts, flujos/proyectos.cy.ts, api/carrito-pedidos.api.cy.ts, ap │
+  │                 i/catalogo.api.cy.ts, a...)                                                    │
   │ Searched:       cypress/e2e/**/*.cy.ts                                                         │
   │ Experiments:    experimentalRunAllSpecs=true                                                   │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
@@ -23,7 +23,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  accesibilidad/axe-paginas.cy.ts                                                (1 of 20)
+  Running:  accesibilidad/axe-paginas.cy.ts                                                (1 of 24)
 
 
   Accesibilidad · axe-core WCAG 2.1 A/AA
@@ -44,7 +44,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 [axe] carrito-invitado: 1 reglas violadas -> color-contrast(serious, 3 nodos)
     ✓ A11Y-AXE [ESC39/ESC40] carrito-invitado (/carrito) no agrega violaciones críticas nuevas
 [axe] cuenta: 1 reglas violadas -> color-contrast(serious, 3 nodos)
-    ✓ A11Y-AXE [ESC39/ESC40] cuenta (/cuenta) no agrega violaciones críticas nuevas (9473ms)
+    ✓ A11Y-AXE [ESC39/ESC40] cuenta (/cuenta) no agrega violaciones críticas nuevas (12568ms)
 [axe] proyectos: 1 reglas violadas -> color-contrast(serious, 3 nodos)
     ✓ A11Y-AXE [ESC39/ESC40] proyectos (/proyectos) no agrega violaciones críticas nuevas
 [axe] proyecto-nuevo: 1 reglas violadas -> color-contrast(serious, 4 nodos)
@@ -52,7 +52,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 [axe] checkout: 1 reglas violadas -> color-contrast(serious, 3 nodos)
     ✓ A11Y-AXE [ESC39/ESC40] checkout (/checkout) no agrega violaciones críticas nuevas
 [axe] admin-dashboard: 2 reglas violadas -> aria-prohibited-attr(serious, 12 nodos), color-contrast(serious, 1 nodos)
-    ✓ A11Y-AXE [ESC39/ESC40] admin-dashboard (/admin) no agrega violaciones críticas nuevas (6732ms)
+    ✓ A11Y-AXE [ESC39/ESC40] admin-dashboard (/admin) no agrega violaciones críticas nuevas (6674ms)
 [axe] admin-productos: 2 reglas violadas -> color-contrast(serious, 1 nodos), select-name(critical, 2 nodos)
     ✓ A11Y-AXE [ESC39/ESC40] admin-productos (/admin/productos) no agrega violaciones críticas nuevas
 
@@ -72,7 +72,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  14                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     44 seconds                                                                       │
+  │ Duration:     45 seconds                                                                       │
   │ Spec Ran:     accesibilidad/axe-paginas.cy.ts                                                  │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -125,7 +125,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  accesibilidad/teclado-etiquetas.cy.ts                                          (2 of 20)
+  Running:  accesibilidad/teclado-etiquetas.cy.ts                                          (2 of 24)
 
 
   Accesibilidad · Teclado y foco
@@ -144,7 +144,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ A11Y-LBL-04 /checkout: los campos de contacto y envío están etiquetados
 
 
-  8 passing (25s)
+  8 passing (24s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_001.json
 
@@ -159,7 +159,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  9                                                                                │
   │ Video:        false                                                                            │
-  │ Duration:     25 seconds                                                                       │
+  │ Duration:     24 seconds                                                                       │
   │ Spec Ran:     accesibilidad/teclado-etiquetas.cy.ts                                            │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -196,18 +196,233 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  flujos/flujos-completos.cy.ts                                                  (3 of 20)
+  Running:  flujos/admin.cy.ts                                                             (3 of 24)
+
+
+  Flujos E2E · Administración ↔ clientes
+    ✓ FLU-13 [ESC06→ESC32→ESC09→ESC10] el admin publica, reprecia y retira un producto y el cliente ve cada cambio en el catálogo (11339ms)
+    ✓ FLU-14 [ESC28→ESC34→ESC29] un pedido recorre todos sus estados y el cliente sigue cada avance desde su cuenta (8567ms)
+    ✓ FLU-15 [ESC28→ESC33→ESC25→ESC26] DEF-30: el stock se agota, el admin lo ve en alertas, otro cliente compra en envío diferido y el stock negativo se muestra como 'Stock Bajo' (9967ms)
+    ✓ FLU-16 [ESC28→ESC34→ESC29] DEF-28: el admin cancela un pedido, el cliente lo ve cancelado y el stock no se devuelve
+    ✓ FLU-21 [ESC31→ESC28→ESC34] el dashboard del admin suma el pedido nuevo como activo y, al entregarlo, como venta del mes (5960ms)
+
+
+  5 passing (43s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_002.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        5                                                                                │
+  │ Passing:      5                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  15                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     43 seconds                                                                       │
+  │ Spec Ran:     flujos/admin.cy.ts                                                               │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-13 1 produc     (1280x720)
+     to publicado.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-13 2 client     (1280x720)
+     e ve el nuevo precio.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-13 3 produc     (1280x720)
+     to retirado.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-13 [ESC06→E     (1280x720)
+     SC32→ESC09→ESC10] el admin publica, reprecia y retira un producto y el cliente v               
+     e cada cambio en el catálogo -- after each hook.png                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-14 1 pedido     (1280x720)
+      entregado.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-14 [ESC28→E     (1280x720)
+     SC34→ESC29] un pedido recorre todos sus estados y el cliente sigue cada avance d               
+     esde su cuenta -- after each hook.png                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-15 1 alerta     (1280x720)
+      sin stock.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-15 2 carrit     (1280x720)
+     o en backorder.png                                                                             
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-15 3 stock      (1280x720)
+     negativo como stock bajo.png                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-15 [ESC28→E     (1280x720)
+     SC33→ESC25→ESC26] DEF-30 el stock se agota, el admin lo ve en alertas, otro clie               
+     nte compra en envío diferido y el stock negativo se muestra como 'Stock Bajo' --               
+      after each hook.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-16 1 pedido     (1280x720)
+      cancelado.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-16 [ESC28→E     (1280x720)
+     SC34→ESC29] DEF-28 el admin cancela un pedido, el cliente lo ve cancelado y el s               
+     tock no se devuelve -- after each hook.png                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-21 1 dashbo     (1280x720)
+     ard antes.png                                                                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-21 2 dashbo     (1280x720)
+     ard con la venta.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/admin.cy.ts/FLU-21 [ESC31→E     (1280x720)
+     SC28→ESC34] el dashboard del admin suma el pedido nuevo como activo y, al entreg               
+     arlo, como venta del mes -- after each hook.png                                                
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  flujos/cliente.cy.ts                                                           (4 of 24)
+
+
+  Flujos E2E · Cliente
+    ✓ FLU-03 [ESC12→ESC11→ESC09→ESC10→ESC13→ESC02] un visitante explora desde el inicio, intenta comprar sin sesión, inicia sesión y agrega al carrito (7421ms)
+    ✓ FLU-04 [ESC05→ESC09→ESC13→ESC27→ESC28→ESC29] el cliente completa su perfil y el checkout usa esos datos de envío (5524ms)
+    ✓ FLU-05 [ESC13→ESC16→ESC15→ESC14→ESC27→ESC28] el carrito con varios productos gana y pierde el envío gratis según el subtotal (5618ms)
+    ✓ FLU-06 [ESC40→ESC02→ESC09→ESC13→ESC27→ESC28] una compra completa en inglés y con tema oscuro mantiene las preferencias (8208ms)
+    ✓ FLU-07 [ESC39→ESC02→ESC09→ESC13→ESC27→ESC28] un cliente compra desde el celular con el menú móvil (7977ms)
+    ✓ FLU-08 [ESC28→ESC30→ESC03→ESC10] tras comprar, el cliente califica el producto y otro visitante ve la reseña (6648ms)
+
+
+  6 passing (44s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_003.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  19                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     43 seconds                                                                       │
+  │ Spec Ran:     flujos/cliente.cy.ts                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-03 1 fich     (1280x720)
+     a sin sesión.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-03 2 agre     (1280x720)
+     gado tras login.png                                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-03 [ESC12     (1280x720)
+     →ESC11→ESC09→ESC10→ESC13→ESC02] un visitante explora desde el inicio, intenta co               
+     mprar sin sesión, inicia sesión y agrega al carrito -- after each hook.png                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-04 1 perf     (1280x720)
+     il completo.png                                                                                
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-04 2 chec     (1280x720)
+     kout precargado.png                                                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-04 3 deta     (1280x720)
+     lle con dirección del perfil.png                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-04 [ESC05     (1280x720)
+     →ESC09→ESC13→ESC27→ESC28→ESC29] el cliente completa su perfil y el checkout usa                
+     esos datos de envío -- after each hook.png                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-05 1 enví     (1280x720)
+     o gratis.png                                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-05 2 enví     (1280x720)
+     o cobrado.png                                                                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-05 [ESC13     (1280x720)
+     →ESC16→ESC15→ESC14→ESC27→ESC28] el carrito con varios productos gana y pierde el               
+      envío gratis según el subtotal -- after each hook.png                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-06 1 cuen     (1280x720)
+     ta en inglés y oscuro.png                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-06 2 pedi     (1280x720)
+     do en inglés.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-06 [ESC40     (1280x720)
+     →ESC02→ESC09→ESC13→ESC27→ESC28] una compra completa en inglés y con tema oscuro                
+     mantiene las preferencias -- after each hook.png                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-07 1 fich      (375x667)
+     a en móvil.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-07 2 chec      (375x667)
+     kout en móvil.png                                                                              
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-07 [ESC39      (375x667)
+     →ESC02→ESC09→ESC13→ESC27→ESC28] un cliente compra desde el celular con el menú m               
+     óvil -- after each hook.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-08 1 rese     (1280x720)
+     ña publicada.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-08 2 visi     (1280x720)
+     tante ve la reseña.png                                                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/cliente.cy.ts/FLU-08 [ESC28     (1280x720)
+     →ESC30→ESC03→ESC10] tras comprar, el cliente califica el producto y otro visitan               
+     te ve la reseña -- after each hook.png                                                         
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  flujos/errores.cy.ts                                                           (5 of 24)
+
+
+  Flujos E2E · Errores y recuperación
+    ✓ FLU-17 [ESC27→ESC28→ESC41] el pago falla por un error del servidor, el carrito se conserva y el reintento crea el pedido (6397ms)
+    ✓ FLU-18 [ESC07→ESC02→ESC13→ESC28] la sesión vence con productos en el carrito; tras volver a entrar el carrito sigue ahí y la compra termina (8950ms)
+    ✓ FLU-19 [ESC01→ESC17→ESC04] el registro falla tres veces por datos inválidos, el usuario corrige y crea su primer proyecto (17303ms)
+    ✓ FLU-20 [ESC08→ESC41→ESC09→ESC13] DEF-29: con el catálogo caído la app muestra un catálogo vacío sin aviso; al recargar se recupera y el cliente compra
+
+
+  4 passing (39s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_004.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        4                                                                                │
+  │ Passing:      4                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  10                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     38 seconds                                                                       │
+  │ Spec Ran:     flujos/errores.cy.ts                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-17 1 pago     (1280x720)
+      fallido.png                                                                                   
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-17 [ESC27     (1280x720)
+     →ESC28→ESC41] el pago falla por un error del servidor, el carrito se conserva y                
+     el reintento crea el pedido -- after each hook.png                                             
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-18 1 sesi     (1280x720)
+     ón vencida.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-18 2 comp     (1280x720)
+     ra tras volver a entrar.png                                                                    
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-18 [ESC07     (1280x720)
+     →ESC02→ESC13→ESC28] la sesión vence con productos en el carrito; tras volver a e               
+     ntrar el carrito sigue ahí y la compra termina -- after each hook.png                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-19 1 corr     (1280x720)
+     eo duplicado.png                                                                               
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-19 2 cuen     (1280x720)
+     ta con su primer proyecto.png                                                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-19 [ESC01     (1280x720)
+     →ESC17→ESC04] el registro falla tres veces por datos inválidos, el usuario corri               
+     ge y crea su primer proyecto -- after each hook.png                                            
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-20 1 catá     (1280x720)
+     logo caído.png                                                                                 
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/errores.cy.ts/FLU-20 [ESC08     (1280x720)
+     →ESC41→ESC09→ESC13] DEF-29 con el catálogo caído la app muestra un catálogo vací               
+     o sin aviso; al recargar se recupera y el cliente compra -- after each hook.png                
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  flujos/flujos-completos.cy.ts                                                  (6 of 24)
 
 
   Flujos E2E completos
-    ✓ FLU-01 [ESC01→ESC09→ESC13→ESC14→ESC27→ESC28→ESC29→ESC03] un visitante se registra, compra y consulta su pedido (9856ms)
+    ✓ FLU-01 [ESC01→ESC09→ESC13→ESC14→ESC27→ESC28→ESC29→ESC03] un visitante se registra, compra y consulta su pedido (10073ms)
     FLU-02 · Ciclo cliente ↔ administrador
-      ✓ FLU-02 [ESC33→ESC13→ESC28→ESC34→ESC29] el admin ve el stock, el cliente compra y el admin despacha el pedido (5192ms)
+      ✓ FLU-02 [ESC33→ESC13→ESC28→ESC34→ESC29] el admin ve el stock, el cliente compra y el admin despacha el pedido (5658ms)
 
 
-  2 passing (16s)
+  2 passing (17s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_002.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_005.json
 
 
   (Results)
@@ -253,7 +468,69 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  api/carrito-pedidos.api.cy.ts                                                  (4 of 20)
+  Running:  flujos/proyectos.cy.ts                                                         (7 of 24)
+
+
+  Flujos E2E · Proyectos
+    ✓ FLU-09 [ESC17→ESC18→ESC24→ESC27→ESC28→ESC23→ESC19] el cliente planifica un piso, compra todos sus materiales y cierra el proyecto (8049ms)
+    ✓ FLU-10 [ESC17→ESC20→ESC19→ESC23] ciclo de vida: crea paredes personalizadas, las pausa, las edita y las elimina (10976ms)
+    ✓ FLU-11 [ESC17→ESC10→ESC22→ESC24→ESC13] desde la ficha de un producto lo asigna a su proyecto y lo compra desde el proyecto
+    ✓ FLU-12 [ESC10→ESC22→ESC02→ESC17] DEF-27: un visitante usa 'Crear Primer Proyecto' desde la ficha y el asistente no preselecciona ese producto (9416ms)
+
+
+  4 passing (35s)
+
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_006.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        4                                                                                │
+  │ Passing:      4                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  11                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     34 seconds                                                                       │
+  │ Spec Ran:     flujos/proyectos.cy.ts                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-09 1 pr     (1280x720)
+     oyecto calculado.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-09 2 pr     (1280x720)
+     oyecto completado.png                                                                          
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-09 [ESC     (1280x720)
+     17→ESC18→ESC24→ESC27→ESC28→ESC23→ESC19] el cliente planifica un piso, compra tod               
+     os sus materiales y cierra el proyecto -- after each hook.png                                  
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-10 1 pa     (1280x720)
+     usado.png                                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-10 2 ed     (1280x720)
+     itado.png                                                                                      
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-10 [ESC     (1280x720)
+     17→ESC20→ESC19→ESC23] ciclo de vida crea paredes personalizadas, las pausa, las                
+     edita y las elimina -- after each hook.png                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-11 1 as     (1280x720)
+     ignar a proyecto.png                                                                           
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-11 2 ma     (1280x720)
+     terial en el carrito.png                                                                       
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-11 [ESC     (1280x720)
+     17→ESC10→ESC22→ESC24→ESC13] desde la ficha de un producto lo asigna a su proyect               
+     o y lo compra desde el proyecto -- after each hook.png                                         
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-12 1 as     (1280x720)
+     istente desde la ficha.png                                                                     
+  -  /home/user/HomaraFrontend/cypress/screenshots/flujos/proyectos.cy.ts/FLU-12 [ESC     (1280x720)
+     10→ESC22→ESC02→ESC17] DEF-27 un visitante usa 'Crear Primer Proyecto' desde la f               
+     icha y el asistente no preselecciona ese producto -- after each hook.png                       
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  api/carrito-pedidos.api.cy.ts                                                  (8 of 24)
 
 
   API · Carrito y pedidos (ESC13-ESC16, ESC28, ESC29, ESC34)
@@ -273,7 +550,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
   12 passing (3s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_003.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_007.json
 
 
   (Results)
@@ -293,7 +570,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  api/catalogo.api.cy.ts                                                         (5 of 20)
+  Running:  api/catalogo.api.cy.ts                                                         (9 of 24)
 
 
   API · Catálogo (ESC08-ESC12)
@@ -306,9 +583,9 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ API-CAT-07 [ESC10] GET /products/:id/reviews → 200 con reseñas de 1 a 5 estrellas
 
 
-  7 passing (1s)
+  7 passing (3s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_004.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_008.json
 
 
   (Results)
@@ -321,14 +598,14 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  0                                                                                │
   │ Video:        false                                                                            │
-  │ Duration:     1 second                                                                         │
+  │ Duration:     2 seconds                                                                        │
   │ Spec Ran:     api/catalogo.api.cy.ts                                                           │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  api/errores-integridad.api.cy.ts                                               (6 of 20)
+  Running:  api/errores-integridad.api.cy.ts                                              (10 of 24)
 
 
   API · Errores, credenciales e integridad (ESC35, ESC37, ESC41)
@@ -338,9 +615,9 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ API-INT-01 [ESC37/ESC28] crear el pedido descuenta el inventario exactamente una vez
 
 
-  4 passing (1s)
+  4 passing (974ms)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_005.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_009.json
 
 
   (Results)
@@ -353,14 +630,14 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  0                                                                                │
   │ Video:        false                                                                            │
-  │ Duration:     1 second                                                                         │
+  │ Duration:     0 seconds                                                                        │
   │ Spec Ran:     api/errores-integridad.api.cy.ts                                                 │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  api/proyectos-admin.api.cy.ts                                                  (7 of 20)
+  Running:  api/proyectos-admin.api.cy.ts                                                 (11 of 24)
 
 
   API · Proyectos (ESC17, ESC19)
@@ -380,7 +657,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
   10 passing (3s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_006.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_010.json
 
 
   (Results)
@@ -400,7 +677,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  api/usuarios.api.cy.ts                                                         (8 of 20)
+  Running:  api/usuarios.api.cy.ts                                                        (12 of 24)
 
 
   API · /users (ESC01, ESC02, ESC04, ESC05, ESC07)
@@ -420,7 +697,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
   12 passing (2s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_007.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_011.json
 
 
   (Results)
@@ -440,7 +717,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  interfaz/idioma-tema.cy.ts                                                     (9 of 20)
+  Running:  interfaz/idioma-tema.cy.ts                                                    (13 of 24)
 
 
   Interfaz · Idioma y tema (ESC40)
@@ -457,9 +734,9 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
       ✓ INT-IDI-05 [ESC40] DEF-17: el error de contraseñas no coincidentes del registro no se traduce
 
 
-  9 passing (16s)
+  9 passing (14s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_008.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_012.json
 
 
   (Results)
@@ -472,7 +749,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  12                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     15 seconds                                                                       │
+  │ Duration:     14 seconds                                                                       │
   │ Spec Ran:     interfaz/idioma-tema.cy.ts                                                       │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -515,7 +792,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  interfaz/responsive.cy.ts                                                     (10 of 20)
+  Running:  interfaz/responsive.cy.ts                                                     (14 of 24)
 
 
   Interfaz · Responsive (ESC39) en Electron
@@ -549,9 +826,9 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ INT-MOV-04 [ESC39] en escritorio el botón Menú no se muestra
 
 
-  23 passing (50s)
+  23 passing (48s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_009.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_013.json
 
 
   (Results)
@@ -564,7 +841,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  42                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     49 seconds                                                                       │
+  │ Duration:     48 seconds                                                                       │
   │ Spec Ran:     interfaz/responsive.cy.ts                                                        │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -676,14 +953,14 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  regresion/admin.cy.ts                                                         (11 of 20)
+  Running:  regresion/admin.cy.ts                                                         (15 of 24)
 
 
   Regresión · Administración (ESC31-ESC34)
     ✓ REG-ADM-01 [ESC31] el dashboard carga las métricas del backend
     ✓ REG-ADM-02 [ESC32] el formulario de producto exige los campos obligatorios
     ✓ REG-ADM-03 [ESC32] rechaza un precio en 0 con el mensaje de validación
-    ✓ REG-ADM-04 [ESC32] crea un producto propio y luego lo elimina (CRUD) (6349ms)
+    ✓ REG-ADM-04 [ESC32] crea un producto propio y luego lo elimina (CRUD) (6355ms)
     ✓ REG-ADM-05 [ESC33] el inventario muestra las estadísticas y la tabla de stock
     ✓ REG-ADM-06 [ESC34] el administrador cambia el estado de un pedido propio de la prueba
     ✓ REG-ADM-07 [ESC34] DEF-06: escribir en el buscador de pedidos rompe la página (orderNumber indefinido)
@@ -695,7 +972,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
   11 passing (23s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_010.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_014.json
 
 
   (Results)
@@ -750,7 +1027,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  regresion/autenticacion.cy.ts                                                 (12 of 20)
+  Running:  regresion/autenticacion.cy.ts                                                 (16 of 24)
 
 
   Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)
@@ -763,7 +1040,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ESC02 · Inicio de sesión
       ✓ REG-AUT-06 [ESC02] inicia sesión con credenciales válidas y guarda el token
       ✓ REG-AUT-07 [ESC02] con clave incorrecta muestra un mensaje genérico y no crea sesión
-      ✓ REG-AUT-08 [ESC02] con un correo inexistente muestra el MISMO mensaje genérico (no revela cuentas)
+      ✓ REG-AUT-08 [ESC02] con un correo inexistente muestra el MISMO mensaje genérico (no revela cuentas) (5123ms)
       ✓ REG-AUT-09 [ESC02] no envía el formulario con campos vacíos (validación nativa required)
     ESC03 · Cierre de sesión
       ✓ REG-AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra el token y redirige a /login
@@ -778,9 +1055,9 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
       ✓ REG-AUT-16 [ESC07] DEF-05: un fallo de red al validar la sesión (no un 401) también borra el token
 
 
-  18 passing (45s)
+  18 passing (46s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_011.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_015.json
 
 
   (Results)
@@ -793,7 +1070,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  18                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     45 seconds                                                                       │
+  │ Duration:     46 seconds                                                                       │
   │ Spec Ran:     regresion/autenticacion.cy.ts                                                    │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -855,7 +1132,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  regresion/carrito.cy.ts                                                       (13 of 20)
+  Running:  regresion/carrito.cy.ts                                                       (17 of 24)
 
 
   Regresión · Carrito (ESC13-ESC16)
@@ -871,7 +1148,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
   8 passing (9s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_012.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_016.json
 
 
   (Results)
@@ -919,7 +1196,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  regresion/catalogo.cy.ts                                                      (14 of 20)
+  Running:  regresion/catalogo.cy.ts                                                      (18 of 24)
 
 
   Regresión · Catálogo (ESC08-ESC12)
@@ -939,9 +1216,9 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ REG-CAT-14 [ESC12] la vitrina del inicio carga recomendados, ofertas y más vendidos
 
 
-  14 passing (28s)
+  14 passing (27s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_013.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_017.json
 
 
   (Results)
@@ -1007,7 +1284,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  regresion/checkout-pedidos.cy.ts                                              (15 of 20)
+  Running:  regresion/checkout-pedidos.cy.ts                                              (19 of 24)
 
 
   Regresión · Checkout y pedidos (ESC27-ESC29)
@@ -1015,13 +1292,13 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ REG-CHK-02 [ESC27] con campos obligatorios vacíos el navegador bloquea el envío (required)
     ✓ REG-CHK-03 [ESC27] si se omite la validación nativa, la app advierte con un toast y no crea el pedido
     ✓ REG-CHK-04 [ESC28] con datos válidos crea el pedido ORD-YYYY-NNN, vacía el carrito y confirma
-    ✓ REG-CHK-05 [ESC29] el pedido creado aparece en el historial de /cuenta y su detalle se puede abrir (5233ms)
+    ✓ REG-CHK-05 [ESC29] el pedido creado aparece en el historial de /cuenta y su detalle se puede abrir (6271ms)
     ✓ REG-CHK-06 [ESC28] con el carrito vacío el backend rechaza el pedido y la app muestra el error
 
 
-  6 passing (15s)
+  6 passing (16s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_014.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_018.json
 
 
   (Results)
@@ -1034,7 +1311,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  6                                                                                │
   │ Video:        false                                                                            │
-  │ Duration:     14 seconds                                                                       │
+  │ Duration:     16 seconds                                                                       │
   │ Spec Ran:     regresion/checkout-pedidos.cy.ts                                                 │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -1063,7 +1340,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  regresion/perfil.cy.ts                                                        (16 of 20)
+  Running:  regresion/perfil.cy.ts                                                        (20 of 24)
 
 
   Regresión · Perfil (ESC04, ESC05)
@@ -1076,7 +1353,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
   5 passing (11s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_015.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_019.json
 
 
   (Results)
@@ -1089,7 +1366,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  5                                                                                │
   │ Video:        false                                                                            │
-  │ Duration:     11 seconds                                                                       │
+  │ Duration:     10 seconds                                                                       │
   │ Spec Ran:     regresion/perfil.cy.ts                                                           │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -1115,26 +1392,26 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  regresion/proyectos.cy.ts                                                     (17 of 20)
+  Running:  regresion/proyectos.cy.ts                                                     (21 of 24)
 
 
   Regresión · Proyectos (ESC17, ESC19, ESC24)
     ✓ REG-PRY-01 [ESC17] sin nombre muestra la advertencia del campo obligatorio y no envía nada
     ✓ REG-PRY-02 [ESC17] con nombre pero sin largo advierte por el campo Largo
-    ✓ REG-PRY-03 [ESC17] crea un proyecto de piso 4 x 3 m, calcula 12 m² y abre su detalle
+    ✓ REG-PRY-03 [ESC17] crea un proyecto de piso 4 x 3 m, calcula 12 m² y abre su detalle (5104ms)
     ✓ REG-PRY-04 [ESC17] con dimensiones negativas el frontend no valida y el backend responde 400
     ✓ REG-PRY-05 [ESC19] la lista de proyectos muestra el proyecto creado y el total en las estadísticas
     ✓ REG-PRY-06 [ESC24] el botón Comprar de un material vinculado lo agrega al carrito
     ✓ REG-PRY-07 [ESC17] un proyecto de paredes exige la altura
-    ✓ REG-PRY-08 [ESC20] personaliza el cálculo: paredes 4x3x2.5 m, 1 puerta, 1 ventana y patrón diagonal (15%) (6152ms)
+    ✓ REG-PRY-08 [ESC20] personaliza el cálculo: paredes 4x3x2.5 m, 1 puerta, 1 ventana y patrón diagonal (15%) (5137ms)
     ✓ REG-PRY-09 [ESC21] excluir insumos opcionales (crucetas y herramientas) los quita del cálculo
     ✓ REG-PRY-10 [ESC22] 'Usar en Proyecto' desde la ficha vincula el producto a un proyecto existente
-    ✓ REG-PRY-11 [ESC23] cambia el estado, edita el nombre y elimina un proyecto propio (7506ms)
+    ✓ REG-PRY-11 [ESC23] cambia el estado, edita el nombre y elimina un proyecto propio (7500ms)
 
 
-  11 passing (37s)
+  11 passing (35s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_016.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_020.json
 
 
   (Results)
@@ -1147,7 +1424,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  11                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     36 seconds                                                                       │
+  │ Duration:     35 seconds                                                                       │
   │ Spec Ran:     regresion/proyectos.cy.ts                                                        │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -1190,7 +1467,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  regresion/resenas-stock.cy.ts                                                 (18 of 20)
+  Running:  regresion/resenas-stock.cy.ts                                                 (22 of 24)
 
 
   Regresión · Reseñas y stock (ESC25, ESC26, ESC30)
@@ -1204,7 +1481,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
   6 passing (7s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_017.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_021.json
 
 
   (Results)
@@ -1246,7 +1523,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  seguridad/seguridad-ui.cy.ts                                                  (19 of 20)
+  Running:  seguridad/seguridad-ui.cy.ts                                                  (23 of 24)
 
 
   Seguridad · Interfaz (ESC07, ESC35, ESC36)
@@ -1266,9 +1543,9 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
       ✓ DEF-SEG-FE-02 [ESC35] la sesión vive en localStorage (legible por cualquier script) y no en una cookie HttpOnly
 
 
-  11 passing (21s)
+  11 passing (20s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_018.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_022.json
 
 
   (Results)
@@ -1281,7 +1558,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  11                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     20 seconds                                                                       │
+  │ Duration:     19 seconds                                                                       │
   │ Spec Ran:     seguridad/seguridad-ui.cy.ts                                                     │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -1325,7 +1602,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  seguridad/seguridad.api.cy.ts                                                 (20 of 20)
+  Running:  seguridad/seguridad.api.cy.ts                                                 (24 of 24)
 
 
   Seguridad · API (ESC06, ESC35, ESC36, ESC41)
@@ -1360,7 +1637,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 
   22 passing (5s)
 
-[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_019.json
+[mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_023.json
 
 
   (Results)
@@ -1391,46 +1668,54 @@ HTML report successfully created!
 
        Spec                                              Tests  Passing  Failing  Pending  Skipped  
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔  accesibilidad/axe-paginas.cy.ts          00:44       14       14        -        -        - │
+  │ ✔  accesibilidad/axe-paginas.cy.ts          00:45       14       14        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  accesibilidad/teclado-etiquetas.cy.      00:25        8        8        -        -        - │
+  │ ✔  accesibilidad/teclado-etiquetas.cy.      00:24        8        8        -        -        - │
   │    ts                                                                                          │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  flujos/admin.cy.ts                       00:43        5        5        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  flujos/cliente.cy.ts                     00:43        6        6        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  flujos/errores.cy.ts                     00:38        4        4        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  flujos/flujos-completos.cy.ts            00:16        2        2        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  flujos/proyectos.cy.ts                   00:34        4        4        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  api/carrito-pedidos.api.cy.ts            00:02       12       12        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  api/catalogo.api.cy.ts                   00:01        7        7        -        -        - │
+  │ ✔  api/catalogo.api.cy.ts                   00:02        7        7        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  api/errores-integridad.api.cy.ts         00:01        4        4        -        -        - │
+  │ ✔  api/errores-integridad.api.cy.ts         979ms        4        4        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  api/proyectos-admin.api.cy.ts            00:02       10       10        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  api/usuarios.api.cy.ts                   00:01       12       12        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  interfaz/idioma-tema.cy.ts               00:15        9        9        -        -        - │
+  │ ✔  interfaz/idioma-tema.cy.ts               00:14        9        9        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  interfaz/responsive.cy.ts                00:49       23       23        -        -        - │
+  │ ✔  interfaz/responsive.cy.ts                00:48       23       23        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  regresion/admin.cy.ts                    00:22       11       11        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  regresion/autenticacion.cy.ts            00:45       18       18        -        -        - │
+  │ ✔  regresion/autenticacion.cy.ts            00:46       18       18        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  regresion/carrito.cy.ts                  00:09        8        8        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  regresion/catalogo.cy.ts                 00:27       14       14        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  regresion/checkout-pedidos.cy.ts         00:14        6        6        -        -        - │
+  │ ✔  regresion/checkout-pedidos.cy.ts         00:16        6        6        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  regresion/perfil.cy.ts                   00:11        5        5        -        -        - │
+  │ ✔  regresion/perfil.cy.ts                   00:10        5        5        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  regresion/proyectos.cy.ts                00:36       11       11        -        -        - │
+  │ ✔  regresion/proyectos.cy.ts                00:35       11       11        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  regresion/resenas-stock.cy.ts            00:07        6        6        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  seguridad/seguridad-ui.cy.ts             00:20       11       11        -        -        - │
+  │ ✔  seguridad/seguridad-ui.cy.ts             00:19       11       11        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  seguridad/seguridad.api.cy.ts            00:04       22       22        -        -        - │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ✔  All specs passed!                        06:01      213      213        -        -        -  
+    ✔  All specs passed!                        08:39      232      232        -        -        -  
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="2.830" tests="7" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T12:39:13" tests="0" file="cypress/e2e/api/catalogo.api.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="API · Catálogo (ESC08-ESC12)" timestamp="2026-10-26T12:39:13" tests="7" time="2.828" failures="0">
+    <testcase name="API · Catálogo (ESC08-ESC12) API-CAT-01 [ESC08] GET /products → 200 { success, data[] } con el contrato que usa ProductCard" time="2.134" classname="API-CAT-01 [ESC08] GET /products → 200 { success, data[] } con el contrato que usa ProductCard">
+    </testcase>
+    <testcase name="API · Catálogo (ESC08-ESC12) API-CAT-02 [ESC11] GET /products?category=pinturas → solo productos de esa categoría" time="0.073" classname="API-CAT-02 [ESC11] GET /products?category=pinturas → solo productos de esa categoría">
+    </testcase>
+    <testcase name="API · Catálogo (ESC08-ESC12) API-CAT-03 [ESC09] OBS-02: GET /products ignora ?search y ?limit (el filtrado lo hace el cliente)" time="0.119" classname="API-CAT-03 [ESC09] OBS-02: GET /products ignora ?search y ?limit (el filtrado lo hace el cliente)">
+    </testcase>
+    <testcase name="API · Catálogo (ESC08-ESC12) API-CAT-04 [ESC10] GET /products/:id → 200 con el producto; id inexistente → 404" time="0.121" classname="API-CAT-04 [ESC10] GET /products/:id → 200 con el producto; id inexistente → 404">
+    </testcase>
+    <testcase name="API · Catálogo (ESC08-ESC12) API-CAT-05 [ESC11] GET /categories → 200 con slug, nombre e ícono únicos" time="0.062" classname="API-CAT-05 [ESC11] GET /categories → 200 con slug, nombre e ícono únicos">
+    </testcase>
+    <testcase name="API · Catálogo (ESC08-ESC12) API-CAT-06 [ESC12] GET /products/storefront → recommended, offers y bestSellers (las ofertas tienen descuento)" time="0.050" classname="API-CAT-06 [ESC12] GET /products/storefront → recommended, offers y bestSellers (las ofertas tienen descuento)">
+    </testcase>
+    <testcase name="API · Catálogo (ESC08-ESC12) API-CAT-07 [ESC10] GET /products/:id/reviews → 200 con reseñas de 1 a 5 estrellas" time="0.077" classname="API-CAT-07 [ESC10] GET /products/:id/reviews → 200 con reseñas de 1 a 5 estrellas">
+    </testcase>
+  </testsuite>
+</testsuites>

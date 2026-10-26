@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="38.922" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T12:37:32" tests="0" file="cypress/e2e/flujos/errores.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Flujos E2E · Errores y recuperación" timestamp="2026-10-26T12:37:32" tests="4" time="38.922" failures="0">
+    <testcase name="Flujos E2E · Errores y recuperación FLU-17 [ESC27→ESC28→ESC41] el pago falla por un error del servidor, el carrito se conserva y el reintento crea el pedido" time="6.397" classname="FLU-17 [ESC27→ESC28→ESC41] el pago falla por un error del servidor, el carrito se conserva y el reintento crea el pedido">
+    </testcase>
+    <testcase name="Flujos E2E · Errores y recuperación FLU-18 [ESC07→ESC02→ESC13→ESC28] la sesión vence con productos en el carrito; tras volver a entrar el carrito sigue ahí y la compra termina" time="8.950" classname="FLU-18 [ESC07→ESC02→ESC13→ESC28] la sesión vence con productos en el carrito; tras volver a entrar el carrito sigue ahí y la compra termina">
+    </testcase>
+    <testcase name="Flujos E2E · Errores y recuperación FLU-19 [ESC01→ESC17→ESC04] el registro falla tres veces por datos inválidos, el usuario corrige y crea su primer proyecto" time="17.303" classname="FLU-19 [ESC01→ESC17→ESC04] el registro falla tres veces por datos inválidos, el usuario corrige y crea su primer proyecto">
+    </testcase>
+    <testcase name="Flujos E2E · Errores y recuperación FLU-20 [ESC08→ESC41→ESC09→ESC13] DEF-29: con el catálogo caído la app muestra un catálogo vacío sin aviso; al recargar se recupera y el cliente compra" time="4.558" classname="FLU-20 [ESC08→ESC41→ESC09→ESC13] DEF-29: con el catálogo caído la app muestra un catálogo vacío sin aviso; al recargar se recupera y el cliente compra">
+    </testcase>
+  </testsuite>
+</testsuites>

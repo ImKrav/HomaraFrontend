@@ -6,14 +6,14 @@ Cypress 14. Complementan las pruebas Vitest de `tests/` sin modificarlas.
 
 | Tipo de prueba | Carpeta | Specs | Pruebas | Qué verifica |
 |---|---|---|---|---|
-| **E2E de flujo completo** | [`cypress/e2e/flujos`](../../cypress/e2e/flujos) | 1 | 2 | Viajes de punta a punta solo por la interfaz: registro → búsqueda → carrito → checkout → historial → logout, y el ciclo cliente ↔ administrador (inventario, compra, despacho y estado visto por el cliente) |
+| **E2E de flujo completo** | [`cypress/e2e/flujos`](../../cypress/e2e/flujos) | 5 | 21 | Viajes de punta a punta por la interfaz que encadenan varias funcionalidades: compras (perfil, varios productos, inglés y tema oscuro, móvil, reseña), proyectos (planificar y comprar, ciclo de vida, asignar productos), administración ↔ clientes (catálogo, estados del pedido, agotados, cancelación, dashboard) y recuperación de errores (pago fallido, sesión vencida, registro con errores, catálogo caído). Ver [Flujos](#flujos-e2e-de-punta-a-punta) |
 | **Regresión E2E** por funcionalidad | [`cypress/e2e/regresion`](../../cypress/e2e/regresion) | 8 | 79 | Autenticación, catálogo, carrito, checkout y pedidos, proyectos (estimador), perfil, administración, reseñas y reserva de stock |
 | **API** (contrato y reglas) | [`cypress/e2e/api`](../../cypress/e2e/api) | 5 | 45 | Contrato `{ success, data }` / `{ success:false, error }`, códigos de estado, validaciones, reglas de envío, numeración de pedidos e inventario |
 | **Seguridad** | [`cypress/e2e/seguridad`](../../cypress/e2e/seguridad) | 2 | 33 | JWT (firma alterada, `alg: none`, vencido, esquema), autorización por rol y propietario (IDOR), asignación masiva de rol, inyección SQL/NoSQL, límite de cuerpo, CORS, XSS almacenado y reflejado, redirección abierta, sesión tras logout, cabeceras |
 | **Interfaz (UI)** | [`cypress/e2e/interfaz`](../../cypress/e2e/interfaz) | 2 | 32 | Responsive en móvil/tablet/escritorio sin scroll horizontal, grilla del catálogo, menú móvil, idioma ES/EN y tema claro/oscuro persistentes |
 | **Accesibilidad** | [`cypress/e2e/accesibilidad`](../../cypress/e2e/accesibilidad) | 2 | 22 | axe-core WCAG 2.1 A/AA en 14 páginas (con línea base de críticas aceptadas), orden de tabulación, foco visible, uso solo con teclado y etiquetas de formularios |
 | **Componentes** aislados | [`cypress/component`](../../cypress/component) | 3 | 55 | Props, eventos y estados de Button, Input, Badge, Card, SearchInput, Pagination, Toast, AuthCard, SearchBar, ProductCard, CartItem, OrderSummaryBreakdown |
-| **Total** | | **23** | **268** | |
+| **Total** | | **27** | **287** | |
 
 Cada funcionalidad tiene escenarios **exitosos** (camino feliz), **alternativos**
 (otras rutas válidas: filtros, orden, idioma, edición, cancelación, límites) y de
@@ -21,12 +21,44 @@ Cada funcionalidad tiene escenarios **exitosos** (camino feliz), **alternativos*
 pruebas `DEF-*` fijan el comportamiento **observado** de un defecto abierto. El
 tipo de cada prueba está en la [matriz](#matriz-de-trazabilidad).
 
-| Tipo de escenario | E2E (213) | Componentes (55) |
+| Tipo de escenario | E2E (232) | Componentes (55) |
 |---|---|---|
-| Éxito | 64 | 37 |
-| Alternativo | 52 | 12 |
-| Error / negativo | 69 | 3 |
-| Defecto (comportamiento observado) | 28 | 3 |
+| Éxito | 71 | 37 |
+| Alternativo | 58 | 12 |
+| Error / negativo | 72 | 3 |
+| Defecto (comportamiento observado) | 31 | 3 |
+
+## Flujos E2E de punta a punta
+
+Cada flujo recorre un viaje completo por la interfaz, como lo haría una persona,
+y verifica en cada etapa la pantalla, la petición enviada y el estado del backend.
+Los datos que el flujo necesita de antemano (usuarios y productos propios) se
+crean por API y los productos se eliminan al final. Cada etapa deja una captura
+con nombre en el reporte HTML.
+
+| Flujo | Spec | Recorrido | Tipo |
+|---|---|---|---|
+| FLU-01 | [flujos-completos](../../cypress/e2e/flujos/flujos-completos.cy.ts) | Visitante se **registra** → busca → ficha → carrito (+1) → checkout → pedido → historial en la cuenta → cierra sesión | Éxito |
+| FLU-02 | [flujos-completos](../../cypress/e2e/flujos/flujos-completos.cy.ts) | Admin revisa inventario → cliente compra → admin marca **Enviado** → baja el stock → cliente ve el estado | Éxito |
+| FLU-03 | [cliente](../../cypress/e2e/flujos/cliente.cy.ts) | Inicio → acceso a la categoría Pisos → orden por precio → ficha → agregar **sin sesión** (401 → login) → inicia sesión → vuelve y agrega | Alternativo |
+| FLU-04 | [cliente](../../cypress/e2e/flujos/cliente.cy.ts) | Completa el **perfil** → compra → el checkout llega **precargado** con esos datos → paga en efectivo → el detalle del pedido muestra la dirección | Éxito |
+| FLU-05 | [cliente](../../cypress/e2e/flujos/cliente.cy.ts) | Dos productos (≥ $500.000) → **envío gratis** → elimina el caro → vuelve a cobrar $25.000 → sube la cantidad → paga con el total correcto | Alternativo |
+| FLU-06 | [cliente](../../cypress/e2e/flujos/cliente.cy.ts) | Cambia a **inglés** y **tema oscuro** → login → compra completa en inglés → las preferencias persisten | Alternativo |
+| FLU-07 | [cliente](../../cypress/e2e/flujos/cliente.cy.ts) | Compra completa en **celular** (375 px) usando solo el menú móvil, sin scroll horizontal | Alternativo |
+| FLU-08 | [cliente](../../cypress/e2e/flujos/cliente.cy.ts) | Compra → **califica** con 5 estrellas → cierra sesión → un visitante ve la reseña y el promedio | Éxito |
+| FLU-09 | [proyectos](../../cypress/e2e/flujos/proyectos.cy.ts) | Proyecto de piso 4 × 3 m → **compra todos sus materiales** desde el proyecto → checkout → marca el proyecto **Completado** → estadísticas | Éxito |
+| FLU-10 | [proyectos](../../cypress/e2e/flujos/proyectos.cy.ts) | Paredes con una puerta (33 m²) → **pausa** → **edita** nombre y largo (recalcula 38 m²) → **elimina** | Alternativo |
+| FLU-11 | [proyectos](../../cypress/e2e/flujos/proyectos.cy.ts) | Crea un proyecto → desde la ficha de una cerámica **"Usar en Proyecto"** → la compra desde el proyecto | Éxito |
+| FLU-12 | [proyectos](../../cypress/e2e/flujos/proyectos.cy.ts) | Visitante → "Usar en Proyecto" pide login → sin proyectos → **"Crear Primer Proyecto"** → el asistente no preselecciona el producto (**DEF-27**) | Defecto |
+| FLU-13 | [admin](../../cypress/e2e/flujos/admin.cy.ts) | Admin **publica** un producto → el cliente lo encuentra → admin le **cambia el precio** → el cliente ve el nuevo → admin lo **retira** → ya no aparece | Éxito |
+| FLU-14 | [admin](../../cypress/e2e/flujos/admin.cy.ts) | Un pedido pasa por **Pendiente → Procesando → Enviado → Entregado** y el cliente ve cada estado en su cuenta | Éxito |
+| FLU-15 | [admin](../../cypress/e2e/flujos/admin.cy.ts) | Un cliente compra todo el stock → el admin lo ve en **"Sin Stock"** → otro cliente compra en **envío diferido** (backorder) → el stock −1 aparece como "Stock Bajo" (**DEF-30**) | Defecto |
+| FLU-16 | [admin](../../cypress/e2e/flujos/admin.cy.ts) | El admin **cancela** un pedido → el cliente lo ve cancelado → el stock no se devuelve (**DEF-28**) | Defecto |
+| FLU-21 | [admin](../../cypress/e2e/flujos/admin.cy.ts) | El **dashboard** suma el pedido nuevo como activo y, al entregarlo, como venta del mes | Éxito |
+| FLU-17 | [errores](../../cypress/e2e/flujos/errores.cy.ts) | El pago recibe un **503** → aviso, el carrito y los datos se conservan → el **reintento** crea el pedido | Error / recuperación |
+| FLU-18 | [errores](../../cypress/e2e/flujos/errores.cy.ts) | La **sesión vence** con productos en el carrito → vuelve a entrar → el carrito sigue ahí → compra | Error / recuperación |
+| FLU-19 | [errores](../../cypress/e2e/flujos/errores.cy.ts) | Registro con clave corta, claves distintas y **correo duplicado** → corrige → se registra → crea su primer proyecto | Error / recuperación |
+| FLU-20 | [errores](../../cypress/e2e/flujos/errores.cy.ts) | El **catálogo cae** (500) y se muestra vacío sin aviso (**DEF-29**) → recarga → se recupera → agrega al carrito | Defecto |
 
 ## Resultados
 
@@ -37,7 +69,7 @@ Electron 130 (headless), Cypress 14.5.4, Node 22.
 
 | Suite | Pruebas | Corrida 1 | Corrida 2 | Evidencia |
 |---|---|---|---|---|
-| E2E (flujos, regresión, API, seguridad, interfaz, accesibilidad) | 213 | 213/213 ✅ (6 min 01 s) | 213/213 ✅ (6 min 00 s) | [reporte HTML](evidencias/cypress/reporte-e2e.html) · [consola 1](evidencias/cypress/consola-e2e-run1.txt) · [consola 2](evidencias/cypress/consola-e2e-run2.txt) · [JUnit](evidencias/cypress/junit-e2e/) · [violaciones axe](evidencias/cypress/a11y-violaciones.json) |
+| E2E (flujos, regresión, API, seguridad, interfaz, accesibilidad) | 232 | 232/232 ✅ (8 min 39 s) | 232/232 ✅ (8 min 39 s) | [reporte HTML](evidencias/cypress/reporte-e2e.html) · [consola 1](evidencias/cypress/consola-e2e-run1.txt) · [consola 2](evidencias/cypress/consola-e2e-run2.txt) · [JUnit](evidencias/cypress/junit-e2e/) · [violaciones axe](evidencias/cypress/a11y-violaciones.json) |
 | Componentes | 55 | 55/55 ✅ (6 s) | — | [consola](evidencias/cypress/consola-componentes.txt) · [JUnit](evidencias/cypress/junit-componentes/) |
 
 Dos corridas completas seguidas, sin reintentos (`retries: 0`), dan el mismo
@@ -51,10 +83,19 @@ corrigieron en su causa, no con reintentos:
   `/users/me` en vuelo y disparaba DEF-05 (cierre de sesión por error de red).
   Ahora navega dentro de la app y repite 3/3 en verde.
 
+Al sumar los flujos FLU-03…FLU-21 aparecieron dos fallos más, también corregidos en su causa:
+
+- `API-ADM-02` suponía que ningún producto tiene stock negativo. Las compras en
+  envío diferido lo dejan en −1, y el backend lo modela a propósito
+  (`stock_negativo`, `negativeStockCount`); la prueba ahora verifica ese modelo.
+- `FLU-02` buscaba el producto nuevo en la primera página del inventario (25
+  filas). Como los productos con pedidos no se pueden borrar (OBS-06), quedó en
+  otra página; ahora filtra por nombre.
+
 ### Reporte HTML de evidencias
 
 [`evidencias/cypress/reporte-e2e.html`](evidencias/cypress/reporte-e2e.html) es
-un único archivo (abrir en el navegador tras descargarlo) con las 213 pruebas
+un único archivo (abrir en el navegador tras descargarlo) con las 232 pruebas
 agrupadas por spec, su duración y:
 
 - una **captura de pantalla del estado final** de cada prueba con interfaz (y
@@ -108,6 +149,9 @@ Cada corrida deja en `cypress/reports/index.html` el reporte HTML, en
 - **Aserciones**: sobre la interfaz (textos de `app/lib/locales/es.json`, URL,
   `localStorage`), sobre la petición enviada (cuerpo) y sobre la respuesta y el
   estado del backend después de la acción.
+- **Productos con pedidos**: el backend no permite borrarlos (OBS-06), así que
+  los productos propios que un flujo compra quedan en la base con el nombre
+  `Producto Cypress <marca de tiempo>`. Ninguna prueba depende de que no existan.
 - **Seguridad**: los `SEG-*` afirman el control seguro y deben pasar; los
   `DEF-SEG-*` reproducen las vulnerabilidades abiertas (sus ids coinciden con los
   de `HomaraBackend/docs/pruebas/SEGURIDAD.md`).
@@ -140,6 +184,12 @@ incumple una regla), **Baja** (cosmético o menor).
 | OBS-01 | Observación | Frontend `/checkout` | Tras pagar, la app redirige a `/proyectos` y no al historial de pedidos | Llevar a `/cuenta` (pedidos) o a una confirmación | REG-CHK-04 | Redirigir a la confirmación/historial |
 | OBS-02 | Observación | Backend `GET /products` | Ignora `?search=` y `?limit=`; el frontend filtra y pagina en el cliente (y el admin pide `limit=100`) | — | API-CAT-03 | Documentarlo o implementarlo para catálogos grandes |
 | OBS-03 | Observación | Frontend (`t(...) \|\| fallback`) | `t()` devuelve la clave si no existe, por lo que los `\|\| product.category` nunca se aplican: una categoría nueva sin traducción mostraría `categories.slug` | Mostrar el nombre de la categoría | revisión de código | Comparar `t(clave) !== clave` antes de usar el respaldo |
+| DEF-27 | Media | Frontend `/proyectos/nuevo` | "Usar en Proyecto" → "Crear Primer Proyecto" abre `/proyectos/nuevo?selectedProductId=<id>`, pero el asistente no lee ese parámetro: guarda el primer producto de la lista del material, no el elegido | El proyecto se crea con el producto de la ficha | FLU-12 | Leer `selectedProductId` de `useSearchParams` como valor inicial |
+| DEF-28 | Alta | Backend `PUT /orders/:id/status` | Cancelar un pedido no devuelve al inventario las unidades descontadas (10 → 7 → sigue en 7) | El stock vuelve a 10 al cancelar | FLU-16 | Reponer el stock en la misma transacción que pasa el pedido a `CANCELADO` |
+| DEF-29 | Media | Frontend `/catalogo` | Si `GET /products` falla (500), el catálogo muestra "0 productos técnicos encontrados" sin ningún aviso ni opción de reintentar | Mensaje de error y botón "Reintentar" | FLU-20 | Guardar el error en el estado y mostrarlo en lugar del estado vacío |
+| DEF-30 | Media | Frontend `/admin/inventario` | Una compra en envío diferido deja el stock en −1 (el backend lo marca `stock_negativo` y lo cuenta en `negativeStockCount`), pero la tabla del admin lo etiqueta "Stock Bajo" y no aparece en el filtro "Sin Stock" | Etiqueta y filtro propios para stock negativo, o tratarlo como "Sin Stock" | FLU-15 | Contemplar `stockQuantity < 0` en `getStockInfo` y en los filtros |
+| OBS-06 | Observación | Backend `DELETE /products/:id` | Un producto con pedidos no se puede eliminar (400 "Error de integridad de datos"): `OrderItem` lo referencia sin cascada. Es correcto para conservar el historial, pero no hay forma de retirarlo del catálogo; los productos de prueba que se compran quedan publicados | Poder despublicar (archivar) un producto sin borrarlo | FLU-01, FLU-02, FLU-04…FLU-21 | Campo `active` y filtro en el catálogo |
+| OBS-05 | Observación | Frontend `/login` | Tras iniciar sesión siempre se va a `/cuenta`: se pierde la página desde la que se pidió el login (ficha, checkout) | Volver a la página de origen (validando que sea una ruta interna) | FLU-03, FLU-12, SEG-UI-05 | Leer `?redirect=` y aceptar solo rutas que empiecen con `/` |
 | OBS-04 | Observación | Frontend `ProductReviews` | "¡Reseña publicada con éxito!" desaparece en cuanto se recarga la lista de reseñas (se reemplaza por "✓ Producto Calificado"): el usuario casi no lo ve | Confirmación visible unos segundos | REG-RES-02 | Mostrar la confirmación con un toast o mantenerla junto a la insignia |
 
 ### Seguridad
@@ -262,8 +312,27 @@ Generada a partir de los JUnit de las dos corridas
 | [API-USR-08](../../cypress/e2e/api/usuarios.api.cy.ts) | ESC05 | PUT /users/me actualiza los campos enviados | Éxito | ✅ | ✅ |
 | [API-USR-09](../../cypress/e2e/api/usuarios.api.cy.ts) | ESC05 | DEF-07: la respuesta de PUT /users/me expone el hash de la contraseña | Defecto (observado) | ✅ | ✅ |
 | [API-USR-10](../../cypress/e2e/api/usuarios.api.cy.ts) | ESC05 | DEF-08: PUT /users/me acepta firstName vacío (sin validación en el backend) | Defecto (observado) | ✅ | ✅ |
+| [FLU-13](../../cypress/e2e/flujos/admin.cy.ts) | ESC06→ESC32→ESC09→ESC10 | el admin publica, reprecia y retira un producto y el cliente ve cada cambio en el catálogo | Éxito | ✅ | ✅ |
+| [FLU-14](../../cypress/e2e/flujos/admin.cy.ts) | ESC28→ESC34→ESC29 | un pedido recorre todos sus estados y el cliente sigue cada avance desde su cuenta | Éxito | ✅ | ✅ |
+| [FLU-15](../../cypress/e2e/flujos/admin.cy.ts) | ESC28→ESC33→ESC25→ESC26 | DEF-30: el stock se agota, el admin lo ve en alertas, otro cliente compra en envío diferido y el stock negativo se muestra como 'Stock Bajo' | Alternativo | ✅ | ✅ |
+| [FLU-16](../../cypress/e2e/flujos/admin.cy.ts) | ESC28→ESC34→ESC29 | DEF-28: el admin cancela un pedido, el cliente lo ve cancelado y el stock no se devuelve | Defecto (observado) | ✅ | ✅ |
+| [FLU-21](../../cypress/e2e/flujos/admin.cy.ts) | ESC31→ESC28→ESC34 | el dashboard del admin suma el pedido nuevo como activo y, al entregarlo, como venta del mes | Éxito | ✅ | ✅ |
+| [FLU-03](../../cypress/e2e/flujos/cliente.cy.ts) | ESC12→ESC11→ESC09→ESC10→ESC13→ESC02 | un visitante explora desde el inicio, intenta comprar sin sesión, inicia sesión y agrega al carrito | Alternativo | ✅ | ✅ |
+| [FLU-04](../../cypress/e2e/flujos/cliente.cy.ts) | ESC05→ESC09→ESC13→ESC27→ESC28→ESC29 | el cliente completa su perfil y el checkout usa esos datos de envío | Éxito | ✅ | ✅ |
+| [FLU-05](../../cypress/e2e/flujos/cliente.cy.ts) | ESC13→ESC16→ESC15→ESC14→ESC27→ESC28 | el carrito con varios productos gana y pierde el envío gratis según el subtotal | Alternativo | ✅ | ✅ |
+| [FLU-06](../../cypress/e2e/flujos/cliente.cy.ts) | ESC40→ESC02→ESC09→ESC13→ESC27→ESC28 | una compra completa en inglés y con tema oscuro mantiene las preferencias | Alternativo | ✅ | ✅ |
+| [FLU-07](../../cypress/e2e/flujos/cliente.cy.ts) | ESC39→ESC02→ESC09→ESC13→ESC27→ESC28 | un cliente compra desde el celular con el menú móvil | Alternativo | ✅ | ✅ |
+| [FLU-08](../../cypress/e2e/flujos/cliente.cy.ts) | ESC28→ESC30→ESC03→ESC10 | tras comprar, el cliente califica el producto y otro visitante ve la reseña | Éxito | ✅ | ✅ |
+| [FLU-17](../../cypress/e2e/flujos/errores.cy.ts) | ESC27→ESC28→ESC41 | el pago falla por un error del servidor, el carrito se conserva y el reintento crea el pedido | Error / negativo | ✅ | ✅ |
+| [FLU-18](../../cypress/e2e/flujos/errores.cy.ts) | ESC07→ESC02→ESC13→ESC28 | la sesión vence con productos en el carrito; tras volver a entrar el carrito sigue ahí y la compra termina | Error / negativo | ✅ | ✅ |
+| [FLU-19](../../cypress/e2e/flujos/errores.cy.ts) | ESC01→ESC17→ESC04 | el registro falla tres veces por datos inválidos, el usuario corrige y crea su primer proyecto | Error / negativo | ✅ | ✅ |
+| [FLU-20](../../cypress/e2e/flujos/errores.cy.ts) | ESC08→ESC41→ESC09→ESC13 | DEF-29: con el catálogo caído la app muestra un catálogo vacío sin aviso; al recargar se recupera y el cliente compra | Defecto (observado) | ✅ | ✅ |
 | [FLU-01](../../cypress/e2e/flujos/flujos-completos.cy.ts) | ESC01→ESC09→ESC13→ESC14→ESC27→ESC28→ESC29→ESC03 | un visitante se registra, compra y consulta su pedido | Éxito | ✅ | ✅ |
 | [FLU-02](../../cypress/e2e/flujos/flujos-completos.cy.ts) | ESC33→ESC13→ESC28→ESC34→ESC29 | el admin ve el stock, el cliente compra y el admin despacha el pedido | Éxito | ✅ | ✅ |
+| [FLU-09](../../cypress/e2e/flujos/proyectos.cy.ts) | ESC17→ESC18→ESC24→ESC27→ESC28→ESC23→ESC19 | el cliente planifica un piso, compra todos sus materiales y cierra el proyecto | Éxito | ✅ | ✅ |
+| [FLU-10](../../cypress/e2e/flujos/proyectos.cy.ts) | ESC17→ESC20→ESC19→ESC23 | ciclo de vida: crea paredes personalizadas, las pausa, las edita y las elimina | Alternativo | ✅ | ✅ |
+| [FLU-11](../../cypress/e2e/flujos/proyectos.cy.ts) | ESC17→ESC10→ESC22→ESC24→ESC13 | desde la ficha de un producto lo asigna a su proyecto y lo compra desde el proyecto | Éxito | ✅ | ✅ |
+| [FLU-12](../../cypress/e2e/flujos/proyectos.cy.ts) | ESC10→ESC22→ESC02→ESC17 | DEF-27: un visitante usa 'Crear Primer Proyecto' desde la ficha y el asistente no preselecciona ese producto | Defecto (observado) | ✅ | ✅ |
 | [INT-IDI-01](../../cypress/e2e/interfaz/idioma-tema.cy.ts) | ESC40 | cambiar a EN traduce la navegación y la página, y se guarda en localStorage | Alternativo | ✅ | ✅ |
 | [INT-IDI-02](../../cypress/e2e/interfaz/idioma-tema.cy.ts) | ESC40 | el idioma inglés persiste al recargar y al navegar | Alternativo | ✅ | ✅ |
 | [INT-IDI-03](../../cypress/e2e/interfaz/idioma-tema.cy.ts) | ESC40 | volver a ES restaura los textos en español | Alternativo | ✅ | ✅ |

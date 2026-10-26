@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="34.611" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T12:38:32" tests="0" file="cypress/e2e/flujos/proyectos.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Flujos E2E · Proyectos" timestamp="2026-10-26T12:38:32" tests="4" time="34.610" failures="0">
+    <testcase name="Flujos E2E · Proyectos FLU-09 [ESC17→ESC18→ESC24→ESC27→ESC28→ESC23→ESC19] el cliente planifica un piso, compra todos sus materiales y cierra el proyecto" time="8.049" classname="FLU-09 [ESC17→ESC18→ESC24→ESC27→ESC28→ESC23→ESC19] el cliente planifica un piso, compra todos sus materiales y cierra el proyecto">
+    </testcase>
+    <testcase name="Flujos E2E · Proyectos FLU-10 [ESC17→ESC20→ESC19→ESC23] ciclo de vida: crea paredes personalizadas, las pausa, las edita y las elimina" time="10.976" classname="FLU-10 [ESC17→ESC20→ESC19→ESC23] ciclo de vida: crea paredes personalizadas, las pausa, las edita y las elimina">
+    </testcase>
+    <testcase name="Flujos E2E · Proyectos FLU-11 [ESC17→ESC10→ESC22→ESC24→ESC13] desde la ficha de un producto lo asigna a su proyecto y lo compra desde el proyecto" time="4.154" classname="FLU-11 [ESC17→ESC10→ESC22→ESC24→ESC13] desde la ficha de un producto lo asigna a su proyecto y lo compra desde el proyecto">
+    </testcase>
+    <testcase name="Flujos E2E · Proyectos FLU-12 [ESC10→ESC22→ESC02→ESC17] DEF-27: un visitante usa &apos;Crear Primer Proyecto&apos; desde la ficha y el asistente no preselecciona ese producto" time="9.416" classname="FLU-12 [ESC10→ESC22→ESC02→ESC17] DEF-27: un visitante usa &apos;Crear Primer Proyecto&apos; desde la ficha y el asistente no preselecciona ese producto">
+    </testcase>
+  </testsuite>
+</testsuites>

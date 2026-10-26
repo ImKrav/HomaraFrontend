@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Homara - Cypress" time="43.241" tests="5" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-10-26T12:36:01" tests="0" file="cypress/e2e/flujos/admin.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Flujos E2E · Administración ↔ clientes" timestamp="2026-10-26T12:36:01" tests="5" time="43.238" failures="0">
+    <testcase name="Flujos E2E · Administración ↔ clientes FLU-13 [ESC06→ESC32→ESC09→ESC10] el admin publica, reprecia y retira un producto y el cliente ve cada cambio en el catálogo" time="11.339" classname="FLU-13 [ESC06→ESC32→ESC09→ESC10] el admin publica, reprecia y retira un producto y el cliente ve cada cambio en el catálogo">
+    </testcase>
+    <testcase name="Flujos E2E · Administración ↔ clientes FLU-14 [ESC28→ESC34→ESC29] un pedido recorre todos sus estados y el cliente sigue cada avance desde su cuenta" time="8.567" classname="FLU-14 [ESC28→ESC34→ESC29] un pedido recorre todos sus estados y el cliente sigue cada avance desde su cuenta">
+    </testcase>
+    <testcase name="Flujos E2E · Administración ↔ clientes FLU-15 [ESC28→ESC33→ESC25→ESC26] DEF-30: el stock se agota, el admin lo ve en alertas, otro cliente compra en envío diferido y el stock negativo se muestra como &apos;Stock Bajo&apos;" time="9.967" classname="FLU-15 [ESC28→ESC33→ESC25→ESC26] DEF-30: el stock se agota, el admin lo ve en alertas, otro cliente compra en envío diferido y el stock negativo se muestra como &apos;Stock Bajo&apos;">
+    </testcase>
+    <testcase name="Flujos E2E · Administración ↔ clientes FLU-16 [ESC28→ESC34→ESC29] DEF-28: el admin cancela un pedido, el cliente lo ve cancelado y el stock no se devuelve" time="4.880" classname="FLU-16 [ESC28→ESC34→ESC29] DEF-28: el admin cancela un pedido, el cliente lo ve cancelado y el stock no se devuelve">
+    </testcase>
+    <testcase name="Flujos E2E · Administración ↔ clientes FLU-21 [ESC31→ESC28→ESC34] el dashboard del admin suma el pedido nuevo como activo y, al entregarlo, como venta del mes" time="5.960" classname="FLU-21 [ESC31→ESC28→ESC34] el dashboard del admin suma el pedido nuevo como activo y, al entregarlo, como venta del mes">
+    </testcase>
+  </testsuite>
+</testsuites>
