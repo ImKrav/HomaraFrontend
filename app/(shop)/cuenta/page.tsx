@@ -129,10 +129,7 @@ export default function CuentaPage() {
     fetchUserData();
   }, [isAuthenticated, t]);
 
-  const handleLogout = () => {
-    logout();
-    router.push("/login");
-  };
+  const handleLogout = () => logout(); // logout() ya lleva a /login cuando el servidor borró la cookie
 
   if (loading || (isAuthenticated && loadingData)) {
     return (

@@ -38,7 +38,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (data: RegisterData) => Promise<void>;
-  logout: () => void;
+  logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
 
@@ -49,9 +49,10 @@ export function AuthProvider({ children }: Readonly<{ children: React.ReactNode 
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  const logout = useCallback(() => {
-    // La cookie HttpOnly solo la puede borrar el servidor; si la red falla, igual se cierra en la interfaz.
-    api.post("/api/v1/users/logout", {}).catch((error) => console.error("Error cerrando sesión:", error));
+  const logout = useCallback(async () => {
+    // La cookie HttpOnly solo la puede borrar el servidor: se espera su respuesta (keepalive la
+    // protege de una navegación) y, si la red falla, igual se cierra la sesión en la interfaz.
+    await api.post("/api/v1/users/logout", {}, { keepalive: true }).catch((error) => console.error("Error cerrando sesión:", error));
     setUser(null);
     setLoading(false);
     window.dispatchEvent(new Event("cartUpdated"));
@@ -69,7 +70,7 @@ export function AuthProvider({ children }: Readonly<{ children: React.ReactNode 
     } finally {
       setLoading(false);
     }
-  }, [logout]);
+  }, []);
 
   useEffect(() => {
     localStorage.removeItem("homara_token"); // token de versiones anteriores (DEF-SEG-FE-02)
