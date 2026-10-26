@@ -37,7 +37,7 @@ describe("Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)", () => {
       cy.contains("h1", "Mi Cuenta").should("be.visible");
       cy.contains("h2", "Laura Gómez").should("be.visible");
       cy.contains(email).should("be.visible");
-      cy.window().its("localStorage").invoke("getItem", "homara_token").should("match", /^ey/);
+      cy.getCookie("homara_session").should("have.property", "httpOnly", true);
     });
 
     it("REG-AUT-02 [ESC01] rechaza un correo ya registrado y muestra el error del backend", () => {
@@ -47,7 +47,7 @@ describe("Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)", () => {
       cy.wait("@registro").its("response.statusCode").should("eq", 400);
       cy.contains("El correo electrónico ya está registrado.").should("be.visible");
       cy.location("pathname").should("eq", "/register");
-      cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
+      cy.getCookie("homara_session").should("be.null");
     });
 
     it("REG-AUT-03 [ESC01] no envía la petición si las contraseñas no coinciden", () => {
@@ -85,14 +85,14 @@ describe("Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)", () => {
       cy.visit("/login");
     });
 
-    it("REG-AUT-06 [ESC02] inicia sesión con credenciales válidas y guarda el token", () => {
+    it("REG-AUT-06 [ESC02] inicia sesión con credenciales válidas y la sesión queda en una cookie HttpOnly", () => {
       cy.get("#email").type(CLIENTE.email);
       cy.get("#password").type(CLIENTE.password, { log: false });
       cy.contains("button", "Iniciar Sesión").click();
 
       cy.wait("@login").its("response.statusCode").should("eq", 200);
       cy.location("pathname").should("eq", "/cuenta");
-      cy.window().its("localStorage").invoke("getItem", "homara_token").should("match", /^ey/);
+      cy.getCookie("homara_session").should("have.property", "httpOnly", true);
       cy.get("nav").contains("button", "Juan").should("be.visible");
     });
 
@@ -104,7 +104,7 @@ describe("Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)", () => {
       cy.wait("@login").its("response.statusCode").should("eq", 401);
       cy.contains("Credenciales incorrectas. Verifique correo y contraseña.").should("be.visible");
       cy.location("pathname").should("eq", "/login");
-      cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
+      cy.getCookie("homara_session").should("be.null");
     });
 
     it("REG-AUT-08 [ESC02] con un correo inexistente muestra el MISMO mensaje genérico (no revela cuentas)", () => {
@@ -124,14 +124,14 @@ describe("Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)", () => {
   });
 
   context("ESC03 · Cierre de sesión", () => {
-    it("REG-AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra el token y redirige a /login", () => {
+    it("REG-AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra la cookie y redirige a /login", () => {
       cy.iniciarSesion(CLIENTE.email, CLIENTE.password);
       cy.visit("/catalogo");
       cy.get("nav").contains("button", "Juan").click();
       cy.contains("button", "Cerrar Sesión").click();
 
       cy.location("pathname").should("eq", "/login");
-      cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
+      cy.getCookie("homara_session").should("be.null");
       cy.get("nav").contains("a", "Iniciar Sesión").should("be.visible");
     });
   });
@@ -165,29 +165,25 @@ describe("Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)", () => {
     });
 
     it("REG-AUT-15 [ESC07] un token inválido se descarta (401) y la ruta privada termina en /login", () => {
-      cy.intercept("GET", "**/api/v1/users/me").as("me");
-      cy.visit("/cuenta", {
-        onBeforeLoad(win) {
-          win.localStorage.setItem("homara_token", "token.invalido.manipulado");
-        },
-      });
-      cy.wait("@me").its("response.statusCode").should("eq", 401);
+      cy.setCookie("homara_session", "token.invalido.manipulado", { httpOnly: true, sameSite: "strict" });
+      cy.intercept("GET", "**/api/v1/users/session").as("sesion");
+      cy.visit("/cuenta");
+      cy.wait("@sesion").its("response.body.data").should("be.null");
       cy.location("pathname").should("eq", "/login");
-      cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
+      cy.getCookie("homara_session").should("be.null");
     });
 
-    it("REG-AUT-16 [ESC07] DEF-05 corregido: un fallo de red al validar la sesión (no un 401) conserva el token", () => {
+    it("REG-AUT-16 [ESC07] DEF-05 corregido: un fallo de red al validar la sesión (no un 401) no la cierra", () => {
       // Token válido, pero /users/me sufre un error de red transitorio.
       cy.tokenApi(CLIENTE.email, CLIENTE.password).then((token) => {
-        cy.intercept("GET", "**/api/v1/users/me", { forceNetworkError: true }).as("meCaido");
-        cy.visit("/cuenta", {
-          onBeforeLoad(win) {
-            win.localStorage.setItem("homara_token", token);
-          },
-        });
-        cy.wait("@meCaido");
+        cy.setCookie("homara_session", token, { httpOnly: true, sameSite: "strict" });
+        cy.intercept("POST", "**/api/v1/users/logout").as("logout");
+        cy.intercept("GET", "**/api/v1/users/session", { forceNetworkError: true }).as("sesionCaida");
+        cy.visit("/cuenta");
+        cy.wait("@sesionCaida");
         // Antes AuthContext llamaba a logout() ante cualquier error; ahora solo un 401 cierra la sesión.
-        cy.window().its("localStorage").invoke("getItem", "homara_token").should("eq", token);
+        cy.get("@logout.all").should("have.length", 0);
+        cy.getCookie("homara_session").its("value").should("eq", token);
       });
     });
   });

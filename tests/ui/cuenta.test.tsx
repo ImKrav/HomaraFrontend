@@ -103,7 +103,7 @@ test("ui-acc-05", "Editar el perfil guarda los cambios y recarga el usuario", as
   const ciudad = screen.getByPlaceholderText("Ej: Bogotá");
   await usuario.clear(ciudad);
   await usuario.type(ciudad, "Medellín");
-  const lecturasDePerfil = backend.de("GET /users/me").length;
+  const lecturasDePerfil = backend.de("GET /users/session").length;
 
   // Act
   await usuario.click(screen.getByRole("button", { name: es("account.save_btn") }));
@@ -111,7 +111,7 @@ test("ui-acc-05", "Editar el perfil guarda los cambios y recarga el usuario", as
   // Assert
   expect(await screen.findByRole("alert")).toHaveTextContent(es("account.save_success"));
   expect(backend.de("PUT /users/me")[0].cuerpo).toMatchObject({ firstName: "Ana", lastName: "Rojas", city: "Medellín" });
-  expect(backend.de("GET /users/me").length).toBeGreaterThan(lecturasDePerfil);
+  expect(backend.de("GET /users/session").length).toBeGreaterThan(lecturasDePerfil);
 });
 
 test("ui-acc-06", "El perfil no se guarda sin nombre", async () => {
@@ -131,16 +131,16 @@ test("ui-acc-06", "El perfil no se guarda sin nombre", async () => {
   expect(backend.de("PUT /users/me")).toHaveLength(0);
 });
 
-test("ui-acc-07", "Cerrar sesión borra el token y vuelve al login", async () => {
+test("ui-acc-07", "Cerrar sesión pide al backend borrar la cookie y vuelve al login", async () => {
   // Arrange
-  cuentaConDatos();
+  const backend = cuentaConDatos();
   const { usuario } = renderizar(<CuentaPage />, { ruta: "/cuenta" });
 
   // Act
   await usuario.click(await screen.findByRole("button", { name: es("account.logout_btn") }));
 
   // Assert
-  expect(localStorage.getItem("homara_token")).toBeNull();
+  expect(backend.de("POST /users/logout")).toHaveLength(1);
   expect(router.push).toHaveBeenCalledWith("/login");
 });
 

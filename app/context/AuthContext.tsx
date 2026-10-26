@@ -38,7 +38,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (data: RegisterData) => Promise<void>;
-  logout: () => void;
+  logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
 
@@ -49,8 +49,10 @@ export function AuthProvider({ children }: Readonly<{ children: React.ReactNode 
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  const logout = useCallback(() => {
-    localStorage.removeItem("homara_token");
+  const logout = useCallback(async () => {
+    // La cookie HttpOnly solo la puede borrar el servidor: se espera su respuesta (keepalive la
+    // protege de una navegación) y, si la red falla, igual se cierra la sesión en la interfaz.
+    await api.post("/api/v1/users/logout", {}, { keepalive: true }).catch((error) => console.error("Error cerrando sesión:", error));
     setUser(null);
     setLoading(false);
     window.dispatchEvent(new Event("cartUpdated"));
@@ -59,30 +61,19 @@ export function AuthProvider({ children }: Readonly<{ children: React.ReactNode 
 
   const refreshUser = useCallback(async () => {
     try {
-      const token = localStorage.getItem("homara_token");
-      if (!token) {
-        setUser(null);
-        setLoading(false);
-        return;
-      }
-      
-      const response = await api.get("/api/v1/users/me");
-      if (response.success && response.data) {
-        setUser(response.data);
-      } else {
-        // Token inválido
-        logout();
-      }
+      // 200 con `data: null` si no hay sesión: un visitante anónimo no provoca un 401 en cada carga.
+      const response = await api.get("/api/v1/users/session");
+      setUser(response.success && response.data ? response.data : null);
     } catch (error) {
-      // DEF-05: un 401 ya lo resuelve api.ts (borra el token y emite "auth:401"). Un error de red
-      // o una petición abortada al navegar no invalida la sesión: se conserva el token y se reintenta.
+      // DEF-05: un error de red o una petición abortada al navegar no invalida la sesión: se reintenta.
       console.error("Error validando sesión:", error);
     } finally {
       setLoading(false);
     }
-  }, [logout]);
+  }, []);
 
   useEffect(() => {
+    localStorage.removeItem("homara_token"); // token de versiones anteriores (DEF-SEG-FE-02)
     refreshUser();
     window.addEventListener("online", refreshUser);
     return () => window.removeEventListener("online", refreshUser);
@@ -103,9 +94,7 @@ export function AuthProvider({ children }: Readonly<{ children: React.ReactNode 
     try {
       const response = await api.post("/api/v1/users/login", { email, password });
       if (response.success && response.data) {
-        const { token, user: userData } = response.data;
-        localStorage.setItem("homara_token", token);
-        setUser(userData);
+        setUser(response.data.user);
         // Desencadenar recarga del carrito si es necesario
         window.dispatchEvent(new Event("cartUpdated"));
       } else {
@@ -124,9 +113,7 @@ export function AuthProvider({ children }: Readonly<{ children: React.ReactNode 
     try {
       const response = await api.post("/api/v1/users/register", formData);
       if (response.success && response.data) {
-        const { token, user: userData } = response.data;
-        localStorage.setItem("homara_token", token);
-        setUser(userData);
+        setUser(response.data.user);
         window.dispatchEvent(new Event("cartUpdated"));
       } else {
         throw new Error(response.error || "Error en el registro");

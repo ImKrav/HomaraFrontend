@@ -11,7 +11,7 @@ import { ElencoHomara } from './ElencoHomara';
  *
  * Se reemplaza el fixture `actors` para que cada actor tenga su propio contexto de
  * navegador (sesión independiente): así Camila y Andrés pueden actuar en el mismo
- * escenario sin compartir el `homara_token`.
+ * escenario sin compartir la cookie `homara_session`.
  */
 export const { describe, it, test, beforeEach, afterEach, beforeAll, afterAll } = extenderFixtures<{ actors: Cast }>({
     actors: async ({ browser }, entregar) => {

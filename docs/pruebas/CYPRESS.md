@@ -147,7 +147,7 @@ Cada corrida deja en `cypress/reports/index.html` el reporte HTML, en
 - **Sincronización**: `cy.intercept` + `cy.wait('@alias')` y aserciones
   reintentables; nunca `cy.wait(ms)`.
 - **Aserciones**: sobre la interfaz (textos de `app/lib/locales/es.json`, URL,
-  `localStorage`), sobre la petición enviada (cuerpo) y sobre la respuesta y el
+  `localStorage` y cookies), sobre la petición enviada (cuerpo) y sobre la respuesta y el
   estado del backend después de la acción.
 - **Productos con pedidos**: el backend no permite borrarlos (OBS-06), así que
   los productos propios que un flujo compra quedan en la base con el nombre
@@ -162,8 +162,8 @@ Cada corrida deja en `cypress/reports/index.html` el reporte HTML, en
 ## Defectos encontrados
 
 > **Estado tras la refactorización:** todos los defectos de estas tablas están
-> **corregidos** (en este repositorio o en el backend) salvo **DEF-SEG-FE-02**
-> (sesión en `localStorage`, abierto) y las observaciones de producto **OBS-02** y
+> **corregidos** (en este repositorio o en el backend), incluido **DEF-SEG-FE-02**
+> (la sesión pasó a una cookie `HttpOnly`), salvo las observaciones de producto **OBS-02** y
 > **OBS-06**. Las pruebas `DEF-*` ya no fijan el comportamiento observado: afirman
 > el corregido. Antes/después de cada uno en [`../REFACTORIZACION.md`](../REFACTORIZACION.md)
 > y en `HomaraBackend/docs/REFACTORIZACION.md`. Las evidencias de la corrida
@@ -454,7 +454,7 @@ Generada a partir de los JUnit de las dos corridas
 | [REG-STK-02](../../cypress/e2e/regresion/resenas-stock.cy.ts) | ESC26 | pedir más unidades que el stock marca el ítem como envío diferido (backorder) | Alternativo | ✅ | ✅ |
 | [REG-STK-03](../../cypress/e2e/regresion/resenas-stock.cy.ts) | ESC25 | DEF-21: el carrito no muestra la cuenta regresiva de la reserva (la API no envía updatedAt) | Defecto (observado) | ✅ | ✅ |
 | [DEF-SEG-FE-01](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC35 | el frontend anuncia Next.js y no envía X-Frame-Options ni CSP (clickjacking) | Defecto (observado) | ✅ | ✅ |
-| [DEF-SEG-FE-02](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC35 | la sesión vive en localStorage (legible por cualquier script) y no en una cookie HttpOnly | Defecto (observado) | ✅ | ✅ |
+| [DEF-SEG-FE-02](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC35 | corregido: el login deja la sesión en una cookie HttpOnly y SameSite=Strict, no en localStorage | Defecto (corregido) | ✅ | ✅ |
 | [SEG-UI-01](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC35 | una reseña con HTML/JS se muestra como texto y no se ejecuta | Error / negativo | ✅ | ✅ |
 | [SEG-UI-02](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC35 | el nombre de un proyecto con HTML/JS se muestra como texto en el detalle | Error / negativo | ✅ | ✅ |
 | [SEG-UI-03](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC35 | un nombre de usuario con HTML/JS se muestra como texto en la barra y en /cuenta | Error / negativo | ✅ | ✅ |
@@ -463,7 +463,7 @@ Generada a partir de los JUnit de las dos corridas
 | [SEG-UI-06](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC35 | el token no aparece en la URL, en el DOM ni en una cookie legible | Error / negativo | ✅ | ✅ |
 | [SEG-UI-07](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC35 | las contraseñas se escriben en campos enmascarados (type=password) | Error / negativo | ✅ | ✅ |
 | [SEG-UI-08](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC07 | tras cerrar sesión, volver atrás hasta /cuenta no muestra los datos de la cuenta | Error / negativo | ✅ | ✅ |
-| [SEG-UI-09](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC07 | un token falso con rol ADMIN (alg none) en localStorage no abre /admin | Error / negativo | ✅ | ✅ |
+| [SEG-UI-09](../../cypress/e2e/seguridad/seguridad-ui.cy.ts) | ESC07 | un token falso con rol ADMIN (alg none) en la cookie de sesión no abre /admin | Error / negativo | ✅ | ✅ |
 | [DEF-SEG-01](../../cypress/e2e/seguridad/seguridad.api.cy.ts) | ESC35 | un token de ADMIN forjado con el secreto por defecto es aceptado | Defecto (observado) | ✅ | ✅ |
 | [DEF-SEG-03/04/05](../../cypress/e2e/seguridad/seguridad.api.cy.ts) | ESC36 | sin token, ?userId=<ajeno> expone pedidos, proyectos y carrito de otro usuario | Defecto (observado) | ✅ | ✅ |
 | [DEF-SEG-06](../../cypress/e2e/seguridad/seguridad.api.cy.ts) | ESC36 | GET /orders/:numero sin token expone el pedido y la dirección del cliente | Defecto (observado) | ✅ | ✅ |

@@ -80,6 +80,6 @@ describe("Regresión · Perfil (ESC04, ESC05)", () => {
     cy.wait("@proyectos");
     cy.contains("main button", "Cerrar Sesión").click();
     cy.location("pathname").should("eq", "/login");
-    cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
+    cy.getCookie("homara_session").should("be.null");
   });
 });

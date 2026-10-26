@@ -41,7 +41,7 @@ declare global {
     interface Chainable {
       /** Inicia sesión por la interfaz (/login) y cachea la sesión con cy.session. */
       iniciarSesion(email: string, password: string): Chainable<void>;
-      /** Inicia sesión con un token ya emitido (usuario creado por API) y la cachea. */
+      /** Inicia sesión con un token ya emitido (usuario creado por API): lo pone en la cookie HttpOnly y la cachea. */
       iniciarSesionConToken(usuario: UsuarioPrueba): Chainable<void>;
       /** Crea un usuario CUSTOMER nuevo, con correo único, directamente en el backend. */
       crearUsuarioApi(prefijo: string, extra?: Record<string, string>): Chainable<UsuarioPrueba>;
@@ -68,20 +68,32 @@ declare global {
 const apiUrl = () => Cypress.env("apiUrl") as string;
 
 Cypress.Commands.add("api", (metodo, ruta, opciones = {}) => {
-  return cy.request({
-    method: metodo,
-    url: `${apiUrl()}${ruta}`,
-    body: opciones.body as Cypress.RequestBody,
-    headers: opciones.token ? { Authorization: `Bearer ${opciones.token}` } : {},
-    failOnStatusCode: false,
-  }).then((res) => {
-    // Evidencia en el reporte HTML: método, ruta, código y cuerpo (recortado).
-    cy.addTestContext({
-      title: `${metodo} ${ruta} → ${res.status}`,
-      value: JSON.stringify(res.body).slice(0, 1500),
-    });
-    return cy.wrap(res, { log: false });
-  });
+  // cy.request guarda en el navegador la cookie de sesión que emite el backend al registrar o
+  // iniciar sesión: una sesión creada por API no debe reemplazar la del navegador (ni crearla).
+  return cy.getCookie("homara_session", { log: false }).then((cookieAntes) =>
+    cy.request({
+      method: metodo,
+      url: `${apiUrl()}${ruta}`,
+      body: opciones.body as Cypress.RequestBody,
+      headers: opciones.token ? { Authorization: `Bearer ${opciones.token}` } : {},
+      failOnStatusCode: false,
+    }).then((res) => {
+      if (res.headers["set-cookie"]) {
+        if (cookieAntes) {
+          const { domain, path, secure, httpOnly, expiry, sameSite } = cookieAntes;
+          cy.setCookie("homara_session", cookieAntes.value, { domain, path, secure, httpOnly, expiry, sameSite, log: false });
+        } else {
+          cy.clearCookie("homara_session", { log: false });
+        }
+      }
+      // Evidencia en el reporte HTML: método, ruta, código y cuerpo (recortado).
+      cy.addTestContext({
+        title: `${metodo} ${ruta} → ${res.status}`,
+        value: JSON.stringify(res.body).slice(0, 1500),
+      });
+      return cy.wrap(res, { log: false });
+    }),
+  );
 });
 
 Cypress.Commands.add("iniciarSesion", (email: string, password: string) => {
@@ -101,11 +113,10 @@ Cypress.Commands.add("iniciarSesion", (email: string, password: string) => {
     {
       cacheAcrossSpecs: true,
       validate() {
-        // La sesión es válida si el token guardado sigue siendo aceptado por el backend.
-        cy.window().then((win) => {
-          const token = win.localStorage.getItem("homara_token");
-          expect(token, "token en localStorage").to.be.a("string");
-          cy.api("GET", "/users/me", { token: token as string })
+        // La sesión es válida si la cookie HttpOnly sigue siendo aceptada por el backend.
+        cy.getCookie("homara_session").then((cookie) => {
+          expect(cookie, "cookie de sesión").to.have.property("httpOnly", true);
+          cy.api("GET", "/users/me", { token: cookie!.value })
             .its("status")
             .should("eq", 200);
         });
@@ -118,21 +129,17 @@ Cypress.Commands.add("iniciarSesionConToken", (usuario: UsuarioPrueba) => {
   cy.session(
     ["token", usuario.email],
     () => {
-      // Se espera a que la app termine de validar el token (/users/me): si la
-      // página se abandona con esa petición en vuelo, AuthContext trata el
-      // abort como error y llama a logout(), borrando el token (ver DEF-05).
-      cy.intercept("GET", "**/api/v1/users/me").as("validarSesion");
-      cy.visit("/", {
-        onBeforeLoad(win) {
-          win.localStorage.setItem("homara_token", usuario.token);
-        },
-      });
-      cy.wait("@validarSesion").its("response.statusCode").should("eq", 200);
+      // La cookie es la que emitiría el backend al iniciar sesión (DEF-SEG-FE-02).
+      cy.setCookie("homara_session", usuario.token, { httpOnly: true, sameSite: "strict" });
+      // Alias único: si la prueba cambia de usuario, cy.wait no debe devolver la sonda del anterior.
+      cy.intercept("GET", "**/api/v1/users/session").as(`sesion-${usuario.id}`);
+      cy.visit("/");
+      cy.wait(`@sesion-${usuario.id}`).its("response.body.data.email").should("eq", usuario.email);
       cy.get("nav").contains("button", usuario.firstName).should("be.visible");
     },
     {
       validate() {
-        cy.window().its("localStorage").invoke("getItem", "homara_token").should("eq", usuario.token);
+        cy.getCookie("homara_session").its("value").should("eq", usuario.token);
       },
     },
   );

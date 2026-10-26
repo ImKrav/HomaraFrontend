@@ -1,6 +1,6 @@
-[23534:1026/175423.082766:ERROR:node_bindings.cc(379)] Most NODE_OPTIONs are not supported in packaged apps. See documentation for more details.
+[21912:1026/224503.648172:ERROR:node_bindings.cc(379)] Most NODE_OPTIONs are not supported in packaged apps. See documentation for more details.
 
-DevTools listening on ws://127.0.0.1:43185/devtools/browser/7e80a011-3f17-4e28-a5f1-98371e0a705c
+DevTools listening on ws://127.0.0.1:35905/devtools/browser/7cad8bbe-5e1f-43de-8083-88b81ab85a07
 Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
 
 resize:  can't open terminal /dev/tty
@@ -25,17 +25,29 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  accesibilidad/axe-paginas.cy.ts                                                (1 of 24)
+[22069:1026/224505.790662:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224505.813533:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224505.813837:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224506.106021:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224506.108583:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224506.109021:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224506.246081:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Accesibilidad · axe-core WCAG 2.1 A/AA
+[22069:1026/224508.820510:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224508.823789:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224508.824773:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 [axe] inicio: 0 reglas violadas -> 
     ✓ A11Y-AXE [ESC39/ESC40] inicio (/) no agrega violaciones críticas nuevas
 [axe] inicio-oscuro: 0 reglas violadas -> 
     ✓ A11Y-AXE [ESC39/ESC40] inicio-oscuro (/) no agrega violaciones críticas nuevas
+[22069:1026/224510.546402:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 [axe] catalogo: 0 reglas violadas -> 
     ✓ A11Y-AXE [ESC39/ESC40] catalogo (/catalogo) no agrega violaciones críticas nuevas
 [axe] detalle-producto: 0 reglas violadas -> 
     ✓ A11Y-AXE [ESC39/ESC40] detalle-producto (/catalogo/:primero) no agrega violaciones críticas nuevas
+[22069:1026/224516.453371:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 [axe] login: 0 reglas violadas -> 
     ✓ A11Y-AXE [ESC39/ESC40] login (/login) no agrega violaciones críticas nuevas
 [axe] login-oscuro: 0 reglas violadas -> 
@@ -44,21 +56,27 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ A11Y-AXE [ESC39/ESC40] registro (/register) no agrega violaciones críticas nuevas
 [axe] carrito-invitado: 0 reglas violadas -> 
     ✓ A11Y-AXE [ESC39/ESC40] carrito-invitado (/carrito) no agrega violaciones críticas nuevas
+[22069:1026/224527.916890:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224530.532553:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224533.128708:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224534.010710:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 [axe] cuenta: 0 reglas violadas -> 
-    ✓ A11Y-AXE [ESC39/ESC40] cuenta (/cuenta) no agrega violaciones críticas nuevas (9476ms)
+    ✓ A11Y-AXE [ESC39/ESC40] cuenta (/cuenta) no agrega violaciones críticas nuevas (9421ms)
 [axe] proyectos: 0 reglas violadas -> 
     ✓ A11Y-AXE [ESC39/ESC40] proyectos (/proyectos) no agrega violaciones críticas nuevas
 [axe] proyecto-nuevo: 0 reglas violadas -> 
     ✓ A11Y-AXE [ESC39/ESC40] proyecto-nuevo (/proyectos/nuevo) no agrega violaciones críticas nuevas
 [axe] checkout: 0 reglas violadas -> 
     ✓ A11Y-AXE [ESC39/ESC40] checkout (/checkout) no agrega violaciones críticas nuevas
+[22069:1026/224545.645942:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 [axe] admin-dashboard: 0 reglas violadas -> 
-    ✓ A11Y-AXE [ESC39/ESC40] admin-dashboard (/admin) no agrega violaciones críticas nuevas (6769ms)
+    ✓ A11Y-AXE [ESC39/ESC40] admin-dashboard (/admin) no agrega violaciones críticas nuevas (6688ms)
 [axe] admin-productos: 0 reglas violadas -> 
+[22069:1026/224550.031139:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ A11Y-AXE [ESC39/ESC40] admin-productos (/admin/productos) no agrega violaciones críticas nuevas
 
 
-  14 passing (43s)
+  14 passing (42s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome.json
 
@@ -73,7 +91,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  14                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     43 seconds                                                                       │
+  │ Duration:     41 seconds                                                                       │
   │ Spec Ran:     accesibilidad/axe-paginas.cy.ts                                                  │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -127,23 +145,31 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  accesibilidad/teclado-etiquetas.cy.ts                                          (2 of 24)
+[22069:1026/224550.474261:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224550.829514:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224550.832557:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224550.832931:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224550.971069:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Accesibilidad · Teclado y foco
 [teclado] Tabs hasta #email en /login: 9
     ✓ A11Y-TEC-01 con Tab se llega al formulario de login (correo → contraseña) en orden lógico
     ✓ A11Y-TEC-02 el campo enfocado tiene un indicador de foco visible distinto al estado normal
+[22069:1026/224601.626250:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ A11Y-TEC-03 el login se completa solo con teclado (Enter envía el formulario)
     ✓ A11Y-TEC-04 DEF-18 corregido: el primer Tab enfoca 'Saltar al contenido' y lleva al <main>
 
   Accesibilidad · Etiquetas de formularios
     ✓ A11Y-LBL-01 /login: todos los campos tienen etiqueta asociada
     ✓ A11Y-LBL-02 DEF-12 corregido: /register asocia cada etiqueta a su campo
+[22069:1026/224611.618215:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224611.622366:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ A11Y-LBL-03 DEF-19 corregido: en /catalogo los selects de calificación y orden tienen etiqueta
     ✓ A11Y-LBL-04 /checkout: los campos de contacto y envío están etiquetados
 
 
-  8 passing (26s)
+  8 passing (23s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_001.json
 
@@ -158,7 +184,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  9                                                                                │
   │ Video:        false                                                                            │
-  │ Duration:     25 seconds                                                                       │
+  │ Duration:     23 seconds                                                                       │
   │ Spec Ran:     accesibilidad/teclado-etiquetas.cy.ts                                            │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -196,6 +222,12 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  api/carrito-pedidos.api.cy.ts                                                  (3 of 24)
+[22069:1026/224615.703083:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224615.703442:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224616.040482:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224616.046147:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224616.046489:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224616.228617:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   API · Carrito y pedidos (ESC13-ESC16, ESC28, ESC29, ESC34)
@@ -228,7 +260,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  0                                                                                │
   │ Video:        false                                                                            │
-  │ Duration:     3 seconds                                                                        │
+  │ Duration:     2 seconds                                                                        │
   │ Spec Ran:     api/carrito-pedidos.api.cy.ts                                                    │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -236,6 +268,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  api/catalogo.api.cy.ts                                                         (4 of 24)
+[22069:1026/224620.803050:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   API · Catálogo (ESC08-ESC12)
@@ -271,6 +304,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  api/errores-integridad.api.cy.ts                                               (5 of 24)
+[22069:1026/224624.323833:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   API · Errores, credenciales e integridad (ESC35, ESC37, ESC41)
@@ -280,7 +314,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ API-INT-01 [ESC37/ESC28] crear el pedido descuenta el inventario exactamente una vez
 
 
-  4 passing (976ms)
+  4 passing (1s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_004.json
 
@@ -295,7 +329,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  0                                                                                │
   │ Video:        false                                                                            │
-  │ Duration:     0 seconds                                                                        │
+  │ Duration:     1 second                                                                         │
   │ Spec Ran:     api/errores-integridad.api.cy.ts                                                 │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -303,6 +337,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  api/proyectos-admin.api.cy.ts                                                  (6 of 24)
+[22069:1026/224627.168114:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   API · Proyectos (ESC17, ESC19)
@@ -320,7 +355,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ API-ADM-03 [ESC32] POST /products: CUSTOMER 403; ADMIN con datos incompletos 400; ADMIN válido 201 y DELETE 200
 
 
-  10 passing (2s)
+  10 passing (3s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_005.json
 
@@ -343,6 +378,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  api/usuarios.api.cy.ts                                                         (7 of 24)
+[22069:1026/224631.922784:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   API · /users (ESC01, ESC02, ESC04, ESC05, ESC07)
@@ -360,7 +396,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ API-USR-10 [ESC05] DEF-08 corregido: PUT /users/me rechaza firstName vacío (400)
 
 
-  12 passing (1s)
+  12 passing (2s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_006.json
 
@@ -383,17 +419,30 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  flujos/admin.cy.ts                                                             (8 of 24)
+[22069:1026/224635.314227:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Flujos E2E · Administración ↔ clientes
-    ✓ FLU-13 [ESC06→ESC32→ESC09→ESC10] el admin publica, reprecia y retira un producto y el cliente ve cada cambio en el catálogo (12166ms)
-    ✓ FLU-14 [ESC28→ESC34→ESC29] un pedido recorre todos sus estados y el cliente sigue cada avance desde su cuenta (8352ms)
-    ✓ FLU-15 [ESC28→ESC33→ESC25→ESC26] DEF-30 corregido: el stock se agota, el admin lo ve en alertas, otro cliente compra en envío diferido y el stock negativo se marca como tal y sigue en 'Sin Stock' (11277ms)
+[22069:1026/224637.137407:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224637.138354:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224637.141409:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224640.235555:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224640.970541:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224643.275212:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224643.277326:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224643.978281:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-13 [ESC06→ESC32→ESC09→ESC10] el admin publica, reprecia y retira un producto y el cliente ve cada cambio en el catálogo (11084ms)
+[22069:1026/224654.112965:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-14 [ESC28→ESC34→ESC29] un pedido recorre todos sus estados y el cliente sigue cada avance desde su cuenta (6027ms)
+[22069:1026/224654.842343:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-15 [ESC28→ESC33→ESC25→ESC26] DEF-30 corregido: el stock se agota, el admin lo ve en alertas, otro cliente compra en envío diferido y el stock negativo se marca como tal y sigue en 'Sin Stock' (9198ms)
+[22069:1026/224704.443261:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224704.953004:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ FLU-16 [ESC28→ESC34→ESC29] DEF-28 corregido: el admin cancela un pedido, el cliente lo ve cancelado y el stock vuelve al inventario
-    ✓ FLU-21 [ESC31→ESC28→ESC34] el dashboard del admin suma el pedido nuevo como activo y, al entregarlo, como venta del mes (6204ms)
+    ✓ FLU-21 [ESC31→ESC28→ESC34] el dashboard del admin suma el pedido nuevo como activo y, al entregarlo, como venta del mes (5998ms)
 
 
-  5 passing (45s)
+  5 passing (39s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_007.json
 
@@ -408,7 +457,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  15                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     45 seconds                                                                       │
+  │ Duration:     38 seconds                                                                       │
   │ Spec Ran:     flujos/admin.cy.ts                                                               │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -456,18 +505,31 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  flujos/cliente.cy.ts                                                           (9 of 24)
+[22069:1026/224715.575441:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224715.575789:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224715.702883:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Flujos E2E · Cliente
-    ✓ FLU-03 [ESC12→ESC11→ESC09→ESC10→ESC13→ESC02] un visitante explora desde el inicio, intenta comprar sin sesión, inicia sesión y agrega al carrito (7158ms)
-    ✓ FLU-04 [ESC05→ESC09→ESC13→ESC27→ESC28→ESC29] el cliente completa su perfil y el checkout usa esos datos de envío (5675ms)
-    ✓ FLU-05 [ESC13→ESC16→ESC15→ESC14→ESC27→ESC28] el carrito con varios productos gana y pierde el envío gratis según el subtotal (5668ms)
-    ✓ FLU-06 [ESC40→ESC02→ESC09→ESC13→ESC27→ESC28] una compra completa en inglés y con tema oscuro mantiene las preferencias (8157ms)
-    ✓ FLU-07 [ESC39→ESC02→ESC09→ESC13→ESC27→ESC28] un cliente compra desde el celular con el menú móvil (8005ms)
-    ✓ FLU-08 [ESC28→ESC30→ESC03→ESC10] tras comprar, el cliente califica el producto y otro visitante ve la reseña (6528ms)
+[22069:1026/224717.470524:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-03 [ESC12→ESC11→ESC09→ESC10→ESC13→ESC02] un visitante explora desde el inicio, intenta comprar sin sesión, inicia sesión y agrega al carrito (7013ms)
+[22069:1026/224724.666525:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224725.348263:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-04 [ESC05→ESC09→ESC13→ESC27→ESC28→ESC29] el cliente completa su perfil y el checkout usa esos datos de envío (5336ms)
+[22069:1026/224731.133123:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-05 [ESC13→ESC16→ESC15→ESC14→ESC27→ESC28] el carrito con varios productos gana y pierde el envío gratis según el subtotal
+    ✓ FLU-06 [ESC40→ESC02→ESC09→ESC13→ESC27→ESC28] una compra completa en inglés y con tema oscuro mantiene las preferencias (6758ms)
+[22069:1026/224742.740684:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224743.520434:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224743.520734:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-07 [ESC39→ESC02→ESC09→ESC13→ESC27→ESC28] un cliente compra desde el celular con el menú móvil (7663ms)
+[22069:1026/224750.725016:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224750.998887:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224755.185337:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-08 [ESC28→ESC30→ESC03→ESC10] tras comprar, el cliente califica el producto y otro visitante ve la reseña (6123ms)
 
 
-  6 passing (44s)
+  6 passing (40s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_008.json
 
@@ -482,7 +544,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  19                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     43 seconds                                                                       │
+  │ Duration:     40 seconds                                                                       │
   │ Spec Ran:     flujos/cliente.cy.ts                                                             │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -538,12 +600,26 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  flujos/errores.cy.ts                                                          (10 of 24)
+[22069:1026/224757.431569:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224757.596073:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Flujos E2E · Errores y recuperación
-    ✓ FLU-17 [ESC27→ESC28→ESC41] el pago falla por un error del servidor, el carrito se conserva y el reintento crea el pedido
-    ✓ FLU-18 [ESC07→ESC02→ESC13→ESC28] la sesión vence con productos en el carrito; tras volver a entrar el carrito sigue ahí y la compra termina (8684ms)
-    ✓ FLU-19 [ESC01→ESC17→ESC04] el registro falla tres veces por datos inválidos, el usuario corrige y crea su primer proyecto (17199ms)
+[22069:1026/224759.578466:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-17 [ESC27→ESC28→ESC41] el pago falla por un error del servidor, el carrito se conserva y el reintento crea el pedido (5203ms)
+    ✓ FLU-18 [ESC07→ESC02→ESC13→ESC28] la sesión vence con productos en el carrito; tras volver a entrar el carrito sigue ahí y la compra termina (8380ms)
+[22069:1026/224813.918887:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224818.202430:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224822.379591:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224822.439698:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224823.469132:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224823.474146:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224826.333219:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224826.334473:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224826.334733:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-19 [ESC01→ESC17→ESC04] el registro falla tres veces por datos inválidos, el usuario corrige y crea su primer proyecto (17243ms)
+[22069:1026/224830.827491:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224831.052757:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ FLU-20 [ESC08→ESC41→ESC09→ESC13] DEF-29 corregido: con el catálogo caído la app avisa del error; 'Reintentar' lo recupera y el cliente compra
 
 
@@ -598,15 +674,21 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  flujos/flujos-completos.cy.ts                                                 (11 of 24)
+[22069:1026/224832.933182:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224833.033952:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Flujos E2E completos
-    ✓ FLU-01 [ESC01→ESC09→ESC13→ESC14→ESC27→ESC28→ESC29→ESC03] un visitante se registra, compra y consulta su pedido (10471ms)
+[22069:1026/224843.924633:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-01 [ESC01→ESC09→ESC13→ESC14→ESC27→ESC28→ESC29→ESC03] un visitante se registra, compra y consulta su pedido (9826ms)
     FLU-02 · Ciclo cliente ↔ administrador
-      ✓ FLU-02 [ESC33→ESC13→ESC28→ESC34→ESC29] el admin ve el stock, el cliente compra y el admin despacha el pedido (5593ms)
+[22069:1026/224845.483398:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224845.731485:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224846.001584:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+      ✓ FLU-02 [ESC33→ESC13→ESC28→ESC34→ESC29] el admin ve el stock, el cliente compra y el admin despacha el pedido (5013ms)
 
 
-  2 passing (17s)
+  2 passing (16s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_010.json
 
@@ -621,7 +703,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  10                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     17 seconds                                                                       │
+  │ Duration:     15 seconds                                                                       │
   │ Spec Ran:     flujos/flujos-completos.cy.ts                                                    │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -655,16 +737,28 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  flujos/proyectos.cy.ts                                                        (12 of 24)
+[22069:1026/224850.126864:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224850.127895:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224850.272100:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Flujos E2E · Proyectos
-    ✓ FLU-09 [ESC17→ESC18→ESC24→ESC27→ESC28→ESC23→ESC19] el cliente planifica un piso, compra todos sus materiales y cierra el proyecto (7746ms)
-    ✓ FLU-10 [ESC17→ESC20→ESC19→ESC23] ciclo de vida: crea paredes personalizadas, las pausa, las edita y las elimina (10973ms)
+[22069:1026/224852.003905:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-09 [ESC17→ESC18→ESC24→ESC27→ESC28→ESC23→ESC19] el cliente planifica un piso, compra todos sus materiales y cierra el proyecto (5663ms)
+[22069:1026/224902.981079:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-10 [ESC17→ESC20→ESC19→ESC23] ciclo de vida: crea paredes personalizadas, las pausa, las edita y las elimina (10838ms)
+[22069:1026/224909.182070:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224910.239059:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224910.963378:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224911.616550:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224911.619076:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ FLU-11 [ESC17→ESC10→ESC22→ESC24→ESC13] desde la ficha de un producto lo asigna a su proyecto y lo compra desde el proyecto
-    ✓ FLU-12 [ESC10→ESC22→ESC02→ESC17] DEF-27 y OBS-05 corregidos: el visitante inicia sesión, vuelve a la ficha y el asistente guarda el producto elegido (5408ms)
+[22069:1026/224917.838684:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224917.839220:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ FLU-12 [ESC10→ESC22→ESC02→ESC17] DEF-27 y OBS-05 corregidos: el visitante inicia sesión, vuelve a la ficha y el asistente guarda el producto elegido (5407ms)
 
 
-  4 passing (30s)
+  4 passing (27s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_011.json
 
@@ -679,7 +773,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  11                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     29 seconds                                                                       │
+  │ Duration:     26 seconds                                                                       │
   │ Spec Ran:     flujos/proyectos.cy.ts                                                           │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -717,18 +811,35 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  interfaz/idioma-tema.cy.ts                                                    (13 of 24)
+[22069:1026/224918.565163:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224918.867972:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224918.868332:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224918.868943:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224919.018083:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Interfaz · Idioma y tema (ESC40)
     Tema claro / oscuro
+[22069:1026/224920.570801:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-TEM-01 [ESC40] sin preferencia guardada, el tema sigue a prefers-color-scheme del sistema
+[22069:1026/224921.596339:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224921.598775:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224921.614613:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224921.616677:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224921.681777:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224921.682225:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-TEM-02 [ESC40] 'Alternar tema' pasa de claro a oscuro, lo guarda y persiste al recargar y navegar
       ✓ INT-TEM-04 [ESC40] 'Alternar tema' pasa de oscuro a claro y también persiste
+[22069:1026/224923.820982:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224923.825236:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-TEM-03 [ESC40] el tema guardado se aplica al cargar y el fondo cambia de color
     Idioma español / inglés
       ✓ INT-IDI-01 [ESC40] cambiar a EN traduce la navegación y la página, y se guarda en localStorage
       ✓ INT-IDI-02 [ESC40] el idioma inglés persiste al recargar y al navegar
       ✓ INT-IDI-03 [ESC40] volver a ES restaura los textos en español
+[22069:1026/224929.394766:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224929.399541:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224929.403969:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-IDI-04 [ESC40] DEF-15 corregido: en inglés el atributo <html lang> pasa a 'en'
       ✓ INT-IDI-05 [ESC40] DEF-17 corregido: el error de contraseñas no coincidentes del registro se traduce
 
@@ -748,7 +859,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  12                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     14 seconds                                                                       │
+  │ Duration:     13 seconds                                                                       │
   │ Spec Ran:     interfaz/idioma-tema.cy.ts                                                       │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -792,30 +903,47 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  interfaz/responsive.cy.ts                                                     (14 of 24)
+[22069:1026/224934.537471:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224934.537935:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224934.761223:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Interfaz · Responsive (ESC39) en Electron
+[22069:1026/224936.209982:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224936.211739:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224936.220572:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224936.220997:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224936.685118:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224936.688146:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/224937.351799:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ INT-RSP-GRID [ESC39] la grilla del catálogo pasa de 1 a 2 y 4 columnas según el ancho
     Viewport movil (375x667)
       ✓ INT-RSP [ESC39/ESC44] / se adapta a movil sin scroll horizontal
       ✓ INT-RSP [ESC39/ESC44] /catalogo se adapta a movil sin scroll horizontal
       ✓ INT-RSP [ESC39/ESC44] /login se adapta a movil sin scroll horizontal
       ✓ INT-RSP [ESC39/ESC44] /register se adapta a movil sin scroll horizontal
+[22069:1026/224949.299073:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-RSP [ESC39/ESC44] /carrito se adapta a movil sin scroll horizontal
+[22069:1026/224949.749254:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-RSP [ESC39] detalle de producto se adapta a movil
     Viewport tablet (768x1024)
       ✓ INT-RSP [ESC39/ESC44] / se adapta a tablet sin scroll horizontal
+[22069:1026/224950.915090:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-RSP [ESC39/ESC44] /catalogo se adapta a tablet sin scroll horizontal
       ✓ INT-RSP [ESC39/ESC44] /login se adapta a tablet sin scroll horizontal
       ✓ INT-RSP [ESC39/ESC44] /register se adapta a tablet sin scroll horizontal
       ✓ INT-RSP [ESC39/ESC44] /carrito se adapta a tablet sin scroll horizontal
+[22069:1026/225002.519652:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-RSP [ESC39] detalle de producto se adapta a tablet
     Viewport escritorio (1440x900)
+[22069:1026/225003.331727:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-RSP [ESC39/ESC44] / se adapta a escritorio sin scroll horizontal
+[22069:1026/225004.140172:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-RSP [ESC39/ESC44] /catalogo se adapta a escritorio sin scroll horizontal
       ✓ INT-RSP [ESC39/ESC44] /login se adapta a escritorio sin scroll horizontal
       ✓ INT-RSP [ESC39/ESC44] /register se adapta a escritorio sin scroll horizontal
       ✓ INT-RSP [ESC39/ESC44] /carrito se adapta a escritorio sin scroll horizontal
+[22069:1026/225015.886787:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ INT-RSP [ESC39] detalle de producto se adapta a escritorio
 
   Interfaz · Navegación móvil (ESC39)
@@ -825,7 +953,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ INT-MOV-04 [ESC39] en escritorio el botón Menú no se muestra
 
 
-  23 passing (50s)
+  23 passing (48s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_013.json
 
@@ -840,7 +968,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  42                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     49 seconds                                                                       │
+  │ Duration:     48 seconds                                                                       │
   │ Spec Ran:     interfaz/responsive.cy.ts                                                        │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -953,19 +1081,26 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  regresion/admin.cy.ts                                                         (15 of 24)
+[22069:1026/225024.796353:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225024.799748:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225025.021655:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Regresión · Administración (ESC31-ESC34)
     ✓ REG-ADM-01 [ESC31] el dashboard carga las métricas del backend
     ✓ REG-ADM-02 [ESC32] el formulario de producto exige los campos obligatorios
     ✓ REG-ADM-03 [ESC32] rechaza un precio en 0 con el mensaje de validación
-    ✓ REG-ADM-04 [ESC32] crea un producto propio y luego lo elimina (CRUD) (6431ms)
+[22069:1026/225037.059313:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ REG-ADM-04 [ESC32] crea un producto propio y luego lo elimina (CRUD) (6326ms)
     ✓ REG-ADM-05 [ESC33] el inventario muestra las estadísticas y la tabla de stock
+[22069:1026/225042.384328:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-ADM-06 [ESC34] el administrador cambia el estado de un pedido propio de la prueba
     ✓ REG-ADM-07 [ESC34] DEF-06 corregido: el buscador de pedidos filtra por ciudad sin errores
     ✓ REG-ADM-08 [ESC32] edita el precio de un producto propio y el cambio persiste
     ✓ REG-ADM-09 [ESC33] el filtro de alertas del inventario deja solo los productos con stock bajo
     ✓ REG-ADM-10 [ESC34] el filtro por estado deja solo los pedidos con ese estado
+[22069:1026/225047.134693:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225047.135531:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-ADM-11 [ESC06] el menú de usuario del ADMIN muestra 'Panel Admin' y lleva al dashboard
 
 
@@ -984,7 +1119,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  11                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     22 seconds                                                                       │
+  │ Duration:     21 seconds                                                                       │
   │ Spec Ran:     regresion/admin.cy.ts                                                            │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -1027,34 +1162,47 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  regresion/autenticacion.cy.ts                                                 (16 of 24)
+[22069:1026/225048.240265:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225048.241329:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225048.433745:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Regresión · Autenticación (ESC01, ESC02, ESC03, ESC07)
     ESC01 · Registro de usuario
+[22069:1026/225051.644075:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ REG-AUT-01 [ESC01] registra un usuario con datos válidos y lo lleva a /cuenta
       ✓ REG-AUT-02 [ESC01] rechaza un correo ya registrado y muestra el error del backend
       ✓ REG-AUT-03 [ESC01] no envía la petición si las contraseñas no coinciden
       ✓ REG-AUT-04 [ESC01] DEF-01 corregido: el cliente rechaza claves de 7 caracteres con la regla del backend (mín. 8)
       ✓ REG-AUT-05 [ESC01] rechaza en el cliente una clave de menos de 8 caracteres
     ESC02 · Inicio de sesión
-      ✓ REG-AUT-06 [ESC02] inicia sesión con credenciales válidas y guarda el token
+[22069:1026/225111.078326:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+      ✓ REG-AUT-06 [ESC02] inicia sesión con credenciales válidas y la sesión queda en una cookie HttpOnly
       ✓ REG-AUT-07 [ESC02] con clave incorrecta muestra un mensaje genérico y no crea sesión
       ✓ REG-AUT-08 [ESC02] con un correo inexistente muestra el MISMO mensaje genérico (no revela cuentas)
       ✓ REG-AUT-09 [ESC02] no envía el formulario con campos vacíos (validación nativa required)
     ESC03 · Cierre de sesión
-      ✓ REG-AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra el token y redirige a /login (20360ms)
+[22069:1026/225120.372363:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225120.374049:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+      ✓ REG-AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra la cookie y redirige a /login
     ESC07 · Rutas privadas y rol de administrador
+[22069:1026/225122.189637:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ REG-AUT-11 [ESC07] sin sesión, /cuenta redirige a /login
       ✓ REG-AUT-11 [ESC07] sin sesión, /proyectos/nuevo redirige a /login
       ✓ REG-AUT-11 [ESC07] sin sesión, /checkout redirige a /login
       ✓ REG-AUT-12 [ESC07] sin sesión, /carrito muestra el aviso de inicio de sesión requerido
       ✓ REG-AUT-13 [ESC07] sin sesión, /admin redirige a /login
+[22069:1026/225132.444143:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225132.614792:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225132.621384:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225132.627640:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ REG-AUT-14 [ESC07] un CUSTOMER que entra a /admin es devuelto al inicio
       ✓ REG-AUT-15 [ESC07] un token inválido se descarta (401) y la ruta privada termina en /login
-      ✓ REG-AUT-16 [ESC07] DEF-05 corregido: un fallo de red al validar la sesión (no un 401) conserva el token
+[22069:1026/225133.623480:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+      ✓ REG-AUT-16 [ESC07] DEF-05 corregido: un fallo de red al validar la sesión (no un 401) no la cierra
 
 
-  18 passing (1m)
+  18 passing (45s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_015.json
 
@@ -1069,7 +1217,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  18                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     1 minute, 6 seconds                                                              │
+  │ Duration:     44 seconds                                                                       │
   │ Spec Ran:     regresion/autenticacion.cy.ts                                                    │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -1092,8 +1240,8 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
      AUT-05 [ESC01] rechaza en el cliente una clave de menos de 8 caracteres -- after               
       each hook.png                                                                                 
   -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
-     AUT-06 [ESC02] inicia sesión con credenciales válidas y guarda el token -- after               
-      each hook.png                                                                                 
+     AUT-06 [ESC02] inicia sesión con credenciales válidas y la sesión queda en una c               
+     ookie HttpOnly -- after each hook.png                                                          
   -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
      AUT-07 [ESC02] con clave incorrecta muestra un mensaje genérico y no crea sesión               
       -- after each hook.png                                                                        
@@ -1104,8 +1252,8 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
      AUT-09 [ESC02] no envía el formulario con campos vacíos (validación nativa requi               
      red) -- after each hook.png                                                                    
   -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
-     AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra el token y redirige               
-      a login -- after each hook.png                                                                
+     AUT-10 [ESC03] cierra sesión desde el menú de usuario, borra la cookie y redirig               
+     e a login -- after each hook.png                                                               
   -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
      AUT-11 [ESC07] sin sesión, cuenta redirige a login -- after each hook.png                      
   -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
@@ -1126,21 +1274,34 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
      login -- after each hook.png                                                                   
   -  /home/user/HomaraFrontend/cypress/screenshots/regresion/autenticacion.cy.ts/REG-     (1280x720)
      AUT-16 [ESC07] DEF-05 corregido un fallo de red al validar la sesión (no un 401)               
-      conserva el token -- after each hook.png                                                      
+      no la cierra -- after each hook.png                                                           
 
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  regresion/carrito.cy.ts                                                       (17 of 24)
+[22069:1026/225134.533400:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225134.536039:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225134.675641:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Regresión · Carrito (ESC13-ESC16)
+[22069:1026/225136.312076:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225136.312458:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225136.728432:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225136.729533:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225136.893007:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CAR-01 [ESC13] agrega un producto desde el detalle: toast de éxito y contador del navbar en 1
     ✓ REG-CAR-02 [ESC13] el carrito muestra el producto agregado con su precio unitario
     ✓ REG-CAR-03 [ESC14] los botones + y − modifican la cantidad y recalculan el subtotal
     ✓ REG-CAR-04 [ESC14] el botón − no baja la cantidad de 1 (límite inferior)
     ✓ REG-CAR-05 [ESC15] eliminar el único ítem deja el carrito vacío y el contador en 0
+[22069:1026/225142.427865:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225142.428436:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225142.438239:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CAR-06 [ESC16] por debajo de $500.000 cobra envío de $25.000 y total = subtotal + envío
+[22069:1026/225143.358205:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225143.358565:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CAR-07 [ESC16] desde $500.000 el envío es gratis y el total es igual al subtotal
     ✓ REG-CAR-08 [ESC13] sin sesión, agregar al carrito responde 401 y redirige a /login
 
@@ -1196,26 +1357,38 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  regresion/catalogo.cy.ts                                                      (18 of 24)
+[22069:1026/225144.768388:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225145.087464:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225145.090777:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225145.094257:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225145.224622:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Regresión · Catálogo (ESC08-ESC12)
+[22069:1026/225146.808340:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CAT-01 [ESC08] lista los productos del backend con el conteo correcto (máx. 25 por página)
     ✓ REG-CAT-02 [ESC08] la paginación avanza a la página 2 y muestra el rango correcto
     ✓ REG-CAT-03 [ESC09] la búsqueda por nombre encuentra el producto y actualiza la URL
+[22069:1026/225153.328236:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CAT-04 [ESC09] una búsqueda sin coincidencias muestra el estado vacío y permite volver al catálogo
     ✓ REG-CAT-05 [ESC09] el filtro de calificación 4.5+ muestra solo los productos que lo cumplen
     ✓ REG-CAT-06 [ESC09] ordenar por precio ascendente deja los precios en orden no decreciente
+[22069:1026/225159.663948:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225159.664269:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CAT-07 [ESC09] ordenar por precio descendente pone primero el más caro
+[22069:1026/225201.041472:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CAT-08 [ESC11] filtrar por categoría consulta al backend con ?category y solo muestra esa categoría
     ✓ REG-CAT-09 [ESC11] la URL /catalogo?category=herramientas llega filtrada (enlace del footer)
     ✓ REG-CAT-10 [ESC10] el detalle muestra nombre, precio, descripción y stock del producto
     ✓ REG-CAT-11 [ESC10] navega del catálogo al detalle al hacer clic en una tarjeta
+[22069:1026/225208.440965:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CAT-12 [ESC10] un id inexistente muestra el mensaje de producto no encontrado
+[22069:1026/225209.779570:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CAT-13 [ESC10] DEF-02 corregido: el breadcrumb de categoría filtra el catálogo por esa categoría
     ✓ REG-CAT-14 [ESC12] la vitrina del inicio carga recomendados, ofertas y más vendidos
 
 
-  14 passing (27s)
+  14 passing (26s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_017.json
 
@@ -1230,7 +1403,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  14                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     27 seconds                                                                       │
+  │ Duration:     26 seconds                                                                       │
   │ Spec Ran:     regresion/catalogo.cy.ts                                                         │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -1284,18 +1457,27 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  regresion/checkout-pedidos.cy.ts                                              (19 of 24)
+[22069:1026/225213.049403:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225213.051022:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225213.247391:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Regresión · Checkout y pedidos (ESC27-ESC29)
     ✓ REG-CHK-01 [ESC27] precarga los datos del usuario y resume el carrito con su total
     ✓ REG-CHK-02 [ESC27] con campos obligatorios vacíos el navegador bloquea el envío (required)
     ✓ REG-CHK-03 [ESC27] si se omite la validación nativa, la app advierte con un toast y no crea el pedido
+[22069:1026/225220.115593:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CHK-04 [ESC28] con datos válidos crea el pedido ORD-YYYY-NNN, vacía el carrito y confirma
-    ✓ REG-CHK-05 [ESC29] el pedido creado aparece en el historial de /cuenta y su detalle se puede abrir (6250ms)
+    ✓ REG-CHK-05 [ESC29] el pedido creado aparece en el historial de /cuenta y su detalle se puede abrir (6251ms)
+[22069:1026/225227.342889:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225227.343368:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225228.124401:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225228.124725:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225229.400755:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-CHK-06 [ESC28] con el carrito vacío el backend rechaza el pedido y la app muestra el error
 
 
-  6 passing (16s)
+  6 passing (15s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_018.json
 
@@ -1340,9 +1522,13 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  regresion/perfil.cy.ts                                                        (20 of 24)
+[22069:1026/225230.139000:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225230.141063:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225230.309014:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Regresión · Perfil (ESC04, ESC05)
+[22069:1026/225232.331750:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-PER-01 [ESC04] /cuenta muestra nombre, correo, ubicación sin especificar y contadores en 0
     ✓ REG-PER-02 [ESC05] edita teléfono, ciudad y departamento; persiste y se refleja en la tarjeta
     ✓ REG-PER-03 [ESC05] con nombre vacío muestra el error de campos requeridos y no guarda
@@ -1350,7 +1536,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
     ✓ REG-PER-05 [ESC03] el botón Cerrar Sesión de la cuenta termina la sesión
 
 
-  5 passing (11s)
+  5 passing (8s)
 
 [mochawesome] Report JSON saved to /home/user/HomaraFrontend/cypress/reports/.jsons/mochawesome_019.json
 
@@ -1365,7 +1551,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  5                                                                                │
   │ Video:        false                                                                            │
-  │ Duration:     10 seconds                                                                       │
+  │ Duration:     8 seconds                                                                        │
   │ Spec Ran:     regresion/perfil.cy.ts                                                           │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -1392,20 +1578,38 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  regresion/proyectos.cy.ts                                                     (21 of 24)
+[22069:1026/225240.322627:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225240.322990:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225240.518875:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Regresión · Proyectos (ESC17, ESC19, ESC24)
     ✓ REG-PRY-01 [ESC17] sin nombre muestra la advertencia del campo obligatorio y no envía nada
     ✓ REG-PRY-02 [ESC17] con nombre pero sin largo advierte por el campo Largo
+[22069:1026/225245.665420:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-PRY-03 [ESC17] crea un proyecto de piso 4 x 3 m, calcula 12 m² y abre su detalle
     ✓ REG-PRY-04 [ESC17] DEF-04 corregido: con dimensiones negativas el frontend avisa y no llama al backend
     ✓ REG-PRY-05 [ESC19] la lista de proyectos muestra el proyecto creado y el total en las estadísticas
+[22069:1026/225254.249124:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-PRY-06 [ESC24] el botón Comprar de un material vinculado lo agrega al carrito
+[22069:1026/225255.736803:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-PRY-07 [ESC17] un proyecto de paredes exige la altura
-    ✓ REG-PRY-08 [ESC20] personaliza el cálculo: paredes 4x3x2.5 m, 1 puerta, 1 ventana y patrón diagonal (15%) (5132ms)
+[22069:1026/225259.238442:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225259.243443:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ REG-PRY-08 [ESC20] personaliza el cálculo: paredes 4x3x2.5 m, 1 puerta, 1 ventana y patrón diagonal (15%) (6158ms)
+[22069:1026/225302.762974:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225303.980557:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225304.107589:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225304.226537:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-PRY-09 [ESC21] excluir insumos opcionales (crucetas y herramientas) los quita del cálculo
     ✓ REG-PRY-10 [ESC22] 'Usar en Proyecto' desde la ficha vincula el producto a un proyecto existente
-    ✓ REG-PRY-11 [ESC23] cambia el estado, edita el nombre y elimina un proyecto propio (7564ms)
+[22069:1026/225312.111951:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225312.148524:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225312.999974:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225313.000296:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225313.000509:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225316.239834:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+    ✓ REG-PRY-11 [ESC23] cambia el estado, edita el nombre y elimina un proyecto propio (7514ms)
 
 
   11 passing (35s)
@@ -1423,7 +1627,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  11                                                                               │
   │ Video:        false                                                                            │
-  │ Duration:     34 seconds                                                                       │
+  │ Duration:     35 seconds                                                                       │
   │ Spec Ran:     regresion/proyectos.cy.ts                                                        │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -1467,9 +1671,13 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  regresion/resenas-stock.cy.ts                                                 (22 of 24)
+[22069:1026/225317.182309:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225317.299408:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Regresión · Reseñas y stock (ESC25, ESC26, ESC30)
+[22069:1026/225319.179136:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225319.180841:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
     ✓ REG-RES-01 [ESC30] sin sesión, la sección de reseñas invita a iniciar sesión
     ✓ REG-RES-02 [ESC30] calificar exige estrellas; con 4 estrellas publica la reseña y actualiza el promedio
     ✓ REG-RES-03 [ESC30] DEF-20 corregido: las estrellas forman un grupo de radio con nombre y estado
@@ -1523,6 +1731,10 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  seguridad/seguridad-ui.cy.ts                                                  (23 of 24)
+[22069:1026/225325.581436:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225325.584514:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225325.587451:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225325.795659:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Seguridad · Interfaz (ESC07, ESC35, ESC36)
@@ -1530,16 +1742,22 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
       ✓ SEG-UI-01 [ESC35] una reseña con HTML/JS se muestra como texto y no se ejecuta
       ✓ SEG-UI-02 [ESC35] el nombre de un proyecto con HTML/JS se muestra como texto en el detalle
       ✓ SEG-UI-03 [ESC35] un nombre de usuario con HTML/JS se muestra como texto en la barra y en /cuenta
+[22069:1026/225335.033479:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225335.034698:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ SEG-UI-04 [ESC35] una búsqueda con HTML/JS en la URL se refleja como texto (XSS reflejado)
     Sesión y navegación (ESC07, ESC35)
+[22069:1026/225336.771762:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ SEG-UI-05 [ESC35] ?redirect= a un dominio externo se ignora: tras el login se queda en la app
-      ✓ SEG-UI-06 [ESC35] el token no aparece en la URL, en el DOM ni en una cookie legible
+      ✓ SEG-UI-06 [ESC35] el token no aparece en la URL, en el DOM, en localStorage ni en una cookie legible
       ✓ SEG-UI-07 [ESC35] las contraseñas se escriben en campos enmascarados (type=password)
+[22069:1026/225342.293901:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225344.617483:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
       ✓ SEG-UI-08 [ESC07] tras cerrar sesión, volver atrás hasta /cuenta no muestra los datos de la cuenta
-      ✓ SEG-UI-09 [ESC07] un token falso con rol ADMIN (alg none) en localStorage no abre /admin
+      ✓ SEG-UI-09 [ESC07] un token falso con rol ADMIN (alg none) en la cookie de sesión no abre /admin
     Cabeceras HTTP del frontend (ESC35)
       ✓ DEF-SEG-FE-01 corregido [ESC35] el frontend no anuncia Next.js y prohíbe embeberse en un iframe
-      ✓ DEF-SEG-FE-02 [ESC35] (abierto) la sesión vive en localStorage (legible por cualquier script) y no en una cookie HttpOnly
+[22069:1026/225347.069282:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+      ✓ DEF-SEG-FE-02 corregido [ESC35] el login deja la sesión en una cookie HttpOnly y SameSite=Strict, no en localStorage
 
 
   11 passing (21s)
@@ -1580,8 +1798,8 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
      I-05 [ESC35] redirect= a un dominio externo se ignora tras el login se queda en                
      la app -- after each hook.png                                                                  
   -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
-     I-06 [ESC35] el token no aparece en la URL, en el DOM ni en una cookie legible -               
-     - after each hook.png                                                                          
+     I-06 [ESC35] el token no aparece en la URL, en el DOM, en localStorage ni en una               
+      cookie legible -- after each hook.png                                                         
   -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
      I-07 [ESC35] las contraseñas se escriben en campos enmascarados (type=password)                
      -- after each hook.png                                                                         
@@ -1589,19 +1807,22 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
      I-08 [ESC07] tras cerrar sesión, volver atrás hasta cuenta no muestra los datos                
      de la cuenta -- after each hook.png                                                            
   -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/SEG-U     (1280x720)
-     I-09 [ESC07] un token falso con rol ADMIN (alg none) en localStorage no abre adm               
-     in -- after each hook.png                                                                      
+     I-09 [ESC07] un token falso con rol ADMIN (alg none) en la cookie de sesión no a               
+     bre admin -- after each hook.png                                                               
   -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/DEF-S     (1280x720)
      EG-FE-01 corregido [ESC35] el frontend no anuncia Next.js y prohíbe embeberse en               
       un iframe -- after each hook.png                                                              
   -  /home/user/HomaraFrontend/cypress/screenshots/seguridad/seguridad-ui.cy.ts/DEF-S     (1280x720)
-     EG-FE-02 [ESC35] (abierto) la sesión vive en localStorage (legible por cualquier               
-      script) y no en una cookie HttpOnly -- after each hook.png                                    
+     EG-FE-02 corregido [ESC35] el login deja la sesión en una cookie HttpOnly y Same               
+     Site=Strict, no en localStorage -- after each hook.png                                         
 
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
   Running:  seguridad/seguridad.api.cy.ts                                                 (24 of 24)
+[22069:1026/225348.210210:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225348.211098:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
+[22069:1026/225348.365726:ERROR:socket_posix.cc(93)] CreatePlatformSocket() failed: Address family not supported by protocol (97)
 
 
   Seguridad · API (ESC06, ESC35, ESC36, ESC41)
@@ -1649,7 +1870,7 @@ Remove output folder /home/user/HomaraFrontend/cypress/reports
   │ Skipped:      0                                                                                │
   │ Screenshots:  0                                                                                │
   │ Video:        false                                                                            │
-  │ Duration:     3 seconds                                                                        │
+  │ Duration:     2 seconds                                                                        │
   │ Spec Ran:     seguridad/seguridad.api.cy.ts                                                    │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -1668,55 +1889,54 @@ resize:  can't open terminal /dev/tty
 
        Spec                                              Tests  Passing  Failing  Pending  Skipped  
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔  accesibilidad/axe-paginas.cy.ts          00:43       14       14        -        -        - │
+  │ ✔  accesibilidad/axe-paginas.cy.ts          00:41       14       14        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  accesibilidad/teclado-etiquetas.cy.      00:25        8        8        -        -        - │
+  │ ✔  accesibilidad/teclado-etiquetas.cy.      00:23        8        8        -        -        - │
   │    ts                                                                                          │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  api/carrito-pedidos.api.cy.ts            00:03       12       12        -        -        - │
+  │ ✔  api/carrito-pedidos.api.cy.ts            00:02       12       12        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  api/catalogo.api.cy.ts                   00:01        7        7        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  api/errores-integridad.api.cy.ts         980ms        4        4        -        -        - │
+  │ ✔  api/errores-integridad.api.cy.ts         00:01        4        4        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  api/proyectos-admin.api.cy.ts            00:02       10       10        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  api/usuarios.api.cy.ts                   00:01       12       12        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  flujos/admin.cy.ts                       00:45        5        5        -        -        - │
+  │ ✔  flujos/admin.cy.ts                       00:38        5        5        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  flujos/cliente.cy.ts                     00:43        6        6        -        -        - │
+  │ ✔  flujos/cliente.cy.ts                     00:40        6        6        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  flujos/errores.cy.ts                     00:33        4        4        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  flujos/flujos-completos.cy.ts            00:17        2        2        -        -        - │
+  │ ✔  flujos/flujos-completos.cy.ts            00:15        2        2        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  flujos/proyectos.cy.ts                   00:29        4        4        -        -        - │
+  │ ✔  flujos/proyectos.cy.ts                   00:26        4        4        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  interfaz/idioma-tema.cy.ts               00:14        9        9        -        -        - │
+  │ ✔  interfaz/idioma-tema.cy.ts               00:13        9        9        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  interfaz/responsive.cy.ts                00:49       23       23        -        -        - │
+  │ ✔  interfaz/responsive.cy.ts                00:48       23       23        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  regresion/admin.cy.ts                    00:22       11       11        -        -        - │
+  │ ✔  regresion/admin.cy.ts                    00:21       11       11        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  regresion/autenticacion.cy.ts            01:06       18       18        -        -        - │
+  │ ✔  regresion/autenticacion.cy.ts            00:44       18       18        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  regresion/carrito.cy.ts                  00:08        8        8        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  regresion/catalogo.cy.ts                 00:27       14       14        -        -        - │
+  │ ✔  regresion/catalogo.cy.ts                 00:26       14       14        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  regresion/checkout-pedidos.cy.ts         00:15        6        6        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  regresion/perfil.cy.ts                   00:10        5        5        -        -        - │
+  │ ✔  regresion/perfil.cy.ts                   00:08        5        5        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  regresion/proyectos.cy.ts                00:34       11       11        -        -        - │
+  │ ✔  regresion/proyectos.cy.ts                00:35       11       11        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  regresion/resenas-stock.cy.ts            00:06        6        6        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔  seguridad/seguridad-ui.cy.ts             00:20       11       11        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  seguridad/seguridad.api.cy.ts            00:03       22       22        -        -        - │
+  │ ✔  seguridad/seguridad.api.cy.ts            00:02       22       22        -        -        - │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ✔  All specs passed!                        08:48      232      232        -        -        -  
+    ✔  All specs passed!                        08:02      232      232        -        -        -  
 
-E2E-EXIT 0

@@ -13,7 +13,7 @@ import CuentaPage from "@/app/(shop)/cuenta/page";
 import RequireAuth from "@/app/components/RequireAuth";
 import RegisterPage from "@/app/(shop)/register/page";
 
-test("REG-AUTH-01", "Iniciar sesión guarda el JWT y lleva a la cuenta", async () => {
+test("REG-AUTH-01", "Iniciar sesión lleva a la cuenta y el JWT no queda al alcance de los scripts", async () => {
   // Arrange
   const backend = backendFalso({ "POST /users/login": { token: "jwt-real", user: CLIENTE }, "GET /users/me": CLIENTE });
   const { usuario } = renderizar(<LoginPage />, { ruta: "/login" });
@@ -25,7 +25,7 @@ test("REG-AUTH-01", "Iniciar sesión guarda el JWT y lleva a la cuenta", async (
 
   // Assert
   await waitFor(() => expect(router.push).toHaveBeenCalledWith("/cuenta"));
-  expect(localStorage.getItem("homara_token")).toBe("jwt-real");
+  expect(Object.values(localStorage)).not.toContain("jwt-real");
   expect(backend.de("POST /users/login")).toHaveLength(1);
 });
 
@@ -48,7 +48,7 @@ test("REG-AUTH-02", "Proyectos, cuenta y checkout son privados; el catálogo es 
   expect(router.replace).toHaveBeenCalledWith("/login");
 });
 
-test("REG-AUTH-03", "Un 401 en cualquier llamada borra el token y cierra la sesión", async () => {
+test("REG-AUTH-03", "Un 401 en cualquier llamada cierra la sesión", async () => {
   // Arrange
   const backend = backendFalso({ "GET /orders": [], "GET /projects": [] });
   conSesion(backend);
@@ -60,8 +60,7 @@ test("REG-AUTH-03", "Un 401 en cualquier llamada borra el token y cierra la sesi
   await usuario.click(screen.getByRole("button", { name: es("account.save_btn") }));
 
   // Assert
-  await waitFor(() => expect(localStorage.getItem("homara_token")).toBeNull());
-  expect(router.push).toHaveBeenCalledWith("/login");
+  await waitFor(() => expect(router.push).toHaveBeenCalledWith("/login"));
 });
 
 test("REG-AUTH-04", "Editar el perfil envía los datos a /users/me", async () => {
@@ -101,7 +100,7 @@ test("REG-AUTH-05", "El registro no llama al backend si las contraseñas no coin
   expect(backend.de("POST /users/register")).toHaveLength(0);
 });
 
-test("REG-AUTH-06", "Un registro válido guarda el JWT y lleva a la cuenta", async () => {
+test("REG-AUTH-06", "Un registro válido lleva a la cuenta sin guardar el JWT en el navegador", async () => {
   // Arrange
   const backend = backendFalso({ "POST /users/register": { token: "jwt-nuevo", user: CLIENTE } });
   const { usuario } = renderizar(<RegisterPage />, { ruta: "/register" });
@@ -116,6 +115,6 @@ test("REG-AUTH-06", "Un registro válido guarda el JWT y lleva a la cuenta", asy
 
   // Assert
   await waitFor(() => expect(router.push).toHaveBeenCalledWith("/cuenta"));
-  expect(localStorage.getItem("homara_token")).toBe("jwt-nuevo");
+  expect(Object.values(localStorage)).not.toContain("jwt-nuevo");
   expect(backend.de("POST /users/register")[0].cuerpo).toMatchObject({ email: "ana@homara.com", firstName: "Ana" });
 });

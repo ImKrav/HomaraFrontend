@@ -145,8 +145,8 @@ describe("Regresión · Carrito (ESC13-ESC16)", () => {
   });
 
   it("REG-CAR-08 [ESC13] sin sesión, agregar al carrito responde 401 y redirige a /login", () => {
-    // Esta prueba no usa la sesión: se descarta el token restaurado en el beforeEach.
-    cy.clearAllLocalStorage();
+    // Esta prueba no usa la sesión: se descarta la cookie restaurada en el beforeEach.
+    cy.clearCookie("homara_session");
     cy.visit(`/catalogo/${producto.id}`);
     cy.contains("button", "Agregar al Carrito").click();
     cy.wait("@agregar").its("response.statusCode").should("eq", 401);

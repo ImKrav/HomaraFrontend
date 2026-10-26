@@ -23,7 +23,7 @@ defectos de API que Cypress encontró en el backend (DEF-03, 07, 08, 09, 10, 11,
 | Lighthouse Best Practices | 96 | **100** |
 | CLS de `/catalogo` (escritorio / móvil) | 0,079 / 0,22 | **0 / 0** |
 | CLS de `/` en escritorio | 0,261 | **0** |
-| Defectos del frontend abiertos | 27 + 6 observaciones | **1** (DEF-SEG-FE-02) + 2 observaciones de producto |
+| Defectos del frontend abiertos | 27 + 6 observaciones | **0** (DEF-SEG-FE-02 se cerró en una segunda iteración, §7) + 2 observaciones de producto |
 
 Las cifras de Lighthouse son la mediana de 3 corridas de **ambas versiones en la
 misma máquina** (ver §4); las de antes de Cypress, Vitest y Screenplay vienen de
@@ -76,7 +76,7 @@ las evidencias originales del equipo.
 | DEF-SEG-FE-01 | `X-Powered-By: Next.js`, sin `X-Frame-Options` ni CSP (clickjacking) | `poweredByHeader: false`; `X-Frame-Options: DENY`, CSP `frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'`, `nosniff` y `Referrer-Policy` (`next.config.ts`) |
 | DEF-26 (CLS) | El HTML inicial de `/catalogo` es el *fallback* de `Suspense` (70vh): el pie quedaba a la vista y la grilla lo empujaba al cargar. CLS 0,22 en móvil | *Fallback* y contenido con al menos una pantalla de alto: el pie arranca fuera de la vista. CLS 0. (La primera hipótesis, igualar el número de esqueletos, se midió y **no** lo resolvía; se revirtió) |
 | DEF-22 (tema) | El tema oscuro se aplicaba después de hidratar: la página se pintaba clara y transicionaba (parpadeo, CLS 0,26 en `/` y contraste insuficiente durante la transición). Además, `dark:` de Tailwind seguía al sistema y no al selector de tema de la app | Un script al inicio de `<body>` aplica el tema guardado antes de pintar; `@custom-variant dark` sigue a la clase `.dark` |
-| DEF-SEG-FE-02 | JWT en `localStorage` | **Abierto** (ver §6) |
+| DEF-SEG-FE-02 | JWT en `localStorage`, legible por cualquier script (un XSS robaría la sesión) | Cookie `homara_session` `HttpOnly; SameSite=Strict` emitida por el backend; el frontend nunca ve el token (ver §7) |
 
 ### Lighthouse antes / después (misma máquina, mediana de 3 corridas)
 
@@ -134,14 +134,80 @@ poner el script de tema en `<head>`.
 
 ## 6. Lo que no se cambió (y por qué)
 
-- **DEF-SEG-FE-02 (JWT en `localStorage`):** pasar a una cookie `HttpOnly` cambia
-  el contrato de autenticación de ambos repositorios (emisión y borrado de la
-  cookie en el backend, protección CSRF, `api.ts`, `AuthContext`) y todas las
-  suites E2E que inyectan el token. Es el siguiente paso recomendado; mientras
-  tanto, ninguna prueba encontró un XSS (React escapa el contenido) y la CSP nueva
-  bloquea `object`/`base`/`form-action` externos.
 - **DEF-26 (TBT y LCP en móvil):** la causa es el peso del JavaScript cliente (todo el
   árbol es `"use client"`). Reducirlo exige reestructurar páginas en componentes
   de servidor; se corrigió el CLS, que sí tenía una causa puntual.
 - **OBS-02 / OBS-06:** son mejoras de producto (búsqueda y paginación en el
   servidor, archivar productos), no defectos.
+
+## 7. Segunda iteración: DEF-SEG-FE-02, sesión en cookie `HttpOnly`
+
+**Antes:** `AuthContext` guardaba el JWT en `localStorage` y `api.ts` lo leía para
+mandar `Authorization: Bearer`. Cualquier script de la página (un XSS, una
+dependencia comprometida) podía leerlo y usar la sesión desde otro equipo
+durante 7 días.
+
+**Después:** el backend emite el JWT en la cookie `homara_session`
+(`HttpOnly; SameSite=Strict; Path=/`, `Secure` en producción) y el frontend
+nunca lo toca.
+
+| Pieza | Antes | Después |
+|---|---|---|
+| `app/lib/api.ts` | Leía `homara_token` y ponía `Authorization: Bearer`; en un 401 lo borraba | `credentials: "include"`; sin cabecera `Authorization`; en un 401 solo emite `auth:401` |
+| `AuthContext` — login/registro | `localStorage.setItem("homara_token", token)` | Solo guarda el usuario en memoria; la cookie la pone el backend |
+| `AuthContext` — validar sesión | Sin token no preguntaba; con token, `GET /users/me` | `GET /users/session`: 200 con el perfil o `null`, así un visitante no genera un 401 (ni un error en consola) en cada carga |
+| `AuthContext` — logout | `localStorage.removeItem` | `await POST /users/logout` con `keepalive` (solo el servidor puede borrar una cookie `HttpOnly`) y después limpia el estado y va a `/login`; si la red falla, la interfaz igual se cierra |
+| Token de versiones anteriores | — | Se borra `homara_token` de `localStorage` al iniciar la app |
+| CSRF | No aplicaba | `SameSite=Strict` + CORS con lista de orígenes |
+
+```ts
+// ANTES — app/lib/api.ts
+const token = localStorage.getItem("homara_token");
+if (token) headers.set("Authorization", `Bearer ${token}`);
+const response = await fetch(url, { ...options, headers });
+
+// DESPUÉS
+const response = await fetch(url, {
+  credentials: "include", // envía la cookie también si NEXT_PUBLIC_API_URL apunta a otro puerto del mismo sitio
+  ...options,
+  headers,
+});
+```
+
+Con la configuración por defecto (`NEXT_PUBLIC_API_URL=/api/v1`, proxy de
+`next.config.ts`) la cookie es del mismo origen que la página. Si la API se sirve
+en otro **sitio** (otro dominio registrable), `SameSite=Strict` impide enviarla:
+hay que mantener el proxy o servir ambos bajo el mismo dominio.
+
+**Pruebas:**
+
+- **Vitest:** `REG-DEF-11` (el login no deja el JWT en `localStorage`, todas las
+  peticiones van con `credentials: "include"` y sin `Authorization`);
+  `api-hdr-04` ahora afirma eso mismo; los casos de login, registro y logout
+  afirman la ausencia del token y la llamada a `/users/logout`. El backend falso
+  responde `GET /users/session` (sin sesión por defecto). Demo de regresión con
+  2 mutaciones nuevas (quitar `credentials`, volver a guardar el JWT).
+- **Cypress:** `iniciarSesionConToken` pone la cookie con `cy.setCookie(…, { httpOnly: true })`
+  y valida contra `/users/session`; las aserciones sobre `homara_token` pasaron a
+  `cy.getCookie("homara_session")`. `DEF-SEG-FE-02 corregido` inicia sesión por la
+  interfaz y verifica `Set-Cookie` con `HttpOnly` y `SameSite=Strict`, que
+  `document.cookie` no la ve y que no hay ningún JWT en `localStorage`.
+  `cy.api` ahora conserva la cookie del navegador: `cy.request` guarda las
+  cookies de la respuesta, y crear un usuario por API iniciaba sesión en el
+  navegador sin querer (lo destapó `SEG-UI-05` en la primera corrida).
+- **Logout que no esperaba al servidor:** la segunda corrida completa de Cypress
+  falló una vez en `FLU-01` (la cookie seguía tras "Cerrar sesión"). `logout()`
+  lanzaba la petición sin esperarla; si la página navegaba o se cerraba antes de
+  la respuesta, la sesión seguía viva en el servidor. Ahora espera la respuesta
+  (con `keepalive`) antes de navegar, y `/cuenta` dejó de hacer su propio
+  `router.push("/login")`, que con el logout asíncrono habría devuelto al usuario
+  a `/cuenta`.
+- **Screenplay:** `SesionDelNavegador` pregunta por la cookie `HttpOnly` y
+  `OlvidarSesion` borra las cookies.
+
+| Suite | Resultado |
+|---|---|
+| Vitest | **163/163** (+1) |
+| Demo de regresión | **26/26** (+2) |
+| Cypress E2E | **232/232** en la corrida final (8 min 2 s; antes, 230/232 y 231/232 por las causas corregidas arriba) y componentes **55/55** ([`consola-e2e.txt`](pruebas/evidencias/cypress-despues/consola-e2e.txt)) |
+| Screenplay | **33/33** ([`consola-corrida-final.txt`](../e2e-screenplay/evidencias/consola-corrida-final.txt)) |

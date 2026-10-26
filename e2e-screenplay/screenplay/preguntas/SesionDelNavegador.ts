@@ -2,15 +2,16 @@ import { Question } from '@serenity-js/core';
 import { Page } from '@serenity-js/web';
 
 /**
- * Pregunta: ¿el navegador del actor tiene guardado el token de sesión?
- * La aplicación guarda el JWT en localStorage bajo la clave `homara_token`.
+ * Pregunta: ¿el navegador del actor tiene una sesión iniciada?
+ * El backend emite el JWT en la cookie `homara_session`, que debe ser HttpOnly
+ * (DEF-SEG-FE-02): la página nunca lo guarda en localStorage.
  */
 export class SesionDelNavegador {
     static tieneToken() {
-        return Question.about('si el navegador tiene el token "homara_token"', async actor => {
+        return Question.about('si el navegador tiene la cookie HttpOnly "homara_session"', async actor => {
             const pagina = await actor.answer(Page.current());
-            const token = await pagina.executeScript(() => window.localStorage.getItem('homara_token'));
-            return typeof token === 'string' && token.length > 0;
+            const cookie = await pagina.cookie('homara_session');
+            return (await cookie.isPresent()) && (await cookie.isHttpOnly());
         });
     }
 }

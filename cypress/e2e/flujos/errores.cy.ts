@@ -64,18 +64,18 @@ describe("Flujos E2E · Errores y recuperación", () => {
         cy.contains("button", "Agregar al Carrito").click();
         cy.get('nav a[aria-label="Carrito"]').should("contain.text", "1");
 
-        // 1. El token guardado vence (se reemplaza por uno vencido) y el usuario vuelve otro día
+        // 1. La cookie de sesión vence (se reemplaza por uno vencido) y el usuario vuelve otro día
         const hace2h = Math.floor(Date.now() / 1000) - 7200;
         cy.task("firmarJwt", {
           payload: { id: usuario.id, email: usuario.email, role: "CUSTOMER", iat: hace2h, exp: hace2h + 60 },
           secreto: Cypress.env("jwtSecretoPorDefecto"),
         }).then((vencido) => {
-          cy.window().then((win) => win.localStorage.setItem("homara_token", vencido as string));
+          cy.setCookie("homara_session", vencido as string, { httpOnly: true, sameSite: "strict" });
         });
-        cy.intercept("GET", "**/api/v1/users/me").as("me");
+        cy.intercept("GET", "**/api/v1/users/session").as("sesion");
         cy.visit("/carrito");
-        cy.wait("@me").its("response.statusCode").should("eq", 401);
-        cy.window().its("localStorage").invoke("getItem", "homara_token").should("be.null");
+        cy.wait("@sesion").its("response.body.data").should("be.null");
+        cy.getCookie("homara_session").should("be.null");
         cy.get("nav").contains("a", "Iniciar Sesión").should("be.visible");
         evidencia("FLU-18 1 sesión vencida");
 
