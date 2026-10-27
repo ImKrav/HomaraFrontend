@@ -100,16 +100,16 @@ export default function CheckoutPage() {
         showToast(t("checkout.order_success"), "success");
         // OBS-01: tras pagar se va al historial de pedidos, no a proyectos.
         router.push("/cuenta");
-      } else {
-        showToast(data.error || t("checkout.order_error"), "error");
+        // Sin reactivar el botón: la navegación tarda y un segundo envío chocaría con el carrito ya vacío.
+        return;
       }
+      showToast(data.error || t("checkout.order_error"), "error");
     } catch (err) {
       console.error(err);
       const message = err instanceof Error ? err.message : t("checkout.payment_error");
       showToast(message, "error");
-    } finally {
-      setProcessing(false);
     }
+    setProcessing(false);
   };
 
   const checkoutItems = cart.items || [];

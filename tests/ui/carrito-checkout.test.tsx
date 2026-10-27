@@ -4,8 +4,9 @@
 // resumen con envío, y pagar el pedido.
 
 import { screen, waitFor } from "@testing-library/react";
+import { vi } from "vitest";
 import { test, expect } from "../harness.mjs";
-import { backendFalso, conSesion, renderizar, es } from "./soporte";
+import { backendFalso, conSesion, renderizar, es, type Llamada } from "./soporte";
 import { router } from "./navegacion.mjs";
 import CarritoPage from "@/app/(shop)/carrito/page";
 import CheckoutPage from "@/app/(shop)/checkout/page";
@@ -138,6 +139,94 @@ test("ui-cart-07", "Quitar un ítem lo elimina del backend y recarga el carrito"
   expect(backend.de("DELETE /cart/items/:id")[0].ruta).toBe("/cart/items/itm_a");
 });
 
+/**
+ * Añade latencia de red al `fetch` falso. Sin ella el backend responde en microtareas y React agrupa
+ * "cargando → listo" en un solo render, así que las pruebas no verían las pantallas intermedias.
+ */
+const conLatencia = (ms: number) => {
+  const base = globalThis.fetch;
+  vi.stubGlobal("fetch", async (...a: Parameters<typeof fetch>) => {
+    await new Promise((r) => setTimeout(r, ms));
+    return base(...a);
+  });
+};
+
+test("ui-cart-08", "Al abrir el carrito con ítems nunca se pinta 'vacío', ni mientras se valida la sesión", async () => {
+  // Arrange
+  const backend = backendFalso();
+  conSesion(backend);
+  backend.responder("GET /cart", carrito([item("1", "Piso Beige", 38_900, 1)]));
+  conLatencia(40);
+  let pintoVacio = false;
+  const observador = new MutationObserver(() => {
+    pintoVacio ||= document.body.textContent?.includes(es("cart.empty_title")) ?? false;
+  });
+  observador.observe(document.body, { childList: true, subtree: true, characterData: true });
+
+  // Act
+  renderizar(<CarritoPage />, { ruta: "/carrito" });
+  await screen.findByText("Piso Beige");
+  observador.disconnect();
+
+  // Assert
+  expect(pintoVacio).toBe(false);
+});
+
+test("ui-cart-09", "Cambiar la cantidad no reemplaza las filas por el cargador mientras se recarga el carrito", async () => {
+  // Arrange
+  const backend = backendFalso();
+  conSesion(backend);
+  backend.responder("GET /cart", carrito([item("itm_a", "Piso Beige", 38_900, 1)]));
+  backend.responder("PUT /cart/items/:id", {});
+  const { usuario } = renderizar(<CarritoPage />, { ruta: "/carrito" });
+  const fila = await screen.findByText("Piso Beige");
+  conLatencia(40);
+
+  // Act
+  await usuario.click(screen.getByRole("button", { name: "+" }));
+  await waitFor(() => expect(backend.de("GET /cart")).toHaveLength(2));
+
+  // Assert
+  expect(fila).toBeInTheDocument(); // el mismo nodo: no se desmontó para mostrar "Cargando carrito..."
+});
+
+test("ui-cart-11", "Mientras se actualiza una cantidad no se puede ir al pago: el checkout recibiría otra cantidad", async () => {
+  // Arrange
+  const backend = backendFalso();
+  conSesion(backend);
+  let cantidadEnServidor = 1;
+  backend.responder("GET /cart", () => carrito([item("itm_a", "Piso Beige", 38_900, cantidadEnServidor)]));
+  backend.responder("PUT /cart/items/:id", (llamada: Llamada) => {
+    cantidadEnServidor = llamada.cuerpo.quantity;
+    return {};
+  });
+  const { usuario } = renderizar(<CarritoPage />, { ruta: "/carrito" });
+  await screen.findByText("Piso Beige");
+  conLatencia(40);
+
+  // Act
+  await usuario.click(screen.getByRole("button", { name: "+" }));
+
+  // Assert
+  expect(screen.getByRole("button", { name: es("cart.checkout_btn") })).toBeDisabled();
+  const pagar = await screen.findByRole("link", { name: es("cart.checkout_btn") }); // vuelve al recargar el carrito
+  expect(pagar).toHaveAttribute("href", "/checkout");
+  expect(screen.getByRole("button", { name: "-" }).nextElementSibling).toHaveTextContent("2");
+});
+
+test("ui-cart-10", "Si falla la carga del carrito avisa del error de conexión en vez de callarlo", async () => {
+  // Arrange
+  const backend = backendFalso();
+  conSesion(backend);
+  backend.fallar("GET /cart", 500, "Error interno");
+
+  // Act
+  renderizar(<CarritoPage />, { ruta: "/carrito" });
+
+  // Assert
+  expect(await screen.findByRole("alert")).toHaveTextContent(es("catalog.add_to_cart_conn_error"));
+});
+
 // --- Checkout ---------------------------------------------------------------------
 
 test("ui-chk-01", "Sin sesión, el checkout redirige al login y vuelve después", async () => {
@@ -224,4 +313,37 @@ test("ui-chk-05", "Un rechazo del backend muestra su mensaje y no sale del check
   // Assert
   expect(await screen.findByRole("alert")).toHaveTextContent("El carrito está vacío");
   expect(router.push).not.toHaveBeenCalledWith("/cuenta");
+});
+
+test("ui-chk-06", "Tras crear el pedido el botón sigue bloqueado mientras se navega: un segundo clic no lo duplica", async () => {
+  // Arrange
+  const backend = backendFalso();
+  conSesion(backend);
+  backend.responder("GET /cart", carrito([item("1", "Piso Beige", 38_900, 1)]));
+  backend.responder("POST /orders", { id: "ORD-2026-0001" });
+  const { usuario } = renderizar(<CheckoutPage />, { ruta: "/checkout" });
+
+  // Act
+  await usuario.click(await screen.findByRole("button", { name: new RegExp(es("checkout.pay_btn")) }));
+  await waitFor(() => expect(router.push).toHaveBeenCalledWith("/cuenta"));
+
+  // Assert
+  expect(screen.getByRole("button", { name: es("checkout.processing") })).toBeDisabled();
+  expect(backend.de("POST /orders")).toHaveLength(1);
+});
+
+test("ui-chk-07", "Si el pago falla el botón se reactiva para poder reintentar", async () => {
+  // Arrange
+  const backend = backendFalso();
+  conSesion(backend);
+  backend.responder("GET /cart", carrito([item("1", "Piso Beige", 38_900, 1)]));
+  backend.fallar("POST /orders", 503, "Servicio de pagos no disponible");
+  const { usuario } = renderizar(<CheckoutPage />, { ruta: "/checkout" });
+
+  // Act
+  await usuario.click(await screen.findByRole("button", { name: new RegExp(es("checkout.pay_btn")) }));
+  await screen.findByRole("alert");
+
+  // Assert
+  expect(screen.getByRole("button", { name: new RegExp(es("checkout.pay_btn")) })).toBeEnabled();
 });

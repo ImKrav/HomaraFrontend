@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import CartItemCard from "@/app/components/CartItem";
 import Button from "@/app/components/ui/Button";
 import AuthRequiredState from "@/app/components/AuthRequiredState";
 import { formatPrice, CartItemDetail } from "@/app/lib/utils";
 import { api } from "@/app/lib/api";
+import { showToast } from "@/app/lib/toast";
 import { useAuth } from "@/app/context/AuthContext";
 import LucideIcon from "@/app/components/ui/LucideIcon";
 import { useLanguage } from "@/app/context/LanguageContext";
@@ -16,20 +17,14 @@ export default function CarritoPage() {
   const [shipping, setShipping] = useState(0);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [pendingUpdates, setPendingUpdates] = useState(0);
   const { isAuthenticated, loading: authLoading } = useAuth();
   const { t } = useLanguage();
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      fetchCart();
-    } else {
-      setLoading(false);
-    }
-  }, [isAuthenticated]);
-
-  const fetchCart = async () => {
+  // `loading` solo cubre la primera carga (nace en true): las recargas tras +/−/quitar no
+  // reemplazan la lista por el cargador, y sin sesión no se pinta "vacío" antes de pedir los ítems.
+  const fetchCart = useCallback(async () => {
     try {
-      setLoading(true);
       const json = await api.get("/api/v1/cart");
       if (json.success && json.data) {
         setCartItems(json.data.items || []);
@@ -39,32 +34,46 @@ export default function CarritoPage() {
       }
     } catch (error) {
       console.error(error);
+      showToast(t("catalog.add_to_cart_conn_error"), "error");
     } finally {
       setLoading(false);
     }
-  };
+  }, [t]);
 
+  useEffect(() => {
+    if (isAuthenticated) fetchCart();
+  }, [isAuthenticated, fetchCart]);
+
+  // Mientras haya cambios en curso el pago queda bloqueado: la lista aún muestra la cantidad
+  // anterior y el checkout (que lee el carrito del servidor) cobraría otra.
   const handleQuantityChange = async (index: number, quantity: number) => {
     const item = cartItems[index];
+    setPendingUpdates((n) => n + 1);
     try {
       await api.put(`/api/v1/cart/items/${item.id}`, { quantity });
-      fetchCart();
       window.dispatchEvent(new Event("cartUpdated"));
+      await fetchCart();
     } catch (e) {
       console.error(e);
+    } finally {
+      setPendingUpdates((n) => n - 1);
     }
   };
 
   const handleRemove = async (index: number) => {
     const item = cartItems[index];
+    setPendingUpdates((n) => n + 1);
     try {
       await api.delete(`/api/v1/cart/items/${item.id}`);
-      fetchCart();
       window.dispatchEvent(new Event("cartUpdated"));
+      await fetchCart();
     } catch (e) {
       console.error(e);
+    } finally {
+      setPendingUpdates((n) => n - 1);
     }
   };
+  const updating = pendingUpdates > 0;
 
   if (authLoading || (loading && isAuthenticated)) {
     return <div className="max-w-7xl mx-auto px-4 py-20 text-center">{t("cart.loading")}</div>;
@@ -166,7 +175,8 @@ export default function CarritoPage() {
                 </div>
               </div>
 
-              <Button href="/checkout" size="lg" fullWidth className="mt-6">
+              {/* Sin href, Button es un <button disabled>: no navega al checkout hasta que el carrito se recargue. */}
+              <Button href={updating ? undefined : "/checkout"} disabled={updating} size="lg" fullWidth className="mt-6">
                 {t("cart.checkout_btn")}
               </Button>
 

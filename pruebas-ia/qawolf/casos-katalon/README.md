@@ -204,7 +204,8 @@ distinguir mayúsculas).
    con `open` (recarga completa), la página pinta el carrito vacío durante un momento, mientras se valida la sesión,
    antes de pedir los ítems al backend. Una prueba que cuente los ítems justo en ese momento ve 0. Las suites entran al
    carrito con el enlace de la barra (navegación del lado del cliente, con la sesión ya resuelta), donde no ocurre. Se
-   puede reportar como defecto de interfaz menor.
+   puede reportar como defecto de interfaz menor. **Corregido en el código** (`ui-cart-08`): `/carrito` muestra
+   «Cargando carrito...» hasta recibir los ítems, y tras +/−/quitar la lista ya no se reemplaza por el cargador.
 2. **Animaciones con opacidad 0:** las tarjetas de login, registro y otras vistas entran con una animación que empieza
    con opacidad 0 (unos 500 ms). Sin la espera de animaciones descrita arriba, `type` falla con *Element is not
    currently interactable*.
