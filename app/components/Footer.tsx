@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold gradient-text">Homara</span>
+              <span className="text-2xl font-bold text-primary">Homara</span>
             </Link>
             <p className="mt-3 text-sm text-text-secondary leading-relaxed">
               {t("footer.tagline")}
@@ -50,10 +50,10 @@ export default function Footer() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 flex items-center justify-center rounded-none bg-bg-surface-light text-text-secondary hover:bg-primary hover:text-bg-base transition-all duration-200"
+                  className="w-9 h-9 flex items-center justify-center rounded-none bg-bg-surface-light text-text-secondary hover:bg-primary hover:text-bg-base transition-colors duration-150"
                   aria-label={social.name}
                 >
-                  <svg
+                  <svg aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4"
                     fill="none"
@@ -103,12 +103,13 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-6 text-xs text-text-muted">
             {/* Language Switcher */}
             <div className="flex items-center gap-1.5 bg-bg-surface-light border border-border px-1.5 py-1 rounded-none">
-              <span className="text-[10px] uppercase font-bold text-text-muted px-1.5">
+              <span className="text-[11px] uppercase font-bold text-text-muted px-1.5">
                 {t("footer.language")}
               </span>
               <button
                 onClick={() => setLanguage("es")}
-                className={`px-2 py-0.5 text-[10px] font-extrabold uppercase border tracking-wider transition-all duration-150 cursor-pointer ${
+                aria-pressed={language === "es"}
+                className={`px-2.5 py-1.5 min-h-6 text-[11px] font-extrabold uppercase border tracking-wider transition-colors duration-150 cursor-pointer ${
                   language === "es"
                     ? "bg-primary text-bg-base border-primary shadow-sm font-black"
                     : "bg-transparent text-text-muted border-transparent hover:text-text-primary"
@@ -118,7 +119,8 @@ export default function Footer() {
               </button>
               <button
                 onClick={() => setLanguage("en")}
-                className={`px-2 py-0.5 text-[10px] font-extrabold uppercase border tracking-wider transition-all duration-150 cursor-pointer ${
+                aria-pressed={language === "en"}
+                className={`px-2.5 py-1.5 min-h-6 text-[11px] font-extrabold uppercase border tracking-wider transition-colors duration-150 cursor-pointer ${
                   language === "en"
                     ? "bg-primary text-bg-base border-primary shadow-sm font-black"
                     : "bg-transparent text-text-muted border-transparent hover:text-text-primary"
@@ -130,25 +132,25 @@ export default function Footer() {
 
             {/* Theme Selector */}
             <div className="flex items-center gap-1.5 bg-bg-surface-light border border-border px-1.5 py-1 rounded-none">
-              <span className="text-[10px] uppercase font-bold text-text-muted px-1.5">
+              <span className="text-[11px] uppercase font-bold text-text-muted px-1.5">
                 {t("footer.theme")}
               </span>
               <button
                 onClick={toggleTheme}
-                className="px-2.5 py-1 bg-bg-surface border border-border text-text-primary hover:border-primary hover:text-primary transition-all duration-150 cursor-pointer flex items-center gap-1.5 shadow-sm text-[10px] font-bold uppercase tracking-wider rounded-none"
+                className="px-2.5 py-1 bg-bg-surface border border-border text-text-primary hover:border-primary hover:text-primary transition-all duration-150 cursor-pointer flex items-center gap-1.5 shadow-sm text-[11px] font-bold uppercase tracking-wider rounded-none"
                 // DEF-25 (WCAG 2.5.3): el nombre accesible empieza por el texto visible ("Claro"/"Oscuro").
                 aria-label={`${theme === "light" ? t("footer.theme_light") : t("footer.theme_dark")} · ${t("footer.theme_toggle")}`}
               >
                 {theme === "light" ? (
                   <>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-warning fill-warning" viewBox="0 0 20 20" fill="currentColor">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-warning fill-warning" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" clipRule="evenodd" />
                     </svg>
                     <span>{t("footer.theme_light")}</span>
                   </>
                 ) : (
                   <>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-primary-light" viewBox="0 0 20 20" fill="currentColor">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-primary-light" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                     </svg>
                     <span>{t("footer.theme_dark")}</span>

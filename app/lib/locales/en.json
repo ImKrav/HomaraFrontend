@@ -510,8 +510,8 @@
     "view_delivery": "View delivery details",
     "edit_profile_title": "Edit Profile",
     "edit_profile_desc": "Update your personal information for shipping and billing.",
-    "first_name_label": "First Name *",
-    "last_name_label": "Last Name *",
+    "first_name_label": "First Name",
+    "last_name_label": "Last Name",
     "phone_input_label": "Phone",
     "address_input_label": "Address",
     "city_input_label": "City",
@@ -574,7 +574,8 @@
     "no_reviews_desc": "Have you purchased or installed it? Be the first to share your technical rating with other users.",
     "anonymous": "Anon",
     "star_one": "1 star",
-    "star_many": "{n} stars"
+    "star_many": "{n} stars",
+    "rated": "Rated {n} out of 5"
   },
   "home": {
     "smart_estimator": "Smart Estimator",

@@ -136,7 +136,7 @@ function CatalogoContent() {
       <div className="mb-8">
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-4 bg-primary" />
-          <span className="text-[10px] uppercase tracking-widest font-extrabold text-text-muted">{t("catalog.title")}</span>
+          <span className="text-[11px] uppercase tracking-widest font-extrabold text-text-muted">{t("catalog.title")}</span>
         </div>
         <h1 className="text-3xl font-extrabold text-text-primary uppercase tracking-tight mt-1">{t("catalog.title")}</h1>
         <p className="mt-1.5 text-xs text-text-secondary">
@@ -193,11 +193,11 @@ function CatalogoContent() {
         {/* Sort & Rating Filter */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-6 self-end lg:self-auto w-full lg:w-auto">
           <div className="flex items-center gap-2">
-            <label htmlFor="min-rating" className="text-[10px] uppercase tracking-wider font-extrabold text-text-muted whitespace-nowrap">{t("catalog.rating")}</label>
+            <label htmlFor="min-rating" className="text-[11px] uppercase tracking-wider font-extrabold text-text-muted whitespace-nowrap">{t("catalog.rating")}</label>
             <select
               value={minRating}
               onChange={(e) => setMinRating(Number(e.target.value))}
-              className="bg-bg-surface border border-border rounded-none px-4 py-2.5 text-xs font-bold text-text-primary uppercase tracking-wider focus:outline-none focus:border-primary transition-colors cursor-pointer w-full sm:w-auto"
+              className="bg-bg-surface border border-border rounded-none px-4 py-2.5 text-xs font-bold text-text-primary uppercase tracking-wider focus:border-primary transition-colors cursor-pointer w-full sm:w-auto"
               id="min-rating"
             >
               <option value={0}>{t("catalog.all_categories")}</option>
@@ -208,11 +208,11 @@ function CatalogoContent() {
           </div>
 
           <div className="flex items-center gap-2">
-            <label htmlFor="sort-by" className="text-[10px] uppercase tracking-wider font-extrabold text-text-muted whitespace-nowrap">{t("catalog.sort_by")}</label>
+            <label htmlFor="sort-by" className="text-[11px] uppercase tracking-wider font-extrabold text-text-muted whitespace-nowrap">{t("catalog.sort_by")}</label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-bg-surface border border-border rounded-none px-4 py-2.5 text-xs font-bold text-text-primary uppercase tracking-wider focus:outline-none focus:border-primary transition-colors cursor-pointer w-full sm:w-auto"
+              className="bg-bg-surface border border-border rounded-none px-4 py-2.5 text-xs font-bold text-text-primary uppercase tracking-wider focus:border-primary transition-colors cursor-pointer w-full sm:w-auto"
               id="sort-by"
             >
               <option value="popular">{t("catalog.sort_popular")}</option>
@@ -235,7 +235,7 @@ function CatalogoContent() {
           <p className="text-xs text-text-secondary max-w-xs mx-auto">{t("catalog.load_error_desc")}</p>
           <button
             onClick={() => setReloadKey((k) => k + 1)}
-            className="mt-6 px-5 py-2.5 bg-primary text-bg-base text-xs uppercase tracking-wider font-bold border border-primary hover:bg-primary-light transition-colors"
+            className="mt-6 px-5 py-2.5 bg-primary text-bg-base text-xs uppercase tracking-wider font-bold border border-primary hover:bg-primary-dark transition-colors"
           >
             {t("catalog.retry")}
           </button>
@@ -252,8 +252,8 @@ function CatalogoContent() {
                 <div className="h-4 bg-bg-surface-light w-1/3" />
               </div>
             ))
-          : paginatedProducts.map((product: Product) => (
-              <ProductCard key={product.id} product={product} />
+          : paginatedProducts.map((product: Product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
             ))}
       </div>
 
@@ -289,7 +289,7 @@ function CatalogoContent() {
               setMinRating(0);
               setSearchQuery("");
             }}
-            className="mt-6 px-5 py-2.5 bg-primary text-bg-base text-xs uppercase tracking-wider font-bold border border-primary hover:bg-primary-light transition-colors"
+            className="mt-6 px-5 py-2.5 bg-primary text-bg-base text-xs uppercase tracking-wider font-bold border border-primary hover:bg-primary-dark transition-colors"
           >
             {t("catalog.view_all")}
           </button>

@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import LucideIcon from "@/app/components/ui/LucideIcon";
+import { useDialog } from "@/app/hooks/useDialog";
 import Button from "@/app/components/ui/Button";
 import Badge from "@/app/components/ui/Badge";
 import OrderSummaryBreakdown from "@/app/components/OrderSummaryBreakdown";
@@ -108,15 +109,7 @@ export default function OrderDetailModal({
 }: Readonly<OrderDetailModalProps>) {
   const { t } = useLanguage();
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        onClose();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
+  const dialogRef = useDialog<HTMLDialogElement>(isOpen, onClose);
 
   if (!isOpen) return null;
 
@@ -132,6 +125,7 @@ export default function OrderDetailModal({
 
       {/* Modal Dialog Card */}
       <dialog
+        ref={dialogRef}
         open
         aria-modal="true"
         aria-labelledby="order-modal-title"
@@ -143,7 +137,7 @@ export default function OrderDetailModal({
         {/* Modal Header */}
         <div className="p-6 border-b border-border flex items-center justify-between">
           <div>
-            <span className="text-[10px] text-text-muted font-bold uppercase tracking-widest">
+            <span className="text-[11px] text-text-muted font-bold uppercase tracking-widest">
               {portalSubtitle}
             </span>
             <h3 id="order-modal-title" className="text-xl font-bold text-text-primary tracking-tight">
@@ -178,7 +172,7 @@ export default function OrderDetailModal({
               {/* General Info Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 bg-bg-surface-light border border-border">
                 <div>
-                  <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">{t("account.date_label")}</p>
+                  <p className="text-[11px] text-text-muted font-bold uppercase tracking-wider">{t("account.date_label")}</p>
                   <p className="text-sm font-semibold text-text-primary mt-1">
                     {new Date(order.createdAt).toLocaleDateString("es-CO", {
                       day: "numeric",
@@ -188,7 +182,7 @@ export default function OrderDetailModal({
                   </p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">{t("account.status_label")}</p>
+                  <p className="text-[11px] text-text-muted font-bold uppercase tracking-wider">{t("account.status_label")}</p>
                   <div className="mt-1">
                     <Badge variant={getStatusVariant(order.status)} size="sm">
                       {t(`status.${order.status?.toLowerCase()}`, order.status)}
@@ -196,13 +190,13 @@ export default function OrderDetailModal({
                   </div>
                 </div>
                 <div>
-                  <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">{t("account.payment_label")}</p>
-                  <p className="text-sm font-semibold text-text-primary mt-1 uppercase text-[10px] tracking-wide">
+                  <p className="text-[11px] text-text-muted font-bold uppercase tracking-wider">{t("account.payment_label")}</p>
+                  <p className="text-sm font-semibold text-text-primary mt-1 uppercase text-[11px] tracking-wide">
                     {getPaymentLabel(order.paymentMethod, t)}
                   </p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">{t("account.total_label")}</p>
+                  <p className="text-[11px] text-text-muted font-bold uppercase tracking-wider">{t("account.total_label")}</p>
                   <p className="text-sm font-black text-primary mt-1">
                     {formatPrice(order.total)}
                   </p>
@@ -234,7 +228,7 @@ export default function OrderDetailModal({
                   )}
                   {order.shippingNotes && (
                     <div className="mt-3 p-3 bg-primary/5 border-l-2 border-primary text-xs text-text-secondary italic">
-                      <span className="font-bold block text-text-primary not-italic uppercase tracking-wider text-[9px] mb-1">{t("account.notes_label")}</span>
+                      <span className="font-bold block text-text-primary not-italic uppercase tracking-wider text-[11px] mb-1">{t("account.notes_label")}</span>
                       &ldquo;{order.shippingNotes}&rdquo;
                     </div>
                   )}
@@ -253,7 +247,7 @@ export default function OrderDetailModal({
                       value={order.status?.toLowerCase()}
                       onChange={(e) => onStatusChange(e.target.value)}
                       disabled={updatingStatus}
-                      className="w-full bg-bg-surface border border-border px-4 py-2.5 text-sm font-semibold text-text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all duration-200 cursor-pointer rounded-none"
+                      className="w-full bg-bg-surface border border-border px-4 py-2.5 text-sm font-semibold text-text-primary focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all duration-200 cursor-pointer rounded-none"
                     >
                       <option value="pendiente">{t("status.pendiente")}</option>
                       <option value="procesando">{t("status.procesando")}</option>
@@ -263,7 +257,7 @@ export default function OrderDetailModal({
                     </select>
                   </div>
                   {updatingStatus && (
-                    <p className="text-[10px] text-primary animate-pulse font-medium">{t("admin.updating_db")}</p>
+                    <p className="text-[11px] text-primary animate-pulse font-medium">{t("admin.updating_db")}</p>
                   )}
                 </div>
               )}

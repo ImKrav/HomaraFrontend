@@ -8,9 +8,11 @@ import { useLanguage } from "@/app/context/LanguageContext";
 
 interface ProductCardProps {
   product: Product;
+  /** Posición en la grilla: escalona la entrada (45 ms por tarjeta, tope en 8) para que la lista aparezca como lista. */
+  index?: number;
 }
 
-export default function ProductCard({ product }: Readonly<ProductCardProps>) {
+export default function ProductCard({ product, index = 0 }: Readonly<ProductCardProps>) {
   const { t } = useLanguage();
 
   const discount = product.originalPrice
@@ -20,14 +22,18 @@ export default function ProductCard({ product }: Readonly<ProductCardProps>) {
     : 0;
 
   return (
-    <Link href={`/catalogo/${product.id}`} className="group block">
+    <Link
+      href={`/catalogo/${product.id}`}
+      className="group block animate-rise"
+      style={{ animationDelay: `${Math.min(index, 7) * 45}ms` }}
+    >
       <div className="bg-bg-surface rounded-none border border-border overflow-hidden card-hover relative flex flex-col h-full">
         {/* Image area */}
         <div className="relative aspect-[4/3] bg-bg-surface-light overflow-hidden border-b border-border flex items-center justify-center">
           {/* Subtle grid pattern background to make it look technical and premium */}
           <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]" />
           
-          <div className="relative flex items-center justify-center text-primary/30 group-hover:scale-110 group-hover:text-primary/50 transition-all duration-500 ease-out">
+          <div className="relative flex items-center justify-center text-primary/40 motion-safe:group-hover:scale-110 group-hover:text-primary/60 transition-[scale,color] duration-300 ease-out">
             <LucideIcon name={product.categorySlug} size={56} />
           </div>
 
@@ -54,7 +60,7 @@ export default function ProductCard({ product }: Readonly<ProductCardProps>) {
         {/* Content */}
         <div className="p-4 flex-1 flex flex-col justify-between">
           <div>
-            <p className="text-[9px] uppercase tracking-wider font-semibold text-text-muted mb-1.5">
+            <p className="text-[11px] uppercase tracking-wider font-semibold text-text-muted mb-1.5">
               {t(`categories.${product.categorySlug}`, t(`categories.${product.category}`, product.category))}
             </p>
             <h3 className="text-sm font-semibold text-text-primary group-hover:text-text-secondary transition-colors duration-200 line-clamp-2 leading-snug tracking-tight">
@@ -63,14 +69,18 @@ export default function ProductCard({ product }: Readonly<ProductCardProps>) {
 
             {/* Rating */}
             <div className="flex items-center gap-1 mt-2">
-              <div className="flex items-center gap-0.5">
+              <div
+                className="flex items-center gap-0.5"
+                role="img"
+                aria-label={t("reviews.rated").replace("{n}", String(product.rating))}
+              >
                 {[0, 1, 2, 3, 4].map((i) => (
-                  <svg
+                  <svg aria-hidden="true"
                     key={`${product.id}-star-${i}`}
                     className={`h-3 w-3 ${
                       i < Math.floor(product.rating)
-                        ? "text-amber-500"
-                        : "text-zinc-300 dark:text-zinc-700"
+                        ? "text-accent"
+                        : "text-border-light"
                     }`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
@@ -79,7 +89,7 @@ export default function ProductCard({ product }: Readonly<ProductCardProps>) {
                   </svg>
                 ))}
               </div>
-              <span className="text-[10px] text-text-muted font-medium">
+              <span className="text-[11px] text-text-muted font-medium">
                 ({product.reviews})
               </span>
             </div>
@@ -97,14 +107,14 @@ export default function ProductCard({ product }: Readonly<ProductCardProps>) {
                   </span>
                 )}
               </div>
-              <p className="text-[10px] text-text-muted mt-0.5">
+              <p className="text-[11px] text-text-muted mt-0.5">
                 {t("catalog.per_unit")} {product.unit}
               </p>
             </div>
             
             {/* Elegant tiny button hover indicator */}
             <span className="w-7 h-7 flex items-center justify-center bg-bg-surface-light border border-border text-text-primary group-hover:bg-primary group-hover:text-bg-base transition-colors duration-200">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </span>

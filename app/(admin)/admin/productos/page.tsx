@@ -12,6 +12,7 @@ import { formatPrice, Product, Category } from "@/app/lib/utils";
 import { api } from "@/app/lib/api";
 import { showToast } from "@/app/lib/toast";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { useDialog } from "@/app/hooks/useDialog";
 
 export default function AdminProductosPage() {
   const { t } = useLanguage();
@@ -30,6 +31,8 @@ export default function AdminProductosPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const formDialogRef = useDialog<HTMLDivElement>(isFormOpen, () => setIsFormOpen(false));
+  const deleteDialogRef = useDialog<HTMLDivElement>(isDeleteOpen && !!selectedProduct, () => setIsDeleteOpen(false));
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
@@ -309,7 +312,7 @@ export default function AdminProductosPage() {
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
             aria-label={t("admin.filter_category")}
-            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
+            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:border-primary transition-colors"
           >
             <option value="all">{t("catalog.all_categories")}</option>
             {categories.map((cat) => (
@@ -326,7 +329,7 @@ export default function AdminProductosPage() {
             value={selectedStock}
             onChange={(e) => setSelectedStock(e.target.value)}
             aria-label={t("admin.filter_stock")}
-            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
+            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:border-primary transition-colors"
           >
             <option value="all">{t("catalog.all_categories")} ({t("admin.stock_col")})</option>
             <option value="in_stock">{t("catalog.in_stock")}</option>
@@ -340,22 +343,22 @@ export default function AdminProductosPage() {
           <table className="w-full text-sm text-left">
             <thead>
               <tr className="border-b border-border bg-bg-surface-light/40">
-                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.product_col")}
                 </th>
-                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.category_col")}
                 </th>
-                <th className="py-3.5 px-4 text-right text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-right text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("projects.unit_price")}
                 </th>
-                <th className="py-3.5 px-4 text-right text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-right text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.stock_col")}
                 </th>
-                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.status_col")}
                 </th>
-                <th className="py-3.5 px-4 text-right text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-right text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.actions_col")}
                 </th>
               </tr>
@@ -375,7 +378,7 @@ export default function AdminProductosPage() {
                         <span className="font-semibold text-text-primary block truncate max-w-[240px]">
                           {product.name}
                         </span>
-                        <span className="text-[10px] text-text-muted truncate block max-w-[240px] font-mono">
+                        <span className="text-[11px] text-text-muted truncate block max-w-[240px] font-mono">
                           {product.id}
                         </span>
                       </div>
@@ -395,7 +398,7 @@ export default function AdminProductosPage() {
                     </div>
                   </td>
                   <td className="py-3 px-4 text-right text-text-secondary font-mono">
-                    {product.stockQuantity} <span className="text-[10px] text-text-muted uppercase font-sans font-medium">{t(`admin.units.abbr_${product.unit}`)}</span>
+                    {product.stockQuantity} <span className="text-[11px] text-text-muted uppercase font-sans font-medium">{t(`admin.units.abbr_${product.unit}`)}</span>
                   </td>
                   <td className="py-3 px-4">
                     {product.stockQuantity > 0 ? (
@@ -459,18 +462,25 @@ export default function AdminProductosPage() {
       {/* Create / Edit Form Modal */}
       {isFormOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
-          <div className="bg-bg-surface border border-border p-6 max-w-xl w-full rounded-none shadow-2xl relative flex flex-col max-h-[90vh] overflow-hidden animate-slide-up">
+          <div
+            ref={formDialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="product-form-title"
+            className="bg-bg-surface border border-border p-6 max-w-xl w-full rounded-none shadow-2xl relative flex flex-col max-h-[90vh] overflow-hidden animate-slide-up"
+          >
             {/* Accent Line */}
             <div className="absolute top-0 left-0 right-0 h-1.5 gradient-primary" />
 
             <div className="flex items-center justify-between pb-4 border-b border-border mb-4">
-              <h3 className="text-xl font-bold text-text-primary tracking-tight">
+              <h3 id="product-form-title" className="text-xl font-bold text-text-primary tracking-tight">
                 {selectedProduct ? t("admin.edit_title") : t("admin.add_title")}
               </h3>
-              <button 
+              <button
                 id="btn-close-modal"
                 onClick={() => setIsFormOpen(false)}
-                className="text-text-muted hover:text-text-primary p-1.5 hover:bg-bg-surface-light transition-colors duration-200 cursor-pointer"
+                aria-label="Cerrar modal"
+                className="text-text-muted hover:text-text-primary p-2 hover:bg-bg-surface-light transition-colors duration-150 cursor-pointer"
               >
                 <LucideIcon name="Plus" className="rotate-45" size={18} />
               </button>
@@ -501,7 +511,7 @@ export default function AdminProductosPage() {
                   placeholder={t("admin.description_placeholder")}
                   value={formDescription}
                   onChange={(e) => setFormDescription(e.target.value)}
-                  className="w-full bg-bg-surface border border-border px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all duration-200 min-h-[80px]"
+                  className="w-full bg-bg-surface border border-border px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all duration-200 min-h-[80px]"
                   required
                 />
               </div>
@@ -515,7 +525,7 @@ export default function AdminProductosPage() {
                     id="select-category"
                     value={formCategoryId}
                     onChange={(e) => setFormCategoryId(e.target.value)}
-                    className="w-full bg-bg-surface border border-border px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all duration-200 cursor-pointer rounded-none"
+                    className="w-full bg-bg-surface border border-border px-4 py-2.5 text-sm text-text-primary focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all duration-200 cursor-pointer rounded-none"
                     required
                   >
                     <option value="" disabled>{t("admin.select_category_placeholder")}</option>
@@ -535,7 +545,7 @@ export default function AdminProductosPage() {
                     id="select-unit"
                     value={formUnit}
                     onChange={(e) => setFormUnit(e.target.value)}
-                    className="w-full bg-bg-surface border border-border px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all duration-200 cursor-pointer rounded-none"
+                    className="w-full bg-bg-surface border border-border px-4 py-2.5 text-sm text-text-primary focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all duration-200 cursor-pointer rounded-none"
                     required
                   >
                     <option value="unidad">{t("admin.units.unidad")}</option>
@@ -645,10 +655,16 @@ export default function AdminProductosPage() {
       {/* Delete Confirmation Modal */}
       {isDeleteOpen && selectedProduct && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
-          <div className="bg-bg-surface border border-error/30 p-6 max-w-md w-full rounded-none shadow-2xl relative animate-slide-up">
+          <div
+            ref={deleteDialogRef}
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="product-delete-title"
+            className="bg-bg-surface border border-error/30 p-6 max-w-md w-full rounded-none shadow-2xl relative animate-slide-up"
+          >
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-error" />
 
-            <h3 className="text-lg font-bold text-text-primary tracking-tight mb-2">
+            <h3 id="product-delete-title" className="text-lg font-bold text-text-primary tracking-tight mb-2">
               {t("admin.delete_title")}
             </h3>
             <p className="text-sm text-text-secondary mb-6 leading-relaxed">

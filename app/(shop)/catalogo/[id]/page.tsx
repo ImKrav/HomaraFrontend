@@ -112,12 +112,12 @@ export default function ProductDetailPage() {
           <div className="flex items-center gap-2 mt-3">
             <div className="flex items-center gap-0.5">
               {[0, 1, 2, 3, 4].map((i) => (
-                <svg
+                <svg aria-hidden="true"
                   key={`${product.id}-star-${i}`}
                   className={`h-4 w-4 ${
                     i < Math.floor(product.rating)
-                      ? "text-amber-500"
-                      : "text-zinc-300 dark:text-zinc-700"
+                      ? "text-accent"
+                      : "text-border-light"
                   }`}
                   fill="currentColor"
                   viewBox="0 0 20 20"

@@ -35,7 +35,7 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/"
-              className="px-6 py-3 bg-primary hover:bg-primary-light text-bg-base text-xs font-bold uppercase tracking-wider transition-colors duration-200 text-center shadow-md shadow-primary/20"
+              className="px-6 py-3 bg-primary hover:bg-primary-dark text-bg-base text-xs font-bold uppercase tracking-wider transition-colors duration-200 text-center shadow-md shadow-primary/20"
             >
               Volver al Inicio
             </Link>
@@ -48,7 +48,7 @@ export default function NotFound() {
           </div>
 
           {/* Blueprint-style coordinates at the bottom */}
-          <div className="mt-8 pt-6 border-t border-border/30 text-[10px] font-mono text-text-muted select-none flex justify-between">
+          <div className="mt-8 pt-6 border-t border-border/30 text-[11px] font-mono text-text-muted select-none flex justify-between">
             <span>ERR: PAGE_NOT_FOUND</span>
             <span>COORD: X=404 Y=NULL</span>
           </div>

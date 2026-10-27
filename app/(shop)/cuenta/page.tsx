@@ -11,6 +11,7 @@ import LucideIcon from "@/app/components/ui/LucideIcon";
 import Input from "@/app/components/ui/Input";
 import { showToast } from "@/app/lib/toast";
 import { useOrderDetailsModal } from "@/app/hooks/useOrderDetailsModal";
+import { useDialog } from "@/app/hooks/useDialog";
 import { formatPrice, OrderDetail, Project } from "@/app/lib/utils";
 import { useLanguage } from "@/app/context/LanguageContext";
 import OrderDetailModal, { FullOrderDetail } from "@/app/components/OrderDetailModal";
@@ -43,6 +44,7 @@ export default function CuentaPage() {
 
   // Edit Profile Modal States
   const [isEditing, setIsEditing] = useState(false);
+  const editDialogRef = useDialog<HTMLDivElement>(isEditing, () => setIsEditing(false));
   const [saving, setSaving] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -170,7 +172,7 @@ export default function CuentaPage() {
               </h2>
               <p className="text-sm text-text-muted mt-1 font-medium">{user?.email}</p>
               <p className="text-xs text-text-secondary mt-1 flex items-center justify-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -319,8 +321,14 @@ export default function CuentaPage() {
       {/* Edit Profile Modal */}
       {isEditing && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
-          <div className="bg-bg-surface border border-border p-6 max-w-lg w-full rounded-none shadow-2xl relative">
-            <h3 className="text-xl font-bold text-text-primary mb-2 tracking-tight">
+          <div
+            ref={editDialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="edit-profile-title"
+            className="bg-bg-surface border border-border p-6 max-w-lg w-full rounded-none shadow-2xl relative"
+          >
+            <h3 id="edit-profile-title" className="text-xl font-bold text-text-primary mb-2 tracking-tight">
               {t("account.edit_profile_title")}
             </h3>
             <p className="text-xs text-text-muted mb-6">

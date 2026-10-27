@@ -107,7 +107,7 @@ export default function CarritoPage() {
           <div className="lg:col-span-2 space-y-4">
             {cartItems.some(item => item.isBackorder) && (
               <div className="p-4 bg-amber-500/10 border border-amber-500/20 text-sm text-amber-700 dark:text-amber-300 flex items-start gap-2.5">
-                <LucideIcon name="Clock" size={20} className="flex-shrink-0 text-amber-500 mt-0.5" />
+                <LucideIcon name="Clock" size={20} className="flex-shrink-0 text-accent mt-0.5" />
                 <p className="leading-normal">{t("cart.backorder_warning")}</p>
               </div>
             )}
@@ -160,7 +160,7 @@ export default function CarritoPage() {
                   <span className="text-text-primary font-semibold">
                     {t("cart.total")}
                   </span>
-                  <span className="text-xl font-bold gradient-text">
+                  <span className="text-xl font-bold text-primary">
                     {formatPrice(total)}
                   </span>
                 </div>

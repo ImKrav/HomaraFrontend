@@ -25,7 +25,7 @@ export default function CategoryCard({ category }: Readonly<CategoryCardProps>) 
           <h3 className="text-xs font-bold text-text-primary uppercase tracking-tight">
             {t("categories." + category.slug) || category.name}
           </h3>
-          <p className="mt-1 text-[10px] text-text-muted font-medium">
+          <p className="mt-1 text-[11px] text-text-muted font-medium">
             {category.productCount} {t(category.productCount === 1 ? "cart.product_count_one" : "cart.products_count")}
           </p>
         </div>

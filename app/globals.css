@@ -4,14 +4,28 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ============================================
-   Homara — Design System (Obsidian & Steel)
+   Homara — Design System (Arcilla & Abeto)
+   Arcilla (terracota) = acción y marca · Abeto (verde petróleo) = bandas y confianza ·
+   Arena = superficies cálidas · Ámbar = destacados (estrellas, filetes).
+   Cada par texto/fondo está verificado ≥ AA (ver tests/paleta-contraste.test.mts).
    ============================================ */
+
+/* Curvas de movimiento. ease-out fuerte para entradas y feedback; las integradas de CSS son demasiado débiles. */
+@theme {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
 
 @theme inline {
   /* --- Colors --- */
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-primary-light: var(--primary-light);
+
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+  --color-accent: var(--accent);
 
   --color-bg-base: var(--bg-base);
   --color-bg-surface: var(--bg-surface);
@@ -22,24 +36,27 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
 
-  --color-success: #15803D;
-  --color-error: #B91C1C;
-  --color-warning: #A16207;
-  --color-info: #1D4ED8;
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
 
   --color-border: var(--border);
   --color-border-light: var(--border-light);
+  --color-border-strong: var(--border-strong);
 
   /* --- Fonts --- */
   --font-sans: "Plus Jakarta Sans", var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
 
-  /* --- Animations --- */
-  --animate-fade-in: fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-slide-up: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-slide-down: slide-down 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-scale-in: scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-glow: glow 2s ease-in-out infinite alternate;
-  --animate-slide-in-left: slide-in-left 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  /* --- Animations (< 300 ms; las salidas son más rápidas que las entradas) --- */
+  --animate-fade-in: fade-in 200ms var(--ease-out) forwards;
+  --animate-rise: rise 320ms var(--ease-out) backwards;
+  --animate-slide-up: slide-up 280ms var(--ease-out) forwards;
+  --animate-slide-down: slide-down 200ms var(--ease-out) forwards;
+  --animate-scale-in: scale-in 160ms var(--ease-out) forwards;
+  --animate-pop: pop 260ms var(--ease-out);
+  --animate-slide-in-left: slide-in-left 300ms var(--ease-out) forwards;
+  --animate-toast-out: toast-out 180ms var(--ease-out) forwards;
 }
 
 /* --- Keyframes --- */
@@ -53,6 +70,14 @@
   }
 }
 
+/* `backwards`: el estado inicial solo rige durante el retraso; si la animación falla el contenido queda visible. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
 @keyframes slide-in-left {
   from {
     opacity: 0;
@@ -61,6 +86,13 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes toast-out {
+  to {
+    opacity: 0;
+    transform: translateX(-16px);
   }
 }
 
@@ -86,10 +118,11 @@
   }
 }
 
+/* Nunca desde scale(0): nada en el mundo real aparece de la nada. */
 @keyframes scale-in {
   from {
     opacity: 0;
-    transform: scale(0.98);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
@@ -97,20 +130,105 @@
   }
 }
 
-@keyframes glow {
-  from {
-    box-shadow: 0 0 15px rgba(9, 9, 11, 0.03);
+@keyframes pop {
+  40% {
+    transform: scale(1.25);
   }
-  to {
-    box-shadow: 0 0 25px rgba(9, 9, 11, 0.08);
-  }
+}
+
+/* --- Theme Variables (claro) --- */
+:root {
+  color-scheme: light;
+
+  /* Acción / marca: arcilla. `--primary-dark` es la variante hover/pulsada; `--primary-light`, la más clara. */
+  --primary: #B23F19;
+  --primary-dark: #8F3012;
+  --primary-light: #D4562A;
+
+  /* Bandas de confianza: abeto. Siempre relleno oscuro con `--on-secondary` encima. */
+  --secondary: #0F5A52;
+  --on-secondary: #FBF7F1;
+  --accent: #B9770E;
+
+  --bg-base: #FBF7F1;
+  --bg-surface: #FFFFFF;
+  --bg-surface-light: #F5EEE4;
+  --bg-surface-hover: #EADFCF;
+
+  --text-primary: #251B15;
+  --text-secondary: #5B4B3F;
+  --text-muted: #6B5A4D; /* DEF-22: ≥ 4.5:1 sobre todas las superficies */
+
+  --border: #E6DAC9;
+  --border-light: #D3C2AB;
+  --border-strong: #8F7C69; /* límite de campos de formulario: ≥ 3:1 (WCAG 1.4.11) */
+
+  --success: #166534;
+  --error: #B91C1C;
+  --warning: #854D0E;
+  --info: #1D4ED8;
+
+  --focus: var(--primary);
+  --shadow-lift: 0 12px 24px -10px rgb(37 27 21 / 0.2);
+}
+
+/* --- Dark Theme Overrides: superficies cálidas con elevación explícita, no una inversión del claro --- */
+.dark {
+  color-scheme: dark;
+
+  --primary: #E8714A;
+  --primary-dark: #F28B69;
+  --primary-light: #F5A585;
+
+  --secondary: #14504A;
+  --on-secondary: #F7EFE6;
+  --accent: #F2B24C;
+
+  --bg-base: #17110D;
+  --bg-surface: #211914;
+  --bg-surface-light: #2D241D;
+  --bg-surface-hover: #3B3027;
+
+  --text-primary: #F7EFE6;
+  --text-secondary: #DACBBB;
+  --text-muted: #B6A595; /* DEF-22: ≥ 4.5:1 sobre las superficies oscuras */
+
+  --border: #3A2F26;
+  --border-light: #54463A;
+  --border-strong: #8A7766;
+
+  --success: #4ADE80;
+  --error: #F87171;
+  --warning: #FBBF24;
+  --info: #7BA7FF;
+
+  --shadow-lift: 0 12px 24px -10px rgb(0 0 0 / 0.55);
+
+  /* Compatibility: los overrides !important de abajo leen --color-*; una sola fuente de verdad. */
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-surface-light: var(--bg-surface-light);
+  --color-bg-surface-hover: var(--bg-surface-hover);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
 }
 
 /* --- Base Styles --- */
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #D4D4D8 transparent;
+  scrollbar-color: var(--border-light) transparent;
+  /* Color del anillo fijado también en reposo: sin esto transition-colors lo anima desde currentColor al enfocar. */
+  outline-color: var(--focus);
 }
 
 /* Custom Scrollbars for WebKit (Chrome, Safari, Edge) */
@@ -124,18 +242,18 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E4E4E7;
+  background: var(--border-light);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #A1A1AA;
+  background: var(--text-muted);
 }
 
 /* Custom Scrollbar Utility for Category Tabs and specific containers */
 .scrollbar-thin {
   scrollbar-width: thin !important;
-  scrollbar-color: #A1A1AA transparent !important;
+  scrollbar-color: var(--text-muted) transparent !important;
 }
 
 .scrollbar-thin::-webkit-scrollbar {
@@ -144,103 +262,57 @@
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {
-  background: rgba(9, 9, 11, 0.02) !important;
+  background: var(--bg-surface-light) !important;
   border-radius: 9999px !important;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: #A1A1AA !important; /* Zinc-400 for better visibility */
+  background: var(--text-muted) !important;
   border-radius: 9999px !important;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: #09090B !important; /* Obsidian primary */
-}
-
-/* --- Light Theme Variables --- */
-:root {
-  --primary: #09090B;
-  --primary-dark: #000000;
-  --primary-light: #27272A;
-
-  --bg-base: #FAFAFA;
-  --bg-surface: #FFFFFF;
-  --bg-surface-light: #F4F4F5;
-  --bg-surface-hover: #E4E4E7;
-
-  --text-primary: #09090B;
-  --text-secondary: #52525B;
-  --text-muted: #5E5E66; /* DEF-22: ≥ 4.5:1 sobre todas las superficies claras (antes #71717A, 4.4:1) */
-
-  --border: #E4E4E7;
-  --border-light: #D4D4D8;
-}
-
-/* --- Dark Theme Overrides --- */
-.dark {
-  --primary: #FAFAFA;
-  --primary-dark: #FFFFFF;
-  --primary-light: #A1A1AA;
-
-  --bg-base: #09090B;
-  --bg-surface: #18181B;
-  --bg-surface-light: #27272A;
-  --bg-surface-hover: #3F3F46;
-
-  --text-primary: #FAFAFA;
-  --text-secondary: #D4D4D8;
-  --text-muted: #A1A1AA; /* DEF-22: ≥ 4.5:1 sobre las superficies oscuras (antes #71717A, 3.7:1) */
-
-  --border: #27272A;
-  --border-light: #3F3F46;
-
-  /* Compatibility backups */
-  --color-primary: #FAFAFA;
-  --color-primary-dark: #FFFFFF;
-  --color-primary-light: #A1A1AA;
-
-  --color-bg-base: #09090B;
-  --color-bg-surface: #18181B;
-  --color-bg-surface-light: #27272A;
-  --color-bg-surface-hover: #3F3F46;
-
-  --color-text-primary: #FAFAFA;
-  --color-text-secondary: #D4D4D8;
-  --color-text-muted: #A1A1AA;
-
-  --color-border: #27272A;
-  --color-border-light: #3F3F46;
-}
-
-.dark .glass {
-  background: rgba(24, 24, 27, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.dark .glass-light {
-  background: rgba(39, 39, 42, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.dark .gradient-text {
-  background: linear-gradient(135deg, #FAFAFA, #A1A1AA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.dark .gradient-primary {
-  background: linear-gradient(135deg, #27272A, #09090B);
+  background: var(--primary) !important;
 }
 
 html {
   scroll-behavior: smooth;
+  /* WCAG 2.4.11: el foco no queda tapado por la barra fija. */
+  scroll-padding-top: 5rem;
 }
 
 body {
   background-color: var(--color-bg-base);
   color: var(--color-text-primary);
   font-family: "Plus Jakarta Sans", var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* --- Accesibilidad: foco visible (WCAG 2.4.7 / 1.4.11) --- */
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* En campos el anillo abraza el borde. */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-offset: 0;
+}
+
+/* Sobre bandas de color el anillo de marca no se vería: se cambia localmente con [--focus:...]. */
+
+/* Controles nativos y cursor con la marca. */
+input,
+textarea {
+  caret-color: var(--primary);
+}
+
+input[type="checkbox"],
+input[type="radio"],
+progress {
+  accent-color: var(--primary);
 }
 
 /* Force CSS variables usage for dynamic dark mode themes */
@@ -314,6 +386,9 @@ body {
 .bg-primary-dark {
   background-color: var(--color-primary-dark) !important;
 }
+.hover\:bg-primary-dark:hover {
+  background-color: var(--color-primary-dark) !important;
+}
 .border-primary-dark {
   border-color: var(--color-primary-dark) !important;
 }
@@ -329,57 +404,55 @@ body {
 }
 
 
-/* --- Glassmorphism Utility --- */
+/* --- Glassmorphism Utility (barra fija: desenfoque con función concreta) --- */
 
 .glass {
-  background: rgba(255, 255, 255, 0.85);
+  background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(9, 9, 11, 0.08);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
+  border: 1px solid var(--border);
 }
 
 .glass-light {
-  background: rgba(244, 244, 245, 0.7);
+  background: color-mix(in srgb, var(--bg-surface-light) 75%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(9, 9, 11, 0.05);
+  border: 1px solid var(--border);
 }
 
 /* --- Gradient Utilities --- */
 
+/* Filete de marca en cabeceras de modal y tarjetas de acceso: arcilla → ámbar. */
 .gradient-primary {
-  background: linear-gradient(135deg, #09090B, #27272A);
+  background: linear-gradient(90deg, var(--primary), var(--accent));
 }
 
 .gradient-hero {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%);
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, #09090B, #3F3F46);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* --- Card Hover Effect (Architectural & Sharp) --- */
+/* --- Card Hover Effect (solo con puntero fino: en táctil el hover se dispara al tocar) --- */
 
 .card-hover {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    transform 200ms var(--ease-out),
+    border-color 200ms var(--ease-out),
+    box-shadow 200ms var(--ease-out);
 }
 
-.card-hover:hover {
-  transform: translateY(-2px);
-  border-color: #09090B;
-  box-shadow: 0 12px 24px -10px rgba(9, 9, 11, 0.12);
+@media (hover: hover) and (pointer: fine) {
+  .card-hover:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lift);
+  }
 }
 
 /* --- Selection --- */
 
 ::selection {
-  background-color: #09090B;
-  color: #FFFFFF;
+  background-color: var(--primary);
+  color: var(--bg-base);
 }
 
 /* --- Minimalist Hover Drawing Underline --- */
@@ -395,13 +468,51 @@ body {
   left: 0;
   width: 100%;
   height: 1.5px;
-  background-color: #09090B;
+  background-color: var(--primary);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 300ms var(--ease-out);
 }
 
 .border-draw:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+/* --- Movimiento reducido: menos y más suave, no cero (WCAG 2.3.3) ---
+   Se quita el desplazamiento y se conserva el cambio de opacidad/color que comunica estado. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-rise,
+  .animate-slide-up,
+  .animate-slide-down,
+  .animate-scale-in,
+  .animate-pop,
+  .animate-slide-in-left {
+    animation-name: fade-in;
+    animation-duration: 150ms;
+    animation-delay: 0ms !important;
+  }
+
+  /* Salida del toast: sin trayecto, solo se desvanece. */
+  .animate-toast-out {
+    animation-name: fade-in;
+    animation-direction: reverse;
+    animation-duration: 150ms;
+  }
+
+  .animate-pulse {
+    animation: none;
+  }
+
+  .card-hover:hover {
+    transform: none;
+  }
+
+  .border-draw::after {
+    transition: none;
+  }
 }

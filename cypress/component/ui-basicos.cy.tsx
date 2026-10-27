@@ -114,7 +114,7 @@ describe("Componentes · Input", () => {
 
 describe("Componentes · Badge", () => {
   const casos: [React.ComponentProps<typeof Badge>["variant"], string][] = [
-    ["default", "bg-zinc-100"],
+    ["default", "bg-bg-surface-light"],
     ["success", "bg-emerald-50"],
     ["warning", "bg-amber-50"],
     ["error", "bg-rose-50"],

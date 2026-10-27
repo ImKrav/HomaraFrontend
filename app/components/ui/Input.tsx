@@ -46,7 +46,7 @@ export default function Input({
           className={`text-sm font-medium ${error ? "text-error" : "text-text-secondary"}`}
         >
           {label}
-          {required && <span className="text-error ml-0.5">*</span>}
+          {required && <span className="text-error ml-0.5" aria-hidden="true">*</span>}
         </label>
       )}
       <div className="relative">
@@ -67,21 +67,19 @@ export default function Input({
           step={step}
           min={min}
           aria-invalid={error ? true : undefined}
+          aria-describedby={error ? `${inputId}-error` : undefined}
           className={`
             w-full bg-bg-surface border rounded-none
             px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted
-            focus:outline-none transition-all duration-200
+            transition-colors duration-150
             disabled:opacity-50 disabled:cursor-not-allowed
-            ${error
-              ? "border-error focus:border-error/80 focus:ring-1 focus:ring-error/40"
-              : "border-border focus:border-primary focus:ring-1 focus:ring-primary/10"
-            }
+            ${error ? "border-error" : "border-border-strong focus:border-primary"}
             ${icon ? "pl-10" : ""}
           `}
         />
       </div>
       {error && (
-        <p className="text-xs text-error mt-0.5">{error}</p>
+        <p id={`${inputId}-error`} className="text-xs text-error mt-0.5">{error}</p>
       )}
     </div>
   );
