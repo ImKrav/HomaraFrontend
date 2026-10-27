@@ -41,7 +41,7 @@ export default function CarritoPage() {
   }, [t]);
 
   useEffect(() => {
-    if (isAuthenticated) fetchCart();
+    if (isAuthenticated) void fetchCart(); // no rechaza: atrapa sus propios errores
   }, [isAuthenticated, fetchCart]);
 
   // Mientras haya cambios en curso el pago queda bloqueado: la lista aún muestra la cantidad
