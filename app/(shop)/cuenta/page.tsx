@@ -44,7 +44,7 @@ export default function CuentaPage() {
 
   // Edit Profile Modal States
   const [isEditing, setIsEditing] = useState(false);
-  const editDialogRef = useDialog<HTMLDivElement>(isEditing, () => setIsEditing(false));
+  const editDialogRef = useDialog<HTMLDialogElement>(isEditing, () => setIsEditing(false));
   const [saving, setSaving] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -321,12 +321,12 @@ export default function CuentaPage() {
       {/* Edit Profile Modal */}
       {isEditing && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
-          <div
+          <dialog
             ref={editDialogRef}
-            role="dialog"
+            open
             aria-modal="true"
             aria-labelledby="edit-profile-title"
-            className="bg-bg-surface border border-border p-6 max-w-lg w-full rounded-none shadow-2xl relative"
+            className="bg-bg-surface text-text-primary text-left border border-border p-6 max-w-lg w-full rounded-none shadow-2xl relative"
           >
             <h3 id="edit-profile-title" className="text-xl font-bold text-text-primary mb-2 tracking-tight">
               {t("account.edit_profile_title")}
@@ -415,7 +415,7 @@ export default function CuentaPage() {
                 </Button>
               </div>
             </form>
-          </div>
+          </dialog>
         </div>
       )}
 

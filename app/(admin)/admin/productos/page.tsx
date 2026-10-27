@@ -31,7 +31,7 @@ export default function AdminProductosPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const formDialogRef = useDialog<HTMLDivElement>(isFormOpen, () => setIsFormOpen(false));
+  const formDialogRef = useDialog<HTMLDialogElement>(isFormOpen, () => setIsFormOpen(false));
   const deleteDialogRef = useDialog<HTMLDivElement>(isDeleteOpen && !!selectedProduct, () => setIsDeleteOpen(false));
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -462,12 +462,12 @@ export default function AdminProductosPage() {
       {/* Create / Edit Form Modal */}
       {isFormOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
-          <div
+          <dialog
             ref={formDialogRef}
-            role="dialog"
+            open
             aria-modal="true"
             aria-labelledby="product-form-title"
-            className="bg-bg-surface border border-border p-6 max-w-xl w-full rounded-none shadow-2xl relative flex flex-col max-h-[90vh] overflow-hidden animate-slide-up"
+            className="bg-bg-surface text-text-primary text-left border border-border p-6 max-w-xl w-full rounded-none shadow-2xl relative flex flex-col max-h-[90vh] overflow-hidden animate-slide-up"
           >
             {/* Accent Line */}
             <div className="absolute top-0 left-0 right-0 h-1.5 gradient-primary" />
@@ -648,7 +648,7 @@ export default function AdminProductosPage() {
                 </Button>
               </div>
             </form>
-          </div>
+          </dialog>
         </div>
       )}
 

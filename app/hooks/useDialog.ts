@@ -36,7 +36,7 @@ export function useDialog<T extends HTMLElement>(open: boolean, onClose: () => v
         return;
       }
       const primero = lista[0];
-      const ultimo = lista[lista.length - 1];
+      const ultimo = lista.at(-1) ?? primero;
       const dentro = dialogo.contains(document.activeElement);
       if (e.shiftKey && (!dentro || document.activeElement === primero)) {
         e.preventDefault();

@@ -24,7 +24,7 @@ export default function UseInProjectButton({
 }: Readonly<UseInProjectButtonProps>) {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  const dialogRef = useDialog<HTMLDivElement>(isOpen, () => setIsOpen(false));
+  const dialogRef = useDialog<HTMLDialogElement>(isOpen, () => setIsOpen(false));
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedProjectId, setSelectedProjectId] = useState<string>("");
   const [loadingProjects, setLoadingProjects] = useState(false);
@@ -145,12 +145,12 @@ export default function UseInProjectButton({
           />
 
           {/* Modal Card */}
-          <div
+          <dialog
             ref={dialogRef}
-            role="dialog"
+            open
             aria-modal="true"
             aria-labelledby="assign-modal-title"
-            className="relative bg-bg-surface border border-border w-full max-w-lg p-6 sm:p-8 shadow-xl animate-scale-in z-10 flex flex-col max-h-[90vh]"
+            className="relative bg-bg-surface text-text-primary text-left border border-border w-full max-w-lg p-6 sm:p-8 shadow-xl animate-scale-in z-10 flex flex-col max-h-[90vh]"
           >
             {/* Close button */}
             <button
@@ -351,7 +351,7 @@ export default function UseInProjectButton({
                 )}
               </div>
             )}
-          </div>
+          </dialog>
         </div>
       )}
     </>
