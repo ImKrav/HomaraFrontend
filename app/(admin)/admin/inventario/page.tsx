@@ -215,7 +215,7 @@ export default function AdminInventarioPage() {
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
             aria-label={t("admin.filter_category")}
-            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
+            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:border-primary transition-colors"
           >
             <option value="all">{t("catalog.all_categories")}</option>
             {categories.map((cat) => (
@@ -232,7 +232,7 @@ export default function AdminInventarioPage() {
             value={selectedAlert}
             onChange={(e) => setSelectedAlert(e.target.value)}
             aria-label={t("admin.filter_stock")}
-            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
+            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:border-primary transition-colors"
           >
             <option value="all">{t("catalog.all_categories")} ({t("admin.stock_col")})</option>
             <option value="low_stock">{t("admin.metrics.low_stock")}</option>

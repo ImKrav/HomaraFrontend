@@ -123,7 +123,7 @@ export default function ProyectosPage() {
           className="flex flex-col items-center justify-center rounded-none border-2 border-dashed border-border hover:border-primary/50 p-8 text-center transition-all duration-200 group min-h-[220px]"
         >
           <div className="w-12 h-12 rounded-none bg-bg-surface-light group-hover:bg-primary/10 flex items-center justify-center mb-3 transition-colors">
-            <svg
+            <svg aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 text-text-muted group-hover:text-primary transition-colors"
               fill="none"

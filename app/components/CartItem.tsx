@@ -90,12 +90,12 @@ export default function CartItemCard({
         <div className="mt-2 flex flex-wrap items-center gap-2">
           {updatedAt && (
             timeLeft === "expired" ? (
-              <span className="inline-flex items-center text-[10px] uppercase font-bold tracking-wider text-rose-600 dark:text-rose-400 bg-rose-500/10 px-2.5 py-0.5 border border-rose-500/20">
+              <span className="inline-flex items-center text-[11px] uppercase font-bold tracking-wider text-rose-600 dark:text-rose-400 bg-rose-500/10 px-2.5 py-0.5 border border-rose-500/20">
                 <LucideIcon name="Clock" size={12} className="mr-1" />
                 {t("cart.reservation_expired")}
               </span>
             ) : (
-              <span className="inline-flex items-center text-[10px] uppercase font-bold tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 border border-emerald-500/20">
+              <span className="inline-flex items-center text-[11px] uppercase font-bold tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 border border-emerald-500/20">
                 <LucideIcon name="Clock" size={12} className="mr-1 animate-pulse" />
                 {t("cart.reservation_active")}{timeLeft}
               </span>
@@ -103,7 +103,7 @@ export default function CartItemCard({
           )}
 
           {isBackorder && (
-            <span className="inline-flex items-center text-[10px] uppercase font-bold tracking-wider text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-0.5 border border-amber-500/20">
+            <span className="inline-flex items-center text-[11px] uppercase font-bold tracking-wider text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-0.5 border border-amber-500/20">
               {backorderQuantity && backorderQuantity > 0 
                 ? t("cart.backorder_qty").replace("{qty}", backorderQuantity.toString())
                 : t("cart.backorder_label")}
@@ -111,7 +111,7 @@ export default function CartItemCard({
           )}
 
           {updatedAt && !isBackorder && (
-            <span className="text-[10px] font-medium text-text-muted">
+            <span className="text-[11px] font-medium text-text-muted">
               {t("cart.available_reserved")}
             </span>
           )}
@@ -151,7 +151,7 @@ export default function CartItemCard({
               className="p-1 text-text-muted hover:text-error transition-colors"
               aria-label={t("catalog.remove_item")}
             >
-              <svg
+              <svg aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4"
                 fill="none"

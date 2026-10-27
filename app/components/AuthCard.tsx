@@ -29,7 +29,7 @@ export default function AuthCard({
           {/* Logo / Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-extrabold tracking-tight">
-              <span className="gradient-text">Homara</span>
+              <span className="text-primary">Homara</span>
             </h1>
             <p className="text-sm text-text-secondary mt-2">
               {subtitle}
@@ -38,7 +38,7 @@ export default function AuthCard({
 
           {errorMsg && (
             <div className="mb-6 p-4 bg-error/10 border border-error/20 rounded-none text-error text-sm flex items-center gap-2 animate-scale-in">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
               <span>{errorMsg}</span>

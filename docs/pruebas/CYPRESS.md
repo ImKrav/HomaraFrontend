@@ -520,7 +520,7 @@ Generada a partir de los JUnit de las dos corridas
 | [CMP-TST-02](../../cypress/component/navegacion-feedback.cy.tsx) | — | apila varias notificaciones y cada tipo usa su color | Éxito | ✅ |
 | [CMP-TST-03](../../cypress/component/navegacion-feedback.cy.tsx) | — | el botón Cerrar descarta la notificación | Éxito | ✅ |
 | [CMP-TST-04](../../cypress/component/navegacion-feedback.cy.tsx) | — | se oculta sola al cumplirse la duración (reloj controlado) | Éxito | ✅ |
-| [CMP-BDG-01](../../cypress/component/ui-basicos.cy.tsx) | — | la variante "default" aplica la clase bg-zinc-100 | Éxito | ✅ |
+| [CMP-BDG-01](../../cypress/component/ui-basicos.cy.tsx) | — | la variante "default" aplica la clase bg-bg-surface-light | Éxito | ✅ |
 | [CMP-BDG-01](../../cypress/component/ui-basicos.cy.tsx) | — | la variante "error" aplica la clase bg-rose-50 | Éxito | ✅ |
 | [CMP-BDG-01](../../cypress/component/ui-basicos.cy.tsx) | — | la variante "info" aplica la clase bg-sky-50 | Éxito | ✅ |
 | [CMP-BDG-01](../../cypress/component/ui-basicos.cy.tsx) | — | la variante "success" aplica la clase bg-emerald-50 | Éxito | ✅ |

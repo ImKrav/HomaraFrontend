@@ -303,7 +303,7 @@ function LiveSummaryPanel({
           <span className="text-3xl font-extrabold text-primary tracking-tight">
             {areaDetails.finalArea.toFixed(1)} m²
           </span>
-          <span className="text-[10px] text-text-muted block mt-1">{t("projects.calculated_waste_desc")}</span>
+          <span className="text-[11px] text-text-muted block mt-1">{t("projects.calculated_waste_desc")}</span>
         </div>
 
         {/* Sugerencias de Insumos según selecciones */}
@@ -326,7 +326,7 @@ function LiveSummaryPanel({
           <Button onClick={onSave} disabled={loading} size="lg" fullWidth>
             {buttonLabel}
           </Button>
-          <p className="text-[10px] text-text-muted text-center mt-2.5 leading-relaxed">
+          <p className="text-[11px] text-text-muted text-center mt-2.5 leading-relaxed">
             {t("projects.engineering_disclaimer")}
           </p>
         </div>
@@ -852,7 +852,7 @@ function NuevoProyectoContent() {
                         }`}
                       >
                         <span className="text-xs text-text-primary font-bold">{pat.label}</span>
-                        <span className="text-[10px] text-text-muted">{pat.desc}</span>
+                        <span className="text-[11px] text-text-muted">{pat.desc}</span>
                       </button>
                     ))}
                   </div>
@@ -872,7 +872,7 @@ function NuevoProyectoContent() {
                     onChange={(e) => setWastePercent(Number.parseInt(e.target.value, 10))}
                     className="w-full h-2 bg-border rounded-lg appearance-none cursor-pointer accent-primary"
                   />
-                  <div className="flex justify-between text-[10px] text-text-muted">
+                  <div className="flex justify-between text-[11px] text-text-muted">
                     <span>{t("projects.waste_none")}</span>
                     <span>{t("projects.waste_standard")}</span>
                     <span>{t("projects.waste_complex")}</span>
@@ -900,7 +900,7 @@ function NuevoProyectoContent() {
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-bold text-text-primary">{t("projects.covering_type_label")}</label>
                   <select
-                    className="bg-bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    className="bg-bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-text-primary focus:ring-2 focus:ring-primary/50"
                     value={materialType}
                     onChange={(e) => {
                       const newType = e.target.value;
@@ -926,7 +926,7 @@ function NuevoProyectoContent() {
                   <div className="flex flex-col gap-1.5">
                     <label className="text-sm font-bold text-text-primary">{t("projects.tile_format_label")}</label>
                     <select
-                      className="bg-bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/50"
+                      className="bg-bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-text-primary focus:ring-2 focus:ring-primary/50"
                       value={tileFormat}
                       onChange={(e) => setTileFormat(e.target.value)}
                     >
@@ -992,7 +992,7 @@ function NuevoProyectoContent() {
                             </div>
                             <div className="flex-1 min-w-0">
                               <p className="text-xs font-bold text-text-primary truncate">{p.name}</p>
-                              <p className="text-[10px] text-text-muted">
+                              <p className="text-[11px] text-text-muted">
                                 {t("projects.sales_unit")}: <span className="font-bold text-primary">{unitAbbr}</span> | {t("projects.stock_count")}: {p.stockQuantity}
                               </p>
                             </div>

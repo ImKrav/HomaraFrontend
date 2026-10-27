@@ -6,6 +6,7 @@ import Button from "@/app/components/ui/Button";
 import { api } from "@/app/lib/api";
 import { showToast } from "@/app/lib/toast";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { useDialog } from "@/app/hooks/useDialog";
 
 export type ProjectActionStatus = "EN_PROGRESO" | "COMPLETADO" | "PAUSADO";
 
@@ -25,6 +26,10 @@ export default function ProjectActions({ projectId, projectName, currentStatus }
   const [deleting, setDeleting] = useState(false);
   const [updating, setUpdating] = useState(false);
   const [error, setError] = useState("");
+  const deleteDialogRef = useDialog<HTMLDivElement>(showDeleteConfirm, () => {
+    setShowDeleteConfirm(false);
+    setError("");
+  });
 
   useEffect(() => {
     if (currentStatus) {
@@ -72,11 +77,11 @@ export default function ProjectActions({ projectId, projectName, currentStatus }
     <div className="flex flex-wrap items-center gap-4">
       {/* Selector de Estado */}
       <div className="flex items-center gap-2">
-        <span className="text-[10px] uppercase tracking-wider font-extrabold text-text-muted whitespace-nowrap">{t("projects.actions_status_label")}</span>
+        <span className="text-[11px] uppercase tracking-wider font-extrabold text-text-muted whitespace-nowrap">{t("projects.actions_status_label")}</span>
         <select
           value={status}
           onChange={(e) => handleStatusChange(e.target.value as ProjectActionStatus)}
-          className="bg-bg-surface border border-border rounded-none px-3 py-2 text-xs font-bold text-text-primary uppercase tracking-wider focus:outline-none focus:border-primary transition-colors cursor-pointer"
+          className="bg-bg-surface border border-border rounded-none px-3 py-2 text-xs font-bold text-text-primary uppercase tracking-wider focus:border-primary transition-colors cursor-pointer"
           disabled={updating || deleting}
         >
           <option value="EN_PROGRESO">{t("status.en_progreso")}</option>
@@ -108,8 +113,14 @@ export default function ProjectActions({ projectId, projectName, currentStatus }
 
       {showDeleteConfirm && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-bg-surface rounded-xl border border-border p-6 max-w-md w-full">
-            <h3 className="text-lg font-bold text-text-primary mb-2">
+          <div
+            ref={deleteDialogRef}
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="delete-project-title"
+            className="bg-bg-surface rounded-xl border border-border p-6 max-w-md w-full"
+          >
+            <h3 id="delete-project-title" className="text-lg font-bold text-text-primary mb-2">
               {t("projects.delete_modal_title")}
             </h3>
             <p className="text-sm text-text-secondary mb-4">

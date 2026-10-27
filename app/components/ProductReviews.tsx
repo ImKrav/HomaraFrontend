@@ -146,7 +146,7 @@ export default function ProductReviews({ productId }: Readonly<ProductReviewsPro
                 <button
                   type="button"
                   onClick={() => setSuccess(false)}
-                  className="text-[10px] text-primary hover:underline font-bold uppercase tracking-wider mt-2 cursor-pointer"
+                  className="text-[11px] text-primary hover:underline font-bold uppercase tracking-wider mt-2 cursor-pointer"
                 >
                   {t("reviews.write_another")}
                 </button>
@@ -157,7 +157,7 @@ export default function ProductReviews({ productId }: Readonly<ProductReviewsPro
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Rating Input */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] uppercase tracking-wider font-bold text-text-secondary block">
+                  <label className="text-[11px] uppercase tracking-wider font-bold text-text-secondary block">
                     {t("reviews.rating_label")}
                   </label>
                   {/* DEF-20: grupo con nombre y estado; cada estrella anuncia su valor */}
@@ -172,14 +172,14 @@ export default function ProductReviews({ productId }: Readonly<ProductReviewsPro
                         onClick={() => setRating(star)}
                         onMouseEnter={() => setHoverRating(star)}
                         onMouseLeave={() => setHoverRating(0)}
-                        className="text-2xl transition-transform duration-100 hover:scale-110 focus:outline-none cursor-pointer"
+                        className="text-2xl transition-transform duration-100 hover:scale-110 cursor-pointer"
                       >
                         <svg
                           aria-hidden="true"
                           className={`h-7 w-7 ${
                             star <= (hoverRating || rating)
-                              ? "text-amber-500"
-                              : "text-zinc-300 dark:text-zinc-700 hover:text-amber-400"
+                              ? "text-accent"
+                              : "text-border-light hover:text-accent"
                           }`}
                           fill="currentColor"
                           viewBox="0 0 20 20"
@@ -193,7 +193,7 @@ export default function ProductReviews({ productId }: Readonly<ProductReviewsPro
 
                 {/* Comment Input */}
                 <div className="space-y-1.5">
-                  <label htmlFor="comment" className="text-[10px] uppercase tracking-wider font-bold text-text-secondary block">
+                  <label htmlFor="comment" className="text-[11px] uppercase tracking-wider font-bold text-text-secondary block">
                     {t("reviews.comment_label")}
                   </label>
                   <textarea
@@ -203,9 +203,9 @@ export default function ProductReviews({ productId }: Readonly<ProductReviewsPro
                     placeholder={t("reviews.comment_placeholder")}
                     rows={3}
                     maxLength={500}
-                    className="w-full bg-bg-base border border-border px-3 py-2 text-xs text-text-primary rounded-none focus:outline-none focus:border-primary transition-colors resize-none placeholder:text-text-muted"
+                    className="w-full bg-bg-base border border-border px-3 py-2 text-xs text-text-primary rounded-none focus:border-primary transition-colors resize-none placeholder:text-text-muted"
                   />
-                  <div className="text-right text-[10px] text-text-muted">
+                  <div className="text-right text-[11px] text-text-muted">
                     {comment.length}/500
                   </div>
                 </div>
@@ -273,7 +273,7 @@ export default function ProductReviews({ productId }: Readonly<ProductReviewsPro
                         <p className="text-xs font-bold text-text-primary">
                           {rev.userFirstName || "Usuario"} {rev.userLastName || t("reviews.anonymous")}
                         </p>
-                        <p className="text-[10px] text-text-muted">
+                        <p className="text-[11px] text-text-muted">
                           {new Date(rev.createdAt).toLocaleDateString("es-CO", {
                             day: "2-digit",
                             month: "long",
@@ -286,10 +286,10 @@ export default function ProductReviews({ productId }: Readonly<ProductReviewsPro
                     {/* Stars */}
                     <div className="flex items-center gap-0.5">
                       {[0, 1, 2, 3, 4].map((i) => (
-                        <svg
+                        <svg aria-hidden="true"
                           key={`${rev.id}-star-${i}`}
                           className={`h-3.5 w-3.5 ${
-                            i < rev.rating ? "text-amber-500" : "text-zinc-300 dark:text-zinc-700"
+                            i < rev.rating ? "text-accent" : "text-border-light"
                           }`}
                           fill="currentColor"
                           viewBox="0 0 20 20"

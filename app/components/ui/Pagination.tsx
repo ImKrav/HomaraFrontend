@@ -82,7 +82,7 @@ export default function Pagination({
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="flex items-center gap-1 px-3 py-2 border border-border text-[10px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:border-primary hover:text-primary bg-bg-surface text-text-secondary"
+          className="flex items-center gap-1 px-3 py-2 border border-border text-[11px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:border-primary hover:text-primary bg-bg-surface text-text-secondary"
           aria-label={t("pagination.previous")}
         >
           <LucideIcon name="ChevronLeft" size={12} />
@@ -94,7 +94,7 @@ export default function Pagination({
           typeof page === "string" ? (
             <span
               key={page}
-              className="px-2 py-2 text-[10px] text-text-muted font-bold select-none"
+              className="px-2 py-2 text-[11px] text-text-muted font-bold select-none"
             >
               ···
             </span>
@@ -119,7 +119,7 @@ export default function Pagination({
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="flex items-center gap-1 px-3 py-2 border border-border text-[10px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:border-primary hover:text-primary bg-bg-surface text-text-secondary"
+          className="flex items-center gap-1 px-3 py-2 border border-border text-[11px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:border-primary hover:text-primary bg-bg-surface text-text-secondary"
           aria-label={t("pagination.next")}
         >
           <span className="hidden sm:inline">{t("pagination.next")}</span>

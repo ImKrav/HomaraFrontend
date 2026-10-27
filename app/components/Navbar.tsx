@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/app/context/AuthContext";
 import { api } from "@/app/lib/api";
@@ -14,6 +15,19 @@ export default function Navbar() {
 
   const { user, isAuthenticated, logout } = useAuth();
   const { t } = useLanguage();
+  const pathname = usePathname() ?? "";
+
+  // Escape cierra el menú de cuenta o el móvil (WCAG 2.1.1 / patrón disclosure).
+  useEffect(() => {
+    if (!dropdownOpen && !mobileOpen) return;
+    const alTeclear = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setDropdownOpen(false);
+      setMobileOpen(false);
+    };
+    document.addEventListener("keydown", alTeclear);
+    return () => document.removeEventListener("keydown", alTeclear);
+  }, [dropdownOpen, mobileOpen]);
 
   const navLinks = [
     { label: t("nav.home"), href: "/" },
@@ -50,22 +64,28 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl font-bold gradient-text tracking-tight">
+            <span className="text-2xl font-bold text-primary tracking-tight">
               Homara
             </span>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1 h-full">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2 text-xs uppercase tracking-wider font-semibold text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-all duration-200"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const active = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-colors duration-150 ${
+                    active ? "text-primary shadow-[inset_0_-2px_0_0_var(--primary)]" : "text-text-secondary"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Desktop Actions */}
@@ -73,10 +93,10 @@ export default function Navbar() {
             {/* Search */}
             <Link
               href="/catalogo"
-              className="p-2 text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-all duration-200"
+              className="p-2 text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-colors duration-150"
               aria-label="Buscar"
             >
-              <svg
+              <svg aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
                 fill="none"
@@ -95,10 +115,10 @@ export default function Navbar() {
             {/* Cart */}
             <Link
               href="/carrito"
-              className="relative p-2 text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-all duration-200"
+              className="relative p-2 text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-colors duration-150"
               aria-label={t("nav.cart")}
             >
-              <svg
+              <svg aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
                 fill="none"
@@ -113,7 +133,11 @@ export default function Navbar() {
                 />
               </svg>
               {cartCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 bg-primary text-bg-base text-[9px] font-bold rounded-none px-1 min-w-[16px] h-4 flex items-center justify-center">
+                // key: al cambiar la cantidad se vuelve a montar y "pop" confirma que el producto entró al carrito.
+                <span
+                  key={cartCount}
+                  className="absolute -top-1 -right-1 bg-primary text-bg-base text-[11px] font-bold rounded-none px-1 min-w-[18px] h-[18px] flex items-center justify-center animate-pop"
+                >
                   {cartCount}
                 </span>
               )}
@@ -124,23 +148,25 @@ export default function Navbar() {
               {isAuthenticated ? (
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="flex items-center gap-1.5 p-1.5 text-sm font-semibold text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-all duration-200 cursor-pointer"
+                  aria-expanded={dropdownOpen}
+                  aria-controls="menu-cuenta"
+                  className="flex items-center gap-1.5 p-1.5 text-sm font-semibold text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-colors duration-150 cursor-pointer"
                 >
                   <div className="w-8 h-8 rounded-none bg-primary/10 text-primary flex items-center justify-center font-bold border border-primary/20 shadow-sm">
                     {user?.firstName?.charAt(0) || "U"}
                   </div>
                   <span className="max-w-[80px] truncate">{user?.firstName}</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
               ) : (
                 <Link
                   href="/login"
-                  className="p-2 text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-all duration-200 flex items-center gap-1.5"
+                  className="p-2 text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-colors duration-150 flex items-center gap-1.5"
                   aria-label={t("nav.login")}
                 >
-                  <svg
+                  <svg aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
                     fill="none"
@@ -167,9 +193,9 @@ export default function Navbar() {
                     className="fixed inset-0 z-10 bg-transparent border-none cursor-default w-full h-full"
                     onClick={() => setDropdownOpen(false)}
                   />
-                  <div className="absolute right-0 mt-2 w-48 rounded-none bg-bg-surface border border-border shadow-xl z-20 py-1.5 animate-scale-in">
+                  <div id="menu-cuenta" className="absolute right-0 mt-2 w-48 rounded-none bg-bg-surface border border-border shadow-xl z-20 py-1.5 animate-scale-in origin-top-right">
                     <div className="px-4 py-2 border-b border-border/60">
-                      <p className="text-[10px] uppercase tracking-wider font-semibold text-text-muted">
+                      <p className="text-[11px] uppercase tracking-wider font-semibold text-text-muted">
                       {t("nav.logged_in_as")} ({user?.role})
                       </p>
                       <p className="text-sm font-bold text-text-primary truncate">{user?.firstName} {user?.lastName}</p>
@@ -220,7 +246,7 @@ export default function Navbar() {
             aria-expanded={mobileOpen}
             aria-controls="menu-movil"
           >
-            <svg
+            <svg aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
               fill="none"
@@ -277,7 +303,7 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-colors"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
                   </svg>
                   {t("nav.cart")}
@@ -288,7 +314,7 @@ export default function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-bg-surface-light rounded-none border border-primary/20 bg-primary/5 transition-colors"
                   >
-                    <div className="w-5 h-5 rounded-none bg-primary/10 text-primary flex items-center justify-center text-[10px] font-bold">
+                    <div className="w-5 h-5 rounded-none bg-primary/10 text-primary flex items-center justify-center text-[11px] font-bold">
                       {user?.firstName?.charAt(0)}
                     </div>
                     {user?.firstName}
@@ -299,7 +325,7 @@ export default function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-bg-surface-light rounded-none transition-colors"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                     {t("nav.login")}

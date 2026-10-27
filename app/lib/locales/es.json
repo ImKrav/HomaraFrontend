@@ -527,8 +527,8 @@
     "view_delivery": "Ver detalles de entrega",
     "edit_profile_title": "Editar Perfil",
     "edit_profile_desc": "Actualiza tu información personal para envíos y facturación.",
-    "first_name_label": "Nombre *",
-    "last_name_label": "Apellido *",
+    "first_name_label": "Nombre",
+    "last_name_label": "Apellido",
     "phone_input_label": "Teléfono",
     "address_input_label": "Dirección",
     "city_input_label": "Ciudad",
@@ -591,7 +591,8 @@
     "no_reviews_desc": "¿Lo has comprado o instalado? Sé el primero en compartir tu calificación técnica con otros usuarios.",
     "anonymous": "Anon",
     "star_one": "1 estrella",
-    "star_many": "{n} estrellas"
+    "star_many": "{n} estrellas",
+    "rated": "Calificación: {n} de 5"
   },
   "home": {
     "smart_estimator": "Estimador Inteligente",

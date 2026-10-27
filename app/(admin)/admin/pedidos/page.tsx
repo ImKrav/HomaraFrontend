@@ -216,7 +216,7 @@ export default function AdminPedidosPage() {
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
             aria-label={t("admin.filter_status")}
-            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
+            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:border-primary transition-colors"
           >
             <option value="all">{t("catalog.all_categories")} ({t("admin.status_col")})</option>
             <option value="pendiente">{t("status.pendiente")}</option>
@@ -234,7 +234,7 @@ export default function AdminPedidosPage() {
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
             title={t("admin.filter_date")}
-            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:outline-none focus:border-primary transition-colors cursor-pointer"
+            className="w-full px-3 py-2 border border-border bg-bg-base text-text-primary text-sm focus:border-primary transition-colors cursor-pointer"
           />
           {selectedDate && (
             <button
@@ -255,25 +255,25 @@ export default function AdminPedidosPage() {
           <table className="w-full text-sm text-left">
             <thead>
               <tr className="border-b border-border bg-bg-surface-light/40">
-                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.order_col")}
                 </th>
-                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.customer_col")}
                 </th>
-                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.date_col")}
                 </th>
-                <th className="py-3.5 px-4 text-center text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-center text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.items_col")}
                 </th>
-                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.status_col")}
                 </th>
-                <th className="py-3.5 px-4 text-right text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-right text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.total_col")}
                 </th>
-                <th className="py-3.5 px-4 text-right text-text-muted font-bold uppercase tracking-wider text-[10px]">
+                <th className="py-3.5 px-4 text-right text-text-muted font-bold uppercase tracking-wider text-[11px]">
                   {t("admin.actions_col")}
                 </th>
               </tr>

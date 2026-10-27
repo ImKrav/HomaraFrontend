@@ -141,7 +141,7 @@ export default function AdminDashboard() {
                 return (
                 <div key={monthName} className="flex-1 h-full flex flex-col items-center gap-1 group relative">
                   {/* Tooltip con Glassmorphism */}
-                  <div className="absolute bottom-[calc(100%+4px)] left-1/2 -translate-x-1/2 bg-bg-surface-dark/95 backdrop-blur-sm text-text-primary text-[10px] py-1.5 px-2.5 rounded-lg border border-border/50 shadow-md opacity-0 pointer-events-none group-hover:opacity-100 group-hover:translate-y-[-2px] transition-all duration-150 z-30 whitespace-nowrap flex flex-col items-center">
+                  <div className="absolute bottom-[calc(100%+4px)] left-1/2 -translate-x-1/2 bg-bg-surface-dark/95 backdrop-blur-sm text-text-primary text-[11px] py-1.5 px-2.5 rounded-lg border border-border/50 shadow-md opacity-0 pointer-events-none group-hover:opacity-100 group-hover:translate-y-[-2px] transition-all duration-150 z-30 whitespace-nowrap flex flex-col items-center">
                     <span className="font-semibold text-text-primary">{monthName}</span>
                     <span className="text-primary font-medium mt-0.5">{formatPrice(val)}</span>
                     {val > 0 && (
@@ -158,7 +158,7 @@ export default function AdminDashboard() {
                       style={{ height: `${pct}%` }}
                     />
                   </div>
-                  <span className="text-[10px] text-text-muted">
+                  <span className="text-[11px] text-text-muted">
                     {[
                       t("month_abbr.jan_abbr"),
                       t("month_abbr.feb_abbr"),

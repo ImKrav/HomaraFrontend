@@ -331,7 +331,7 @@ export default function CheckoutPage() {
               </div>
               <div className="border-t border-border pt-3 flex justify-between">
                 <span className="text-text-primary font-semibold">{t("checkout.total")}</span>
-                <span className="text-xl font-bold gradient-text">
+                <span className="text-xl font-bold text-primary">
                   {formatPrice(total)}
                 </span>
               </div>

@@ -51,35 +51,37 @@ export default function StorefrontHome() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Banner Principal (2/3 de ancho) */}
-            <div className="lg:col-span-2 bg-primary text-bg-base p-8 sm:p-12 flex flex-col justify-between border border-primary relative overflow-hidden group min-h-[420px]">
+            {/* Abeto: la banda de confianza; el anillo de foco pasa a crema porque el de marca no se vería aquí. */}
+            <div className="lg:col-span-2 bg-secondary text-on-secondary p-8 sm:p-12 flex flex-col justify-between border border-secondary relative overflow-hidden group min-h-[420px] [--focus:var(--on-secondary)]">
               {/* Decorative engineering/architectural blueprint accent lines */}
-              <div className="absolute inset-0 pointer-events-none opacity-[0.03] border-draw">
-                <div className="absolute top-0 left-1/4 w-[1px] h-full bg-bg-base" />
-                <div className="absolute top-0 left-2/4 w-[1px] h-full bg-bg-base" />
-                <div className="absolute top-0 left-3/4 w-[1px] h-full bg-bg-base" />
-                <div className="absolute left-0 top-1/3 w-full h-[1px] bg-bg-base" />
-                <div className="absolute left-0 top-2/3 w-full h-[1px] bg-bg-base" />
+              <div className="absolute inset-0 pointer-events-none opacity-[0.06] border-draw">
+                <div className="absolute top-0 left-1/4 w-[1px] h-full bg-on-secondary" />
+                <div className="absolute top-0 left-2/4 w-[1px] h-full bg-on-secondary" />
+                <div className="absolute top-0 left-3/4 w-[1px] h-full bg-on-secondary" />
+                <div className="absolute left-0 top-1/3 w-full h-[1px] bg-on-secondary" />
+                <div className="absolute left-0 top-2/3 w-full h-[1px] bg-on-secondary" />
               </div>
 
+              {/* Un solo momento de entrada: el hero se arma en cascada y las promos de la derecha lo siguen. */}
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary-light border border-zinc-800 text-[10px] uppercase tracking-wider font-semibold mb-6">
-                  <span className="h-1.5 w-1.5 bg-success" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-on-secondary/10 border border-on-secondary/25 text-[11px] uppercase tracking-wider font-semibold mb-6 animate-rise">
+                  <span className="h-1.5 w-1.5 bg-on-secondary" />
                   {t("home.smart_estimator")}
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase leading-[1.1] max-w-2xl mb-4">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase leading-[1.1] max-w-2xl mb-4 animate-rise" style={{ animationDelay: "70ms" }}>
                   {t("home.material_calc")}<br />
-                  <span className="text-zinc-400 dark:text-zinc-600">{t("home.exact_one_click")}</span>
+                  <span className="text-on-secondary/75">{t("home.exact_one_click")}</span>
                 </h1>
-                <p className="text-zinc-400 dark:text-zinc-600 text-sm sm:text-base leading-relaxed max-w-xl mb-8 font-medium">
+                <p className="text-on-secondary/85 text-sm sm:text-base leading-relaxed max-w-xl mb-8 font-medium animate-rise" style={{ animationDelay: "140ms" }}>
                   {t("hero.subtitle")}
                 </p>
               </div>
 
-              <div className="relative z-10 flex flex-col sm:flex-row gap-4 items-start">
+              <div className="relative z-10 flex flex-col sm:flex-row gap-4 items-start animate-rise" style={{ animationDelay: "210ms" }}>
                 <Button href="/proyectos/nuevo" variant="white" className="uppercase tracking-wider text-xs font-bold w-full sm:w-auto">
                   {t("projects.new_project")}
                 </Button>
-                <Link href="/catalogo" className="px-6 py-3 border border-zinc-700 dark:border-zinc-400 hover:border-bg-base text-zinc-300 dark:text-zinc-700 hover:text-bg-base text-xs uppercase tracking-wider font-bold transition-all duration-200 w-full sm:w-auto text-center">
+                <Link href="/catalogo" className="px-6 py-3 border border-on-secondary/50 hover:border-on-secondary text-on-secondary text-xs uppercase tracking-wider font-bold transition-[scale,border-color] duration-150 ease-out motion-safe:active:scale-[0.97] w-full sm:w-auto text-center">
                   {t("hero.cta_catalog")}
                 </Link>
               </div>
@@ -88,31 +90,31 @@ export default function StorefrontHome() {
             {/* Banner Secundario Superior */}
             <div className="flex flex-col gap-6 justify-between">
               {/* Banner Promo 2 */}
-              <div className="bg-bg-surface border border-border p-6 flex flex-col justify-between flex-1 relative overflow-hidden group min-h-[200px]">
-                <div className="absolute inset-0 bg-bg-surface-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              {/* Arcilla: la colección destacada (cerámica y piedra). */}
+              <div className="bg-primary text-bg-base border border-primary p-6 flex flex-col justify-between flex-1 relative overflow-hidden group min-h-[200px] animate-rise [--focus:var(--bg-base)]" style={{ animationDelay: "280ms" }}>
                 <div className="relative z-10">
-                  <span className="text-[9px] uppercase tracking-wider font-semibold text-text-muted">
+                  <span className="text-[11px] uppercase tracking-wider font-semibold text-bg-base/90">
                     {t("home.new_collection")}
                   </span>
-                  <h2 className="text-lg font-bold text-text-primary uppercase mt-1 mb-2 tracking-tight">
+                  <h2 className="text-lg font-bold uppercase mt-1 mb-2 tracking-tight">
                     {t("home.matte_stone")}
                   </h2>
-                  <p className="text-xs text-text-secondary leading-relaxed max-w-[240px]">
+                  <p className="text-xs text-bg-base/90 leading-relaxed max-w-[240px]">
                     {t("home.matte_stone_desc")}
                   </p>
                 </div>
                 <div className="relative z-10 mt-4">
-                  <Button href="/catalogo?category=pisos-ceramicas" variant="outline" size="sm" className="uppercase text-[10px] tracking-wider font-bold">
+                  <Button href="/catalogo?category=pisos-ceramicas" variant="white" size="sm" className="uppercase text-[11px] tracking-wider font-bold">
                     {t("home.explore_floors")}
                   </Button>
                 </div>
               </div>
 
               {/* Banner Promo 3 */}
-              <div className="bg-bg-surface border border-border p-6 flex flex-col justify-between flex-1 relative overflow-hidden group min-h-[200px]">
-                <div className="absolute inset-0 bg-bg-surface-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              {/* Arena: la promo de herramientas, en reposo frente a las dos bandas de color. */}
+              <div className="bg-bg-surface-light border border-border p-6 flex flex-col justify-between flex-1 relative overflow-hidden group min-h-[200px] animate-rise" style={{ animationDelay: "350ms" }}>
                 <div className="relative z-10">
-                  <span className="text-[9px] uppercase tracking-wider font-semibold text-text-muted">
+                  <span className="text-[11px] uppercase tracking-wider font-semibold text-text-muted">
                     {t("home.pro_tools")}
                   </span>
                   <h2 className="text-lg font-bold text-text-primary uppercase mt-1 mb-2 tracking-tight">
@@ -123,7 +125,7 @@ export default function StorefrontHome() {
                   </p>
                 </div>
                 <div className="relative z-10 mt-4">
-                  <Button href="/catalogo?category=herramientas" variant="ghost" size="sm" className="uppercase text-[10px] tracking-wider font-bold border border-border-light hover:border-primary">
+                  <Button href="/catalogo?category=herramientas" variant="ghost" size="sm" className="uppercase text-[11px] tracking-wider font-bold border border-border-light hover:border-primary">
                     {t("home.view_tools")}
                   </Button>
                 </div>
@@ -168,16 +170,16 @@ export default function StorefrontHome() {
         {/* ============================================
            SECCIÓN DE CTA: ESTIMADOR DE MATERIALES COMPACTO
            ============================================ */}
-        <section className="bg-primary text-bg-base relative overflow-hidden border-t border-primary">
+        <section className="bg-primary text-bg-base relative overflow-hidden border-t border-primary [--focus:var(--bg-base)]">
           {/* Engineering blueprint grid background */}
           <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(to_right,#FFF_1px,transparent_1px),linear-gradient(to_bottom,#FFF_1px,transparent_1px)] [background-size:24px_24px]" />
           
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-            <span className="text-[10px] uppercase tracking-widest font-extrabold text-zinc-400 dark:text-zinc-600">Homara Project Suite</span>
+            <span className="text-[11px] uppercase tracking-widest font-extrabold text-bg-base/90">Homara Project Suite</span>
             <h2 className="text-2xl sm:text-3xl font-bold text-bg-base uppercase mt-1 mb-4 tracking-tight">
               {t("home.cta_title")}
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-400 dark:text-zinc-600 max-w-xl mx-auto mb-8 font-medium leading-relaxed">
+            <p className="text-xs sm:text-sm text-bg-base/90 max-w-xl mx-auto mb-8 font-medium leading-relaxed">
               {t("home.cta_desc")}
             </p>
             <Button href="/proyectos/nuevo" variant="white" size="lg" className="uppercase tracking-wider text-xs font-bold px-8">

@@ -24,7 +24,7 @@ export default function Hero() {
           {/* Heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary leading-tight animate-slide-up">
             Calcula, planifica y compra tus materiales{" "}
-            <span className="gradient-text">sin errores</span>
+            <span className="text-primary">sin errores</span>
           </h1>
 
           {/* Subtitle */}
@@ -52,7 +52,7 @@ export default function Hero() {
               { value: "1.2K+", label: "Proyectos" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-2xl sm:text-3xl font-bold gradient-text">
+                <p className="text-2xl sm:text-3xl font-bold text-primary">
                   {stat.value}
                 </p>
                 <p className="mt-1 text-xs sm:text-sm text-text-muted">

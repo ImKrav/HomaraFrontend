@@ -206,7 +206,7 @@ export default function MaterialsListEditor({
                       value={num}
                       onChange={(e) => updateQuantityValue(index, Number.parseFloat(e.target.value) || 0)}
                       disabled={loading}
-                      className="w-12 bg-transparent text-center font-extrabold text-xs text-text-primary focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                      className="w-12 bg-transparent text-center font-extrabold text-xs text-text-primary [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     />
                     <button
                       onClick={() => updateQuantityValue(index, num + 1)}
@@ -216,7 +216,7 @@ export default function MaterialsListEditor({
                     >
                       +
                     </button>
-                    <span className="text-[10px] text-text-secondary ml-1 font-bold uppercase select-none">
+                    <span className="text-[11px] text-text-secondary ml-1 font-bold uppercase select-none">
                       {t("admin.units.abbr_" + unit) === ("admin.units.abbr_" + unit) ? unit : t("admin.units.abbr_" + unit)}
                     </span>
                   </div>
@@ -240,7 +240,7 @@ export default function MaterialsListEditor({
                         className="py-1.5 px-4 text-xs font-bold shadow-sm"
                       />
                     ) : (
-                      <span className="text-[10px] text-text-muted italic select-none">
+                      <span className="text-[11px] text-text-muted italic select-none">
                         {t("projects.editor_generic_supply")}
                       </span>
                     )}
@@ -270,7 +270,7 @@ export default function MaterialsListEditor({
             <span className="text-sm font-semibold text-text-secondary block">
               {t("projects.editor_total_est_purchase")}
             </span>
-            <span className="text-[10px] text-text-muted">
+            <span className="text-[11px] text-text-muted">
               {t("projects.editor_supplies_sub")}
             </span>
           </div>

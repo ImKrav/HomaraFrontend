@@ -15,7 +15,7 @@ interface ButtonProps {
 
 const variants = {
   primary:
-    "bg-primary text-bg-base hover:bg-primary-light font-medium border border-primary transition-all duration-200 shadow-sm",
+    "bg-primary text-bg-base hover:bg-primary-dark font-medium border border-primary shadow-sm",
   secondary:
     "bg-bg-surface-light text-text-primary hover:bg-bg-surface-hover border border-transparent font-medium",
   outline:
@@ -25,7 +25,7 @@ const variants = {
   danger:
     "bg-error/10 text-error hover:bg-error/20 border border-error/25 font-medium",
   white:
-    "bg-bg-surface text-text-primary hover:bg-bg-surface-light border border-transparent font-medium transition-all duration-200 shadow-sm",
+    "bg-bg-surface text-text-primary hover:bg-bg-surface-light border border-transparent font-medium shadow-sm",
 };
 
 const sizes = {
@@ -46,8 +46,9 @@ export default function Button({
   fullWidth = false,
   id,
 }: Readonly<ButtonProps>) {
+  // Foco: lo dibuja :focus-visible global (globals.css). Presión: scale(0.97) confirma que el botón escuchó el clic.
   const baseClasses =
-    "inline-flex items-center justify-center transition-all duration-200 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-bg-base";
+    "inline-flex items-center justify-center transition-[scale,background-color,border-color,color,box-shadow] duration-150 ease-out motion-safe:active:scale-[0.97] cursor-pointer select-none";
   const disabledClasses = disabled
     ? "opacity-50 cursor-not-allowed pointer-events-none"
     : "";
