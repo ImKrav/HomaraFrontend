@@ -1,0 +1,4 @@
+caso,correo,clave,mensajeEsperado
+Contraseña incorrecta (cliente),juan@email.com,claveIncorrecta1,Credenciales incorrectas. Verifique correo y contraseña.
+Correo no registrado,noexiste.recorder@homara.co,123456,Credenciales incorrectas. Verifique correo y contraseña.
+Contraseña incorrecta (admin),admin@homara.co,admin999,Credenciales incorrectas. Verifique correo y contraseña.

@@ -1,0 +1,12 @@
+{
+  "name": "homara-stagehand",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --env-file=../.env pruebas.mjs"
+  },
+  "dependencies": {
+    "@browserbasehq/stagehand": "4.2.1",
+    "zod": "4.4.3"
+  }
+}

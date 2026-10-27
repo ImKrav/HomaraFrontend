@@ -22,5 +22,6 @@ npm-debug.log*
 cypress
 cypress.config.ts
 e2e-screenplay
+pruebas-ia
 docs
 coverage

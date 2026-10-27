@@ -20,6 +20,8 @@ const eslintConfig = defineConfig([
     "e2e-screenplay/evidencias/**",
     "e2e-screenplay/test-results/**",
     "docs/pruebas/evidencias/**",
+    // Pruebas con IA (Browser Use, QA Wolf, Stagehand): se ejecutan a mano, fuera del pipeline.
+    "pruebas-ia/**",
   ]),
 ]);
 
