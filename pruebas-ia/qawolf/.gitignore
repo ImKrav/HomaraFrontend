@@ -1,0 +1,4 @@
+node_modules/
+.qawolf/
+evidencias/*.webm
+*.png

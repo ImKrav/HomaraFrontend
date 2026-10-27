@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<title>TS_Casos_Negativos</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TC02_Login_invalido_ESC02</td></tr>
+</thead>
+<tbody>
+<tr><td>echo</td><td>TC02 - Login inválido, data-driven (ESC02). Datos: login_invalido.csv<datalist><option>TC02 - Login inválido, data-driven (ESC02). Datos: login_invalido.csv</option></datalist></td><td></td></tr>
+<tr><td>loadVars</td><td>login_invalido.csv<datalist><option>login_invalido.csv</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Fila: ${caso} (${correo})<datalist><option>Fila: ${caso} (${correo})</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Precondición: sesión limpia (se borra el token homara_token de localStorage)<datalist><option>Precondición: sesión limpia (se borra el token homara_token de localStorage)</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/<datalist><option>http://localhost:3000/</option></datalist></td><td></td></tr>
+<tr><td>runScript</td><td>window.localStorage.clear(); window.sessionStorage.clear();<datalist><option>window.localStorage.clear(); window.sessionStorage.clear();</option></datalist></td><td></td></tr>
+<tr><td>refresh</td><td><datalist></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>css=nav a[href='/login']<datalist><option>css=nav a[href='/login']</option></datalist></td><td></td></tr>
+<tr><td>verifyEval</td><td>window.localStorage.getItem('homara_token')<datalist><option>window.localStorage.getItem('homara_token')</option></datalist></td><td>null</td></tr>
+<tr><td>open</td><td>http://localhost:3000/login<datalist><option>http://localhost:3000/login</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>id=email<datalist><option>id=email</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>type</td><td>id=email<datalist><option>id=email</option></datalist></td><td>${correo}</td></tr>
+<tr><td>waitForVisible</td><td>id=password<datalist><option>id=password</option></datalist></td><td></td></tr>
+<tr><td>type</td><td>id=password<datalist><option>id=password</option></datalist></td><td>${clave}</td></tr>
+<tr><td>waitForVisible</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>waitForEditable</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//div[contains(@class,'bg-error/10')]/span<datalist><option>xpath=//div[contains(@class,'bg-error/10')]/span</option></datalist></td><td></td></tr>
+<tr><td>verifyText</td><td>xpath=//div[contains(@class,'bg-error/10')]/span<datalist><option>xpath=//div[contains(@class,'bg-error/10')]/span</option></datalist></td><td>${mensajeEsperado}</td></tr>
+<tr><td>captureEntirePageScreenshot</td><td>TC02_${caso}<datalist><option>TC02_${caso}</option></datalist></td><td></td></tr>
+<tr><td>verifyLocation</td><td>regexp:/login$<datalist><option>regexp:/login$</option></datalist></td><td></td></tr>
+<tr><td>verifyElementPresent</td><td>css=nav a[href='/login']<datalist><option>css=nav a[href='/login']</option></datalist></td><td></td></tr>
+<tr><td>verifyEval</td><td>window.localStorage.getItem('homara_token')<datalist><option>window.localStorage.getItem('homara_token')</option></datalist></td><td>null</td></tr>
+<tr><td>endLoadVars</td><td><datalist></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TC04_Registro_contrasenas_distintas_ESC01</td></tr>
+</thead>
+<tbody>
+<tr><td>echo</td><td>TC04 - Registro con contraseñas distintas (ESC01). Datos: registro_contrasenas_distintas.csv<datalist><option>TC04 - Registro con contraseñas distintas (ESC01). Datos: registro_contrasenas_distintas.csv</option></datalist></td><td></td></tr>
+<tr><td>loadVars</td><td>registro_contrasenas_distintas.csv<datalist><option>registro_contrasenas_distintas.csv</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Precondición: sesión limpia (se borra el token homara_token de localStorage)<datalist><option>Precondición: sesión limpia (se borra el token homara_token de localStorage)</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/<datalist><option>http://localhost:3000/</option></datalist></td><td></td></tr>
+<tr><td>runScript</td><td>window.localStorage.clear(); window.sessionStorage.clear();<datalist><option>window.localStorage.clear(); window.sessionStorage.clear();</option></datalist></td><td></td></tr>
+<tr><td>refresh</td><td><datalist></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>css=nav a[href='/login']<datalist><option>css=nav a[href='/login']</option></datalist></td><td></td></tr>
+<tr><td>verifyEval</td><td>window.localStorage.getItem('homara_token')<datalist><option>window.localStorage.getItem('homara_token')</option></datalist></td><td>null</td></tr>
+<tr><td>storeEval</td><td>'${prefijoEmail}.' + Date.now() + '@homara.co'<datalist><option>'${prefijoEmail}.' + Date.now() + '@homara.co'</option></datalist></td><td>email</td></tr>
+<tr><td>echo</td><td>Correo usado: ${email}<datalist><option>Correo usado: ${email}</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/register<datalist><option>http://localhost:3000/register</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//form//input[@placeholder='Juan']<datalist><option>xpath=//form//input[@placeholder='Juan']</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>type</td><td>xpath=//form//input[@placeholder='Juan']<datalist><option>xpath=//form//input[@placeholder='Juan']</option></datalist></td><td>${nombre}</td></tr>
+<tr><td>waitForVisible</td><td>xpath=//form//input[@placeholder='Pérez']<datalist><option>xpath=//form//input[@placeholder='Pérez']</option></datalist></td><td></td></tr>
+<tr><td>type</td><td>xpath=//form//input[@placeholder='Pérez']<datalist><option>xpath=//form//input[@placeholder='Pérez']</option></datalist></td><td>${apellido}</td></tr>
+<tr><td>waitForVisible</td><td>xpath=//form//input[@placeholder='juan@email.com']<datalist><option>xpath=//form//input[@placeholder='juan@email.com']</option></datalist></td><td></td></tr>
+<tr><td>type</td><td>xpath=//form//input[@placeholder='juan@email.com']<datalist><option>xpath=//form//input[@placeholder='juan@email.com']</option></datalist></td><td>${email}</td></tr>
+<tr><td>waitForVisible</td><td>xpath=(//form//input[@type='password'])[1]<datalist><option>xpath=(//form//input[@type='password'])[1]</option></datalist></td><td></td></tr>
+<tr><td>type</td><td>xpath=(//form//input[@type='password'])[1]<datalist><option>xpath=(//form//input[@type='password'])[1]</option></datalist></td><td>${password}</td></tr>
+<tr><td>waitForVisible</td><td>xpath=(//form//input[@type='password'])[2]<datalist><option>xpath=(//form//input[@type='password'])[2]</option></datalist></td><td></td></tr>
+<tr><td>type</td><td>xpath=(//form//input[@type='password'])[2]<datalist><option>xpath=(//form//input[@type='password'])[2]</option></datalist></td><td>${confirmacion}</td></tr>
+<tr><td>waitForVisible</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>waitForEditable</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//div[contains(@class,'bg-error/10')]/span<datalist><option>xpath=//div[contains(@class,'bg-error/10')]/span</option></datalist></td><td></td></tr>
+<tr><td>verifyText</td><td>xpath=//div[contains(@class,'bg-error/10')]/span<datalist><option>xpath=//div[contains(@class,'bg-error/10')]/span</option></datalist></td><td>${mensajeEsperado}</td></tr>
+<tr><td>captureEntirePageScreenshot</td><td>TC04_${nombre}<datalist><option>TC04_${nombre}</option></datalist></td><td></td></tr>
+<tr><td>verifyLocation</td><td>regexp:/register$<datalist><option>regexp:/register$</option></datalist></td><td></td></tr>
+<tr><td>verifyEval</td><td>window.localStorage.getItem('homara_token')<datalist><option>window.localStorage.getItem('homara_token')</option></datalist></td><td>null</td></tr>
+<tr><td>endLoadVars</td><td><datalist></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TC06_Busqueda_sin_resultados_ESC09</td></tr>
+</thead>
+<tbody>
+<tr><td>echo</td><td>TC06 - Búsqueda sin resultados (ESC09). Datos: busqueda_sin_resultados.csv<datalist><option>TC06 - Búsqueda sin resultados (ESC09). Datos: busqueda_sin_resultados.csv</option></datalist></td><td></td></tr>
+<tr><td>loadVars</td><td>busqueda_sin_resultados.csv<datalist><option>busqueda_sin_resultados.csv</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Término: ${termino}<datalist><option>Término: ${termino}</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/catalogo<datalist><option>http://localhost:3000/catalogo</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=(//a[starts-with(@href,'/catalogo/')][.//h3])[1]<datalist><option>xpath=(//a[starts-with(@href,'/catalogo/')][.//h3])[1]</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>id=search-bar<datalist><option>id=search-bar</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>type</td><td>id=search-bar<datalist><option>id=search-bar</option></datalist></td><td>${termino}</td></tr>
+<tr><td>sendKeys</td><td>id=search-bar<datalist><option>id=search-bar</option></datalist></td><td>${KEY_ENTER}</td></tr>
+<tr><td>waitForVisible</td><td>xpath=//h3[normalize-space()='No se encontraron productos coincidentes']<datalist><option>xpath=//h3[normalize-space()='No se encontraron productos coincidentes']</option></datalist></td><td></td></tr>
+<tr><td>verifyText</td><td>xpath=//h3[normalize-space()='No se encontraron productos coincidentes']<datalist><option>xpath=//h3[normalize-space()='No se encontraron productos coincidentes']</option></datalist></td><td>regexpi:^${mensajeEsperado}$</td></tr>
+<tr><td>verifyText</td><td>xpath=//p[contains(normalize-space(),'productos técnicos encontrados')]<datalist><option>xpath=//p[contains(normalize-space(),'productos técnicos encontrados')]</option></datalist></td><td>0 productos técnicos encontrados</td></tr>
+<tr><td>verifyElementNotPresent</td><td>xpath=(//a[starts-with(@href,'/catalogo/')][.//h3])[1]<datalist><option>xpath=(//a[starts-with(@href,'/catalogo/')][.//h3])[1]</option></datalist></td><td></td></tr>
+<tr><td>captureEntirePageScreenshot</td><td>TC06_${termino}<datalist><option>TC06_${termino}</option></datalist></td><td></td></tr>
+<tr><td>endLoadVars</td><td><datalist></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TC09_Checkout_campos_faltantes_ESC27</td></tr>
+</thead>
+<tbody>
+<tr><td>echo</td><td>TC09 - Checkout con campos faltantes (ESC27). Se borran Dirección y Ciudad<datalist><option>TC09 - Checkout con campos faltantes (ESC27). Se borran Dirección y Ciudad</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Precondición: sesión limpia (se borra el token homara_token de localStorage)<datalist><option>Precondición: sesión limpia (se borra el token homara_token de localStorage)</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/<datalist><option>http://localhost:3000/</option></datalist></td><td></td></tr>
+<tr><td>runScript</td><td>window.localStorage.clear(); window.sessionStorage.clear();<datalist><option>window.localStorage.clear(); window.sessionStorage.clear();</option></datalist></td><td></td></tr>
+<tr><td>refresh</td><td><datalist></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>css=nav a[href='/login']<datalist><option>css=nav a[href='/login']</option></datalist></td><td></td></tr>
+<tr><td>verifyEval</td><td>window.localStorage.getItem('homara_token')<datalist><option>window.localStorage.getItem('homara_token')</option></datalist></td><td>null</td></tr>
+<tr><td>echo</td><td>Iniciar sesión como juan@email.com<datalist><option>Iniciar sesión como juan@email.com</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/login<datalist><option>http://localhost:3000/login</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>id=email<datalist><option>id=email</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>type</td><td>id=email<datalist><option>id=email</option></datalist></td><td>juan@email.com</td></tr>
+<tr><td>waitForVisible</td><td>id=password<datalist><option>id=password</option></datalist></td><td></td></tr>
+<tr><td>type</td><td>id=password<datalist><option>id=password</option></datalist></td><td>123456</td></tr>
+<tr><td>waitForVisible</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>waitForEditable</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>waitForLocation</td><td>regexp:/cuenta$<datalist><option>regexp:/cuenta$</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//nav//button//span[contains(@class,'truncate')]<datalist><option>xpath=//nav//button//span[contains(@class,'truncate')]</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Vaciar el carrito: se elimina ítem por ítem hasta que no queden<datalist><option>Vaciar el carrito: se elimina ítem por ítem hasta que no queden</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//nav//button//span[contains(@class,'truncate')]<datalist><option>xpath=//nav//button//span[contains(@class,'truncate')]</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>css=nav a[href='/carrito']<datalist><option>css=nav a[href='/carrito']</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>click</td><td>css=nav a[href='/carrito']<datalist><option>css=nav a[href='/carrito']</option></datalist></td><td></td></tr>
+<tr><td>waitForLocation</td><td>regexp:/carrito$<datalist><option>regexp:/carrito$</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>xpath=//h1[normalize-space()='Carrito de Compras']<datalist><option>xpath=//h1[normalize-space()='Carrito de Compras']</option></datalist></td><td></td></tr>
+<tr><td>storeXpathCount</td><td>//button[@aria-label='Eliminar']<datalist><option>//button[@aria-label='Eliminar']</option></datalist></td><td>itemsCarrito</td></tr>
+<tr><td>echo</td><td>Ítems en el carrito: ${itemsCarrito}<datalist><option>Ítems en el carrito: ${itemsCarrito}</option></datalist></td><td></td></tr>
+<tr><td>while</td><td>${itemsCarrito} != 0<datalist><option>${itemsCarrito} != 0</option></datalist></td><td></td></tr>
+<tr><td>storeEval</td><td>${itemsCarrito} - 1<datalist><option>${itemsCarrito} - 1</option></datalist></td><td>itemsEsperados</td></tr>
+<tr><td>waitForVisible</td><td>css=button[aria-label='Eliminar']<datalist><option>css=button[aria-label='Eliminar']</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>click</td><td>css=button[aria-label='Eliminar']<datalist><option>css=button[aria-label='Eliminar']</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.evaluate("//h1[normalize-space()='Carrito de Compras']", document, null, 9, null).singleNodeValue === null ? -1 : document.querySelectorAll("button[aria-label='Eliminar']").length<datalist><option>document.evaluate("//h1[normalize-space()='Carrito de Compras']", document, null, 9, null).singleNodeValue === null ? -1 : document.querySelectorAll("button[aria-label='Eliminar']").length</option></datalist></td><td>${itemsEsperados}</td></tr>
+<tr><td>storeXpathCount</td><td>//button[@aria-label='Eliminar']<datalist><option>//button[@aria-label='Eliminar']</option></datalist></td><td>itemsCarrito</td></tr>
+<tr><td>endWhile</td><td><datalist></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//h3[normalize-space()='Tu carrito está vacío']<datalist><option>xpath=//h3[normalize-space()='Tu carrito está vacío']</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Agregar al carrito: Rodillo de Pintura Antigoteo 23cm<datalist><option>Agregar al carrito: Rodillo de Pintura Antigoteo 23cm</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/catalogo<datalist><option>http://localhost:3000/catalogo</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=(//a[starts-with(@href,'/catalogo/')][.//h3])[1]<datalist><option>xpath=(//a[starts-with(@href,'/catalogo/')][.//h3])[1]</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>id=search-bar<datalist><option>id=search-bar</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>type</td><td>id=search-bar<datalist><option>id=search-bar</option></datalist></td><td>Rodillo de Pintura Antigoteo 23cm</td></tr>
+<tr><td>sendKeys</td><td>id=search-bar<datalist><option>id=search-bar</option></datalist></td><td>${KEY_ENTER}</td></tr>
+<tr><td>waitForVisible</td><td>xpath=//a[starts-with(@href,'/catalogo/')][.//h3[normalize-space()='Rodillo de Pintura Antigoteo 23cm']]<datalist><option>xpath=//a[starts-with(@href,'/catalogo/')][.//h3[normalize-space()='Rodillo de Pintura Antigoteo 23cm']]</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>click</td><td>xpath=//a[starts-with(@href,'/catalogo/')][.//h3[normalize-space()='Rodillo de Pintura Antigoteo 23cm']]<datalist><option>xpath=//a[starts-with(@href,'/catalogo/')][.//h3[normalize-space()='Rodillo de Pintura Antigoteo 23cm']]</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//h1[normalize-space()='Rodillo de Pintura Antigoteo 23cm']<datalist><option>xpath=//h1[normalize-space()='Rodillo de Pintura Antigoteo 23cm']</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//button[normalize-space()='Agregar al Carrito']<datalist><option>xpath=//button[normalize-space()='Agregar al Carrito']</option></datalist></td><td></td></tr>
+<tr><td>waitForEditable</td><td>xpath=//button[normalize-space()='Agregar al Carrito']<datalist><option>xpath=//button[normalize-space()='Agregar al Carrito']</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>click</td><td>xpath=//button[normalize-space()='Agregar al Carrito']<datalist><option>xpath=//button[normalize-space()='Agregar al Carrito']</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//div[@role='alert'][.//p[contains(normalize-space(.),'Producto agregado al carrito exitosamente')]]<datalist><option>xpath=//div[@role='alert'][.//p[contains(normalize-space(.),'Producto agregado al carrito exitosamente')]]</option></datalist></td><td></td></tr>
+<tr><td>verifyVisible</td><td>xpath=//div[@role='alert'][.//p[contains(normalize-space(.),'Producto agregado al carrito exitosamente')]]<datalist><option>xpath=//div[@role='alert'][.//p[contains(normalize-space(.),'Producto agregado al carrito exitosamente')]]</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/checkout<datalist><option>http://localhost:3000/checkout</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//h1[normalize-space()='Checkout']<datalist><option>xpath=//h1[normalize-space()='Checkout']</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>css=#address<datalist><option>css=#address</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>type</td><td>css=#address<datalist><option>css=#address</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>css=#city<datalist><option>css=#city</option></datalist></td><td></td></tr>
+<tr><td>type</td><td>css=#city<datalist><option>css=#city</option></datalist></td><td></td></tr>
+<tr><td>verifyValue</td><td>css=#address<datalist><option>css=#address</option></datalist></td><td></td></tr>
+<tr><td>verifyValue</td><td>css=#city<datalist><option>css=#city</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//form//button[@type='submit' and starts-with(normalize-space(),'Pagar')]<datalist><option>xpath=//form//button[@type='submit' and starts-with(normalize-space(),'Pagar')]</option></datalist></td><td></td></tr>
+<tr><td>waitForEditable</td><td>xpath=//form//button[@type='submit' and starts-with(normalize-space(),'Pagar')]<datalist><option>xpath=//form//button[@type='submit' and starts-with(normalize-space(),'Pagar')]</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>xpath=//form//button[@type='submit' and starts-with(normalize-space(),'Pagar')]<datalist><option>xpath=//form//button[@type='submit' and starts-with(normalize-space(),'Pagar')]</option></datalist></td><td></td></tr>
+<tr><td>captureEntirePageScreenshot</td><td>TC09_campos_faltantes<datalist><option>TC09_campos_faltantes</option></datalist></td><td></td></tr>
+<tr><td>verifyEval</td><td>document.querySelector('#address').validity.valueMissing<datalist><option>document.querySelector('#address').validity.valueMissing</option></datalist></td><td>true</td></tr>
+<tr><td>verifyEval</td><td>document.querySelector('#city').validity.valueMissing<datalist><option>document.querySelector('#city').validity.valueMissing</option></datalist></td><td>true</td></tr>
+<tr><td>storeEval</td><td>document.querySelector('#address').validationMessage<datalist><option>document.querySelector('#address').validationMessage</option></datalist></td><td>mensajeNavegador</td></tr>
+<tr><td>echo</td><td>Mensaje de validación del navegador: ${mensajeNavegador}<datalist><option>Mensaje de validación del navegador: ${mensajeNavegador}</option></datalist></td><td></td></tr>
+<tr><td>verifyNotEval</td><td>document.querySelector('#address').validationMessage<datalist><option>document.querySelector('#address').validationMessage</option></datalist></td><td></td></tr>
+<tr><td>verifyElementNotPresent</td><td>xpath=//div[@role='alert'][.//p[contains(normalize-space(.),'Pedido realizado con éxito')]]<datalist><option>xpath=//div[@role='alert'][.//p[contains(normalize-space(.),'Pedido realizado con éxito')]]</option></datalist></td><td></td></tr>
+<tr><td>verifyLocation</td><td>regexp:/checkout$<datalist><option>regexp:/checkout$</option></datalist></td><td></td></tr>
+<tr><td>verifyVisible</td><td>xpath=//h1[normalize-space()='Checkout']<datalist><option>xpath=//h1[normalize-space()='Checkout']</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Dejar el carrito limpio para los siguientes casos<datalist><option>Dejar el carrito limpio para los siguientes casos</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Vaciar el carrito: se elimina ítem por ítem hasta que no queden<datalist><option>Vaciar el carrito: se elimina ítem por ítem hasta que no queden</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//nav//button//span[contains(@class,'truncate')]<datalist><option>xpath=//nav//button//span[contains(@class,'truncate')]</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>css=nav a[href='/carrito']<datalist><option>css=nav a[href='/carrito']</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>click</td><td>css=nav a[href='/carrito']<datalist><option>css=nav a[href='/carrito']</option></datalist></td><td></td></tr>
+<tr><td>waitForLocation</td><td>regexp:/carrito$<datalist><option>regexp:/carrito$</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>xpath=//h1[normalize-space()='Carrito de Compras']<datalist><option>xpath=//h1[normalize-space()='Carrito de Compras']</option></datalist></td><td></td></tr>
+<tr><td>storeXpathCount</td><td>//button[@aria-label='Eliminar']<datalist><option>//button[@aria-label='Eliminar']</option></datalist></td><td>itemsCarrito</td></tr>
+<tr><td>echo</td><td>Ítems en el carrito: ${itemsCarrito}<datalist><option>Ítems en el carrito: ${itemsCarrito}</option></datalist></td><td></td></tr>
+<tr><td>while</td><td>${itemsCarrito} != 0<datalist><option>${itemsCarrito} != 0</option></datalist></td><td></td></tr>
+<tr><td>storeEval</td><td>${itemsCarrito} - 1<datalist><option>${itemsCarrito} - 1</option></datalist></td><td>itemsEsperados</td></tr>
+<tr><td>waitForVisible</td><td>css=button[aria-label='Eliminar']<datalist><option>css=button[aria-label='Eliminar']</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>click</td><td>css=button[aria-label='Eliminar']<datalist><option>css=button[aria-label='Eliminar']</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.evaluate("//h1[normalize-space()='Carrito de Compras']", document, null, 9, null).singleNodeValue === null ? -1 : document.querySelectorAll("button[aria-label='Eliminar']").length<datalist><option>document.evaluate("//h1[normalize-space()='Carrito de Compras']", document, null, 9, null).singleNodeValue === null ? -1 : document.querySelectorAll("button[aria-label='Eliminar']").length</option></datalist></td><td>${itemsEsperados}</td></tr>
+<tr><td>storeXpathCount</td><td>//button[@aria-label='Eliminar']<datalist><option>//button[@aria-label='Eliminar']</option></datalist></td><td>itemsCarrito</td></tr>
+<tr><td>endWhile</td><td><datalist></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//h3[normalize-space()='Tu carrito está vacío']<datalist><option>xpath=//h3[normalize-space()='Tu carrito está vacío']</option></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TC11_Ruta_privada_sin_sesion_ESC07</td></tr>
+</thead>
+<tbody>
+<tr><td>echo</td><td>TC11 - Ruta privada sin sesión redirige a /login (ESC07). Datos: rutas_privadas.csv<datalist><option>TC11 - Ruta privada sin sesión redirige a /login (ESC07). Datos: rutas_privadas.csv</option></datalist></td><td></td></tr>
+<tr><td>loadVars</td><td>rutas_privadas.csv<datalist><option>rutas_privadas.csv</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Ruta privada: ${ruta}<datalist><option>Ruta privada: ${ruta}</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Precondición: sesión limpia (se borra el token homara_token de localStorage)<datalist><option>Precondición: sesión limpia (se borra el token homara_token de localStorage)</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/<datalist><option>http://localhost:3000/</option></datalist></td><td></td></tr>
+<tr><td>runScript</td><td>window.localStorage.clear(); window.sessionStorage.clear();<datalist><option>window.localStorage.clear(); window.sessionStorage.clear();</option></datalist></td><td></td></tr>
+<tr><td>refresh</td><td><datalist></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>css=nav a[href='/login']<datalist><option>css=nav a[href='/login']</option></datalist></td><td></td></tr>
+<tr><td>verifyEval</td><td>window.localStorage.getItem('homara_token')<datalist><option>window.localStorage.getItem('homara_token')</option></datalist></td><td>null</td></tr>
+<tr><td>open</td><td>http://localhost:3000${ruta}<datalist><option>http://localhost:3000${ruta}</option></datalist></td><td></td></tr>
+<tr><td>waitForLocation</td><td>regexp:/login(\?.*)?$<datalist><option>regexp:/login(\?.*)?$</option></datalist></td><td></td></tr>
+<tr><td>verifyLocation</td><td>regexp:/login(\?.*)?$<datalist><option>regexp:/login(\?.*)?$</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>id=email<datalist><option>id=email</option></datalist></td><td></td></tr>
+<tr><td>verifyVisible</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>captureEntirePageScreenshot</td><td>TC11_${ruta}<datalist><option>TC11_${ruta}</option></datalist></td><td></td></tr>
+<tr><td>endLoadVars</td><td><datalist></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TC12_Cliente_no_accede_admin_ESC07_ESC32</td></tr>
+</thead>
+<tbody>
+<tr><td>echo</td><td>TC12 - Un cliente (CUSTOMER) no accede a /admin (ESC07, ESC32)<datalist><option>TC12 - Un cliente (CUSTOMER) no accede a /admin (ESC07, ESC32)</option></datalist></td><td></td></tr>
+<tr><td>echo</td><td>Precondición: sesión limpia (se borra el token homara_token de localStorage)<datalist><option>Precondición: sesión limpia (se borra el token homara_token de localStorage)</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/<datalist><option>http://localhost:3000/</option></datalist></td><td></td></tr>
+<tr><td>runScript</td><td>window.localStorage.clear(); window.sessionStorage.clear();<datalist><option>window.localStorage.clear(); window.sessionStorage.clear();</option></datalist></td><td></td></tr>
+<tr><td>refresh</td><td><datalist></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>css=nav a[href='/login']<datalist><option>css=nav a[href='/login']</option></datalist></td><td></td></tr>
+<tr><td>verifyEval</td><td>window.localStorage.getItem('homara_token')<datalist><option>window.localStorage.getItem('homara_token')</option></datalist></td><td>null</td></tr>
+<tr><td>echo</td><td>Iniciar sesión como juan@email.com<datalist><option>Iniciar sesión como juan@email.com</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/login<datalist><option>http://localhost:3000/login</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>id=email<datalist><option>id=email</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>type</td><td>id=email<datalist><option>id=email</option></datalist></td><td>juan@email.com</td></tr>
+<tr><td>waitForVisible</td><td>id=password<datalist><option>id=password</option></datalist></td><td></td></tr>
+<tr><td>type</td><td>id=password<datalist><option>id=password</option></datalist></td><td>123456</td></tr>
+<tr><td>waitForVisible</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>waitForEditable</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>css=form button[type='submit']<datalist><option>css=form button[type='submit']</option></datalist></td><td></td></tr>
+<tr><td>waitForLocation</td><td>regexp:/cuenta$<datalist><option>regexp:/cuenta$</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//nav//button//span[contains(@class,'truncate')]<datalist><option>xpath=//nav//button//span[contains(@class,'truncate')]</option></datalist></td><td></td></tr>
+<tr><td>open</td><td>http://localhost:3000/admin<datalist><option>http://localhost:3000/admin</option></datalist></td><td></td></tr>
+<tr><td>waitForLocation</td><td>regexp:^http://localhost:3000/?$<datalist><option>regexp:^http://localhost:3000/?$</option></datalist></td><td></td></tr>
+<tr><td>verifyLocation</td><td>regexp:^http://localhost:3000/?$<datalist><option>regexp:^http://localhost:3000/?$</option></datalist></td><td></td></tr>
+<tr><td>verifyElementNotPresent</td><td>css=a[href='/admin/productos']<datalist><option>css=a[href='/admin/productos']</option></datalist></td><td></td></tr>
+<tr><td>verifyElementNotPresent</td><td>id=btn-add-product<datalist><option>id=btn-add-product</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//nav//button[.//span[contains(@class,'truncate')]]<datalist><option>xpath=//nav//button[.//span[contains(@class,'truncate')]]</option></datalist></td><td></td></tr>
+<tr><td>waitForEval</td><td>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length<datalist><option>document.getAnimations().filter(function (a) { return a.playState === 'running'; }).filter(function (a) { return !a.effect || a.effect.getTiming().iterations !== Infinity; }).length</option></datalist></td><td>0</td></tr>
+<tr><td>click</td><td>xpath=//nav//button[.//span[contains(@class,'truncate')]]<datalist><option>xpath=//nav//button[.//span[contains(@class,'truncate')]]</option></datalist></td><td></td></tr>
+<tr><td>waitForVisible</td><td>xpath=//nav//button[normalize-space()='Cerrar Sesión']<datalist><option>xpath=//nav//button[normalize-space()='Cerrar Sesión']</option></datalist></td><td></td></tr>
+<tr><td>verifyElementNotPresent</td><td>xpath=//nav//a[@href='/admin']<datalist><option>xpath=//nav//a[@href='/admin']</option></datalist></td><td></td></tr>
+<tr><td>captureEntirePageScreenshot</td><td>TC12_sin_panel_admin<datalist><option>TC12_sin_panel_admin</option></datalist></td><td></td></tr>
+</tbody></table>
+</body>
+</html>

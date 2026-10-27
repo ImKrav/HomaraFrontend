@@ -1,0 +1,18 @@
+{
+  "name": "homara-qawolf",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generar": "node generar.mjs",
+    "test": "node --env-file=../.env node_modules/@qawolf/cli/dist/cli.js flows run --junit evidencias/junit-report.xml --output-dir evidencias --video on",
+    "test:headed": "node --env-file=../.env node_modules/@qawolf/cli/dist/cli.js flows run --headed"
+  },
+  "dependencies": {
+    "@qawolf/flows": "0.1.4"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "0.133.0",
+    "@qawolf/cli": "1.41.0",
+    "dotenv": "17.4.2"
+  }
+}
